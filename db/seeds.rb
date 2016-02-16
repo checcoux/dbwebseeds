@@ -5,3 +5,17 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Section.delete_all
+
+Section.create!(titolo: 'ADS', descrizione: 'Amici Domenico Savio')
+Section.create!(titolo: 'KB', descrizione: 'Gruppo Key Boys')
+Section.create!(titolo: 'GEN3', descrizione: 'Gruppo GEN3')
+Section.create!(titolo: 'SCOUT', descrizione: 'Scout')
+Section.create!(titolo: 'CAMELOT', descrizione: 'Clan Camelot')
+Section.create!(titolo: 'WAINGUNGA', descrizione: 'Branco Waingunga')
+
+Page.delete_all
+
+Page.create!(titolo: 'Home ADS', descrizione: 'Home page generale degli ADS')
+Page.create!(titolo: 'Home SCOUT', descrizione: 'Home page generale degli SCOUT')

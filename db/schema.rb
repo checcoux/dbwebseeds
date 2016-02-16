@@ -11,9 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160214152934) do
+ActiveRecord::Schema.define(version: 20160216163206) do
 
   create_table "pages", force: true do |t|
+    t.string   "titolo"
+    t.text     "descrizione"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sections", force: true do |t|
     t.string   "titolo"
     t.text     "descrizione"
     t.datetime "created_at"

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :layouts
+
   resources :sections
 
   resources :pages
@@ -11,7 +13,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'sections#index', as: 'home'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

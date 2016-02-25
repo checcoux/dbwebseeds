@@ -13,6 +13,7 @@
     <% @pages.each do |page| %>
       <tr>
         <td><%= page.titolo %></td>
+        <td><%= page.layout.titolo %></td>
         <td><%= page.descrizione %></td>
         <td><%= link_to 'Show', page %></td>
         <td><%= link_to 'Edit', edit_page_path(page) %></td>

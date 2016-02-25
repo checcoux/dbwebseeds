@@ -11,14 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160216163206) do
+ActiveRecord::Schema.define(version: 20160225160713) do
+
+  create_table "layouts", force: true do |t|
+    t.text     "titolo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "pages", force: true do |t|
     t.string   "titolo"
     t.text     "descrizione"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "layout_id"
   end
+
+  add_index "pages", ["layout_id"], name: "index_pages_on_layout_id"
 
   create_table "sections", force: true do |t|
     t.string   "titolo"

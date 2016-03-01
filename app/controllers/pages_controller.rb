@@ -25,6 +25,8 @@ class PagesController < ApplicationController
   # POST /pages.json
   def create
     @page = Page.new(page_params)
+    @layout = Layout.find(2)
+    @page.layout = @layout
 
     respond_to do |format|
       if @page.save

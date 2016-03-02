@@ -25,8 +25,8 @@ class PagesController < ApplicationController
   # POST /pages.json
   def create
     @page = Page.new(page_params)
-    @layout = Layout.find_by(titolo: 'Layout 1')
-    @page.layout = @layout
+    # @layout = Layout.find_by(titolo: 'Layout 1')
+    # @page.layout = @layout
 
     respond_to do |format|
       if @page.save
@@ -71,6 +71,6 @@ class PagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def page_params
-      params.require(:page).permit(:titolo, :descrizione)
+      params.require(:page).permit(:titolo, :descrizione, :layout_id)
     end
 end

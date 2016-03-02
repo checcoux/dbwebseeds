@@ -2,7 +2,7 @@ require 'test_helper'
 
 class LayoutsControllerTest < ActionController::TestCase
   setup do
-    @layout = layouts(:one)
+    @layout = layouts(:two)
   end
 
   test "should get index" do

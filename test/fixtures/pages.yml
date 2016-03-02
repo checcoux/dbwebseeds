@@ -3,7 +3,9 @@
 one:
   titolo: MyString
   descrizione: MyText
+  layout: :one
 
 two:
   titolo: MyString
   descrizione: MyText
+  layout: :one

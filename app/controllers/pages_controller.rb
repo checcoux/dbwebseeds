@@ -25,7 +25,7 @@ class PagesController < ApplicationController
   # POST /pages.json
   def create
     @page = Page.new(page_params)
-    @layout = Layout.find(2)
+    @layout = Layout.find_by(titolo: 'Layout 1')
     @page.layout = @layout
 
     respond_to do |format|

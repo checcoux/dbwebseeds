@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   before_action :set_page, only: [:show, :edit, :update, :destroy]
+  rescue_from ActiveRecord::RecordNotFound, with: :pagina_non_trovata
 
   # GET /pages
   # GET /pages.json
@@ -72,5 +73,10 @@ class PagesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def page_params
       params.require(:page).permit(:titolo, :descrizione, :layout_id)
+    end
+
+    def pagina_non_trovata
+      logger.error "Tentativo di accedere alla pagina non esistente #{params[:id]}"
+      redirect_to pages_url, notice: 'Pagina non valida'
     end
 end

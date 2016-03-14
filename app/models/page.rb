@@ -1,3 +1,3 @@
 class Page < ActiveRecord::Base
-  belongs_to :layout
+  belongs_to :section
 end

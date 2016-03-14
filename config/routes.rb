@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  resources :layouts
-
   resources :sections
 
   resources :pages

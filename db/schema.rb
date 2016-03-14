@@ -18,11 +18,9 @@ ActiveRecord::Schema.define(version: 20160314164829) do
     t.text     "descrizione"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "layout_id"
     t.integer  "section_id"
   end
 
-  add_index "pages", ["layout_id"], name: "index_pages_on_layout_id"
   add_index "pages", ["section_id"], name: "index_pages_on_section_id"
 
   create_table "sections", force: true do |t|

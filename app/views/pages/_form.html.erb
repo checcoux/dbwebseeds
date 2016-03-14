@@ -19,10 +19,10 @@
     <%= f.label :descrizione %><br>
     <%= f.text_area :descrizione %>
   </div>
-  <div class="field">
-    <%= f.label :layout_id %><br>
-    <%= f.collection_select(:layout_id, Layout.all, :id, :titolo) %>
-  </div>
+    <div class="field">
+      <%= f.label :section_id %><br>
+      <%= f.collection_select(:section_id, Section.all, :id, :titolo) %>
+    </div>
   <div class="actions">
     <%= f.submit %>
   </div>

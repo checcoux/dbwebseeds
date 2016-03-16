@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :areas
+
+  resources :rows
+
   resources :sections
 
   resources :pages

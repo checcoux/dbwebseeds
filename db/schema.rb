@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160314164829) do
+ActiveRecord::Schema.define(version: 20160316163337) do
+
+  create_table "areas", force: true do |t|
+    t.integer  "ordine"
+    t.text     "contenuto"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "row_id"
+  end
+
+  add_index "areas", ["row_id"], name: "index_areas_on_row_id"
 
   create_table "pages", force: true do |t|
     t.string   "titolo"
@@ -22,6 +32,15 @@ ActiveRecord::Schema.define(version: 20160314164829) do
   end
 
   add_index "pages", ["section_id"], name: "index_pages_on_section_id"
+
+  create_table "rows", force: true do |t|
+    t.integer  "ordine"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "page_id"
+  end
+
+  add_index "rows", ["page_id"], name: "index_rows_on_page_id"
 
   create_table "sections", force: true do |t|
     t.string   "titolo"

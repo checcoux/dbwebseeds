@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160316163337) do
+ActiveRecord::Schema.define(version: 20160317154640) do
 
   create_table "areas", force: true do |t|
     t.integer  "ordine"
@@ -19,13 +19,13 @@ ActiveRecord::Schema.define(version: 20160316163337) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "row_id"
+    t.integer  "larghezza"
   end
 
   add_index "areas", ["row_id"], name: "index_areas_on_row_id"
 
   create_table "pages", force: true do |t|
     t.string   "titolo"
-    t.text     "descrizione"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "section_id"

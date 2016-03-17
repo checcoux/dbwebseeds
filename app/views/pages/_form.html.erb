@@ -16,13 +16,9 @@
     <%= f.text_field :titolo %>
   </div>
   <div class="field">
-    <%= f.label :descrizione %><br>
-    <%= f.text_area :descrizione %>
+    <%= f.label :section_id %><br>
+    <%= f.collection_select(:section_id, Section.all, :id, :titolo) %>
   </div>
-    <div class="field">
-      <%= f.label :section_id %><br>
-      <%= f.collection_select(:section_id, Section.all, :id, :titolo) %>
-    </div>
   <div class="actions">
     <%= f.submit %>
   </div>

@@ -17,8 +17,8 @@ Section.create!(titolo: 'WAINGUNGA', descrizione: 'Branco Waingunga')
 
 Page.delete_all
 
-page1 = Page.create!(id: 1, titolo: 'Home ADS', descrizione: 'Home page generale degli ADS', section: section1)
-page2 = Page.create!(id: 2, titolo: 'Home SCOUT', descrizione: 'Home page generale degli SCOUT', section: section2)
+page1 = Page.create!(id: 1, titolo: 'Home ADS', section: section1)
+page2 = Page.create!(id: 2, titolo: 'Home SCOUT', section: section2)
 
 Row.delete_all
 row11 = Row.create!(id: 1, ordine: 1, page: page1)
@@ -27,12 +27,12 @@ row21 = Row.create!(id: 3, ordine: 1, page: page2)
 row22 = Row.create!(id: 4, ordine: 2, page: page2)
 
 Area.delete_all
-area111 = Area.create!(id: 1, ordine: 1, row: row11)
-area112 = Area.create!(id: 2, ordine: 2, row: row11)
-area121 = Area.create!(id: 3, ordine: 1, row: row12)
-area121 = Area.create!(id: 4, ordine: 2, row: row12)
-area211 = Area.create!(id: 5, ordine: 1, row: row21)
-area212 = Area.create!(id: 6, ordine: 2, row: row21)
-area221 = Area.create!(id: 7, ordine: 1, row: row22)
-area221 = Area.create!(id: 8, ordine: 2, row: row22)
+area111 = Area.create!(id: 1, ordine: 1, row: row11, larghezza: 2, contenuto: 'Hello')
+area112 = Area.create!(id: 2, ordine: 2, row: row11, larghezza: 2, contenuto: 'Hello')
+area121 = Area.create!(id: 3, ordine: 1, row: row12, larghezza: 2, contenuto: 'Hello')
+area121 = Area.create!(id: 4, ordine: 2, row: row12, larghezza: 2, contenuto: 'Hello')
+area211 = Area.create!(id: 5, ordine: 1, row: row21, larghezza: 2, contenuto: 'Hello')
+area212 = Area.create!(id: 6, ordine: 2, row: row21, larghezza: 2, contenuto: 'Hello')
+area221 = Area.create!(id: 7, ordine: 1, row: row22, larghezza: 2, contenuto: 'Hello')
+area221 = Area.create!(id: 8, ordine: 2, row: row22, larghezza: 2, contenuto: 'Hello')
 

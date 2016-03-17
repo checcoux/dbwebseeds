@@ -1,9 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Titolo:</strong>
-  <%= @page.titolo %>
-</p>
-
-<%= link_to 'Edit', edit_page_path(@page) %> |
-<%= link_to 'Back', pages_path %>
+<% @page.rows.each do |row| %>
+    <div class="row">
+      <% row.areas.each do |area| %>
+        <div class="small-<%= area.larghezza %> columns">
+          <%= area.contenuto %>
+        </div>
+      <% end %>
+    </div>
+<% end %>

@@ -4,7 +4,7 @@
     <div class="row">
       <% row.areas.each do |area| %>
         <div class="small-<%= area.larghezza %> columns">
-          <%= area.contenuto %>
+          <%= area.contenuto.html_safe %>
         </div>
       <% end %>
     </div>

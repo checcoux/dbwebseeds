@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :areas
+  resources :columns
 
   resources :rows
 

@@ -1,10 +1,10 @@
-<%= form_for(@area) do |f| %>
-  <% if @area.errors.any? %>
+<%= form_for(@column) do |f| %>
+  <% if @column.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@area.errors.count, "error") %> prohibited this area from being saved:</h2>
+      <h2><%= pluralize(@column.errors.count, "error") %> prohibited this column from being saved:</h2>
 
       <ul>
-      <% @area.errors.full_messages.each do |message| %>
+      <% @column.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>

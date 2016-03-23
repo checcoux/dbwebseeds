@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class AreaTest < ActiveSupport::TestCase
+class ColumnTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

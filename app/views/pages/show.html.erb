@@ -1,10 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <% @page.rows.each do |row| %>
-    <div class="row">
-      <% row.areas.each do |area| %>
-        <div class="small-<%= area.larghezza %> columns">
-          <%= area.contenuto.html_safe %>
+    <div class="<%= "expanded " if row.estesa %>row">
+      <% row.columns.each do |column| %>
+        <div class="small-<%= column.larghezza %> columns">
+          <%= column.contenuto.html_safe %>
         </div>
       <% end %>
     </div>

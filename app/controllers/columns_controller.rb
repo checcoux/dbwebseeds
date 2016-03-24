@@ -1,5 +1,5 @@
 class ColumnsController < ApplicationController
-  before_action :set_column, only: [:show, :edit, :update, :destroy]
+  before_action :set_column, only: [:show, :edit, :update, :editor_update, :destroy]
 
   # GET /columns
   # GET /columns.json
@@ -48,6 +48,17 @@ class ColumnsController < ApplicationController
         format.html { render :edit }
         format.json { render json: @column.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  # PATCH/PUT /columns/1/editor_update
+  # PATCH/PUT /columns/1/editor_update.json
+  def editor_update
+    respond_to do |format|
+      @column.contenuto = params[:contenuto]
+      @column.save()
+      format.html { head :no_content }
+      format.json { render :show, status: :ok, location: @column }
     end
   end
 

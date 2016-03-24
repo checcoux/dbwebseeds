@@ -10,37 +10,36 @@
     </div>
 <% end %>
 
-<div id="editorcontent2">
-Sarà sostituito col contenuto dell'editor.
-</div>
-
 <p>
-  <input onclick="salvaPagina();" type="button" value="SALVA LE MODIFICHE" id="salva">
+  <input onclick="salvaPagina();" type="button" class="warning button" value="SALVA LE MODIFICHE" id="salva">
 </p>
-
 
 <script>
 
   function salvaPagina() {
-    var editor = CKEDITOR.instances.editor1;
-    var data = editor.getData();
 
-    // remember to use encodeURIComponent to properly encode the data that is being sent.
-    document.getElementById( 'editorcontent2' ).innerHTML = data;
+    for (instance in CKEDITOR.instances) {
+      var editor = CKEDITOR.instances[instance]; // CKEDITOR.instances.editor1;
+      var data = editor.getData();
+      var id = editor.name.substr(6);
 
-    // Send contents to server
-    $.ajax({
-      url: '/columns/1/editor_update',
-      type: 'POST',
-      data: {
-        contenuto: data
-      },
-      success: function(response){
-        alert("La pagina è stata salvata.");
-      }
-    });
+      // remember to use encodeURIComponent to properly encode the data that is being sent.
+      // document.getElementById( 'editorcontent2' ).innerHTML = data;
 
-    // prevent original click behaviour
+      // Send contents to server
+      $.ajax({
+        url: '/columns/' + id + '/editor_update',
+        type: 'POST',
+        data: {
+          contenuto: data
+        },
+        // success: function (response) {
+        //   alert("La pagina è stata salvata.");
+        // }
+      });
+    }
+
+    document.getElementById( 'notice' ).innerHTML = 'La pagina &egrave; stata salvata.';
     return false;
 
   }

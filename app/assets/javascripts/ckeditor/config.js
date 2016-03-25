@@ -49,8 +49,8 @@ CKEDITOR.editorConfig = function( config )
     ];
 
     config.toolbar = [
-        { name: 'styles', items: [ 'Bold', 'Italic', 'Format', 'TextColor'] },
-        { name: 'links', items: [ 'Link', 'Unlink', 'Anchor' ] },
+        { name: 'styles', items: [ 'Format', 'Bold', 'Italic', 'TextColor' ] },
+        { name: 'links', items: [ 'Link', 'Unlink', 'Anchor', 'Image' ] },
         { name: 'paragraph', groups: [ 'indent', 'align' ], items: [ 'NumberedList', 'BulletedList', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock' ] },
     ];
 

@@ -1,43 +1,44 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
-Section.delete_all
-
-section1 = Section.create!(titolo: 'ADS', descrizione: 'Amici Domenico Savio')
-section2 = Section.create!(titolo: 'KB', descrizione: 'Gruppo Key Boys')
-Section.create!(titolo: 'GEN3', descrizione: 'Gruppo GEN3')
-Section.create!(titolo: 'SCOUT', descrizione: 'Scout')
-Section.create!(titolo: 'CAMELOT', descrizione: 'Clan Camelot')
-Section.create!(titolo: 'WAINGUNGA', descrizione: 'Branco Waingunga')
-
-Page.delete_all
-
-page1 = Page.create!(id: 1, titolo: 'Home ADS', section: section1)
-page2 = Page.create!(id: 2, titolo: 'Home SCOUT', section: section2)
-
-Row.delete_all
-row11 = Row.create!(id: 1, ordine: 2, page: page1, estesa: true)
-row12 = Row.create!(id: 2, ordine: 3, page: page1)
-row21 = Row.create!(id: 3, ordine: 1, page: page2)
-row22 = Row.create!(id: 4, ordine: 2, page: page2)
-row0 = Row.create!(id: 5, ordine: 1, page: page1)
-
-Column.delete_all
-Column.create!(id: 1, ordine: 2, row: row11, larghezza: 6, contenuto: '<h2>Prova prova prova prova</h2>')
-Column.create!(id: 2, ordine: 1, row: row11, larghezza: 6, contenuto: '<a href=''><h2>Prova prova prova prova</h2></a><p>jkd sdfjk dasjljdsalòf </p>')
-Column.create!(id: 3, ordine: 1, row: row12, larghezza: 4, contenuto: '<h3>Hello 121</h3><p>hkjsdf hjksdfhjk sdf</p>')
-Column.create!(id: 4, ordine: 2, row: row12, larghezza: 8, contenuto: '<h3>Hello</h3><p>fhj s  sdfjf dskjlaos </p>')
-Column.create!(id: 9, ordine: 1, row: row0, larghezza: 12, contenuto: '<h1>Mega titolone</h1>')
-
-Column.create!(id: 5, ordine: 1, row: row21, larghezza: 8, contenuto: 'Hello')
-Column.create!(id: 6, ordine: 2, row: row21, larghezza: 4, contenuto: 'Hello')
-Column.create!(id: 7, ordine: 1, row: row22, larghezza: 3, contenuto: 'Hello')
-Column.create!(id: 8, ordine: 2, row: row22, larghezza: 9, contenuto: 'Hello')
-
-
-
+Ckeditor::Asset.create!([
+  {data_file_name: "shifu.jpg", data_content_type: "image/jpeg", data_file_size: 389176, assetable_id: nil, assetable_type: nil, type: "Ckeditor::Picture", width: 1200, height: 900},
+  {data_file_name: "download.jpg", data_content_type: "image/jpeg", data_file_size: 17926, assetable_id: nil, assetable_type: nil, type: "Ckeditor::Picture", width: 275, height: 183},
+  {data_file_name: "13461656733527-0-680x276.jpg", data_content_type: "image/jpeg", data_file_size: 45201, assetable_id: nil, assetable_type: nil, type: "Ckeditor::Picture", width: 680, height: 276},
+  {data_file_name: "jurassic-world-2.jpg", data_content_type: "image/jpeg", data_file_size: 730888, assetable_id: nil, assetable_type: nil, type: "Ckeditor::Picture", width: 1920, height: 1080},
+  {data_file_name: "locandina.jpg", data_content_type: "image/jpeg", data_file_size: 78073, assetable_id: nil, assetable_type: nil, type: "Ckeditor::Picture", width: 420, height: 600}
+])
+Column.create!([
+  {ordine: 1, contenuto: "<h1>dda</h1>\n\n<p><span style=\"color:#FFD700;\">sdfjk dasjljdsal&ograve;fBello sc &nbsp; &nbsp; rivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scriver &nbsp; e!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scriv</span><span style=\"color:#FF8C00;\">ere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivdddddddddere!&nbsp;Bel</span><span style=\"color:#FFD700;\">lo scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;</span></p>\n", row_id: 1, larghezza: 6},
+  {ordine: 1, contenuto: "<h3>Hello 121 aaa</h3>\n\n<p>aaaaahkjsdf hjksdfhjk sdfBello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scriverttt7777e!&nbsp;<img alt=\"\" src=\"/ckeditor_assets/pictures/3/content_13461656733527-0-680x276.jpg\" style=\"width: 400px; height: 162px;\" />Bello scrivere!&nbsp;Bello scrivhhhhhhhhhhhhhhhere!&nbsp;Bscrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;</p>\n", row_id: 2, larghezza: 4},
+  {ordine: 1, contenuto: "Hello", row_id: 3, larghezza: 8},
+  {ordine: 1, contenuto: "<p>Helloaa</p>\r\n", row_id: 4, larghezza: 3},
+  {ordine: 1, contenuto: "<h1><a href=\"http://www.qumran2.net\">Mega titolone</a></h1>\n\n<p style=\"text-align: justify;\"><img alt=\"\" src=\"/ckeditor_assets/pictures/1/content_shifu.jpg\" style=\"width: 300px; height: 225px;\" /></p>\n\n<p style=\"text-align: justify;\">Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello <span style=\"color:#FFD700;\">scrivere</span>!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere! dddBello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;</p>\n", row_id: 5, larghezza: 12},
+  {ordine: 2, contenuto: "<h2><img alt=\"\" src=\"/ckeditor_assets/pictures/5/content_locandina.jpg\" style=\"width: 250px; height: 357px;\" /></h2>\n\n<h2><span style=\"color:#FF0000;\">Bello</span> scrivere!&nbsp;</h2>\n\n<p>Baaello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello !&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scriveello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;Bello scrivere!&nbsp;</p>\n\n<p>&nbsp;</p>\n\n<p>Ok ora&nbsp; sono riuscito sono riuscito ad entrare</p>\n", row_id: 1, larghezza: 6},
+  {ordine: 2, contenuto: "<h3><img alt=\"\" src=\"http://www.inoratorio.it/colonne/miniatura.php?nome=2494a.jpg&amp;LMAX=300\" style=\"width: 250px; height: 358px; float: left; margin-left: 10px; margin-right: 10px;\" />ZOOTROPOLIS</h3>\n\n<p><i><b>Zootropolis</b></i>&nbsp;(<i>Zootopia</i>) &egrave; un&nbsp;<a href=\"https://it.wikipedia.org/wiki/Cinema_d%27animazione\" title=\"Cinema d'animazione\">film d&#39;animazione</a>&nbsp;in&nbsp;<a href=\"https://it.wikipedia.org/wiki/Computer_grafica\" title=\"Computer grafica\">computer grafica</a>&nbsp;del&nbsp;<a href=\"https://it.wikipedia.org/wiki/2016\" title=\"2016\">2016</a>&nbsp;prodotto dai&nbsp;<a href=\"https://it.wikipedia.org/wiki/Walt_Disney_Animation_Studios\" title=\"Walt Disney Animation Studios\">Walt Disney Animation Studios</a>&nbsp;e diretto da&nbsp;<a href=\"https://it.wikipedia.org/wiki/Byron_Howard\" title=\"Byron Howard\">Byron Howard</a>&nbsp;e&nbsp;<a href=\"https://it.wikipedia.org/wiki/Rich_Moore\" title=\"Rich Moore\">Rich Moore</a>.</p>\n\n<p>Il film, 55&ordm;&nbsp;<a href=\"https://it.wikipedia.org/wiki/Classici_Disney\" title=\"Classici Disney\">Classico Disney</a>, &egrave; stato distribuito nei cinema&nbsp;<a href=\"https://it.wikipedia.org/wiki/Stati_Uniti_d%27America\" title=\"Stati Uniti d'America\">statunitensi</a>&nbsp;il 4 marzo&nbsp;<a href=\"https://it.wikipedia.org/wiki/2016\" title=\"2016\">2016</a>, mentre in&nbsp;<a href=\"https://it.wikipedia.org/wiki/Italia\" title=\"Italia\">Italia</a>&nbsp;&egrave; stato distribuito il 18 febbraio dello stesso anno.<sup id=\"cite_ref-:0_1-0\"><a href=\"https://it.wikipedia.org/wiki/Zootropolis#cite_note-:0-1\">[1]</a></sup></p>\n\n<p>Come il classico antesignano&nbsp;<i><a href=\"https://it.wikipedia.org/wiki/Robin_Hood_(film_1973)\" title=\"Robin Hood (film 1973)\">Robin Hood</a></i>&nbsp;del&nbsp;<a href=\"https://it.wikipedia.org/wiki/1973\" title=\"1973\">1973</a>&nbsp;e quello in&nbsp;<a href=\"https://it.wikipedia.org/wiki/Computer-generated_imagery\" title=\"Computer-generated imagery\">CGI</a>&nbsp;pi&ugrave; recente&nbsp;<i><a href=\"https://it.wikipedia.org/wiki/Chicken_Little_-_Amici_per_le_penne\" title=\"Chicken Little - Amici per le penne\">Chicken Little - Amici per le penne</a></i>&nbsp;del&nbsp;<a href=\"https://it.wikipedia.org/wiki/2005\" title=\"2005\">2005</a>, la Disney torna a raccontare una storia con degli animali&nbsp;<a href=\"https://it.wikipedia.org/wiki/Antropomorfi\" title=\"Antropomorfi\">antropomorfi</a>&nbsp;come protagonisti e senza la presenza di umani, a differenza di&nbsp;<i><a href=\"https://it.wikipedia.org/wiki/Basil_l%27investigatopo\" title=\"Basil l'investigatopo\">Basil l&#39;investigatopo</a></i>,&nbsp;<i><a href=\"https://it.wikipedia.org/wiki/Le_avventure_di_Winnie_the_Pooh\" title=\"Le avventure di Winnie the Pooh\">Le avventure di Winnie the Pooh</a></i>,&nbsp;<i><a href=\"https://it.wikipedia.org/wiki/Le_avventure_di_Bianca_e_Bernie\" title=\"Le avventure di Bianca e Bernie\">Le avventure di Bianca e Bernie</a></i>&nbsp;e del&nbsp;<a href=\"https://it.wikipedia.org/wiki/Bianca_e_Bernie_nella_terra_dei_canguri\" title=\"Bianca e Bernie nella terra dei canguri\">suo seguito</a>.</p>\n\n<p>Il film, insieme a&nbsp;<i><a href=\"https://it.wikipedia.org/wiki/Oceania_(film)\" title=\"Oceania (film)\">Oceania</a></i>, segner&agrave; la prima volta dal&nbsp;<a href=\"https://it.wikipedia.org/wiki/2002\" title=\"2002\">2002</a>&nbsp;in cui i Walt Disney Animation Studios hanno distribuito due film d&#39;animazione nello stesso anno.</p>\n", row_id: 2, larghezza: 8},
+  {ordine: 2, contenuto: "Hello", row_id: 3, larghezza: 4},
+  {ordine: 2, contenuto: "Hello", row_id: 4, larghezza: 9}
+])
+Page.create!([
+  {titolo: "Home ADS", section_id: 122},
+  {titolo: "Home SCOUT", section_id: 123}
+])
+Row.create!([
+  {ordine: 1, page_id: 2, estesa: false},
+  {ordine: 1, page_id: 1, estesa: false},
+  {ordine: 2, page_id: 1, estesa: true},
+  {ordine: 2, page_id: 2, estesa: false},
+  {ordine: 3, page_id: 1, estesa: false}
+])
+Section.create!([
+  {titolo: "ADS", descrizione: "Amici Domenico Savio"},
+  {titolo: "KB", descrizione: "Gruppo Key Boys"},
+  {titolo: "GEN3", descrizione: "Gruppo GEN3"},
+  {titolo: "SCOUT", descrizione: "Scout"},
+  {titolo: "CAMELOT", descrizione: "Clan Camelot"},
+  {titolo: "WAINGUNGA", descrizione: "Branco Waingunga"}
+])
+Ckeditor::Picture.create!([
+  {data_file_name: "shifu.jpg", data_content_type: "image/jpeg", data_file_size: 389176, assetable_id: nil, assetable_type: nil, type: "Ckeditor::Picture", width: 1200, height: 900},
+  {data_file_name: "download.jpg", data_content_type: "image/jpeg", data_file_size: 17926, assetable_id: nil, assetable_type: nil, type: "Ckeditor::Picture", width: 275, height: 183},
+  {data_file_name: "13461656733527-0-680x276.jpg", data_content_type: "image/jpeg", data_file_size: 45201, assetable_id: nil, assetable_type: nil, type: "Ckeditor::Picture", width: 680, height: 276},
+  {data_file_name: "jurassic-world-2.jpg", data_content_type: "image/jpeg", data_file_size: 730888, assetable_id: nil, assetable_type: nil, type: "Ckeditor::Picture", width: 1920, height: 1080},
+  {data_file_name: "locandina.jpg", data_content_type: "image/jpeg", data_file_size: 78073, assetable_id: nil, assetable_type: nil, type: "Ckeditor::Picture", width: 420, height: 600}
+])

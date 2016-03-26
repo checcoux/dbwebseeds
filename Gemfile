@@ -41,5 +41,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin]
 gem 'paperclip'
 gem 'ckeditor'
 
-# transizione a rails 4.2
+# transizione a rails 4.2 (necessario solo per avere i responder a livello di classe)
 gem 'responders', '~> 2.0'
+
+# per fare automaticamente il dump del database nel file seeds.rb
+gem 'seed_dump'

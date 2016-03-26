@@ -12,5 +12,6 @@
  *
  *= require_tree .
  *= require_self
- *= require jquery.minicolors
+ *= require jquery-ui
+ *= require jquery.colorpicker
  */

@@ -48,4 +48,6 @@ gem 'responders', '~> 2.0'
 gem 'seed_dump'
 
 # color picker
-gem 'jquery-minicolors-rails'
+# gem 'jquery-minicolors-rails'
+gem 'jquery-ui-rails'
+gem 'jquery-colorpicker-rails'

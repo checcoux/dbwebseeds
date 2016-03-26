@@ -15,7 +15,19 @@
     <%= f.label :ordine %><br>
     <%= f.number_field :ordine %>
   </div>
+  <div class="field">
+    <%= f.label :colore_sfondo %><br>
+    <%= f.text_field :colore_sfondo %>
+  </div>
+  <div class="field">
+    <%= f.check_box :estesa %>
+    <%= f.label :estesa %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
+<script>
+  $('#row_colore_sfondo').minicolors()
+</script>

@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2'
+gem 'rails', '4.2.6'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
@@ -46,3 +46,6 @@ gem 'responders', '~> 2.0'
 
 # per fare automaticamente il dump del database nel file seeds.rb
 gem 'seed_dump'
+
+# color picker
+gem 'jquery-minicolors-rails'

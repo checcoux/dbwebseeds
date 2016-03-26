@@ -24,6 +24,9 @@ CKEDITOR.editorConfig = function( config )
 
     config.allowedContent = true;
 
+    // incolla solo il testo
+    // config.pasteFilter = 'plain-text';
+
     // Toolbar groups configuration.
     config.toolbar = [
         { name: 'document', groups: [ 'mode', 'document', 'doctools' ], items: [ 'Source'] },

@@ -69,6 +69,6 @@ class RowsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def row_params
-      params.require(:row).permit(:ordine, :colore_sfondo, :estesa)
+      params.require(:row).permit(:ordine, :colore_sfondo, :estesa, :immagine_sfondo)
     end
 end

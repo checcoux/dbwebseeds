@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160326085404) do
+ActiveRecord::Schema.define(version: 20160326155442) do
 
   create_table "ckeditor_assets", force: :cascade do |t|
     t.string   "data_file_name",    limit: 255, null: false
@@ -54,8 +54,12 @@ ActiveRecord::Schema.define(version: 20160326085404) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "page_id"
-    t.boolean  "estesa",        default: false
+    t.boolean  "estesa",                       default: false
     t.string   "colore_sfondo"
+    t.string   "immagine_sfondo_file_name"
+    t.string   "immagine_sfondo_content_type"
+    t.integer  "immagine_sfondo_file_size"
+    t.datetime "immagine_sfondo_updated_at"
   end
 
   add_index "rows", ["page_id"], name: "index_rows_on_page_id"

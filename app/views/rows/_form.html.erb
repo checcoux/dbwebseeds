@@ -20,6 +20,11 @@
     <%= f.text_field :colore_sfondo %>
   </div>
   <div class="field">
+    <%= image_tag @row.immagine_sfondo.url(:thumb) if @row.immagine_sfondo.exists? %><br>
+    <%= f.label :immagine_sfondo %><br>
+    <%= f.file_field :immagine_sfondo %>
+  </div>
+  <div class="field">
     <%= f.check_box :estesa %>
     <%= f.label :estesa %>
   </div>

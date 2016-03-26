@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html class="no-js" lang="it">
 <head>
   <meta charset="utf-8" />
@@ -7,20 +8,21 @@
 
   <title>Dbwebcore</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-
   <link rel="stylesheet" href="/css/foundation.css" />
+
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <script src="/js/vendor/what-input.min.js"></script>
+  <script src="/js/foundation.min.js"></script>
+  <%= csrf_meta_tags %>
 </head>
+
 <body class='<%= controller.controller_name %>'>
 
-<script src="/js/vendor/what-input.min.js"></script>
-<script src="/js/foundation.min.js"></script>
-<script>
-  $(document).foundation();
-</script>
+  <script>
+    $(document).foundation();
+  </script>
 
-<%= yield %>
+  <%= yield %>
 
 </body>
 </html>

@@ -4,12 +4,16 @@
     <div class="<%= "expanded " if row.estesa %>row"<%=
       style = ''
       if row.immagine_sfondo.exists?
-        style = 'url(' + row.immagine_sfondo.url(:content) +') no-repeat center top '
+        style = "url( #{row.immagine_sfondo.url(:content)} ) no-repeat center top "
       end
       if !row.colore_sfondo.blank?
         style = style + '#' + row.colore_sfondo
       end
-      (" style='background: " + style + "'").html_safe if !style.blank?
+      # esperimenti con sfondo sfuocato: va messo in un'immagine sovrapposta allo sfondo
+      #if row.immagine_sfondo.exists?
+      #  style = style + "; -webkit-filter: blur(100px); -webkit-transform: translate3d(0, 0, 0);"
+      #end
+      " style='background: #{style}'".html_safe if !style.blank?
       # " style='background: url(/ckeditor_assets/pictures/3/original_13461656733527-0-680x276.jpg) no-repeat center top #005500;'".html_safe if row.estesa
     %>>
       <% row.columns.each do |column| %>

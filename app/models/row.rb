@@ -5,8 +5,9 @@ class Row < ActiveRecord::Base
   default_scope { order('ordine ASC') }
 
   has_attached_file :immagine_sfondo,
-                    :url  => "/img/sfondi/:id_:style.:extension",
-                    :path => ":rails_root/public/img/sfondi/:id_:style.:extension",
+                    :hash_secret => "hj42ZZ5!76",
+                    :url  => "/img/sfondi/:hash.:extension",
+                    :path => ":rails_root/public/img/sfondi/:hash.:extension",
                     :styles => { :content => '1800>', :thumb => '118x100#' }
 
   validates_attachment_size :immagine_sfondo, :less_than => 3.megabytes

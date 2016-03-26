@@ -29,5 +29,9 @@
 <% end %>
 
 <script>
-  $('#row_colore_sfondo').colorpicker();
+  $('#row_colore_sfondo').colorpicker({
+      parts:  [   'map', 'bar'
+      ],
+      alpha:  true,
+    });
 </script>

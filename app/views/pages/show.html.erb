@@ -17,10 +17,15 @@
       # " style='background: url(/ckeditor_assets/pictures/3/original_13461656733527-0-680x276.jpg) no-repeat center top #005500;'".html_safe if row.estesa
     %>>
       <% row.columns.each do |column| %>
-        <div id="editor<%= column.id %>" class="small-<%= column.larghezza %> columns" contenteditable="true">
+          <div id="editor<%= column.id %>" class="small-<%= column.larghezza %> columns" contenteditable="true">
           <%= column.contenuto.html_safe %>
         </div>
       <% end %>
+    </div>
+    <div class="row">
+      <div class="small-12 columns">
+        <%= link_to "Nuova riga", pages_path, class: "small button" %>
+      </div>
     </div>
 <% end %>
 

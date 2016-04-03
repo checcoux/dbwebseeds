@@ -15,10 +15,18 @@
     <%= f.label :ordine %><br>
     <%= f.number_field :ordine %>
   </div>
+    <div class="field">
+      <%= f.label :larghezza %><br>
+      <%= f.number_field :larghezza %>
+    </div>
   <div class="field">
     <%= f.label :contenuto %><br>
     <%= f.cktext_area :contenuto %>
   </div>
+    <div class="field">
+      <%= f.label :row_id %><br>
+      <%= f.collection_select(:row_id, Row.all, :id, :id) %>
+    </div>
   <div class="actions">
     <%= f.submit %>
   </div>

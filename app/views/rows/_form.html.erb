@@ -28,6 +28,10 @@
     <%= f.check_box :estesa %>
     <%= f.label :estesa %>
   </div>
+    <div class="field">
+      <%= f.label :page_id %><br>
+      <%= f.collection_select(:page_id, Page.all, :id, :titolo) %>
+    </div>
   <div class="actions">
     <%= f.submit %>
   </div>

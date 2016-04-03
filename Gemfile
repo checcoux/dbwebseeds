@@ -43,6 +43,7 @@ gem 'ckeditor'
 
 # transizione a rails 4.2 (necessario solo per avere i responder a livello di classe)
 gem 'responders', '~> 2.0'
+gem 'rails-html-sanitizer'
 
 # per fare automaticamente il dump del database nel file seeds.rb
 gem 'seed_dump'

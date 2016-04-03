@@ -80,6 +80,6 @@ class ColumnsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def column_params
-      params.require(:column).permit(:ordine, :contenuto)
+      params.require(:column).permit(:ordine, :contenuto, :larghezza, :row_id)
     end
 end

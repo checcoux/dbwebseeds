@@ -1,3 +1,25 @@
+<div class="top-bar">
+  <div class="top-bar-left">
+    <ul class="dropdown menu" data-dropdown-menu>
+      <li class="menu-text">dbWEBcore</li>
+      <li>
+        <input onclick="pageSave();" type="button" class="context-menu-one warning button" value="SALVA LE MODIFICHE" id="pageSave">
+      </li>
+      <li>
+        <input onclick="pagePreview();" type="button" class="button" value="PREVIEW" id="pagePreview">
+      </li>
+      <li>
+        <input onclick="inlineEdit();" type="button" class="button" value="EDIT" id="inlineEdit">
+      </li>
+      <li>
+        <input onclick="layoutDesign();" type="button" class="button" value="DESIGN" id="layoutDesign">
+      </li>
+    </ul>
+  </div>
+  <div class="top-bar-right">
+  </div>
+</div>
+
 <p id="notice"><%= notice %></p>
 
 <% @page.rows.each do |row| %>
@@ -17,28 +39,20 @@
       # " style='background: url(/ckeditor_assets/pictures/3/original_13461656733527-0-680x276.jpg) no-repeat center top #005500;'".html_safe if row.estesa
     %>>
       <% row.columns.each do |column| %>
-          <div id="editor<%= column.id %>" class="small-<%= column.larghezza %> columns" contenteditable="true">
+          <div id="editor<%= column.id %>" class="small-<%= column.larghezza %> columns" contenteditable="false">
           <%= column.contenuto.html_safe %>
         </div>
       <% end %>
     </div>
-    <div class="row">
-      <div class="small-12 columns">
-        <%= link_to "Nuova riga", pages_path, class: "small button" %>
-      </div>
-    </div>
 <% end %>
 
-<p>
-  <input onclick="salvaPagina();" type="button" class="context-menu-one warning button" value="SALVA LE MODIFICHE" id="salva">
-</p>
-
 <script>
+    // Turn off automatic editor creation first.
+    CKEDITOR.disableAutoInline = true;
 
-
-  $(function() {
+    // prepara i menù contestuali
     $.contextMenu({
-      selector: '.context-menu-one',
+      selector: '.row',
       callback: function(key, options) {
         var m = "clicked: " + key;
         window.console && console.log(m) || alert(m);
@@ -56,12 +70,24 @@
       }
     });
 
+    // ...e li disabilita
+    $('.row').each(function () {
+      var $this = $(this);
+      $this.contextMenu(false);
+    });
+
+  /*
+  $(function() {
+  /
+
+
     $('.context-menu-one').on('click', function(e){
       console.log('clicked', this);
     })
-  });
+  }); */
 
-  function salvaPagina() {
+  // salva il contenuto di tutti gli editor inline
+  function pageSave() {
 
     for (instance in CKEDITOR.instances) {
       var editor = CKEDITOR.instances[instance]; // CKEDITOR.instances.editor1;
@@ -88,5 +114,57 @@
     document.getElementById( 'notice' ).innerHTML = 'La pagina &egrave; stata salvata.';
     return false;
 
+  }
+
+  function pagePreview() {
+    // disabilita gli editor inline
+    for (instance in CKEDITOR.instances) {
+      var editor = CKEDITOR.instances[instance];
+
+      if(editor) {
+        editor.destroy();
+        elemento = document.getElementById(editor.name)
+
+        elemento.setAttribute('contenteditable', false);
+      }
+    }
+
+    // disabilita i menù contestuali
+    $('.row').each(function () {
+      var $this = $(this);
+      $this.contextMenu(false);
+    });
+  }
+
+  function inlineEdit() {
+    // abilita gli editor inline
+    $('.columns').attr('contenteditable', true);
+    $('.columns').each(function() {
+      CKEDITOR.inline(this);
+    });
+
+    // disabilita i menù contestuali
+    $('.row').each(function () {
+      var $this = $(this);
+      $this.contextMenu(false);
+    });
+  }
+
+  function layoutDesign() {
+    // disabilita gli editor inline
+    for (instance in CKEDITOR.instances) {
+      var editor = CKEDITOR.instances[instance];
+
+      editor.destroy();
+      elemento = document.getElementById( editor.name )
+
+      elemento.setAttribute( 'contenteditable', false );
+    }
+
+    // abilita i menù contestuali
+    $('.row').each(function () {
+      var $this = $(this);
+      $this.contextMenu(true);
+    });
   }
 </script>

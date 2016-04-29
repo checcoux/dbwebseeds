@@ -23,7 +23,7 @@
 <p id="notice"><%= notice %></p>
 
 <% @page.rows.each do |row| %>
-    <div class="<%= "expanded " if row.estesa %>row"<%=
+    <div id="row<%= row.id %>" class="<%= "expanded " if row.estesa %>row"<%=
       style = ''
       if row.immagine_sfondo.exists?
         style = "url( #{row.immagine_sfondo.url(:content)} ) no-repeat center top "
@@ -40,59 +40,69 @@
     %>>
       <% row.columns.each do |column| %>
           <div id="editor<%= column.id %>" class="small-<%= column.larghezza %> columns" contenteditable="false">
-          <%= column.contenuto.html_safe %>
-        </div>
+            <%= column.contenuto.html_safe %>
+          </div>
       <% end %>
     </div>
 <% end %>
 
 <script>
-    // Turn off automatic editor creation first.
-    CKEDITOR.disableAutoInline = true;
+  // Turn off automatic editor creation first.
+  CKEDITOR.disableAutoInline = true;
 
-    // prepara i menù contestuali
-    $.contextMenu({
-      selector: '.row',
-      callback: function(key, options) {
-        var m = "clicked: " + key;
-        window.console && console.log(m) || alert(m);
-      },
-      items: {
-        "inserisciRigaPrima": {name: "Inserisci riga prima", icon: "edit"},
-        "inserisciRigaDopo": {name: "Inserisci riga dopo", icon: "cut"},
-        "estendiRiga": {name: "Estendi riga", icon: "copy"},
-        "eliminaRiga": {name: "Elimina riga", icon: "delete"},
-        "sep1": "---------",
-        "inserisciColonnaPrima": {name: "Inserisci colonna prima", icon: "paste"},
-        "inserisciColonnaDopo": {name: "Inserisci colonna dopo", icon: "paste"},
-        "allargaColonna": {name: "Allarga colonna", icon: "paste"},
-        "stringiColonna": {name: "Stringi colonna", icon: "paste"},
-        "eliminaColonna": {name: "Elimina colonna", icon: "paste"},
-        "sep2": "---------",
-        "quit": {name: "Quit", icon: function(){
-          return 'context-menu-icon context-menu-icon-quit';
-        }}
-      }
-    });
+  // prepara i menù contestuali
+  $.contextMenu({
+    selector: '.columns',
+    callback: function(action, options) {
+      var id = $(this).attr('id').substr(6);
+      // var m = "clicked: " + action + " on " + id;
+      // window.console && console.log(m);
 
-    // vedere qui come si identifica l'elemento chiamante
-    // https://swisnl.github.io/jQuery-contextMenu/demo/on-dom-element.html
+      $.ajax({
+        url: '/columns/' + id + '/estendi.js' ,
+        type: 'POST',
+        data: {
+          authenticity_token: '<%= form_authenticity_token %>'
+        }
+        // success: function (response) {
+        //   alert("La pagina è stata salvata.");
+        // }
+        // document.getElementById( 'notice' ).innerHTML = 'La pagina &egrave; stata salvata.';*/
+      });
+    },
+    items: {
+      "inserisciRigaPrima": {name: "Inserisci riga prima", icon: "edit"},
+      "inserisciRigaDopo": {name: "Inserisci riga dopo", icon: "cut"},
+      "estendiRiga": {name: "Estendi riga", icon: "copy"},
+      "eliminaRiga": {name: "Elimina riga", icon: "delete"},
+      "sep1": "---------",
+      "inserisciColonnaPrima": {name: "Inserisci colonna prima", icon: "paste"},
+      "inserisciColonnaDopo": {name: "Inserisci colonna dopo", icon: "paste"},
+      "allargaColonna": {name: "Allarga colonna", icon: "paste"},
+      "stringiColonna": {name: "Stringi colonna", icon: "paste"},
+      "eliminaColonna": {name: "Elimina colonna", icon: "paste"},
+      "sep2": "---------",
+      "quit": {name: "Quit", icon: function(){
+        return 'context-menu-icon context-menu-icon-quit';
+      }}
+    }
+  });
 
-    // ...e li disabilita
-    $('.row').each(function () {
-      var $this = $(this);
-      $this.contextMenu(false);
-    });
+  // ...e li disabilita
+  $('.columns').each(function () {
+    var $this = $(this);
+    $this.contextMenu(false);
+  });
 
   /*
-  $(function() {
-  /
+   $(function() {
+   /
 
 
-    $('.context-menu-one').on('click', function(e){
-      console.log('clicked', this);
-    })
-  }); */
+   $('.context-menu-one').on('click', function(e){
+   console.log('clicked', this);
+   })
+   }); */
 
   // salva il contenuto di tutti gli editor inline
   function pageSave() {
@@ -138,7 +148,7 @@
     }
 
     // disabilita i menù contestuali
-    $('.row').each(function () {
+    $('.columns').each(function () {
       var $this = $(this);
       $this.contextMenu(false);
     });
@@ -155,7 +165,7 @@
     });
 
     // disabilita i menù contestuali
-    $('.row').each(function () {
+    $('.columns').each(function () {
       var $this = $(this);
       $this.contextMenu(false);
     });
@@ -176,7 +186,7 @@
     }
 
     // abilita i menù contestuali
-    $('.row').each(function () {
+    $('.columns').each(function () {
       var $this = $(this);
       $this.contextMenu(true);
     });

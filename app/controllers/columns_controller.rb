@@ -1,5 +1,5 @@
 class ColumnsController < ApplicationController
-  before_action :set_column, only: [:show, :edit, :update, :editor_update, :destroy]
+  before_action :set_column, only: [:show, :edit, :update, :editor_update, :destroy, :estendi]
 
   # GET /columns
   # GET /columns.json
@@ -68,6 +68,17 @@ class ColumnsController < ApplicationController
     @column.destroy
     respond_to do |format|
       format.html { redirect_to columns_url, notice: 'Column was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
+  def estendi
+    @row = @column.row
+    @row.estesa = true
+    @row.save()
+    respond_to do |format|
+      format.html { redirect_to columns_url, notice: 'Row was successfully extended.' }
+      format.js
       format.json { head :no_content }
     end
   end

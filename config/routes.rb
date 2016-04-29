@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   get 'say/goodbye'
 
   post 'columns/:id/editor_update' => 'columns#editor_update'
+  post 'columns/:id/estendi' => 'columns#estendi'
+  get 'columns/:id/estendi' => 'columns#estendi'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,1 +1,1 @@
-$('#row<%= @row.id %>').replaceWith("<p>Ciao</p>");
+$('#row<%= @row.id %>').replaceWith("<%= escape_javascript render(@row) %>");

@@ -57,7 +57,7 @@ class ColumnsController < ApplicationController
   def editor_update
     respond_to do |format|
       @column.contenuto = params[:contenuto]
-      @column.save()
+      @column.save
       format.html { head :no_content }
       format.json { render :show, status: :ok, location: @column }
     end
@@ -76,7 +76,7 @@ class ColumnsController < ApplicationController
   def estendi_riga
     @row = @column.row
     @row.estesa = true
-    @row.save()
+    @row.save
     respond_to do |format|
       # format.html { redirect_to columns_url, notice: 'Row was successfully extended.' }
       format.js
@@ -87,7 +87,57 @@ class ColumnsController < ApplicationController
   def riduci_riga
     @row = @column.row
     @row.estesa = false
-    @row.save()
+    @row.save
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def inserisci_riga_prima
+    @row = @column.row
+    posizione = @row.ordine
+    page = @row.page
+
+    # prendo la collezione delle righe e aumento di uno l'ordine di tutte quelle con ordine >= posizione, a partire dall'ultima
+    rows = Row.where('ordine >= ? AND page_id = ?', posizione, page.id).order(ordine: :asc)
+    rows.each do |riga|
+      riga.ordine = riga.ordine + 1
+      riga.save
+    end
+
+    # creo una riga vuota
+    @row2 = Row.create(ordine: posizione, page_id: page.id)
+    @row2.save
+
+    # creo due colonne vuote
+    column = Column.create(ordine: 1, larghezza: 12, row_id: @row2.id, contenuto: '<p>Cantami o Diva del pelide Achille l\'ira funesta.</p>')
+    column.save
+  end
+
+  def inserisci_riga_dopo
+    @row = @column.row
+    posizione = @row.ordine
+    page = @row.page
+
+    # prendo la collezione delle righe e aumento di uno l'ordine di tutte quelle con ordine > posizione
+    rows = Row.where('ordine > ? AND page_id = ?', posizione, page.id).order(ordine: :asc)
+    rows.each do |riga|
+      riga.ordine = riga.ordine + 1
+      riga.save
+    end
+
+    # creo una riga vuota
+    @row2 = Row.create(ordine: posizione + 1, page_id: page.id)
+    @row2.save
+
+    # creo due colonne vuote
+    column = Column.create(ordine: 1, larghezza: 12, row_id: @row2.id, contenuto: '<p>Cantami o Diva del pelide Achille l\'ira funesta.</p>')
+    column.save
+  end
+
+  def elimina_riga
+    @row = @column.row
+    @row.destroy
     respond_to do |format|
       format.js
     end

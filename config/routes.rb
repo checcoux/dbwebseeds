@@ -7,6 +7,9 @@ Rails.application.routes.draw do
       post 'editor_update'
       post 'estendi_riga'
       post 'riduci_riga'
+      post 'inserisci_riga_prima'
+      post 'inserisci_riga_dopo'
+      post 'elimina_riga'
     end
   end
 

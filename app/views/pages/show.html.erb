@@ -37,7 +37,7 @@
       // window.console && console.log(m);
 
       $.ajax({
-        url: '/columns/' + id + '/estendi.js' ,
+        url: '/columns/' + id + '/'+ action +'.js' ,
         type: 'POST',
         data: {
           authenticity_token: '<%= form_authenticity_token %>'
@@ -51,7 +51,8 @@
     items: {
       "inserisciRigaPrima": {name: "Inserisci riga prima", icon: "edit"},
       "inserisciRigaDopo": {name: "Inserisci riga dopo", icon: "cut"},
-      "estendiRiga": {name: "Estendi riga", icon: "copy"},
+      "estendi_riga": {name: "Estendi riga", icon: "copy"},
+      "riduci_riga": {name: "Riduci riga", icon: "copy"},
       "eliminaRiga": {name: "Elimina riga", icon: "delete"},
       "sep1": "---------",
       "inserisciColonnaPrima": {name: "Inserisci colonna prima", icon: "paste"},

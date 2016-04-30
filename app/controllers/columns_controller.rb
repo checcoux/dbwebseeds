@@ -1,5 +1,6 @@
 class ColumnsController < ApplicationController
-  before_action :set_column, only: [:show, :edit, :update, :editor_update, :destroy, :estendi]
+  # before_action :set_column, only: [:show, :edit, :update, :editor_update, :destroy, :estendi_riga]
+  before_action :set_column, except: [:index, :new, :create]
 
   # GET /columns
   # GET /columns.json
@@ -72,14 +73,23 @@ class ColumnsController < ApplicationController
     end
   end
 
-  def estendi
+  def estendi_riga
     @row = @column.row
     @row.estesa = true
     @row.save()
     respond_to do |format|
-      format.html { redirect_to columns_url, notice: 'Row was successfully extended.' }
+      # format.html { redirect_to columns_url, notice: 'Row was successfully extended.' }
       format.js
-      format.json { head :no_content }
+      # format.json { head :no_content }
+    end
+  end
+
+  def riduci_riga
+    @row = @column.row
+    @row.estesa = false
+    @row.save()
+    respond_to do |format|
+      format.js
     end
   end
 

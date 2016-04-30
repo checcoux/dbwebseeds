@@ -2,21 +2,19 @@ Rails.application.routes.draw do
 
   mount Ckeditor::Engine => '/ckeditor'
 
-  resources :columns
+  resources :columns do
+    member do
+      post 'editor_update'
+      post 'estendi_riga'
+      post 'riduci_riga'
+    end
+  end
 
   resources :rows
 
   resources :sections
 
   resources :pages
-
-  get 'say/hello'
-
-  get 'say/goodbye'
-
-  post 'columns/:id/editor_update' => 'columns#editor_update'
-  post 'columns/:id/estendi' => 'columns#estendi'
-  get 'columns/:id/estendi' => 'columns#estendi'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

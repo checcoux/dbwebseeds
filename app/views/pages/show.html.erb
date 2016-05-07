@@ -49,17 +49,17 @@
       });
     },
     items: {
-      "inserisci_riga_prima": {name: "Inserisci riga prima", icon: "add"},
-      "inserisci_riga_dopo": {name: "Inserisci riga dopo", icon: "add"},
-      "estendi_riga": {name: "Estendi riga", icon: "edit"},
-      "riduci_riga": {name: "Riduci riga", icon: "edit"},
-      "elimina_riga": {name: "Elimina riga", icon: "delete"},
+      "inserisci_riga_prima": {name: "Inserisci riga prima"},
+      "inserisci_riga_dopo": {name: "Inserisci riga dopo"},
+      "estendi_riga": {name: "Estendi riga"},
+      "riduci_riga": {name: "Comprimi riga"},
+      "elimina_riga": {name: "Elimina riga"},
       "sep1": "---------",
-      "inserisciColonnaPrima": {name: "Inserisci colonna prima", icon: "add"},
-      "inserisciColonnaDopo": {name: "Inserisci colonna dopo", icon: "add"},
-      "allargaColonna": {name: "Allarga colonna", icon: "edit"},
-      "stringiColonna": {name: "Stringi colonna", icon: "edit"},
-      "eliminaColonna": {name: "Elimina colonna", icon: "delete"}
+      "inserisci_colonna_prima": {name: "Inserisci colonna prima"},
+      "inserisci_colonna_dopo": {name: "Inserisci colonna dopo"},
+      "allarga_colonna": {name: "Allarga colonna"},
+      "stringi_colonna": {name: "Stringi colonna"},
+      "elimina_colonna": {name: "Elimina colonna"}
     }
   });
 
@@ -110,6 +110,7 @@
   }
 
   function pagePreview() {
+    pageSave()
     // disabilita gli editor inline
     for (instance in CKEDITOR.instances) {
       var editor = CKEDITOR.instances[instance];
@@ -150,6 +151,7 @@
   }
 
   function layoutDesign() {
+    pageSave()
     // disabilita gli editor inline
     for (instance in CKEDITOR.instances) {
       var editor = CKEDITOR.instances[instance];

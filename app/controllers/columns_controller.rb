@@ -110,7 +110,7 @@ class ColumnsController < ApplicationController
     @row2.save
 
     # creo due colonne vuote
-    column = Column.create(ordine: 1, larghezza: 12, row_id: @row2.id, contenuto: '<p>Cantami o Diva del pelide Achille l\'ira funesta.</p>')
+    column = Column.create(ordine: 1, larghezza: 12, row_id: @row2.id, contenuto: '<p>Cantami o Diva del pelide Achille l\'ira funesta...</p>')
     column.save
   end
 
@@ -131,13 +131,114 @@ class ColumnsController < ApplicationController
     @row2.save
 
     # creo due colonne vuote
-    column = Column.create(ordine: 1, larghezza: 12, row_id: @row2.id, contenuto: '<p>Cantami o Diva del pelide Achille l\'ira funesta.</p>')
+    column = Column.create(ordine: 1, larghezza: 12, row_id: @row2.id, contenuto: '<p>Cantami o Diva del pelide Achille l\'ira funesta...</p>')
     column.save
   end
 
   def elimina_riga
     @row = @column.row
     @row.destroy
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def inserisci_colonna_prima
+    @row = @column.row
+    posizione = @column.ordine
+
+    # prendo la collezione delle colonne e aumento di uno l'ordine di tutte quelle con ordine >= posizione, a partire dall'ultima
+    columns = Column.where('ordine >= ? AND row_id = ?', posizione, @row.id).order(ordine: :asc)
+    somma_larghezze = 0
+    prima = true
+    resto = 0
+    columns.each do |colonna|
+      somma_larghezze = somma_larghezze + colonna.larghezza
+      if prima then
+        mezza_larghezza = colonna.larghezza / 2
+        resto = colonna.larghezza - mezza_larghezza
+        if mezza_larghezza < 1 then
+          mezza_larghezza = 1
+        end
+        colonna.larghezza = mezza_larghezza
+      end
+      colonna.ordine = colonna.ordine + 1
+      colonna.save
+      prima = false
+    end
+    if resto < 1 then
+      resto = 1
+    end
+
+    # creo una colonna vuota
+    @column2 = Column.create(ordine: posizione, larghezza: resto, row_id: @row.id, contenuto: '<p>Cantami o Diva del pelide Achille l\'ira funesta...</p>')
+    @column2.save
+  end
+
+  def inserisci_colonna_dopo
+    @row = @column.row
+    posizione = @column.ordine
+
+    # prendo la collezione delle colonne e aumento di uno l'ordine di tutte quelle con ordine >= posizione, a partire dall'ultima
+    columns = Column.where('ordine > ? AND row_id = ?', posizione, @row.id).order(ordine: :asc)
+    somma_larghezze = 0
+    prima = true
+    resto = 0
+    columns.each do |colonna|
+      somma_larghezze = somma_larghezze + colonna.larghezza
+      if prima then
+        mezza_larghezza = colonna.larghezza / 2
+        resto = colonna.larghezza - mezza_larghezza
+        if mezza_larghezza < 1 then
+          mezza_larghezza = 1
+        end
+
+        colonna.larghezza = mezza_larghezza
+      end
+      colonna.ordine = colonna.ordine + 1
+      colonna.save
+      prima = false
+    end
+    if resto < 1 then
+      resto = 1
+    end
+
+    # creo una colonna vuota
+    @column2 = Column.create(ordine: posizione + 1, larghezza: resto, row_id: @row.id, contenuto: '<p>Cantami o Diva del pelide Achille l\'ira funesta...</p>')
+    @column2.save
+  end
+
+  def allarga_colonna
+    @row = @column.row
+    posizione = @column.ordine
+
+    vicina = Column.where('ordine > ? AND row_id = ?', posizione, @row.id).order(ordine: :asc).first
+
+    vicina.larghezza = vicina.larghezza - 1 if vicina.larghezza > 1
+    vicina.save
+
+    @column.larghezza = @column.larghezza + 1
+    @column.save
+  end
+
+  def stringi_colonna
+    @row = @column.row
+    posizione = @column.ordine
+
+    vicina = Column.where('ordine > ? AND row_id = ?', posizione, @row.id).order(ordine: :asc).first
+
+    if(@column.larghezza > 1) then
+      vicina.larghezza = vicina.larghezza + 1
+      vicina.save
+
+      @column.larghezza = @column.larghezza - 1
+      @column.save
+    end
+  end
+
+  def elimina_colonna
+    @row = @column.row
+    @column.destroy
     respond_to do |format|
       format.js
     end

@@ -10,6 +10,11 @@ Rails.application.routes.draw do
       post 'inserisci_riga_prima'
       post 'inserisci_riga_dopo'
       post 'elimina_riga'
+      post 'inserisci_colonna_prima'
+      post 'inserisci_colonna_dopo'
+      post 'allarga_colonna'
+      post 'stringi_colonna'
+      post 'elimina_colonna'
     end
   end
 

@@ -1,1 +1,3 @@
 $('#row<%= @row.id %>').replaceWith("<%= escape_javascript render(@row2) + render(@row) %>");
+$('#row<%= @row.id %> > .columns').addClass('bordo_layout');
+$('#row<%= @row2.id %> > .columns').addClass('bordo_layout');

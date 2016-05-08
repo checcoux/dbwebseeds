@@ -47,6 +47,7 @@
         // }
         // document.getElementById( 'notice' ).innerHTML = 'La pagina &egrave; stata salvata.';*/
       });
+
     },
     items: {
       "inserisci_riga_prima": {name: "Inserisci riga prima"},
@@ -104,7 +105,7 @@
       });
     }
 
-    document.getElementById( 'notice' ).innerHTML = 'La pagina &egrave; stata salvata.';
+    // document.getElementById( 'notice' ).innerHTML = 'La pagina &egrave; stata salvata.';
     return false;
 
   }
@@ -128,6 +129,7 @@
       var $this = $(this);
       $this.contextMenu(false);
     });
+    $('.columns').removeClass('bordo_layout');
 
     $('.toolbar').attr('class','toolbar button');
     $('#pagePreview').attr('class','toolbar warning button');
@@ -145,6 +147,7 @@
       var $this = $(this);
       $this.contextMenu(false);
     });
+    $('.columns').removeClass('bordo_layout');
 
     $('.toolbar').attr('class','toolbar button');
     $('#inlineEdit').attr('class','toolbar warning button');
@@ -167,6 +170,7 @@
       var $this = $(this);
       $this.contextMenu(true);
     });
+    $('.columns').addClass('bordo_layout');
 
     $('.toolbar').attr('class','toolbar button');
     $('#layoutDesign').attr('class','toolbar warning button');

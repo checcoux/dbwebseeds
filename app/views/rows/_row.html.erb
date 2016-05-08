@@ -1,4 +1,4 @@
-<div id="row<%= row.id %>" class="<%= "expanded " if row.estesa %>row"<%=
+<div id="row<%= row.id %>" class="<%= "expanded " if row.estesa %>row" <%=
   style = ''
   if row.immagine_sfondo.exists?
     style = "url( #{row.immagine_sfondo.url(:content)} ) no-repeat center top "

@@ -147,32 +147,30 @@ class ColumnsController < ApplicationController
     @row = @column.row
     posizione = @column.ordine
 
-    # prendo la collezione delle colonne e aumento di uno l'ordine di tutte quelle con ordine >= posizione, a partire dall'ultima
-    columns = Column.where('ordine >= ? AND row_id = ?', posizione, @row.id).order(ordine: :asc)
-    somma_larghezze = 0
-    prima = true
-    resto = 0
-    columns.each do |colonna|
-      somma_larghezze = somma_larghezze + colonna.larghezza
-      if prima then
-        mezza_larghezza = colonna.larghezza / 2
-        resto = colonna.larghezza - mezza_larghezza
-        if mezza_larghezza < 1 then
-          mezza_larghezza = 1
-        end
-        colonna.larghezza = mezza_larghezza
-      end
-      colonna.ordine = colonna.ordine + 1
-      colonna.save
-      prima = false
-    end
-    if resto < 1 then
-      resto = 1
-    end
+    # conto le colonne esistenti
+    numero_colonne = Column.where('row_id = ?', @row.id).count
 
-    # creo una colonna vuota
-    @column2 = Column.create(ordine: posizione, larghezza: resto, row_id: @row.id, contenuto: '<p>Cantami o Diva del pelide Achille l\'ira funesta...</p>')
-    @column2.save
+    # procedo solo se sono meno di dodici
+    if numero_colonne < 12 then
+      # prendo la collezione delle colonne e aumento di uno l'ordine di tutte quelle con ordine >= posizione
+      columns = Column.where('ordine >= ? AND row_id = ?', posizione, @row.id).order(ordine: :asc)
+
+      resto = 0
+      columns.each do |colonna|
+        if colonna.larghezza > 1 then
+          resto = resto + 1
+          colonna.larghezza = colonna.larghezza - 1
+        end
+
+        colonna.ordine = colonna.ordine + 1
+        colonna.save
+      end
+      if resto >= 1 then
+        # creo una colonna vuota
+        @column2 = Column.create(ordine: posizione, larghezza: resto, row_id: @row.id, contenuto: '<p>Cantami o Diva del pelide Achille l\'ira funesta...</p>')
+        @column2.save
+      end
+    end
   end
 
   def inserisci_colonna_dopo

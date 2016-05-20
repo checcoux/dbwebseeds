@@ -147,13 +147,11 @@ class ColumnsController < ApplicationController
     @row = @column.row
     posizione = @column.ordine
 
-    # conto le colonne esistenti
-    numero_colonne = Column.where('row_id = ?', @row.id).count
+    # procedo solo se la differenza tra la somma delle larghezze delle colonne successive e il loro numero è maggiore di zero
+    columns = Column.where('ordine >= ? AND row_id = ?', posizione, @row.id).order(ordine: :asc)
 
-    # procedo solo se sono meno di dodici
-    if numero_colonne < 12 then
-      # prendo la collezione delle colonne e aumento di uno l'ordine di tutte quelle con ordine >= posizione
-      columns = Column.where('ordine >= ? AND row_id = ?', posizione, @row.id).order(ordine: :asc)
+    if columns.sum("larghezza") > columns.count  then
+      # aumento di uno l'ordine delle colonne con ordine >= posizione
 
       resto = 0
       columns.each do |colonna|
@@ -165,7 +163,7 @@ class ColumnsController < ApplicationController
         colonna.ordine = colonna.ordine + 1
         colonna.save
       end
-      if resto >= 1 then
+      if resto >= 1 then # dovrebbe sempre essere così perché il controllo è stato fatto a monte
         # creo una colonna vuota
         @column2 = Column.create(ordine: posizione, larghezza: resto, row_id: @row.id, contenuto: '<p>Cantami o Diva del pelide Achille l\'ira funesta...</p>')
         @column2.save
@@ -174,6 +172,37 @@ class ColumnsController < ApplicationController
   end
 
   def inserisci_colonna_dopo
+    @row = @column.row
+    posizione = @column.ordine
+
+    # procedo solo se la differenza tra la somma delle larghezze delle colonne precedenti e il loro numero è maggiore di zero
+    columns = Column.where('ordine <= ? AND row_id = ?', posizione, @row.id).order(ordine: :asc)
+
+    if columns.sum("larghezza") > columns.count  then
+      # aumento di uno l'ordine delle colonne con ordine > posizione
+      successive = Column.where('ordine > ? AND row_id = ?', posizione, @row.id).order(ordine: :asc)
+      successive.each do |colonna|
+        colonna.ordine = colonna.ordine + 1
+        colonna.save
+      end
+
+      resto = 0
+      columns.each do |colonna|
+        if colonna.larghezza > 1 then
+          resto = resto + 1
+          colonna.larghezza = colonna.larghezza - 1
+        end
+        colonna.save
+      end
+      if resto >= 1 then # dovrebbe sempre essere così perché il controllo è stato fatto a monte
+        # creo una colonna vuota
+        @column2 = Column.create(ordine: posizione + 1, larghezza: resto, row_id: @row.id, contenuto: '<p>Cantami o Diva del pelide Achille l\'ira funesta...</p>')
+        @column2.save
+      end
+    end
+  end
+
+  def inserisci_colonna_dopo0
     @row = @column.row
     posizione = @column.ordine
 

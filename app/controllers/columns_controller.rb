@@ -176,14 +176,18 @@ class ColumnsController < ApplicationController
     posizione = @column.ordine
 
     # procedo solo se la differenza tra la somma delle larghezze delle colonne successive e il loro numero è maggiore di zero
-    columns = Column.where('ordine > ? AND row_id = ?', posizione, @row.id).order(ordine: :asc)
+    columns = Column.where('ordine > ? AND row_id = ?', posizione, @row.id).reorder(larghezza: :desc, ordine: :asc)
 
     if columns.sum("larghezza") > columns.count  then
       # aumento di uno l'ordine delle colonne con ordine > posizione
 
+      columns.each do |colonna|
+        logger.debug colonna.larghezza.to_s
+      end
+
       resto = 0
       columns.each do |colonna|
-        if colonna.larghezza > 1 then
+        if colonna.larghezza > 1 and resto == 0 then
           resto = resto + 1
           colonna.larghezza = colonna.larghezza - 1
         end
@@ -213,7 +217,7 @@ class ColumnsController < ApplicationController
     posizione = @column.ordine
 
     # procedo solo se la differenza tra la somma delle larghezze delle colonne precedenti e il loro numero è maggiore di zero
-    columns = Column.where('ordine < ? AND row_id = ?', posizione, @row.id).order(ordine: :asc)
+    columns = Column.where('ordine < ? AND row_id = ?', posizione, @row.id).reorder(larghezza: :desc, ordine: :desc)
     successive = Column.where('ordine >= ? AND row_id = ?', posizione, @row.id).order(ordine: :asc)
 
     if columns.sum("larghezza") > columns.count  then
@@ -225,7 +229,7 @@ class ColumnsController < ApplicationController
 
       resto = 0
       columns.each do |colonna|
-        if colonna.larghezza > 1 then
+        if colonna.larghezza > 1 and resto == 0 then
           resto = resto + 1
           colonna.larghezza = colonna.larghezza - 1
         end

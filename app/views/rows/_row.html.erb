@@ -15,7 +15,7 @@
 %>>
   <% row.columns.each do |column| %>
       <div id="editor<%= column.id %>" class="small-<%= column.larghezza %> columns" contenteditable="false">
-        <%= (column.ordine.to_s + " (" + column.larghezza.to_s + "): " + column.contenuto).html_safe %>
+        <%= column.contenuto.html_safe %>
       </div>
   <% end %>
 </div>

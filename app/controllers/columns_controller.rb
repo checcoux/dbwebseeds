@@ -293,35 +293,101 @@ class ColumnsController < ApplicationController
     @row = @column.row
     posizione = @column.ordine
 
-    vicina = Column.where('ordine > ? AND row_id = ?', posizione, @row.id).order(ordine: :asc).first
+    # procedo solo se ci sono almeno due colonne
+    columns = Column.where('row_id = ?', @row.id)
 
-    vicina.larghezza = vicina.larghezza - 1 if vicina.larghezza > 1
-    vicina.save
+    if columns.count > 1 then
 
-    @column.larghezza = @column.larghezza + 1
-    @column.save
+      # procedo solo se la differenza tra la somma delle larghezze delle colonne successive e il loro numero è maggiore di zero
+      columns = Column.where('ordine > ? AND row_id = ?', posizione, @row.id).reorder(ordine: :asc)
+
+      if columns.sum("larghezza") > columns.count  then
+
+        resto = 0
+        columns.each do |colonna|
+          if colonna.larghezza > 1 and resto == 0 then
+            resto = resto + 1
+            colonna.larghezza = colonna.larghezza - 1
+            colonna.save
+          end
+        end
+
+        if resto > 0 then # dovrebbe essere sempre verificata per il controllo fatto a monte
+          @column.larghezza = @column.larghezza + 1
+          @column.save
+        end
+      else
+        # provo a stringere le precedenti
+        columns = Column.where('ordine < ? AND row_id = ?', posizione, @row.id).reorder(ordine: :desc)
+        if columns.sum("larghezza") > columns.count  then
+
+          resto = 0
+          columns.each do |colonna|
+            if colonna.larghezza > 1 and resto == 0 then
+              resto = resto + 1
+              colonna.larghezza = colonna.larghezza - 1
+              colonna.save
+            end
+          end
+
+          if resto > 0 then # dovrebbe essere sempre verificata per il controllo fatto a monte
+            @column.larghezza = @column.larghezza + 1
+            @column.save
+          end
+        end
+
+      end
+    end
   end
 
   def stringi_colonna
     @row = @column.row
     posizione = @column.ordine
 
-    vicina = Column.where('ordine > ? AND row_id = ?', posizione, @row.id).order(ordine: :asc).first
+    # procedo solo se ci sono almeno due colonne
+    columns = Column.where('row_id = ?', @row.id)
+    if columns.count > 1 then
 
-    if(@column.larghezza > 1) then
-      vicina.larghezza = vicina.larghezza + 1
-      vicina.save
+      vicina = Column.where('ordine > ? AND row_id = ?', posizione, @row.id).order(ordine: :asc).first
 
-      @column.larghezza = @column.larghezza - 1
-      @column.save
+      # se non ci sono colonne a destra allargo quella a sinistra
+      if not vicina then
+        vicina = Column.where('ordine < ? AND row_id = ?', posizione, @row.id).reorder(ordine: :desc).first
+      end
+
+      # stringo la colonna e allargo la vicina
+      if(@column.larghezza > 1) then
+        vicina.larghezza = vicina.larghezza + 1
+        vicina.save
+
+        @column.larghezza = @column.larghezza - 1
+        @column.save
+        end
     end
   end
 
   def elimina_colonna
     @row = @column.row
-    @column.destroy
-    respond_to do |format|
-      format.js
+    posizione = @column.ordine
+
+    # procedo solo se ci sono almeno due colonne
+    columns = Column.where('row_id = ?', @row.id)
+    if columns.count > 1 then
+
+      vicina = Column.where('ordine > ? AND row_id = ?', posizione, @row.id).order(ordine: :asc).first
+
+      # se non ci sono colonne a destra allargo quella a sinistra
+      if not vicina then
+        vicina = Column.where('ordine < ? AND row_id = ?', posizione, @row.id).reorder(ordine: :desc).first
+      end
+
+      # stringo la colonna e allargo la vicina
+      if(vicina) then
+        vicina.larghezza = vicina.larghezza + @column.larghezza
+        vicina.save
+
+        @column.destroy
+      end
     end
   end
 

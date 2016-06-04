@@ -176,7 +176,7 @@ class ColumnsController < ApplicationController
     posizione = @column.ordine
 
     # procedo solo se la differenza tra la somma delle larghezze delle colonne successive e il loro numero è maggiore di zero
-    columns = Column.where('ordine > ? AND row_id = ?', posizione, @row.id).reorder(larghezza: :desc, ordine: :asc)
+    columns = Column.where('ordine > ? AND row_id = ?', posizione, @row.id).order(larghezza: :desc, ordine: :asc)
 
     if columns.sum("larghezza") > columns.count  then
       # aumento di uno l'ordine delle colonne con ordine > posizione
@@ -217,7 +217,7 @@ class ColumnsController < ApplicationController
     posizione = @column.ordine
 
     # procedo solo se la differenza tra la somma delle larghezze delle colonne precedenti e il loro numero è maggiore di zero
-    columns = Column.where('ordine < ? AND row_id = ?', posizione, @row.id).reorder(larghezza: :desc, ordine: :desc)
+    columns = Column.where('ordine < ? AND row_id = ?', posizione, @row.id).order(larghezza: :desc, ordine: :desc)
     successive = Column.where('ordine >= ? AND row_id = ?', posizione, @row.id).order(ordine: :asc)
 
     if columns.sum("larghezza") > columns.count  then
@@ -299,7 +299,7 @@ class ColumnsController < ApplicationController
     if columns.count > 1 then
 
       # procedo solo se la differenza tra la somma delle larghezze delle colonne successive e il loro numero è maggiore di zero
-      columns = Column.where('ordine > ? AND row_id = ?', posizione, @row.id).reorder(ordine: :asc)
+      columns = Column.where('ordine > ? AND row_id = ?', posizione, @row.id).order(ordine: :asc)
 
       if columns.sum("larghezza") > columns.count  then
 
@@ -318,7 +318,7 @@ class ColumnsController < ApplicationController
         end
       else
         # provo a stringere le precedenti
-        columns = Column.where('ordine < ? AND row_id = ?', posizione, @row.id).reorder(ordine: :desc)
+        columns = Column.where('ordine < ? AND row_id = ?', posizione, @row.id).order(ordine: :desc)
         if columns.sum("larghezza") > columns.count  then
 
           resto = 0
@@ -352,7 +352,7 @@ class ColumnsController < ApplicationController
 
       # se non ci sono colonne a destra allargo quella a sinistra
       if not vicina then
-        vicina = Column.where('ordine < ? AND row_id = ?', posizione, @row.id).reorder(ordine: :desc).first
+        vicina = Column.where('ordine < ? AND row_id = ?', posizione, @row.id).order(ordine: :desc).first
       end
 
       # stringo la colonna e allargo la vicina
@@ -378,7 +378,7 @@ class ColumnsController < ApplicationController
 
       # se non ci sono colonne a destra allargo quella a sinistra
       if not vicina then
-        vicina = Column.where('ordine < ? AND row_id = ?', posizione, @row.id).reorder(ordine: :desc).first
+        vicina = Column.where('ordine < ? AND row_id = ?', posizione, @row.id).order(ordine: :desc).first
       end
 
       # stringo la colonna e allargo la vicina

@@ -22,7 +22,7 @@
 
 <p id="notice"><%= notice %></p>
 
-    <%= render(@page.rows) %>
+    <%= render(@page.rows.order('ordine ASC')) %>
 
 <script>
   // Turn off automatic editor creation first.

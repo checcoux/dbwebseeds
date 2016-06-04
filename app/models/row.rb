@@ -2,8 +2,6 @@ class Row < ActiveRecord::Base
   belongs_to :page
   has_many :columns, dependent: :destroy
 
-  default_scope { order('ordine ASC') }
-
   has_attached_file :immagine_sfondo,
                     :hash_secret => "hj42ZZ5!76",
                     :url  => "/img/sfondi/:hash.:extension",

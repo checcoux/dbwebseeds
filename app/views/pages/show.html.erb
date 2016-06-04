@@ -1,24 +1,42 @@
-<div class="top-bar">
-  <div class="top-bar-left">
-    <ul class="dropdown menu" data-dropdown-menu>
-      <li class="menu-text">dbWEBcore</li>
-      <li>
-        <input onclick="pageSave();" type="button" class="error button" value="SALVA LE MODIFICHE" id="pageSave">
-      </li>
-      <li>
-        <input onclick="pagePreview();" type="button" class="toolbar warning button" value="PREVIEW" id="pagePreview">
-      </li>
-      <li>
-        <input onclick="inlineEdit();" type="button" class="toolbar button" value="INLINE EDIT" id="inlineEdit">
-      </li>
-      <li>
-        <input onclick="layoutDesign();" type="button" class="toolbar button" value="LAYOUT DESIGN" id="layoutDesign">
-      </li>
-    </ul>
-  </div>
-  <div class="top-bar-right">
+<div data-sticky-container>
+  <div class="title-bar" data-sticky data-options="marginTop:0;" style="width:100%">
+    <div class="title-bar-left">
+      <ul class="dropdown menu" data-dropdown-menu>
+        <li class="menu-text">dbWEBcore</li>
+        <li>
+          <input onclick="pageSave();" type="button" class="error button" value="SALVA LE MODIFICHE" id="pageSave">
+        </li>
+        <li>
+          <input onclick="pagePreview();" type="button" class="toolbar warning button" value="PREVIEW" id="pagePreview">
+        </li>
+        <li>
+          <input onclick="inlineEdit();" type="button" class="toolbar button" value="INLINE EDIT" id="inlineEdit">
+        </li>
+        <li>
+          <input onclick="layoutDesign();" type="button" class="toolbar button" value="LAYOUT DESIGN" id="layoutDesign">
+        </li>
+      </ul>
+    </div>
+    <div class="title-bar-right">
+    </div>
   </div>
 </div>
+
+<div class="reveal" id="modal1" data-reveal>
+  <button class="close-button" data-close aria-label="Close modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<script>
+  function openModal(id) {
+    $.ajax("/rows/" + id + "/edit").done(function (data) {
+      $("#modal1").html(data).foundation("open");
+    });
+  }
+</script>
+
+<p><input onclick="openModal('31');" type="button" class="error button" value="OPEN MODAL" id="pageSave"></p>
 
 <p id="notice"><%= notice %></p>
 
@@ -36,18 +54,28 @@
       // var m = "clicked: " + action + " on " + id;
       // window.console && console.log(m);
 
-      $.ajax({
-        url: '/columns/' + id + '/'+ action +'.js' ,
-        type: 'POST',
-        data: {
-          authenticity_token: '<%= form_authenticity_token %>'
-        }
-        // success: function (response) {
-        //   alert("La pagina è stata salvata.");
-        // }
-        // document.getElementById( 'notice' ).innerHTML = 'La pagina &egrave; stata salvata.';*/
-      });
-
+      if(action != 'immagine_sfondo') {
+        $.ajax({
+          url: '/columns/' + id + '/' + action + '.js',
+          type: 'POST',
+          data: {
+            authenticity_token: '<%= form_authenticity_token %>'
+          }
+          // success: function (response) {
+          //   alert("La pagina è stata salvata.");
+          // }
+          // document.getElementById( 'notice' ).innerHTML = 'La pagina &egrave; stata salvata.';*/
+        });
+      }
+      else {
+        $.ajax({
+          url: '/columnstgg/' + id + '/' + action + '.js',
+          type: 'POST',
+          data: {
+            authenticity_token: '<%= form_authenticity_token %>'
+          }
+        });
+      }
     },
     items: {
       "inserisci_riga_prima": {name: "Inserisci riga prima"},
@@ -60,7 +88,9 @@
       "inserisci_colonna_dopo": {name: "Inserisci colonna dopo"},
       "allarga_colonna": {name: "Allarga colonna"},
       "stringi_colonna": {name: "Stringi colonna"},
-      "elimina_colonna": {name: "Elimina colonna"}
+      "elimina_colonna": {name: "Elimina colonna"},
+      "sep2": "---------",
+      "immagine_sfondo": {name: "Immagine di sfondo..."},
     }
   });
 

@@ -1,0 +1,24 @@
+<h1>Sfondo della riga</h1>
+
+<%= render 'form_sfondo' %>
+
+<script>
+  $(function(){
+    $("form").submit(function(e) {
+      e.preventDefault();
+      var $form = $(this);
+      $.post($form.attr("action"), $form.serialize())
+          .done(function(data) {
+            // chiudiamo la finestra modale
+            $("#finestra_modale").foundation('close');
+
+            // sostituiamo la riga modificata
+            $('#row<%= @row.id %>').replaceWith( data ); // escape_javascript render(@row)
+            $('#row<%= @row.id %> .columns').addClass('bordo_layout');
+          })
+          .fail(function() {
+            // Dispatch errors in modal
+          });
+    });
+  });
+</script>

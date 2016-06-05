@@ -1,0 +1,38 @@
+<%= form_for(@row) do |f| %>
+    <% if @row.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@row.errors.count, "error") %> prohibited this row from being saved:</h2>
+
+          <ul>
+            <% @row.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :colore_sfondo %><br>
+      <%= f.text_field :colore_sfondo %>
+    </div>
+    <div class="field">
+      <%= image_tag @row.immagine_sfondo.url(:thumb) if @row.immagine_sfondo.exists? %><br>
+      <%= f.label :immagine_sfondo %><br>
+      <%= f.file_field :immagine_sfondo %>
+    </div>
+    <div class="actions">
+      <%= f.submit "SALVA", class: "button" %>
+
+      <button class="close-button" data-close aria-label="Close modal" type="submit">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+<% end %>
+
+<script>
+  $('#row_colore_sfondo').colorpicker({
+    parts:  [   'map', 'bar'
+    ],
+    alpha:  true,
+  });
+</script>

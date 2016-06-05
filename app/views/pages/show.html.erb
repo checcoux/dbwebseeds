@@ -22,21 +22,11 @@
   </div>
 </div>
 
-<div class="reveal" id="modal1" data-reveal>
+<div class="reveal" id="finestra_modale" data-reveal>
   <button class="close-button" data-close aria-label="Close modal" type="button">
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
-
-<script>
-  function openModal(id) {
-    $.ajax("/rows/" + id + "/edit").done(function (data) {
-      $("#modal1").html(data).foundation("open");
-    });
-  }
-</script>
-
-<p><input onclick="openModal('31');" type="button" class="error button" value="OPEN MODAL" id="pageSave"></p>
 
 <p id="notice"><%= notice %></p>
 
@@ -54,7 +44,7 @@
       // var m = "clicked: " + action + " on " + id;
       // window.console && console.log(m);
 
-      if(action != 'immagine_sfondo') {
+      if(action != 'dialog_sfondo') { // azioni su righe e colonne
         $.ajax({
           url: '/columns/' + id + '/' + action + '.js',
           type: 'POST',
@@ -67,13 +57,9 @@
           // document.getElementById( 'notice' ).innerHTML = 'La pagina &egrave; stata salvata.';*/
         });
       }
-      else {
-        $.ajax({
-          url: '/columnstgg/' + id + '/' + action + '.js',
-          type: 'POST',
-          data: {
-            authenticity_token: '<%= form_authenticity_token %>'
-          }
+      else { // apre una finestra di dialogo modale
+        $.ajax('/columns/' + id + '/' + action).done(function (data) {
+          $("#finestra_modale").html(data).foundation("open");
         });
       }
     },
@@ -90,7 +76,7 @@
       "stringi_colonna": {name: "Stringi colonna"},
       "elimina_colonna": {name: "Elimina colonna"},
       "sep2": "---------",
-      "immagine_sfondo": {name: "Immagine di sfondo..."},
+      "dialog_sfondo": {name: "Sfondo della riga..."},
     }
   });
 

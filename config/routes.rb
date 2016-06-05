@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       post 'allarga_colonna'
       post 'stringi_colonna'
       post 'elimina_colonna'
+      get 'dialog_sfondo'
     end
   end
 

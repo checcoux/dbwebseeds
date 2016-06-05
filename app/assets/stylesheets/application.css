@@ -17,3 +17,4 @@
  */
 
 
+.sticky.is-anchored { bottom: auto !important; }

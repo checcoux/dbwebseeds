@@ -1,8 +1,28 @@
-<h1>Sfondo della riga</h1>
 
 <%= render 'form_sfondo' %>
 
 <script>
+
+  $( "form" ).submit( function(e) {
+        $.ajax( {
+          url: $(this).attr("action"),
+          type: 'POST',
+          data: new FormData( this ),
+          processData: false,
+          contentType: false,
+          success: function(data) {
+            // chiudiamo la finestra modale
+            $("#finestra_modale").foundation('close');
+
+            // sostituiamo la riga modificata
+            $('#row<%= @row.id %>').replaceWith( data ); // escape_javascript render(@row)
+            $('#row<%= @row.id %> .columns').addClass('bordo_layout');
+          }
+        } );
+        e.preventDefault();
+      } );
+
+  /*
   $(function(){
     $("form").submit(function(e) {
       e.preventDefault();
@@ -20,5 +40,5 @@
             // Dispatch errors in modal
           });
     });
-  });
+  });*/
 </script>

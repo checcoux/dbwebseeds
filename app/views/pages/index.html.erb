@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing pages</h1>
+<h1>Pagine del sito</h1>
 
 <table>
   <thead>
@@ -13,11 +13,10 @@
   <tbody>
     <% @pages.each do |page| %>
       <tr>
-        <td><%= page.titolo %></td>
-        <td><%= page.section.titolo %></td>
-        <td><%= link_to 'Show', page %></td>
-        <td><%= link_to 'Edit', edit_page_path(page) %></td>
-        <td><%= link_to 'Destroy', page, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to page.titolo, page, method: :get, class: "primary button" %></td>
+        <td><%= "Sezione " + page.section.titolo %></td>
+        <td><%= link_to 'Proprietà', edit_page_path(page), class: "tiny primary button" %></td>
+        <td><%= link_to 'Elimina', page, method: :delete, data: { confirm: 'Are you sure?' }, class: "tiny alert button" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -25,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Page', new_page_path %>
+<%= link_to 'NUOVA PAGINA', new_page_path, class: "large warning button" %>

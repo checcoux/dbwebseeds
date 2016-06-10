@@ -109,7 +109,7 @@ class ColumnsController < ApplicationController
     @row2 = Row.create(ordine: posizione, page_id: page.id)
     @row2.save
 
-    # creo due colonne vuote
+    # creo una colonna vuota
     column = Column.create(ordine: 1, larghezza: 12, row_id: @row2.id, contenuto: '<p>Cantami o Diva del pelide Achille l\'ira funesta...</p>')
     column.save
   end
@@ -130,14 +130,19 @@ class ColumnsController < ApplicationController
     @row2 = Row.create(ordine: posizione + 1, page_id: page.id)
     @row2.save
 
-    # creo due colonne vuote
+    # creo una colonna vuota
     column = Column.create(ordine: 1, larghezza: 12, row_id: @row2.id, contenuto: '<p>Cantami o Diva del pelide Achille l\'ira funesta...</p>')
     column.save
   end
 
   def elimina_riga
-    @row = @column.row
-    @row.destroy
+
+    # se è l'ultima riga non la elimino
+    if(@column.row.page.rows.count > 1) then
+      @row = @column.row
+      @row.destroy
+    end
+
     respond_to do |format|
       format.js
     end

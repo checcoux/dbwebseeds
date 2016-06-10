@@ -11,6 +11,7 @@ class PagesController < ApplicationController
   # GET /pages/1
   # GET /pages/1.json
   def show
+
   end
 
   # GET /pages/new
@@ -31,7 +32,16 @@ class PagesController < ApplicationController
 
     respond_to do |format|
       if @page.save
-        format.html { redirect_to @page, notice: 'Page was successfully created.' }
+
+        # creo una riga vuota
+        row = Row.create(ordine: 1, page_id: @page.id)
+        row.save
+
+        # creo una colonna vuota
+        column = Column.create(ordine: 1, larghezza: 12, row_id: row.id, contenuto: '<p>Cantami o Diva del pelide Achille l\'ira funesta...</p>')
+        column.save
+
+        format.html { redirect_to @page }
         format.json { render :show, status: :created, location: @page }
       else
         format.html { render :new }
@@ -45,7 +55,7 @@ class PagesController < ApplicationController
   def update
     respond_to do |format|
       if @page.update(page_params)
-        format.html { redirect_to @page, notice: 'Page was successfully updated.' }
+        format.html { redirect_to @page }
         format.json { render :show, status: :ok, location: @page }
       else
         format.html { render :edit }
@@ -59,7 +69,7 @@ class PagesController < ApplicationController
   def destroy
     @page.destroy
     respond_to do |format|
-      format.html { redirect_to pages_url, notice: 'Page was successfully destroyed.' }
+      format.html { redirect_to pages_url }
       format.json { head :no_content }
     end
   end

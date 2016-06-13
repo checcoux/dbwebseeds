@@ -158,6 +158,15 @@
       CKEDITOR.inline(this);
     });
 
+    /* configurazione particolare:
+    for (instance in CKEDITOR.instances) {
+      var editor = CKEDITOR.instances[instance];
+
+      if(editor) {
+        editor.config.language = 'fr';
+      }
+    }*/
+
     // disabilita i menù contestuali
     $('.columns').each(function () {
       var $this = $(this);

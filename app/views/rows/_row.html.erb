@@ -14,7 +14,7 @@
   # " style='background: url(/ckeditor_assets/pictures/3/original_13461656733527-0-680x276.jpg) no-repeat center top #005500;'".html_safe if row.estesa
 %>>
   <% row.columns.order('ordine ASC').each do |column| %>
-      <div id="editor<%= column.id %>" class="small-<%= column.larghezza %> columns" contenteditable="false">
+      <div id="editor<%= column.id %>" class="large-<%= column.larghezza %> columns" contenteditable="false">
         <%= column.contenuto.html_safe %>
       </div>
   <% end %>

@@ -1,0 +1,30 @@
+<%= form_for(@column_image) do |f| %>
+  <% if @column_image.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@column_image.errors.count, "error") %> prohibited this column_image from being saved:</h2>
+
+      <ul>
+      <% @column_image.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= image_tag @column_image.immagine.url(:thumb) if @column_image.immagine.exists? %><br>
+    <%= f.label :immagine %><br>
+    <%= f.file_field :immagine %>
+  </div>
+  <div class="field">
+    <%= f.label :descrizione %><br>
+    <%= f.text_area :descrizione %>
+  </div>
+  <div class="field">
+    <%= f.label :column_id %><br>
+    <%= f.text_field :column_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

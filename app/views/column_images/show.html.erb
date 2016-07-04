@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Descrizione:</strong>
+  <%= @column_image.descrizione %>
+</p>
+
+<p>
+  <strong>Column:</strong>
+  <%= @column_image.column %>
+</p>
+
+<%= link_to 'Edit', edit_column_image_path(@column_image) %> |
+<%= link_to 'Back', column_images_path %>

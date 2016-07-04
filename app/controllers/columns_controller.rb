@@ -401,6 +401,11 @@ class ColumnsController < ApplicationController
     render layout: false
   end
 
+  def dialog_immagine
+    @row = @column.row
+    render layout: false
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_column

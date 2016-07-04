@@ -1,0 +1,2 @@
+module ColumnImagesHelper
+end

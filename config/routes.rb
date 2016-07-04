@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :column_images
   mount Ckeditor::Engine => '/ckeditor'
 
   resources :columns do
@@ -16,6 +17,7 @@ Rails.application.routes.draw do
       post 'stringi_colonna'
       post 'elimina_colonna'
       get 'dialog_sfondo'
+      get 'dialog_immagine'
     end
   end
 

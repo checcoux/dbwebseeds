@@ -28,7 +28,7 @@ class ColumnImagesController < ApplicationController
 
     respond_to do |format|
       if @column_image.save
-        format.html { redirect_to @column_image, notice: 'Column image was successfully created.' }
+        format.html { redirect_to @column_image.column.row, notice: 'Column image was successfully created.' }
         format.json { render :show, status: :created, location: @column_image }
       else
         format.html { render :new }

@@ -403,6 +403,8 @@ class ColumnsController < ApplicationController
 
   def dialog_immagine
     @row = @column.row
+    @column_image = ColumnImage.new
+    @column_image.column = @column;
     render layout: false
   end
 

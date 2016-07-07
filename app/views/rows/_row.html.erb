@@ -15,7 +15,27 @@
 %>>
   <% row.columns.order('ordine ASC').each do |column| %>
       <div id="editor<%= column.id %>" class="large-<%= column.larghezza %> columns" contenteditable="false">
-        <%= column.contenuto.html_safe %>
+        <% if column.column_images.count == 0 %>
+            <%= column.contenuto.html_safe %>
+        <% elsif column.column_images.count == 1 %>
+            <%= image_tag(column.column_images.first.immagine.url(:content), style: 'width: 100%;') %>
+        <% else %>
+            <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
+              <ul class="orbit-container">
+                <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
+                <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
+                <% column.column_images.each do |column_image| %>
+                    <li class="is-active orbit-slide">
+                      <img src="<%= column_image.immagine %>" class="orbit-image">
+                      <%= if column_image.descrizione.length > 0 then
+                            "<figcaption class='orbit-caption'>#{ column_image.descrizione }</figcaption>".html_safe
+                          end
+                      %>
+                    </li>
+                <% end %>
+              </ul>
+            </div>
+        <% end %>
       </div>
   <% end %>
 </div>

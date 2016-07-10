@@ -1,4 +1,4 @@
-<div id="row<%= row.id %>" class="<%= "expanded " if row.estesa %>row" <%=
+<div id="row<%= row.id %>" class="<%= "expanded " if row.estesa %>collapse row" <%=
   style = ''
   if row.immagine_sfondo.exists?
     style = "url( #{row.immagine_sfondo.url(:content)} ) no-repeat center top "
@@ -28,7 +28,7 @@
                     <li class="is-active orbit-slide">
                       <img src="<%= column_image.immagine %>" class="orbit-image">
                       <%= if column_image.descrizione.length > 0 then
-                            "<figcaption class='orbit-caption'>#{ column_image.descrizione }</figcaption>".html_safe
+                            "<figcaption class='orbit-caption'>#{ column_image.descrizione.html_safe }</figcaption>".html_safe
                           end
                       %>
                     </li>

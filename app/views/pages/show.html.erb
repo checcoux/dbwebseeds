@@ -165,14 +165,16 @@
       CKEDITOR.inline(this);
     });
 
-    /* configurazione particolare:
+    // configurazione particolare:
     for (instance in CKEDITOR.instances) {
       var editor = CKEDITOR.instances[instance];
+      var id = editor.name.substr(6);
 
       if(editor) {
-        editor.config.language = 'fr';
+        editor.config.filebrowserImageBrowseUrl = "/ckeditor/pictures?column_id=" + id;
+        editor.config.filebrowserImageUploadUrl = "/ckeditor/pictures?column_id=" + id;
       }
-    }*/
+    }
 
     // disabilita i menù contestuali
     $('.columns').each(function () {

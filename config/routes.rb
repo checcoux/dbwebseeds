@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :column_images
   mount Ckeditor::Engine => '/ckeditor'
 
   resources :columns do
@@ -26,6 +25,9 @@ Rails.application.routes.draw do
   resources :sections
 
   resources :pages
+
+  resources :column_images
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

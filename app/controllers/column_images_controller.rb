@@ -1,5 +1,6 @@
 class ColumnImagesController < ApplicationController
-  before_action :set_column_image, only: [:show, :edit, :update, :destroy]
+  # before_action :set_column_image, only: [:show, :edit, :update, :destroy]
+  before_action :set_column_image, except: [:index, :new, :create]
 
   # GET /column_images
   # GET /column_images.json
@@ -28,7 +29,7 @@ class ColumnImagesController < ApplicationController
 
     respond_to do |format|
       if @column_image.save
-        format.html { redirect_to @column_image.column.row, notice: 'Column image was successfully created.' }
+        format.html { redirect_to @column_image.column.row }
         format.json { render :show, status: :created, location: @column_image }
       else
         format.html { render :new }
@@ -42,7 +43,7 @@ class ColumnImagesController < ApplicationController
   def update
     respond_to do |format|
       if @column_image.update(column_image_params)
-        format.html { redirect_to @column_image, notice: 'Column image was successfully updated.' }
+        format.html { redirect_to @column_image }
         format.json { render :show, status: :ok, location: @column_image }
       else
         format.html { render :edit }
@@ -56,9 +57,14 @@ class ColumnImagesController < ApplicationController
   def destroy
     @column_image.destroy
     respond_to do |format|
-      format.html { redirect_to column_images_url, notice: 'Column image was successfully destroyed.' }
+      format.html { redirect_to column_images_url }
       format.json { head :no_content }
     end
+  end
+
+  def elimina
+    @row = @column_image.column.row
+    @column_image.destroy
   end
 
   private

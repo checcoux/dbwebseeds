@@ -19,11 +19,12 @@
             <%= column.contenuto.html_safe %>
           </div>
       <% elsif column.column_images.count == 1 %>
-          <div id="image<%= column.id %>" class="large-<%= column.larghezza %> columns">
+          <div id="image_<%= column.id %>" class="large-<%= column.larghezza %> columns" style="position: relative;">
             <%= image_tag(column.column_images.first.immagine.url(:content), style: 'width: 100%;') %>
+            <div class="gestione-immagini"><button onclick="aggiungiImmagine(<%= column.id %>);"><i class="fi-plus"></i></button><a href="http://www.inoratorio.it"><i class="fi-pencil"></i></a> <button onclick="eliminaImmagine(<%= column.column_images.first.id %>);"><i class="fi-x"></i></button></div>
           </div>
         <% else %>
-          <div id="scroller<%= column.id %>" class="large-<%= column.larghezza %> columns">
+          <div id="slider<%= column.id %>" class="large-<%= column.larghezza %> columns" style="position: relative;">
             <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
                 <ul class="orbit-container">
                   <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
@@ -39,6 +40,7 @@
                   <% end %>
                 </ul>
             </div>
+            <div class="gestione-immagini"><button onclick="aggiungiImmagine(<%= column.id %>);"><i class="fi-plus"></i></button><a href="http://www.inoratorio.it"><i class="fi-pencil"></i></a> <a href="http://www.inoratorio.it"><i class="fi-x"></i></a></div>
           </div>
         <% end %>
   <% end %>

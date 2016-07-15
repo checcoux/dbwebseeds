@@ -210,4 +210,20 @@
     $('.toolbar').attr('class','toolbar button');
     $('#layoutDesign').attr('class','toolbar warning button');
   }
+
+  function aggiungiImmagine(id) {
+    $.ajax('/columns/' + id + '/dialog_immagine').done(function (data) {
+      $("#finestra_modale").html(data).foundation("open");
+    });
+  }
+
+  function eliminaImmagine(id) {
+    $.ajax({
+      url: '/column_images/' + id + '/elimina.js',
+      type: 'POST',
+      data: {
+        authenticity_token: '<%= form_authenticity_token %>'
+      }
+    });
+  }
 </script>

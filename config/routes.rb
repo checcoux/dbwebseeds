@@ -26,7 +26,11 @@ Rails.application.routes.draw do
 
   resources :pages
 
-  resources :column_images
+  resources :column_images do
+    member do
+      post 'elimina'
+    end
+  end
 
 
   # The priority is based upon order of creation: first created -> highest priority.

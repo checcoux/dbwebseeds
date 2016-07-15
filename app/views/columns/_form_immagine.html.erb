@@ -22,6 +22,10 @@
       <%= hidden_field_tag 'column_image[column_id]', @column_image.column.id  %>
     </div>
     <div class="actions">
-      <%= f.submit %>
+      <%= f.submit "SALVA", class:'button' %>
+
+      <button class="close-button" data-close aria-label="Close modal" type="submit">
+        <span aria-hidden="true">&times;</span>
+      </button>
     </div>
 <% end %>

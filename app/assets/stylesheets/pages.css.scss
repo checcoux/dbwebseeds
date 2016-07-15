@@ -17,3 +17,24 @@
 .inline-editor {
   padding: 10px !important;
 }
+
+.gestione-immagini {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 100;
+  font-size: 2em;
+}
+
+.gestione-immagini > button {
+  color: #ff0000;
+}
+
+.gestione-immagini > button:visited {
+  color: #ff0000;
+}
+
+.gestione-immagini > button:hover {
+  color: #ffffff;
+  background: none;
+}

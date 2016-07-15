@@ -160,8 +160,8 @@
 
   function inlineEdit() {
     // abilita gli editor inline
-    $('.columns').attr('contenteditable', true);
-    $('.columns').each(function() {
+    $('.inline-editor').attr('contenteditable', true);
+    $('.inline-editor').each(function() {
       CKEDITOR.inline(this);
     });
 

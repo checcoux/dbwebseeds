@@ -1,7 +1,7 @@
 <div id="row<%= row.id %>" class="<%= "expanded " if row.estesa %>collapse row" <%=
   style = ''
   if row.immagine_sfondo.exists?
-    style = "url( #{row.immagine_sfondo.url(:content)} ) no-repeat center top "
+    style = "url( #{row.immagine_sfondo.url(:content)} ) center top "
   end
   if !row.colore_sfondo.blank?
     style = style + '#' + row.colore_sfondo
@@ -14,28 +14,32 @@
   # " style='background: url(/ckeditor_assets/pictures/3/original_13461656733527-0-680x276.jpg) no-repeat center top #005500;'".html_safe if row.estesa
 %>>
   <% row.columns.order('ordine ASC').each do |column| %>
-      <div id="editor<%= column.id %>" class="large-<%= column.larghezza %> columns" contenteditable="false">
-        <% if column.column_images.count == 0 %>
+      <% if column.column_images.count == 0 %>
+          <div id="editor<%= column.id %>" class="large-<%= column.larghezza %> columns inline-editor" contenteditable="false">
             <%= column.contenuto.html_safe %>
-        <% elsif column.column_images.count == 1 %>
+          </div>
+      <% elsif column.column_images.count == 1 %>
+          <div id="image<%= column.id %>" class="large-<%= column.larghezza %> columns">
             <%= image_tag(column.column_images.first.immagine.url(:content), style: 'width: 100%;') %>
+          </div>
         <% else %>
+          <div id="scroller<%= column.id %>" class="large-<%= column.larghezza %> columns">
             <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
-              <ul class="orbit-container">
-                <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
-                <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
-                <% column.column_images.each do |column_image| %>
-                    <li class="is-active orbit-slide">
-                      <img src="<%= column_image.immagine %>" class="orbit-image">
-                      <%= if column_image.descrizione.length > 0 then
-                            "<figcaption class='orbit-caption'>#{ column_image.descrizione.html_safe }</figcaption>".html_safe
-                          end
-                      %>
-                    </li>
-                <% end %>
-              </ul>
+                <ul class="orbit-container">
+                  <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
+                  <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
+                  <% column.column_images.each do |column_image| %>
+                      <li class="is-active orbit-slide">
+                        <img src="<%= column_image.immagine %>" class="orbit-image">
+                        <%= if column_image.descrizione.length > 0 then
+                              "<figcaption class='orbit-caption'>#{ column_image.descrizione.html_safe }</figcaption>".html_safe
+                            end
+                        %>
+                      </li>
+                  <% end %>
+                </ul>
             </div>
+          </div>
         <% end %>
-      </div>
   <% end %>
 </div>

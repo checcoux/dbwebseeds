@@ -15,7 +15,7 @@
 %>>
   <% row.columns.order('ordine ASC').each do |column| %>
       <% if column.column_images.count == 0 %>
-          <div class="large-<%= column.larghezza %> columns" style="position: relative;">
+          <div id="weditr<%= column.id %>" class="large-<%= column.larghezza %> columns" style="position: relative;">
             <div id="editor<%= column.id %>" class="inline-editor" contenteditable="false">
               <%= column.contenuto.html_safe %>
             </div>

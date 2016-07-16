@@ -33,75 +33,77 @@
     <%= render(@page.rows.order('ordine ASC')) %>
 
 <script>
-  // Turn off automatic editor creation first.
-  CKEDITOR.disableAutoInline = true;
 
-  // prepara i menù contestuali
-  $.contextMenu({
-    selector: '.columns',
-    callback: function(action, options) {
-      var id = $(this).attr('id').substr(6);
-      // var m = "clicked: " + action + " on " + id;
-      // window.console && console.log(m);
+  $(function() {
+    // Turn off automatic editor creation first.
+    CKEDITOR.disableAutoInline = true;
 
-      switch(action) {
-        case 'dialog_sfondo':
-          $.ajax('/columns/' + id + '/' + action).done(function (data) {
-            $("#finestra_modale").html(data).foundation("open");
-          });
-          break;
-        case 'dialog_immagine':
-          $.ajax('/columns/' + id + '/' + action).done(function (data) {
-            $("#finestra_modale").html(data).foundation("open");
-          });
-          break;
-        default:
-          $.ajax({
-            url: '/columns/' + id + '/' + action + '.js',
-            type: 'POST',
-            data: {
-              authenticity_token: '<%= form_authenticity_token %>'
-            }
-            // success: function (response) {
-            //   alert("La pagina è stata salvata.");
-            // }
-            // document.getElementById( 'notice' ).innerHTML = 'La pagina &egrave; stata salvata.';*/
-          });
+    // prepara i menù contestuali
+    $.contextMenu({
+      selector: '.columns',
+      callback: function (action, options) {
+        var id = $(this).attr('id').substr(6);
+        // var m = "clicked: " + action + " on " + id;
+        // window.console && console.log(m);
+
+        switch (action) {
+          case 'dialog_sfondo':
+            $.ajax('/columns/' + id + '/' + action).done(function (data) {
+              $("#finestra_modale").html(data).foundation("open");
+            });
+            break;
+          case 'dialog_immagine':
+            $.ajax('/columns/' + id + '/' + action).done(function (data) {
+              $("#finestra_modale").html(data).foundation("open");
+            });
+            break;
+          default:
+            $.ajax({
+              url: '/columns/' + id + '/' + action + '.js',
+              type: 'POST',
+              data: {
+                authenticity_token: '<%= form_authenticity_token %>'
+              }
+              // success: function (response) {
+              //   alert("La pagina è stata salvata.");
+              // }
+              // document.getElementById( 'notice' ).innerHTML = 'La pagina &egrave; stata salvata.';*/
+            });
+        }
+      },
+      items: {
+        "inserisci_riga_prima": {name: "Inserisci riga prima"},
+        "inserisci_riga_dopo": {name: "Inserisci riga dopo"},
+        "estendi_riga": {name: "Estendi riga"},
+        "riduci_riga": {name: "Comprimi riga"},
+        "elimina_riga": {name: "Elimina riga"},
+        "sep1": "---------",
+        "inserisci_colonna_prima": {name: "Inserisci colonna prima"},
+        "inserisci_colonna_dopo": {name: "Inserisci colonna dopo"},
+        "allarga_colonna": {name: "Allarga colonna"},
+        "stringi_colonna": {name: "Stringi colonna"},
+        "elimina_colonna": {name: "Elimina colonna"},
+        "sep2": "---------",
+        "dialog_sfondo": {name: "Sfondo..."},
+        "dialog_immagine": {name: "Immagine..."}
       }
-    },
-    items: {
-      "inserisci_riga_prima": {name: "Inserisci riga prima"},
-      "inserisci_riga_dopo": {name: "Inserisci riga dopo"},
-      "estendi_riga": {name: "Estendi riga"},
-      "riduci_riga": {name: "Comprimi riga"},
-      "elimina_riga": {name: "Elimina riga"},
-      "sep1": "---------",
-      "inserisci_colonna_prima": {name: "Inserisci colonna prima"},
-      "inserisci_colonna_dopo": {name: "Inserisci colonna dopo"},
-      "allarga_colonna": {name: "Allarga colonna"},
-      "stringi_colonna": {name: "Stringi colonna"},
-      "elimina_colonna": {name: "Elimina colonna"},
-      "sep2": "---------",
-      "dialog_sfondo": {name: "Sfondo..."},
-      "dialog_immagine": {name: "Immagine..."}
-    }
-  });
+    });
 
-  // ...e li disabilita
-  $('.columns').each(function () {
-    var $this = $(this);
-    $this.contextMenu(false);
-  });
+    // ...e li disabilita
+    $('.columns').each(function () {
+      var $this = $(this);
+      $this.contextMenu(false);
+    });
 
-  /*
-   $(function() {
-   /
+    // nasconde i pulsanti di gestione delle immagini
+    $('.gestione-immagini').hide();
 
+    /*
 
-   $('.context-menu-one').on('click', function(e){
-   console.log('clicked', this);
-   })
-   }); */
+       $('.context-menu-one').on('click', function(e){
+       console.log('clicked', this);
+       })
+    }); */
 
   // salva il contenuto di tutti gli editor inline
   function pageSave() {
@@ -135,6 +137,7 @@
 
   function pagePreview() {
     pageSave()
+
     // disabilita gli editor inline
     for (instance in CKEDITOR.instances) {
       var editor = CKEDITOR.instances[instance];
@@ -156,6 +159,9 @@
 
     $('.toolbar').attr('class','toolbar button');
     $('#pagePreview').attr('class','toolbar warning button');
+
+    // nasconde i pulsanti di gestione delle immagini
+    $('.gestione-immagini').hide();
   }
 
   function inlineEdit() {
@@ -186,6 +192,9 @@
 
     $('.toolbar').attr('class','toolbar button');
     $('#inlineEdit').attr('class','toolbar warning button');
+
+    // visualizza i pulsanti di gestione delle immagini
+    $('.gestione-immagini').show();
   }
 
   function layoutDesign() {
@@ -209,6 +218,9 @@
 
     $('.toolbar').attr('class','toolbar button');
     $('#layoutDesign').attr('class','toolbar warning button');
+
+    // visualizza i pulsanti di gestione delle immagini
+    $('.gestione-immagini').show();
   }
 
   function aggiungiImmagine(id) {

@@ -23,18 +23,27 @@
   top: 0;
   right: 0;
   z-index: 100;
-  font-size: 2em;
+  font-size: 1.5em;
+  text-align: right;
+
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  color: #ffffff;
+  background-color: rgba(10, 10, 10, 0.7);
 }
 
 .gestione-immagini > button {
-  color: #ff0000;
+  color: #ffffff;
 }
 
 .gestione-immagini > button:visited {
-  color: #ff0000;
+  color: #ffffff;
 }
 
 .gestione-immagini > button:hover {
-  color: #ffffff;
+  color: #ff0000;
   background: none;
 }

@@ -17,6 +17,7 @@
             // sostituiamo la riga modificata
             $('#row<%= @row.id %>').replaceWith( data ); // escape_javascript render(@row)
             $('#row<%= @row.id %> .columns').addClass('bordo_layout');
+            $('#row<%= @row.id %>').foundation();
           }
         } );
         e.preventDefault();

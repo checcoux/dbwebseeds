@@ -17,6 +17,7 @@ Rails.application.routes.draw do
       post 'elimina_colonna'
       get 'dialog_sfondo'
       get 'dialog_immagine'
+      get 'modifica_immagine'
     end
   end
 

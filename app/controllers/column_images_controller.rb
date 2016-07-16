@@ -30,7 +30,7 @@ class ColumnImagesController < ApplicationController
     respond_to do |format|
       if @column_image.save
         format.html { redirect_to @column_image.column.row }
-        format.json { render :show, status: :created, location: @column_image }
+        format.json { render :show, status: :created, location: @column_image.column.row }
       else
         format.html { render :new }
         format.json { render json: @column_image.errors, status: :unprocessable_entity }
@@ -43,8 +43,8 @@ class ColumnImagesController < ApplicationController
   def update
     respond_to do |format|
       if @column_image.update(column_image_params)
-        format.html { redirect_to @column_image }
-        format.json { render :show, status: :ok, location: @column_image }
+        format.html { redirect_to @column_image.column.row }
+        format.json { render :show, status: :ok, location: @column_image.column.row }
       else
         format.html { render :edit }
         format.json { render json: @column_image.errors, status: :unprocessable_entity }

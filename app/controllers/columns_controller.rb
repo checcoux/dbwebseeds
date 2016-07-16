@@ -1,6 +1,6 @@
 class ColumnsController < ApplicationController
   # before_action :set_column, only: [:show, :edit, :update, :editor_update, :destroy, :estendi_riga]
-  before_action :set_column, except: [:index, :new, :create]
+  before_action :set_column, except: [:index, :new, :create, :modifica_immagine]
 
   # GET /columns
   # GET /columns.json
@@ -404,7 +404,17 @@ class ColumnsController < ApplicationController
   def dialog_immagine
     @row = @column.row
     @column_image = ColumnImage.new
-    @column_image.column = @column;
+    @column_image.column = @column
+    render layout: false
+  end
+
+  def modifica_immagine
+    # l'id ricevuto è quello di un'immagine, non della colonna
+    @column_image = ColumnImage.find(params[:id])
+
+    @column = @column_image.column
+    @row = @column.row
+
     render layout: false
   end
 

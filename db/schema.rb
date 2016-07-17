@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160704191152) do
+ActiveRecord::Schema.define(version: 20160717085810) do
 
   create_table "ckeditor_assets", force: :cascade do |t|
     t.string   "data_file_name",    limit: 255, null: false
@@ -38,6 +38,8 @@ ActiveRecord::Schema.define(version: 20160704191152) do
     t.string   "immagine_content_type"
     t.integer  "immagine_file_size"
     t.datetime "immagine_updated_at"
+    t.text     "titolo"
+    t.text     "collegamento"
   end
 
   add_index "column_images", ["column_id"], name: "index_column_images_on_column_id"

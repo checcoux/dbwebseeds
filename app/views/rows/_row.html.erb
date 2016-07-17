@@ -20,17 +20,28 @@
               <%= column.contenuto.html_safe %>
             </div>
 
-            <div class="gestione-immagini"><button onclick="aggiungiImmagine(<%= column.id %>);"><i class="fi-plus"></i></button></div>
+            <div class="gestione-immagini"><button onclick="aggiungiImmagine(<%= column.id %>);"><i class="fi-photo"></i></button></div>
           </div>
       <% elsif column.column_images.count == 1 %>
           <div id="image_<%= column.id %>" class="large-<%= column.larghezza %> columns" style="position: relative;">
-            <%= image_tag(column.column_images.first.immagine.url(:content), style: 'width: 100%;') %>
+            <% immagine = column.column_images.first %>
+            <% if immagine.collegamento.length > 0 %>
+                <a href="<%= immagine.collegamento %>">
+            <% end %>
+              <%= image_tag(immagine.immagine.url(:content), style: 'width: 100%;') %>
 
-              <%= if column.column_images.first.descrizione.length > 0 then
-                    "<figcaption class='orbit-caption'>#{ column.column_images.first.descrizione.html_safe }</figcaption>".html_safe
-                  end
-              %>
+                <% if immagine.titolo.length > 0 %>
+                  <figcaption class='orbit-caption'>
+                    <p class='column_image_titolo'><%= immagine.titolo %></p>
+                    <% if immagine.descrizione.length > 0 %>
+                        <p class='column_image_descrizione'><%= immagine.descrizione %></p>
+                    <% end %>
+                  </figcaption>
+                <% end %>
 
+            <% if immagine.collegamento.length > 0 %>
+                </a>
+            <% end %>
             <div class="gestione-immagini"><button onclick="aggiungiImmagine(<%= column.id %>);"><i class="fi-plus"></i></button> <button onclick="modificaImmagine(<%= column.column_images.first.id %>);"><i class="fi-pencil"></i></button> <button onclick="eliminaImmagine(<%= column.column_images.first.id %>);"><i class="fi-x"></i></button></div>
           </div>
         <% else %>
@@ -41,12 +52,21 @@
                   <button class="orbit-next">&#9654;&#xFE0E;</button>
                   <% column.column_images.each do |column_image| %>
                       <li class="orbit-slide">
-                        <img src="<%= column_image.immagine %>" class="orbit-image">
-
-                        <%= if column_image.descrizione.length > 0 then
-                              "<figcaption class='orbit-caption'>#{ column_image.descrizione.html_safe }</figcaption>".html_safe
-                            end
-                        %>
+                        <% if column_image.collegamento.length > 0 %>
+                          <a href="<%= column_image.collegamento %>">
+                        <% end %>
+                          <img src="<%= column_image.immagine %>" class="orbit-image">
+                          <% if column_image.titolo.length > 0 %>
+                              <figcaption class='orbit-caption'>
+                                <p class='column_image_titolo'><%= column_image.titolo %></p>
+                                <% if column_image.descrizione.length > 0 %>
+                                    <p class='column_image_descrizione'><%= column_image.descrizione %></p>
+                                <% end %>
+                              </figcaption>
+                          <% end %>
+                        <% if column_image.collegamento.length > 0 %>
+                            </a>
+                        <% end %>
 
                         <div class="gestione-immagini"><button onclick="aggiungiImmagine(<%= column.id %>);"><i class="fi-plus"></i></button> <button onclick="modificaImmagine(<%= column_image.id %>);"><i class="fi-pencil"></i></button> <button onclick="eliminaImmagine(<%= column_image.id %>);"><i class="fi-x"></i></button></div>
                       </li>

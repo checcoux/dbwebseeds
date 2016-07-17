@@ -17,9 +17,17 @@
       <%= f.file_field :immagine %>
     </div>
     <div class="field">
+      <%= f.label :titolo %><br>
+      <%= f.text_area :titolo %>
+    </div>
+    <div class="field">
       <%= f.label :descrizione %><br>
       <%= f.text_area :descrizione %>
       <%= hidden_field_tag 'column_image[column_id]', @column_image.column.id  %>
+    </div>
+    <div class="field">
+      <%= f.label :collegamento %><br>
+      <%= f.text_area :collegamento %>
     </div>
     <div class="actions">
       <%= f.submit "SALVA", class:'button' %>

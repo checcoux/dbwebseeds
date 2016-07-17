@@ -75,6 +75,6 @@ class ColumnImagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def column_image_params
-      params.require(:column_image).permit(:descrizione, :column_id, :immagine)
+      params.require(:column_image).permit(:titolo, :descrizione, :collegamento, :column_id, :immagine)
     end
 end

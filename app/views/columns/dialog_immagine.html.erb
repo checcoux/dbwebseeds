@@ -14,10 +14,10 @@
         $("#finestra_modale").foundation('close');
 
         // sostituiamo la riga modificata
-        $('#row<%= @row.id %>').replaceWith( data ).foundation(); // escape_javascript render(@row)
+        $('#row<%= @row.id %>').replaceWith( data ); // escape_javascript render(@row)
         // $('#row<%= @row.id %>').foundation();
-        // $(document).foundation();
-        Foundation.reInit('orbit');
+        $(document).foundation();
+        Foundation.reInit($(document));
       }
     } );
     e.preventDefault();

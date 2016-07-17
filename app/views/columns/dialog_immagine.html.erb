@@ -15,7 +15,8 @@
 
         // sostituiamo la riga modificata
         $('#row<%= @row.id %>').replaceWith( data ); // escape_javascript render(@row)
-        $('#row<%= @row.id %>').foundation();
+        // $('#row<%= @row.id %>').foundation();
+        $(document).foundation();
       }
     } );
     e.preventDefault();

@@ -22,7 +22,7 @@
   position: absolute;
   top: 0;
   right: 0;
-  z-index: 100;
+  z-index: 200;
   font-size: 1em;
   text-align: right;
 
@@ -33,6 +33,31 @@
   margin-bottom: 0;
   color: #ffffff;
   background-color: rgba(0, 59, 132, 0.7);
+}
+
+.slide {
+  position: relative;
+}
+
+.titolo-slide {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 200;
+  font-size: 1em;
+  text-align: left;
+
+
+  min-height: 80px;
+
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 .gestione-immagini > button {

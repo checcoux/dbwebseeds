@@ -45,34 +45,32 @@
             <div class="gestione-immagini"><button onclick="aggiungiImmagine(<%= column.id %>);"><i class="fi-plus"></i></button> <button onclick="modificaImmagine(<%= column.column_images.first.id %>);"><i class="fi-pencil"></i></button> <button onclick="eliminaImmagine(<%= column.column_images.first.id %>);"><i class="fi-x"></i></button></div>
           </div>
         <% else %>
-          <div id="slider<%= column.id %>" class="large-<%= column.larghezza %> columns" style="position: relative;">
-            <div class="orbit" role="region" data-orbit>
-                <ul class="orbit-container">
-                  <button class="orbit-previous">&#9664;&#xFE0E;</button>
-                  <button class="orbit-next">&#9654;&#xFE0E;</button>
+          <div id="slider<%= column.id %>" class="large-<%= column.larghezza %> columns mioslider" style="position: relative;">
+
                   <% column.column_images.each do |column_image| %>
-                      <li class="orbit-slide">
+                      <div class="slide slick-slide">
                         <% if column_image.collegamento.length > 0 %>
                           <a href="<%= column_image.collegamento %>">
                         <% end %>
                           <img src="<%= column_image.immagine %>" class="orbit-image">
                           <% if column_image.titolo.length > 0 %>
-                              <figcaption class='orbit-caption'>
+                              <div class='titolo-slide'>
                                 <p class='column_image_titolo'><%= column_image.titolo %></p>
                                 <% if column_image.descrizione.length > 0 %>
                                     <p class='column_image_descrizione'><%= column_image.descrizione %></p>
                                 <% end %>
-                              </figcaption>
+                              </div>
                           <% end %>
                         <% if column_image.collegamento.length > 0 %>
                             </a>
                         <% end %>
 
                         <div class="gestione-immagini"><button onclick="aggiungiImmagine(<%= column.id %>);"><i class="fi-plus"></i></button> <button onclick="modificaImmagine(<%= column_image.id %>);"><i class="fi-pencil"></i></button> <button onclick="eliminaImmagine(<%= column_image.id %>);"><i class="fi-x"></i></button></div>
-                      </li>
+
+                      </div>
                   <% end %>
-                </ul>
-            </div>
+
+
           </div>
         <% end %>
   <% end %>

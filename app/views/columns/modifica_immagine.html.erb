@@ -14,7 +14,16 @@
         $("#finestra_modale").foundation('close');
 
         // sostituiamo la riga modificata
-        $('#row<%= @row.id %>').replaceWith( data );
+        $('#row<%= @row.id %>').replaceWith( data).foundation();
+
+        $('#row<%= @row.id %> .mioslider').slick({
+          slidestoshow: 1,
+          slidestoscroll: 1,
+          autoplay: true,
+          autoplayspeed: 2000,
+          zIndex: 100,
+          arrows: true
+        });
       }
     } );
     e.preventDefault();

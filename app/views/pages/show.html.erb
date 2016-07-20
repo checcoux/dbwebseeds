@@ -1,5 +1,5 @@
 <div data-sticky-container>
-  <div class="title-bar" data-sticky data-options="marginTop:0;" style="width:100%; z-index:200;">
+  <div class="title-bar" data-sticky data-options="marginTop:0;" style="width:100%; z-index:1000;">
     <div class="title-bar-left">
       <ul class="dropdown menu" data-dropdown-menu>
         <li class="menu-text"><a href="/">dbWEBcore</a></li>
@@ -41,7 +41,7 @@
     // prepara i menù contestuali
     $.contextMenu({
       selector: '.columns',
-      zIndex: 999,
+      zIndex: 1500,
       callback: function (action, options) {
         var id = $(this).attr('id').substr(6);
         // var m = "clicked: " + action + " on " + id;
@@ -86,7 +86,6 @@
         "elimina_colonna": {name: "<i class='fi-trash'></i>&nbsp;&nbsp;Elimina colonna", isHtmlName: true},
         "sep2": "---------",
         "dialog_sfondo": {name: "<i class='fi-paint-bucket'></i>&nbsp;Sfondo...", isHtmlName: true},
-        "dialog_immagine": {name: "<i class='fi-photo'></i>&nbsp;Immagine...", isHtmlName: true}
       }
     });
 
@@ -103,7 +102,17 @@
        $('.context-menu-one').on('click', function(e){
        console.log('clicked', this);
        })*/
+
+    $('.mioslider').slick({
+      slidestoshow: 1,
+      slidestoscroll: 1,
+      autoplay: true,
+      autoplayspeed: 2000,
+      zIndex: 100,
+      arrows: true
     });
+  });
+
 
   // salva il contenuto di tutti gli editor inline
   function pageSave() {

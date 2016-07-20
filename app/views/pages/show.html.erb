@@ -1,19 +1,19 @@
 <div data-sticky-container>
-  <div class="title-bar" data-sticky data-options="marginTop:0;" style="width:100%; z-index:1000;">
+  <div class="title-bar show-for-medium" data-sticky data-options="marginTop:0;" style="width:100%; z-index:1000;">
     <div class="title-bar-left">
       <ul class="dropdown menu" data-dropdown-menu>
         <li class="menu-text"><a href="/">dbWEBcore</a></li>
         <li>
-          <input onclick="pageSave();" type="button" class="error button" value="SALVA LE MODIFICHE" id="pageSave">
+          <a id="pageSave" onclick="pageSave();" class="error button"><i class="fi-save"></i> Salva</a>
         </li>
         <li>
-          <input onclick="pagePreview();" type="button" class="toolbar warning button" value="PREVIEW" id="pagePreview">
+          <a id="pagePreview" onclick="pagePreview();" class="toolbar warning button"><i class="fi-eye"></i> Page preview</a>
         </li>
         <li>
-          <input onclick="inlineEdit();" type="button" class="toolbar button" value="INLINE EDIT" id="inlineEdit">
+          <a id="inlineEdit" onclick="inlineEdit();" class="toolbar button"><i class="fi-page"></i> Inline edit</a>
         </li>
         <li>
-          <input onclick="layoutDesign();" type="button" class="toolbar button" value="LAYOUT DESIGN" id="layoutDesign">
+          <a id="layoutDesign" onclick="layoutDesign();" class="toolbar button"><i class="fi-pencil"></i> Layout design</a>
         </li>
       </ul>
     </div>

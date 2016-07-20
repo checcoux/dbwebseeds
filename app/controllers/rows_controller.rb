@@ -28,7 +28,7 @@ class RowsController < ApplicationController
 
     respond_to do |format|
       if @row.save
-        format.html { redirect_to @row, notice: 'Row was successfully created.' }
+        format.html { redirect_to @row }
         format.json { render :show, status: :created, location: @row }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class RowsController < ApplicationController
   def update
     respond_to do |format|
       if @row.update(row_params)
-        format.html { redirect_to @row, notice: 'Row was successfully updated.' }
+        format.html { redirect_to @row }
         format.json { render :show, status: :ok, location: @row }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class RowsController < ApplicationController
   def destroy
     @row.destroy
     respond_to do |format|
-      format.html { redirect_to rows_url, notice: 'Row was successfully destroyed.' }
+      format.html { redirect_to rows_url }
       format.json { head :no_content }
     end
   end

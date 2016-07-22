@@ -1,6 +1,6 @@
 <div data-sticky-container>
-  <div class="title-bar show-for-medium" data-sticky data-options="marginTop:0;" style="width:100%; z-index:1000;">
-    <div class="title-bar-left">
+  <div class="top-bar show-for-medium" data-sticky data-options="marginTop:0;" style="width:100%; z-index:1000;">
+    <div class="top-bar-left">
       <ul class="dropdown menu" data-dropdown-menu>
         <li class="menu-text"><a href="/">dbWEBcore</a></li>
         <li>
@@ -15,9 +15,39 @@
         <li>
           <a id="layoutDesign" onclick="layoutDesign();" class="toolbar button"><i class="fi-pencil"></i> Layout design</a>
         </li>
+        <li>
+          <a href="#">Sezioni</a>
+          <ul class="menu">
+            <li><a href="/sections">Elenco</a></li>
+            <li><a href="/sections/new">Nuova sezione</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">Pagine</a>
+          <ul class="menu">
+            <li><a href="/pages">Elenco</a></li>
+            <li><a href="/pages/new">Nuova pagina</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">Utenti</a>
+          <ul class="menu">
+            <li><a href="#">Elenco</a></li>
+            <li><a href="#">Nuovo utente</a></li>
+          </ul>
+        </li>
       </ul>
     </div>
-    <div class="title-bar-right">
+    <div class="top-bar-right">
+      <ul class="dropdown menu align-right" data-dropdown-menu>
+        <li>
+          <a href="/">Account</a>
+          <ul class="menu">
+            <li><a href="#">Dati personali</a></li>
+            <li><a href="#">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
     </div>
   </div>
 </div>

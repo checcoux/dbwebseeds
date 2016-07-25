@@ -54,3 +54,5 @@ gem 'jquery-ui-rails'
 gem 'jquery-colorpicker-rails'
 
 gem 'mysql2', '~> 0.3.18'
+
+gem 'devise'

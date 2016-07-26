@@ -44,7 +44,7 @@
           <a href="/">Account</a>
           <ul class="menu">
             <li><a href="#">Dati personali</a></li>
-            <li><a href="#">Logout</a></li>
+            <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
           </ul>
         </li>
       </ul>

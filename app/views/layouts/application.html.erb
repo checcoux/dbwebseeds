@@ -31,6 +31,67 @@
     });
   </script>
 
+  <!-- Menu amministrativo -->
+  <% if user_signed_in? then %>
+  <div data-sticky-container>
+    <div class="top-bar show-for-medium" data-sticky data-options="marginTop:0;" style="width:100%; z-index:1000;">
+      <div class="top-bar-left">
+        <ul class="dropdown menu" data-dropdown-menu>
+          <li class="menu-text"><a href="/">dbWEBcore</a></li>
+          <%= @menu_aggiuntivi %>
+          <li>
+            <a href="#">Sezioni</a>
+            <ul class="menu">
+              <li><a href="/sections">Elenco</a></li>
+              <li><a href="/sections/new">Nuova sezione</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">Pagine</a>
+            <ul class="menu">
+              <li><a href="/pages">Elenco</a></li>
+              <li><a href="/pages/new">Nuova pagina</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">Utenti</a>
+            <ul class="menu">
+              <li><a href="#">Elenco</a></li>
+              <li><a href="#">Nuovo utente</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="top-bar-right">
+        <ul class="dropdown menu align-right" data-dropdown-menu>
+          <li>
+            <a href="/">Account</a>
+            <ul class="menu">
+              <li><a href="#">Dati personali</a></li>
+              <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <% else %>
+    <div data-sticky-container>
+      <div class="top-bar show-for-medium" data-sticky data-options="marginTop:0;" style="width:100%; z-index:1000;">
+        <div class="top-bar-left">
+          <ul class="menu">
+            <li><%= link_to "Home", home_path %></li>
+          </ul>
+        </div>
+        <div class="top-bar-right">
+          <ul class="menu align-right">
+            <li><%= link_to "Login", new_user_session_path %></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
   <%= yield %>
 
   <!-- Footer -->

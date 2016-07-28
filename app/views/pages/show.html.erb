@@ -1,9 +1,5 @@
-<div data-sticky-container>
-  <div class="top-bar show-for-medium" data-sticky data-options="marginTop:0;" style="width:100%; z-index:1000;">
-    <div class="top-bar-left">
-      <ul class="dropdown menu" data-dropdown-menu>
-        <li class="menu-text"><a href="/">dbWEBcore</a></li>
-        <li>
+<%
+  @menu_aggiuntivi = '<li>
           <a id="pageSave" onclick="pageSave();" class="error button"><i class="fi-save"></i> Salva</a>
         </li>
         <li>
@@ -14,51 +10,14 @@
         </li>
         <li>
           <a id="layoutDesign" onclick="layoutDesign();" class="toolbar button"><i class="fi-pencil"></i> Layout design</a>
-        </li>
-        <li>
-          <a href="#">Sezioni</a>
-          <ul class="menu">
-            <li><a href="/sections">Elenco</a></li>
-            <li><a href="/sections/new">Nuova sezione</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="#">Pagine</a>
-          <ul class="menu">
-            <li><a href="/pages">Elenco</a></li>
-            <li><a href="/pages/new">Nuova pagina</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="#">Utenti</a>
-          <ul class="menu">
-            <li><a href="#">Elenco</a></li>
-            <li><a href="#">Nuovo utente</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-    <div class="top-bar-right">
-      <ul class="dropdown menu align-right" data-dropdown-menu>
-        <li>
-          <a href="/">Account</a>
-          <ul class="menu">
-            <li><a href="#">Dati personali</a></li>
-            <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-  </div>
-</div>
+        </li>'.html_safe
+%>
 
 <div class="reveal" id="finestra_modale" data-reveal>
   <button class="close-button" data-close aria-label="Close modal" type="button">
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
-
-<p id="notice"><%= notice %></p>
 
     <%= render(@page.rows.order('ordine ASC')) %>
 

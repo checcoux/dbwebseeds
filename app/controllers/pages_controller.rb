@@ -33,6 +33,17 @@ class PagesController < ApplicationController
     respond_to do |format|
       if @page.save
 
+        # solo una pagina di una certa sezione può avere il flag home / header / footer
+        if(@page.home)
+          Page.where("id != ? AND section_id = ?", @page.id, @page.section.id).update_all(home: false)
+        end
+        if(@page.header)
+          Page.where("id != ? AND section_id = ?", @page.id, @page.section.id).update_all(header: false)
+        end
+        if(@page.footer)
+          Page.where("id != ? AND section_id = ?", @page.id, @page.section.id).update_all(footer: false)
+        end
+
         # creo una riga vuota
         row = Row.create(ordine: 1, page_id: @page.id)
         row.save
@@ -55,7 +66,19 @@ class PagesController < ApplicationController
   def update
     respond_to do |format|
       if @page.update(page_params)
-        format.html { redirect_to @page }
+
+        # solo una pagina di una certa sezione può avere il flag home / header / footer
+        if(@page.home)
+          Page.where("id != ? AND section_id = ?", @page.id, @page.section.id).update_all(home: false)
+        end
+        if(@page.header)
+          Page.where("id != ? AND section_id = ?", @page.id, @page.section.id).update_all(header: false)
+        end
+        if(@page.footer)
+          Page.where("id != ? AND section_id = ?", @page.id, @page.section.id).update_all(footer: false)
+        end
+
+        format.html { redirect_to pages_url }
         format.json { render :show, status: :ok, location: @page }
       else
         format.html { render :edit }
@@ -82,7 +105,7 @@ class PagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def page_params
-      params.require(:page).permit(:titolo, :descrizione, :section_id)
+      params.require(:page).permit(:titolo, :descrizione, :section_id, :home, :header, :footer)
     end
 
     def pagina_non_trovata

@@ -16,10 +16,22 @@
     <%= f.text_field :titolo %>
   </div>
   <div class="field">
-    <%= f.label :section_id %><br>
+    <%= f.label "Sezione" %><br>
     <%= f.collection_select(:section_id, Section.all, :id, :titolo) %>
   </div>
+  <div class="field">
+    <%= f.check_box :home %>
+    <%= f.label :home %>
+  </div>
+  <div class="field">
+    <%= f.check_box :header %>
+    <%= f.label :header %>
+  </div>
+  <div class="field">
+    <%= f.check_box :footer %>
+    <%= f.label :footer %>
+  </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "SALVA", class: "button" %>
   </div>
 <% end %>

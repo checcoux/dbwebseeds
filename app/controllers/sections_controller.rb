@@ -29,6 +29,12 @@ class SectionsController < ApplicationController
 
     respond_to do |format|
       if @section.save
+
+        # solo una sezione può avere il flag principale
+        if(@section.principale)
+          Section.where.not(id: @section.id).update_all(principale: false)
+        end
+
         format.html { redirect_to @section, notice: 'Section was successfully created.' }
         format.json { render :show, status: :created, location: @section }
       else
@@ -43,6 +49,12 @@ class SectionsController < ApplicationController
   def update
     respond_to do |format|
       if @section.update(section_params)
+
+        # solo una sezione può avere il flag principale
+        if(@section.principale)
+          Section.where.not(id: @section.id).update_all(principale: false)
+        end
+
         format.html { redirect_to @section, notice: 'Section was successfully updated.' }
         format.json { render :show, status: :ok, location: @section }
       else
@@ -70,6 +82,6 @@ class SectionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def section_params
-      params.require(:section).permit(:titolo, :descrizione)
+      params.require(:section).permit(:titolo, :descrizione, :principale)
     end
 end

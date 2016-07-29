@@ -35,7 +35,7 @@ class SectionsController < ApplicationController
           Section.where.not(id: @section.id).update_all(principale: false)
         end
 
-        format.html { redirect_to @section, notice: 'Section was successfully created.' }
+        format.html { redirect_to sections_url }
         format.json { render :show, status: :created, location: @section }
       else
         format.html { render :new }
@@ -55,7 +55,7 @@ class SectionsController < ApplicationController
           Section.where.not(id: @section.id).update_all(principale: false)
         end
 
-        format.html { redirect_to @section, notice: 'Section was successfully updated.' }
+        format.html { redirect_to sections_url }
         format.json { render :show, status: :ok, location: @section }
       else
         format.html { render :edit }
@@ -69,7 +69,7 @@ class SectionsController < ApplicationController
   def destroy
     @section.destroy
     respond_to do |format|
-      format.html { redirect_to sections_url, notice: 'Section was successfully destroyed.' }
+      format.html { redirect_to sections_url }
       format.json { head :no_content }
     end
   end
@@ -82,6 +82,6 @@ class SectionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def section_params
-      params.require(:section).permit(:titolo, :descrizione, :principale)
+      params.require(:section).permit(:titolo, :percorso, :descrizione, :principale)
     end
 end

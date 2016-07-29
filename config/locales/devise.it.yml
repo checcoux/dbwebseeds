@@ -15,6 +15,10 @@ it:
           attributes:
             email:
               blank: Devi inserire un'email valida
+        section:
+          attributes:
+            descrizione:
+              blank: non può essere vuota
     models:
       user: Utente
   devise:

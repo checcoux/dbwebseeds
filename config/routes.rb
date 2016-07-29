@@ -27,7 +27,11 @@ Rails.application.routes.draw do
 
   resources :sections
 
-  resources :pages
+  resources :pages do
+    member do
+      get 'route'
+    end
+  end
 
   resources :column_images do
     member do
@@ -35,12 +39,13 @@ Rails.application.routes.draw do
     end
   end
 
+  get ':token' => 'pages#route'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'pages#index', as: 'home'
+  root 'pages#route', as: 'home'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

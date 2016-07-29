@@ -56,3 +56,5 @@ gem 'jquery-colorpicker-rails'
 gem 'mysql2', '~> 0.3.18'
 
 gem 'devise'
+
+gem 'friendly_id', '~> 5.1.0'

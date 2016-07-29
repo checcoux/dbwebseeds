@@ -3,31 +3,38 @@ class PagesController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :pagina_non_trovata
 
   # GET /
-  # GET /:token
+  # GET /:slug
   def route
-    # token contiene
-    token = params[:token]
+    slug = params[:slug]
 
-    if token
-      # il token potrebbe essere il percorso di una sezione...
-      sezione = Section.find_by percorso: token
-    end
+    if slug
+      # lo slug potrebbe essere il percorso di una sezione...
+      sezione = Section.find_by percorso: slug
 
-    # se la sezione non è stata trovata o non è stata specificata trovo la sezione principale
-    sezione ||= Section.find_by principale: true
-
-    if sezione
-      # trovo la home della sezione richiesta
-      @page = Page.find_by section: sezione, home: true
-      if @page
-        render :show
-      else
-        # non è stata definita la home della sezione richiesta, allora rimando alla lista delle pagine
-        redirect_to pages_url
+      if !sezione
+        # ...oppure il titolo di una pagina...
+        @page = Page.find(slug)
       end
     else
-      # non è stata definita la sezione principale, allora rimando alla lista delle pagine
-      redirect_to pages_url
+      sezione = Section.find_by principale: true
+    end
+
+    if @page
+      render :show
+    else
+      if sezione
+        # trovo la home della sezione richiesta
+        @page = Page.find_by section: sezione, home: true
+        if @page
+          render :show
+        else
+          # non è stata definita la home della sezione richiesta, allora rimando alla lista delle pagine
+          redirect_to pages_url
+        end
+      else
+        # non è stata definita la sezione principale, allora rimando alla lista delle pagine
+        redirect_to pages_url
+      end
     end
   end
 

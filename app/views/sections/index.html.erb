@@ -6,8 +6,8 @@
   <tbody>
     <% @sections.each do |section| %>
       <tr>
-        <td><%= link_to section.titolo, section, method: :get, class: "primary button bottone-largo" %></td>
-        <td>/<%= section.percorso %></td>
+        <td><%= link_to section.titolo, "/#{section.percorso}", method: :get, class: "primary button bottone-largo" %></td>
+        <td><%= link_to "/#{section.percorso}", "/#{section.percorso}" %></td>
         <td><%= section.descrizione %></td>
         <td><%= "principale" if section.principale %></td>
         <td><%= link_to 'Proprietà', edit_section_path(section), class: "tiny primary button" %></td>

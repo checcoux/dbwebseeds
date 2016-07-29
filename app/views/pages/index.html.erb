@@ -4,7 +4,8 @@
   <tbody>
     <% @pages.each do |page| %>
       <tr>
-        <td><%= link_to page.titolo, page, method: :get, class: "primary button bottone-largo" %></td>
+        <td><%= link_to page.titolo, "/#{page.slug}", method: :get, class: "primary button bottone-largo" %></td>
+        <td><%= link_to "/#{page.slug}", "/#{page.slug}" %></td>
         <td><%= "home" if page.home %>
             <%= "header" if page.header %>
             <%= "footer" if page.footer %></td>

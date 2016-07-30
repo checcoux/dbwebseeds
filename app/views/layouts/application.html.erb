@@ -56,8 +56,8 @@
           <li>
             <a href="#">Utenti</a>
             <ul class="menu">
-              <li><a href="#">Elenco</a></li>
-              <li><a href="#">Nuovo utente</a></li>
+              <li><a href="/admin/users">Elenco</a></li>
+              <li><a href="/admin/users/new">Nuovo utente</a></li>
             </ul>
           </li>
         </ul>
@@ -67,7 +67,7 @@
           <li>
             <a href="/">Account</a>
             <ul class="menu">
-              <li><a href="#">Dati personali</a></li>
+              <li><%= link_to "Dati personali", edit_user_registration_path %></li>
               <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
             </ul>
           </li>

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Lista utenti</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= link_to user.email, edit_user_path(user) %></td>
+        <td><%= link_to 'Elimina', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nuovo utente', new_user_path, class: 'large warning button' %>

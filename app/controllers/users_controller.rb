@@ -45,6 +45,11 @@ class UsersController < ApplicationController
       user_params.delete(:password_confirmation)
     end
 
+    # l'amministratore non può togliere a sè stesso il ruolo di amministratore
+    if @user == current_user && current_user.admin
+      params[:user][:admin] = true
+    end
+
     # https://github.com/plataformatec/devise/wiki/How-To%3a-Allow-users-to-edit-their-account-without-providing-a-password
     successfully_updated = if needs_password?(@user, user_params)
                              @user.update(user_params)
@@ -81,7 +86,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:email, :password, :password_confirmation)
+      params.require(:user).permit(:email, :password, :password_confirmation, :admin)
     end
 
     # https://github.com/plataformatec/devise/wiki/How-To%3a-Allow-users-to-edit-their-account-without-providing-a-password

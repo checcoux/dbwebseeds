@@ -19,7 +19,19 @@
   </button>
 </div>
 
+    <%
+      header = @page.trova_header if !@page.header # non lo mostro se sto modificando proprio un header
+
+      logger.debug "header3: #{header}"
+
+      footer = @page.trova_footer if !@page.footer
+    %>
+
+    <%= render(header.rows.order('ordine ASC')) if header %>
+
     <%= render(@page.rows.order('ordine ASC')) %>
+
+    <%= render(footer.rows.order('ordine ASC')) if footer %>
 
 <script>
 

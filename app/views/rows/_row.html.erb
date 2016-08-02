@@ -1,4 +1,7 @@
-<div id="row<%= row.id %>" class="<%= "expanded " if row.estesa %>collapse row" <%=
+<% if row.page.footer %>
+<div class="footer"<%= " style='background: ##{row.colore_sfondo}'".html_safe if !row.colore_sfondo.blank? %>>
+<% end %>
+<div id="row<%= row.id %>" class="<%= "expanded " if row.estesa %><%= "full-width " if row.page.footer %>collapse row" <%=
   style = ''
   if row.immagine_sfondo.exists?
     style = "url( #{row.immagine_sfondo.url(:content)} ) center top "
@@ -75,3 +78,6 @@
         <% end %>
   <% end %>
 </div>
+<% if row.page.footer %>
+</div>
+<% end %>

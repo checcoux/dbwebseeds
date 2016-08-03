@@ -41,7 +41,7 @@ class PagesController < ApplicationController
   # GET /pages
   # GET /pages.json
   def index
-    @pages = Page.order('section_id').all
+    @pages = Page.page(params[:page]).order('section_id').all
   end
 
   # GET /pages/1

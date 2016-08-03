@@ -1,6 +1,6 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Lista utenti</h1>
+<h1>utenti
+  <%= link_to 'Nuovo utente', new_user_path, class: 'large warning button float-right' %>
+</h1>
 
 <table>
   <thead>
@@ -20,6 +20,3 @@
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'Nuovo utente', new_user_path, class: 'large warning button' %>

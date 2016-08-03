@@ -1,10 +1,12 @@
-<h1>Pagine del sito</h1>
+<h1>Pagine del sito
+  <%= link_to 'NUOVA PAGINA', new_page_path, class: "large warning button float-right" %>
+</h1>
 
 <table>
   <tbody>
     <% @pages.each do |page| %>
       <tr>
-        <td><%= link_to page.titolo, "/#{page.slug}", method: :get, class: "primary button bottone-largo" %></td>
+        <td><%= link_to page.titolo, "/#{page.slug}", method: :get, class: "primary medium button bottone-largo" %></td>
         <td><%= link_to "/#{page.slug}", "/#{page.slug}" %></td>
         <td><%= "home" if page.home %>
             <%= "header" if page.header %>
@@ -17,6 +19,6 @@
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'NUOVA PAGINA', new_page_path, class: "large warning button" %>
+<div class="text-center">
+<%= will_paginate @pages, renderer: FoundationPagination::Rails %>
+</div>

@@ -41,5 +41,9 @@ class Page < ActiveRecord::Base
     piedipagina
   end
 
+  def dinamiche
+    Column.where("page_id = ? AND row_id = 0", id)
+  end
+
   self.per_page = 15
 end

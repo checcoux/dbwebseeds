@@ -446,6 +446,11 @@ class ColumnsController < ApplicationController
 
   def dialog_immagine
     @row = @column.row
+    if @row
+      @row_id = @row.id
+    else
+      @row_id = 0
+    end
     @column_image = ColumnImage.new
     @column_image.column = @column
     render layout: false

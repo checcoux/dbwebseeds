@@ -1,0 +1,58 @@
+<% if column.column_images.count == 0 %>
+    <div id="weditr<%= column.id %>" class="large-3 column bordo-dinamico" style="position: relative;">
+      <div id="editor<%= column.id %>" class="inline-editor" contenteditable="false">
+        <%= column.contenuto.html_safe %>
+      </div>
+
+      <div class="gestione-immagini"><button onclick="aggiungiImmagine(<%= column.id %>);"><i class="fi-photo"></i></button></div>
+    </div>
+<% elsif column.column_images.count == 1 %>
+    <div id="image_<%= column.id %>" class="large-3 column bordo-dinamico" style="position: relative;">
+      <% immagine = column.column_images.first %>
+      <% if immagine.collegamento.length > 0 %>
+          <a href="<%= immagine.collegamento %>">
+      <% end %>
+      <%= image_tag(immagine.immagine.url(:content), style: 'width: 100%;') %>
+
+      <% if immagine.titolo.length > 0 %>
+          <figcaption class='orbit-caption'>
+            <p class='column_image_titolo'><%= immagine.titolo %></p>
+            <% if immagine.descrizione.length > 0 %>
+                <p class='column_image_descrizione'><%= immagine.descrizione %></p>
+            <% end %>
+          </figcaption>
+      <% end %>
+
+      <% if immagine.collegamento.length > 0 %>
+          </a>
+      <% end %>
+      <div class="gestione-immagini"><button onclick="aggiungiImmagine(<%= column.id %>);"><i class="fi-plus"></i></button> <button onclick="modificaImmagine(<%= column.column_images.first.id %>);"><i class="fi-pencil"></i></button> <button onclick="eliminaImmagine(<%= column.column_images.first.id %>);"><i class="fi-x"></i></button></div>
+    </div>
+<% else %>
+    <div id="slider<%= column.id %>" class="large-3 column mioslider bordo-dinamico" style="position: relative;">
+
+      <% column.column_images.each do |column_image| %>
+          <div class="slide slick-slide">
+            <% if column_image.collegamento.length > 0 %>
+                <a href="<%= column_image.collegamento %>">
+            <% end %>
+            <img src="<%= column_image.immagine %>" style="width: 100%;">
+            <% if column_image.titolo.length > 0 %>
+                <div class='titolo-slide'>
+                  <p class='column_image_titolo'><%= column_image.titolo %></p>
+                  <% if column_image.descrizione.length > 0 %>
+                      <p class='column_image_descrizione'><%= column_image.descrizione %></p>
+                  <% end %>
+                </div>
+            <% end %>
+            <% if column_image.collegamento.length > 0 %>
+                </a>
+            <% end %>
+
+            <div class="gestione-immagini"><button onclick="aggiungiImmagine(<%= column.id %>);"><i class="fi-plus"></i></button> <button onclick="modificaImmagine(<%= column_image.id %>);"><i class="fi-pencil"></i></button> <button onclick="eliminaImmagine(<%= column_image.id %>);"><i class="fi-x"></i></button></div>
+
+          </div>
+      <% end %>
+
+    </div>
+<% end %>

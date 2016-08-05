@@ -396,6 +396,49 @@ class ColumnsController < ApplicationController
     end
   end
 
+  def rendi_dinamica_inserendo
+    @row = @column.row
+
+    if @column.fonte == 0
+      # crea una nuova colonna, identica a quella selezionata, ma con contenuto nullo
+      column2 = @column.dup
+      column2.contenuto = ''
+      column2.fonte = 1 # visualizza i contenuti dinamici della stessa pagina
+      column2.save
+
+      # la colonna di origine viene inserita nel circuito delle candidate
+      @column.page = @column.row.page
+      @column.row_id = 0
+
+      @column.save
+    end
+  end
+
+  def rendi_dinamica_eliminando
+    @row = @column.row
+
+    if @column.fonte == 0
+      # crea una nuova colonna, identica a quella selezionata, ma con contenuto nullo
+      column2 = @column.dup
+      column2.contenuto = ''
+      column2.fonte = 1 # visualizza i contenuti dinamici della stessa pagina
+      column2.save
+
+      # la colonna di origine viene eliminata
+      @column.destroy
+    end
+  end
+
+  def rendi_statica
+    @row = @column.row
+
+    if @column.fonte > 0
+      @column.fonte = 0
+      @column.save
+      column2.save
+    end
+  end
+
   def dialog_sfondo
     @row = @column.row
     render layout: false

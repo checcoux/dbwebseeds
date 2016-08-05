@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160730090544) do
+ActiveRecord::Schema.define(version: 20160805090017) do
 
   create_table "ckeditor_assets", force: :cascade do |t|
     t.string   "data_file_name",    limit: 255, null: false
@@ -51,8 +51,11 @@ ActiveRecord::Schema.define(version: 20160730090544) do
     t.datetime "updated_at"
     t.integer  "row_id"
     t.integer  "larghezza"
+    t.integer  "fonte",      default: 0
+    t.integer  "page_id",    default: 0
   end
 
+  add_index "columns", ["page_id"], name: "index_columns_on_page_id"
   add_index "columns", ["row_id"], name: "index_columns_on_row_id"
 
   create_table "friendly_id_slugs", force: :cascade do |t|

@@ -451,8 +451,10 @@ class ColumnsController < ApplicationController
     else
       @row_id = 0
     end
+
     @column_image = ColumnImage.new
     @column_image.column = @column
+
     render layout: false
   end
 
@@ -462,6 +464,12 @@ class ColumnsController < ApplicationController
 
     @column = @column_image.column
     @row = @column.row
+
+    if @row
+      @row_id = @row.id
+    else
+      @row_id = 0
+    end
 
     render layout: false
   end

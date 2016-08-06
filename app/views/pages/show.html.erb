@@ -29,9 +29,7 @@
 
     <%= render(@page.rows.order('ordine ASC')) %>
 
-    <div id="row0" class="collapse row small-up-1 medium-up-2 large-up-5">
-      <%= render(@page.dinamiche) %>
-    </div>
+    <%= render 'row0' %>
 
     <%= render(footer.rows.order('ordine ASC')) if footer %>
 
@@ -104,6 +102,9 @@
 
     // nasconde i pulsanti di gestione delle immagini
     $('.gestione-immagini').hide();
+
+    // nasconde la riga dei contenuti dinamici
+    $('#row0').hide();
 
       /*
        $('.context-menu-one').on('click', function(e){
@@ -178,6 +179,9 @@
 
     // nasconde i pulsanti di gestione delle immagini
     $('.gestione-immagini').hide();
+
+    // nasconde la riga dei contenuti dinamici
+    $('#row0').hide();
   }
 
   function inlineEdit() {
@@ -212,6 +216,9 @@
 
     // visualizza i pulsanti di gestione delle immagini
     $('.gestione-immagini').show();
+
+    // visualizza la riga dei contenuti dinamici
+    $('#row0').show();
   }
 
   function layoutDesign() {
@@ -238,6 +245,9 @@
 
     // visualizza i pulsanti di gestione delle immagini
     $('.gestione-immagini').show();
+
+    // nasconde la riga dei contenuti dinamici
+    $('#row0').hide();
   }
 
   function aggiungiImmagine(id) {

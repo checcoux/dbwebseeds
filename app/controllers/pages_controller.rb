@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_action :set_page, only: [:show, :edit, :update, :destroy]
+  before_action :set_page, only: [:show, :edit, :update, :destroy, :row0]
   rescue_from ActiveRecord::RecordNotFound, with: :pagina_non_trovata
 
   # GET /
@@ -131,6 +131,10 @@ class PagesController < ApplicationController
       format.html { redirect_to pages_url }
       format.json { head :no_content }
     end
+  end
+
+  def row0
+    render layout: false
   end
 
   private

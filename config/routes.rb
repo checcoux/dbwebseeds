@@ -36,6 +36,7 @@ Rails.application.routes.draw do
   resources :pages do
     member do
       get 'route'
+      get 'row0'
     end
   end
 

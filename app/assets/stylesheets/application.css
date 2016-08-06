@@ -21,6 +21,11 @@
 
 .bottone-largo { width: 100%; }
 
+.bottone-gigante {
+    width: 100%;
+    font-size: 5em !important;
+}
+
 .button {
     margin: 0 0 0 0 !important;
 }

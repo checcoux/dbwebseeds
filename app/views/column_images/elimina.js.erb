@@ -1,6 +1,10 @@
-$('#row<%= @row.id %>').replaceWith("<%= escape_javascript render(@row) %>").foundation();
+<% if @row_id==0 %>
+  $('#row0').replaceWith("<%= escape_javascript render 'pages/row0' %>").foundation();
+<% else %>
+  $('#row<%= @row_id %>').replaceWith("<%= escape_javascript render(@row) if @row %>").foundation();
+<% end %>
 
-$('#row<%= @row.id %> .mioslider').slick({
+$('#row<%= @row_id %> .mioslider').slick({
   slidestoshow: 1,
   slidestoscroll: 1,
   autoplay: true,

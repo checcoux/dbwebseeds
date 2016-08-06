@@ -29,8 +29,14 @@ class ColumnImagesController < ApplicationController
 
     respond_to do |format|
       if @column_image.save
-        format.html { redirect_to @column_image.column.row }
-        format.json { render :show, status: :created, location: @column_image.column.row }
+        if @column_image.column.row
+          format.html { redirect_to @column_image.column.row }
+          format.json { render :show, status: :created, location: @column_image.column.row }
+        else
+          @page = @column_image.column.page
+          format.html { render 'pages/_row0', layout: false }
+          # format.json { render :show, status: :created, location: @column_image.column.row }
+        end
       else
         format.html { render :new }
         format.json { render json: @column_image.errors, status: :unprocessable_entity }
@@ -43,8 +49,14 @@ class ColumnImagesController < ApplicationController
   def update
     respond_to do |format|
       if @column_image.update(column_image_params)
-        format.html { redirect_to @column_image.column.row }
-        format.json { render :show, status: :ok, location: @column_image.column.row }
+        if @column_image.column.row
+          format.html { redirect_to @column_image.column.row }
+          format.json { render :show, status: :ok, location: @column_image.column.row }
+        else
+          @page = @column_image.column.page
+          format.html { render 'pages/_row0', layout: false }
+          # format.json { render :show, status: :created, location: @column_image.column.row }
+        end
       else
         format.html { render :edit }
         format.json { render json: @column_image.errors, status: :unprocessable_entity }
@@ -64,6 +76,14 @@ class ColumnImagesController < ApplicationController
 
   def elimina
     @row = @column_image.column.row
+
+    if @row
+      @row_id = @row.id
+    else
+      @row_id = 0
+      @page = @column_image.column.page
+    end
+
     @column_image.destroy
   end
 

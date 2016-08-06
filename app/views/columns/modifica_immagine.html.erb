@@ -14,9 +14,9 @@
         $("#finestra_modale").foundation('close');
 
         // sostituiamo la riga modificata
-        $('#row<%= @row.id %>').replaceWith( data).foundation();
+        $('#row<%= @row_id %>').replaceWith( data).foundation();
 
-        $('#row<%= @row.id %> .mioslider').slick({
+        $('#row<%= @row_id %> .mioslider').slick({
           slidestoshow: 1,
           slidestoscroll: 1,
           autoplay: true,

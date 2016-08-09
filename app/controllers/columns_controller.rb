@@ -399,7 +399,6 @@ class ColumnsController < ApplicationController
 
   def rendi_dinamica_inserendo
     @row = @column.row
-    @page = @column.row.page
 
     if @column.fonte == 0
       # crea una nuova colonna, identica a quella selezionata, ma con contenuto nullo
@@ -477,18 +476,20 @@ class ColumnsController < ApplicationController
   end
 
   def elimina_contenuto_dinamico
-    @page = @column.page
     @column_id = @column.id
     @column.destroy
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_column
       @column = Column.find(params[:id])
+      if @column.row
+        @page = @column.row.page
+      else
+        @page = @column.page
+      end
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def column_params
       params.require(:column).permit(:ordine, :contenuto, :larghezza, :row_id)
     end

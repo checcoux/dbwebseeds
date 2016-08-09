@@ -1,4 +1,8 @@
 class Page < ActiveRecord::Base
+  after_initialize do |page|
+    @colonne_selezionate = []
+  end
+
   extend FriendlyId
   belongs_to :section
   has_many :rows, dependent: :destroy
@@ -9,7 +13,7 @@ class Page < ActiveRecord::Base
 
   def slug_candidates
     [
-        [ section.percorso, :titolo ]
+        [section.percorso, :titolo]
     ]
   end
 
@@ -43,6 +47,17 @@ class Page < ActiveRecord::Base
 
   def dinamiche
     Column.where("page_id = ? AND row_id = 0", id)
+  end
+
+  def candidata(fonte = 1)
+    dinamiche.order('created_at DESC').each do |colonna|
+      if !@colonne_selezionate.include?(colonna.id)
+        @colonne_selezionate << colonna.id
+        return colonna
+        break
+      end
+    end
+    nil
   end
 
   self.per_page = 15

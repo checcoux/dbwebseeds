@@ -1,3 +1,10 @@
+<%
+  # attenzione: in realtà questo blocco non viene mai eseguito perché il partial _column viene utilizzato solo da row0
+  if column.fonte > 0
+    selezionata = @page.candidata
+    column = selezionata if selezionata
+  end
+%>
 <% if column.column_images.count == 0 %>
     <div id="weditr<%= column.id %>" class="large-3 column bordo-dinamico" style="position: relative;">
       <div id="editor<%= column.id %>" class="inline-editor" contenteditable="false">

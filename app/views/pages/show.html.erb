@@ -271,4 +271,24 @@
       $("#finestra_modale").html(data).foundation("open");
     });
   }
+
+  function nuovoContenutoDinamico(id) { // attenzione: è l'id della pagina
+    $.ajax({
+      url: '/pages/' + id + '/nuovo_contenuto_dinamico.js',
+      type: 'POST',
+      data: {
+        authenticity_token: '<%= form_authenticity_token %>'
+      }
+    });
+  }
+
+  function eliminaContenutoDinamico(id) {
+    $.ajax({
+      url: '/columns/' + id + '/elimina_contenuto_dinamico.js',
+      type: 'POST',
+      data: {
+        authenticity_token: '<%= form_authenticity_token %>'
+      }
+    });
+  }
 </script>

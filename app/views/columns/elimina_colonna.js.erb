@@ -9,3 +9,5 @@ $('#row<%= @row.id %> .mioslider').slick({
   zIndex: 100,
   arrows: true
 });
+
+CKEDITOR.instances['editor<%= @column_id %>'].destroy();

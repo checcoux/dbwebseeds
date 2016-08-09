@@ -23,6 +23,7 @@ Rails.application.routes.draw do
       post 'rendi_dinamica_inserendo'
       post 'rendi_dinamica_eliminando'
       post 'rendi_statica'
+      post 'elimina_contenuto_dinamico'
       get 'dialog_sfondo'
       get 'dialog_immagine'
       get 'modifica_immagine'
@@ -37,6 +38,7 @@ Rails.application.routes.draw do
     member do
       get 'route'
       get 'row0'
+      post 'nuovo_contenuto_dinamico'
     end
   end
 

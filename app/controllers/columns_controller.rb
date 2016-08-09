@@ -373,6 +373,7 @@ class ColumnsController < ApplicationController
 
   def elimina_colonna
     @row = @column.row
+    @column_id = @column.id
     posizione = @column.ordine
 
     # procedo solo se ci sono almeno due colonne
@@ -398,6 +399,7 @@ class ColumnsController < ApplicationController
 
   def rendi_dinamica_inserendo
     @row = @column.row
+    @page = @column.row.page
 
     if @column.fonte == 0
       # crea una nuova colonna, identica a quella selezionata, ma con contenuto nullo
@@ -407,7 +409,7 @@ class ColumnsController < ApplicationController
       column2.save
 
       # la colonna di origine viene inserita nel circuito delle candidate
-      @column.page = @column.row.page
+      @column.page = @page
       @column.row_id = 0
 
       @column.save
@@ -472,6 +474,12 @@ class ColumnsController < ApplicationController
     end
 
     render layout: false
+  end
+
+  def elimina_contenuto_dinamico
+    @page = @column.page
+    @column_id = @column.id
+    @column.destroy
   end
 
   private

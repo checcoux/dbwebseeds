@@ -1,8 +1,18 @@
 $('#row<%= @row.id %>').replaceWith("<%= escape_javascript render(@row) %>").foundation();
 $('#row<%= @row.id %> .columns').addClass('bordo_layout');
-$('#row<%= @row.id %>').foundation();
+// $('#row<%= @row.id %>').foundation();
+$('#row0').replaceWith("<%= escape_javascript render 'pages/row0', layout: false %>").foundation();
 
 $('#row<%= @row.id %> .mioslider').slick({
+  slidestoshow: 1,
+  slidestoscroll: 1,
+  autoplay: true,
+  autoplayspeed: 2000,
+  zIndex: 100,
+  arrows: true
+});
+
+$('#row0 > .mioslider').slick({
   slidestoshow: 1,
   slidestoscroll: 1,
   autoplay: true,

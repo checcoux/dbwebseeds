@@ -1,0 +1,12 @@
+$('#row0').replaceWith("<%= escape_javascript render 'pages/row0', layout: false %>").foundation();
+
+$('#row0 > .mioslider').slick({
+  slidestoshow: 1,
+  slidestoscroll: 1,
+  autoplay: true,
+  autoplayspeed: 2000,
+  zIndex: 100,
+  arrows: true
+});
+
+CKEDITOR.instances['editor<%= @column_id %>'].destroy();

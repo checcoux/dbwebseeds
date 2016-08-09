@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_action :set_page, only: [:show, :edit, :update, :destroy, :row0]
+  before_action :set_page, only: [:show, :edit, :update, :destroy, :row0, :nuovo_contenuto_dinamico]
   rescue_from ActiveRecord::RecordNotFound, with: :pagina_non_trovata
 
   # GET /
@@ -135,6 +135,11 @@ class PagesController < ApplicationController
 
   def row0
     render layout: false
+  end
+
+  def nuovo_contenuto_dinamico
+    column = Column.new(page: @page, row_id: 0, contenuto: '', ordine: 0, larghezza: 3)
+    column.save
   end
 
   private

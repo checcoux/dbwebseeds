@@ -103,6 +103,7 @@ class ColumnsController < ApplicationController
     rows.each do |riga|
       riga.ordine = riga.ordine + 1
       riga.save
+      # logger.info riga.errors.inspect
     end
 
     # creo una riga vuota
@@ -403,7 +404,7 @@ class ColumnsController < ApplicationController
     if @column.fonte == 0
       # crea una nuova colonna, identica a quella selezionata, ma con contenuto nullo
       column2 = @column.dup
-      column2.contenuto = ''
+      column2.contenuto = ' '
       column2.fonte = 1 # visualizza i contenuti dinamici della stessa pagina
       column2.save
 
@@ -421,7 +422,7 @@ class ColumnsController < ApplicationController
     if @column.fonte == 0
       # crea una nuova colonna, identica a quella selezionata, ma con contenuto nullo
       column2 = @column.dup
-      column2.contenuto = ''
+      column2.contenuto = ' '
       column2.fonte = 1 # visualizza i contenuti dinamici della stessa pagina
       column2.save
 
@@ -436,7 +437,6 @@ class ColumnsController < ApplicationController
     if @column.fonte > 0
       @column.fonte = 0
       @column.save
-      column2.save
     end
   end
 

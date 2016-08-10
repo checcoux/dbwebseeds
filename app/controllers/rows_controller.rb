@@ -10,6 +10,7 @@ class RowsController < ApplicationController
   # GET /rows/1
   # GET /rows/1.json
   def show
+    @page = @row.page
     render layout: false
   end
 

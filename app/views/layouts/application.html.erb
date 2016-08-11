@@ -32,7 +32,7 @@
   </script>
 
   <!-- Menu amministrativo -->
-  <% if user_signed_in? then %>
+  <% if user_signed_in? %>
   <div data-sticky-container>
     <div class="top-bar show-for-medium sticky" data-sticky data-options="marginTop:0;" style="width:100%; z-index:1000;">
       <div class="top-bar-left">
@@ -75,21 +75,6 @@
       </div>
     </div>
   </div>
-  <% else %>
-    <div data-sticky-container>
-      <div class="top-bar show-for-medium sticky" data-sticky data-options="marginTop:0;" style="width:100%; z-index:1000;">
-        <div class="top-bar-left">
-          <ul class="menu">
-            <li><%= link_to "Home", home_path %></li>
-          </ul>
-        </div>
-        <div class="top-bar-right">
-          <ul class="menu align-right">
-            <li><%= link_to "Login", new_user_session_path %></li>
-          </ul>
-        </div>
-      </div>
-    </div>
   <% end %>
 
   <%= yield %>

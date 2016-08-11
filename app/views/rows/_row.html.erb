@@ -29,6 +29,7 @@
       else
         editable = true
       end
+      editable = false if !user_signed_in?
       if column.column_images.count == 0 %>
           <div id="weditr<%= column_id %>" class="large-<%= column.larghezza %> columns" style="position: relative;">
             <div id="editor<%= column_id %>"<% if editable %> class="inline-editor" contenteditable="false"<% end %>>
@@ -37,7 +38,7 @@
 
             <% if editable %>
               <div class="gestione-immagini"><button onclick="aggiungiImmagine(<%= column_id %>);"><i class="fi-photo"></i></button></div>
-            <% else %>
+            <% elsif user_signed_in? %>
                 <div class="gestione-immagini"><i class="fi-link"></i></div>
             <% end %>
           </div>
@@ -63,7 +64,7 @@
             <% end %>
             <% if editable %>
               <div class="gestione-immagini"><button onclick="aggiungiImmagine(<%= column_id %>);"><i class="fi-plus"></i></button> <button onclick="modificaImmagine(<%= column.column_images.first.id %>);"><i class="fi-pencil"></i></button> <button onclick="eliminaImmagine(<%= column.column_images.first.id %>);"><i class="fi-x"></i></button></div>
-            <% else %>
+            <% elsif user_signed_in? %>
                 <div class="gestione-immagini"><i class="fi-link"></i></div>
             <% end %>
           </div>
@@ -90,7 +91,7 @@
 
                         <% if editable %>
                           <div class="gestione-immagini"><button onclick="aggiungiImmagine(<%= column_id %>);"><i class="fi-plus"></i></button> <button onclick="modificaImmagine(<%= column_image.id %>);"><i class="fi-pencil"></i></button> <button onclick="eliminaImmagine(<%= column_image.id %>);"><i class="fi-x"></i></button></div>
-                        <% else %>
+                        <% elsif user_signed_in? %>
                             <div class="gestione-immagini"><i class="fi-link"></i></div>
                         <% end %>
 

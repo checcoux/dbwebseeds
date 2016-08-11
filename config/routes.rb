@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   mount Ckeditor::Engine => '/ckeditor'
 
+  get 'login', to: redirect('/users/sign_in')
+
   resources :columns do
     member do
       post 'editor_update'

@@ -29,10 +29,12 @@
 
     <%= render(@page.rows.order('ordine ASC')) %>
 
-    <%= render 'row0' %>
+    <%= render 'row0' if user_signed_in? %>
 
     <%= render(footer.rows.order('ordine ASC')) if footer %>
 
+
+<% if user_signed_in? %>
 <script>
 
   $(function() {
@@ -292,3 +294,20 @@
     });
   }
 </script>
+
+<% else %>
+    <script>
+
+      $(function() {
+        $('.mioslider').slick({
+          slidestoshow: 1,
+          slidestoscroll: 1,
+          autoplay: true,
+          autoplayspeed: 2000,
+          zIndex: 100,
+          arrows: true
+        });
+      });
+
+    </script>
+<% end %>

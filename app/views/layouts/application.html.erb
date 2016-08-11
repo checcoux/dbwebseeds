@@ -34,7 +34,7 @@
   <!-- Menu amministrativo -->
   <% if user_signed_in? then %>
   <div data-sticky-container>
-    <div class="top-bar show-for-medium" data-sticky data-options="marginTop:0;" style="width:100%; z-index:1000;">
+    <div class="top-bar show-for-medium sticky" data-sticky data-options="marginTop:0;" style="width:100%; z-index:1000;">
       <div class="top-bar-left">
         <ul class="dropdown menu" data-dropdown-menu>
           <li class="menu-text"><a href="/"><img src="/img/logodbwebcore.png" width="200"></a></li>
@@ -77,7 +77,7 @@
   </div>
   <% else %>
     <div data-sticky-container>
-      <div class="top-bar show-for-medium" data-sticky data-options="marginTop:0;" style="width:100%; z-index:1000;">
+      <div class="top-bar show-for-medium sticky" data-sticky data-options="marginTop:0;" style="width:100%; z-index:1000;">
         <div class="top-bar-left">
           <ul class="menu">
             <li><%= link_to "Home", home_path %></li>

@@ -20,6 +20,10 @@
     <%= f.collection_select(:section_id, Section.all, :id, :titolo) %>
   </div>
   <div class="field">
+    <%= f.check_box :visibile %>
+    <%= f.label :visibile %>
+  </div>
+  <div class="field">
     <%= f.check_box :home %>
     <%= f.label :home %>
   </div>
@@ -30,6 +34,14 @@
   <div class="field">
     <%= f.check_box :footer %>
     <%= f.label :footer %>
+  </div>
+  <div class="field">
+    <%= f.check_box :modello %>
+    <%= f.label :modello %>
+  </div>
+  <div class="field">
+    <%= f.check_box :articolo %>
+    <%= f.label :articolo %>
   </div>
   <div class="actions">
     <%= f.submit "SALVA", class: "button" %>

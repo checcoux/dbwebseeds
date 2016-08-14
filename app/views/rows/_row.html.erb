@@ -37,7 +37,9 @@
             </div>
 
             <% if editable %>
-              <div class="gestione-immagini"><button onclick="aggiungiImmagine(<%= column_id %>);"><i class="fi-photo"></i></button></div>
+              <div class="gestione-immagini"><button onclick="aggiungiImmagine(<%= column_id %>);"><i class="fi-photo"></i></button>
+              <%= " #{column.ruolo}".html_safe if column.ruolo %>
+              </div>
             <% elsif user_signed_in? %>
                 <div class="gestione-immagini"><i class="fi-link"></i></div>
             <% end %>

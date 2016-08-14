@@ -29,7 +29,7 @@
 
     <%= render(@page.rows.order('ordine ASC')) %>
 
-    <%= render 'row0' if user_signed_in? %>
+    <%= render 'row0' if user_signed_in? && !@page.modello && !@page.header && !@page.footer %>
 
     <%= render(footer.rows.order('ordine ASC')) if footer %>
 
@@ -90,9 +90,18 @@
         "sep2": "---------",
         "dialog_sfondo": {name: "<i class='fi-paint-bucket'></i>&nbsp;Sfondo...", isHtmlName: true},
         "sep3": "---------",
+      <% if !@page.modello %>
         "rendi_dinamica_inserendo": {name: "<i class='fi-link'></i>&nbsp;Archivia e crea area dinamica", isHtmlName: true},
+      <% end %>
         "rendi_dinamica_eliminando": {name: "<i class='fi-link'></i>&nbsp;Elimina e crea area dinamica", isHtmlName: true},
         "rendi_statica": {name: "<i class='fi-unlink'></i>&nbsp;Reimposta area statica", isHtmlName: true},
+      <% if @page.modello %>
+        "sep4": "---------",
+        "aggiungi_ruolo_titolo": {name: "<i class='fi-quote'></i>&nbsp;Titolo", isHtmlName: true},
+        "aggiungi_ruolo_abstract": {name: "<i class='fi-quote'></i>&nbsp;Abstract", isHtmlName: true},
+        "aggiungi_ruolo_testo": {name: "<i class='fi-quote'></i>&nbsp;Testo", isHtmlName: true},
+        "cancella_ruolo": {name: "<i class='fi-x'></i>&nbsp;Cancella ruolo", isHtmlName: true},
+      <% end %>
       }
     });
 

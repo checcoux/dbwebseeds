@@ -74,7 +74,6 @@ class ColumnsController < ApplicationController
   end
 
   def estendi_riga
-    @row = @column.row
     @row.estesa = true
     @row.save
     respond_to do |format|
@@ -85,7 +84,6 @@ class ColumnsController < ApplicationController
   end
 
   def riduci_riga
-    @row = @column.row
     @row.estesa = false
     @row.save
     respond_to do |format|
@@ -94,7 +92,6 @@ class ColumnsController < ApplicationController
   end
 
   def inserisci_riga_prima
-    @row = @column.row
     posizione = @row.ordine
     page = @row.page
 
@@ -116,7 +113,6 @@ class ColumnsController < ApplicationController
   end
 
   def inserisci_riga_dopo
-    @row = @column.row
     posizione = @row.ordine
     page = @row.page
 
@@ -140,7 +136,6 @@ class ColumnsController < ApplicationController
 
     # se è l'ultima riga non la elimino
     if(@column.row.page.rows.count > 1) then
-      @row = @column.row
       @row.destroy
     end
 
@@ -150,7 +145,6 @@ class ColumnsController < ApplicationController
   end
 
   def inserisci_colonna_prima1
-    @row = @column.row
     posizione = @column.ordine
 
     # procedo solo se la differenza tra la somma delle larghezze delle colonne successive e il loro numero è maggiore di zero
@@ -178,7 +172,6 @@ class ColumnsController < ApplicationController
   end
 
   def inserisci_colonna_dopo
-    @row = @column.row
     posizione = @column.ordine
 
     # procedo solo se la differenza tra la somma delle larghezze delle colonne successive e il loro numero è maggiore di zero
@@ -219,7 +212,6 @@ class ColumnsController < ApplicationController
   end
 
   def inserisci_colonna_prima
-    @row = @column.row
     posizione = @column.ordine
 
     # procedo solo se la differenza tra la somma delle larghezze delle colonne precedenti e il loro numero è maggiore di zero
@@ -263,7 +255,6 @@ class ColumnsController < ApplicationController
   end
 
   def inserisci_colonna_dopo0
-    @row = @column.row
     posizione = @column.ordine
 
     # prendo la collezione delle colonne e aumento di uno l'ordine di tutte quelle con ordine >= posizione, a partire dall'ultima
@@ -296,7 +287,6 @@ class ColumnsController < ApplicationController
   end
 
   def allarga_colonna
-    @row = @column.row
     posizione = @column.ordine
 
     # procedo solo se ci sono almeno due colonne
@@ -347,7 +337,6 @@ class ColumnsController < ApplicationController
   end
 
   def stringi_colonna
-    @row = @column.row
     posizione = @column.ordine
 
     # procedo solo se ci sono almeno due colonne
@@ -373,7 +362,6 @@ class ColumnsController < ApplicationController
   end
 
   def elimina_colonna
-    @row = @column.row
     @column_id = @column.id
     posizione = @column.ordine
 
@@ -399,11 +387,10 @@ class ColumnsController < ApplicationController
   end
 
   def rendi_dinamica_inserendo
-    @row = @column.row
-
     if @column.fonte == 0
       # crea una nuova colonna, identica a quella selezionata, ma con contenuto nullo
       column2 = @column.dup
+      column2.ruolo = ''
       column2.contenuto = ' '
       column2.fonte = 1 # visualizza i contenuti dinamici della stessa pagina
       column2.save
@@ -417,11 +404,10 @@ class ColumnsController < ApplicationController
   end
 
   def rendi_dinamica_eliminando
-    @row = @column.row
-
     if @column.fonte == 0
       # crea una nuova colonna, identica a quella selezionata, ma con contenuto nullo
       column2 = @column.dup
+      column2.ruolo = ''
       column2.contenuto = ' '
       column2.fonte = 1 # visualizza i contenuti dinamici della stessa pagina
       column2.save
@@ -432,8 +418,6 @@ class ColumnsController < ApplicationController
   end
 
   def rendi_statica
-    @row = @column.row
-
     if @column.fonte > 0
       @column.fonte = 0
       @column.save
@@ -441,12 +425,10 @@ class ColumnsController < ApplicationController
   end
 
   def dialog_sfondo
-    @row = @column.row
     render layout: false
   end
 
   def dialog_immagine
-    @row = @column.row
     if @row
       @row_id = @row.id
     else
@@ -480,10 +462,32 @@ class ColumnsController < ApplicationController
     @column.destroy
   end
 
+  def aggiungi_ruolo_titolo
+    @column.ruolo = 'titolo'
+    @column.save
+  end
+
+  def aggiungi_ruolo_abstract
+    @column.ruolo = 'abstract'
+    @column.save
+  end
+
+  def aggiungi_ruolo_testo
+    @column.ruolo = 'testo'
+    @column.save
+  end
+
+  def cancella_ruolo
+    @column.ruolo = ''
+    @column.save
+  end
+
   private
     def set_column
       @column = Column.find(params[:id])
-      if @column.row
+      @row = @column.row
+
+      if @row
         @page = @column.row.page
       else
         @page = @column.page

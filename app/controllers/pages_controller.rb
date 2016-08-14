@@ -63,6 +63,8 @@ class PagesController < ApplicationController
   # POST /pages.json
   def create
     @page = Page.new(page_params)
+    @page.visibile = false if @page.modello
+    @page.articolo = false if @page.modello
     # @layout = Layout.find_by(titolo: 'Layout 1')
     # @page.layout = @layout
 
@@ -150,7 +152,7 @@ class PagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def page_params
-      params.require(:page).permit(:titolo, :descrizione, :section_id, :home, :header, :footer)
+      params.require(:page).permit(:titolo, :descrizione, :section_id, :home, :header, :footer, :modello, :visibile, :articolo)
     end
 
     def pagina_non_trovata

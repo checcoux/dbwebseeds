@@ -10,7 +10,9 @@
         <td><%= link_to "/#{page.slug}", "/#{page.slug}" %></td>
         <td><%= "home" if page.home %>
             <%= "header" if page.header %>
-            <%= "footer" if page.footer %></td>
+            <%= "footer" if page.footer %>
+            <%= "modello" if page.modello %>
+            <%= "articolo" if page.articolo %></td>
         <td><%= "Sezione " + page.section.titolo %></td>
         <td><%= link_to 'Proprietà', edit_page_path(page), class: "tiny primary button" %></td>
         <td><%= link_to 'Elimina', page, method: :delete, data: { confirm: 'Are you sure?' }, class: "tiny alert button" %></td>

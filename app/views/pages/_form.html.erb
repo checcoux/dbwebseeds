@@ -19,30 +19,35 @@
     <%= f.label "Sezione" %><br>
     <%= f.collection_select(:section_id, Section.all, :id, :titolo) %>
   </div>
-  <div class="field">
-    <%= f.check_box :visibile %>
-    <%= f.label :visibile %>
-  </div>
-  <div class="field">
-    <%= f.check_box :home %>
-    <%= f.label :home %>
-  </div>
-  <div class="field">
-    <%= f.check_box :header %>
-    <%= f.label :header %>
-  </div>
-  <div class="field">
-    <%= f.check_box :footer %>
-    <%= f.label :footer %>
-  </div>
-  <div class="field">
-    <%= f.check_box :modello %>
-    <%= f.label :modello %>
-  </div>
-  <div class="field">
-    <%= f.check_box :articolo %>
-    <%= f.label :articolo %>
-  </div>
+  <% if @page.articolo %>
+    <%= f.hidden_field :visibile %>
+    <%= f.hidden_field :home %>
+    <%= f.hidden_field :header %>
+    <%= f.hidden_field :footer %>
+    <%= f.hidden_field :modello %>
+  <% else %>
+    <div class="field">
+      <%= f.check_box :visibile %>
+      <%= f.label :visibile %>
+    </div>
+    <div class="field">
+      <%= f.check_box :home %>
+      <%= f.label :home %>
+    </div>
+    <div class="field">
+      <%= f.check_box :header %>
+      <%= f.label :header %>
+    </div>
+    <div class="field">
+      <%= f.check_box :footer %>
+      <%= f.label :footer %>
+    </div>
+    <div class="field">
+      <%= f.check_box :modello %>
+      <%= f.label :modello %>
+    </div>
+  <% end %>
+  <%= f.hidden_field :articolo %>
   <div class="actions">
     <%= f.submit "SALVA", class: "button" %>
   </div>

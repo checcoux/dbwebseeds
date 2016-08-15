@@ -52,7 +52,33 @@ class PagesController < ApplicationController
 
   # GET /pages/new
   def new
-    @page = Page.new
+    section = Section.find(params[:section_id]) if params[:section_id]
+
+    if params[:articolo]
+      # se non è stata trovata la sezione genera un errore
+      return redirect_to sections_url if !section
+
+      # trova il modello per gli articoli della sezione... solo per evitare che si passi a create senza modello
+      modello = section.trova_modello
+      return redirect_to sections_url if !modello
+
+      # duplica il modello
+      @page = modello.dup
+      @page.titolo = ''
+      @page.section = section # il modello potrebbe venire dalla sezione principale
+
+      # impostazione dei flag
+      @page.visibile = true
+      @page.home = false
+      @page.header = false
+      @page.footer = false
+      @page.modello = false
+      @page.articolo = true
+    else
+      @page = Page.new
+      @page.section = section if section
+    end
+
   end
 
   # GET /pages/1/edit
@@ -82,13 +108,42 @@ class PagesController < ApplicationController
           Page.where("id != ? AND section_id = ?", @page.id, @page.section.id).update_all(footer: false)
         end
 
-        # creo una riga vuota
-        row = Row.create(ordine: 1, page_id: @page.id)
-        row.save
+        if @page.articolo
+          # trova il modello per gli articoli della sezione
+          modello = @page.section.trova_modello
 
-        # creo una colonna vuota
-        column = Column.create(ordine: 1, larghezza: 12, row_id: row.id, contenuto: '<p>Cantami o Diva del pelide Achille l\'ira funesta...</p>')
-        column.save
+          # duplicazione di tutte le righe
+          modello.rows.each do |riga|
+            riga2 = riga.dup
+            riga2.page = @page
+            riga2.save
+
+            riga.columns.each do |colonna|
+              colonna2 = colonna.dup
+              colonna2.row = riga2
+              if colonna2.ruolo = 'titolo'
+                colonna2.contenuto.sub! /titolo/i, @page.titolo
+              end
+              colonna2.save
+
+              # todo: duplicazione di tutte le column_images
+              colonna.column_images.each do |column_image|
+                column_image2 = column_image.dup
+                column_image2.column = colonna2
+                column_image2.immagine = column_image.immagine
+                column_image2.save
+              end
+            end
+          end
+        else
+          # creo una riga vuota
+          row = Row.create(ordine: 1, page_id: @page.id)
+          row.save
+
+          # creo una colonna vuota
+          column = Column.create(ordine: 1, larghezza: 12, row_id: row.id, contenuto: '<p>Cantami o Diva del pelide Achille l\'ira funesta...</p>')
+          column.save
+        end
 
         format.html { redirect_to @page }
         format.json { render :show, status: :created, location: @page }

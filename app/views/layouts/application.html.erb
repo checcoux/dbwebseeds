@@ -49,8 +49,25 @@
           <li>
             <a href="#">Pagine</a>
             <ul class="menu">
-              <li><a href="/pages">Elenco</a></li>
+              <% Section.order('titolo').each do |section| %>
+              <li><%= link_to section.titolo, pages_path(:section_id => section.id) %></li>
+              <% end %>
+              <li><a href="/pages">Tutte le pagine</a></li>
+              <% if @section %>
+              <li><a href="/pages/new?section_id=<%= @section.id %>">Nuova pagina</a></li>
+              <% else %>
               <li><a href="/pages/new">Nuova pagina</a></li>
+              <% end %>
+            </ul>
+          </li>
+          <li>
+            <a href="#">Articoli</a>
+            <ul class="menu">
+              <% Section.order('titolo').each do |section| %>
+                  <li><%= link_to section.titolo, pages_path(:section_id => section.id, :articolo => 1) %></li>
+              <% end %>
+              <li><a href="/pages?articolo=1">Tutti gli articoli</a></li>
+              <% if @section %><li><a href="/pages/new?section_id=<%= @section.id %>&articolo=1">Nuovo articolo</a></li><% end %>
             </ul>
           </li>
           <li>

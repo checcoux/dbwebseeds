@@ -27,6 +27,21 @@
 
     <%= render(header.rows.order('ordine ASC')) if header %>
 
+    <% if @page.articolo %>
+    <div class="column row">
+      <nav aria-label="Sei qui:" role="navigation">
+        <p></p>
+        <ul class="breadcrumbs">
+          <li><a href="/">Home</a></li>
+          <% if !@page.section.principale %><li><a href="/<%= @page.section.percorso %>"><%= @page.section.titolo %></a></li><% end %>
+          <li>
+            <span class="show-for-sr">Current: </span> <%= @page.titolo %>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <% end %>
+
     <%= render(@page.rows.order('ordine ASC')) %>
 
     <%= render 'row0' if user_signed_in? && !@page.modello && !@page.header && !@page.footer %>

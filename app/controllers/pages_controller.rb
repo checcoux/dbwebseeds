@@ -20,12 +20,14 @@ class PagesController < ApplicationController
     end
 
     if @page
+      @section = @page.section
       render :show
     else
       if sezione
         # trovo la home della sezione richiesta
         @page = Page.find_by section: sezione, home: true
         if @page
+          @section = @page.section
           render :show
         else
           # non è stata definita la home della sezione richiesta, allora rimando alla lista delle pagine
@@ -41,7 +43,18 @@ class PagesController < ApplicationController
   # GET /pages
   # GET /pages.json
   def index
-    @pages = Page.page(params[:page]).order('section_id').all
+    if params[:articolo]
+      mostra_articoli = 't'
+      ordine = 'created_at DESC'
+    else
+      mostra_articoli = 'f'
+      ordine = 'titolo'
+    end
+    if params[:section_id]
+      @pages = Page.where("section_id = ? AND articolo = ?", params[:section_id], mostra_articoli).page(params[:page]).order(ordine).all
+    else
+      @pages = Page.where("articolo = ?", mostra_articoli).page(params[:page]).order(ordine).all
+    end
   end
 
   # GET /pages/1
@@ -126,7 +139,7 @@ class PagesController < ApplicationController
               end
               colonna2.save
 
-              # todo: duplicazione di tutte le column_images
+              # duplicazione di tutte le column_images
               colonna.column_images.each do |column_image|
                 column_image2 = column_image.dup
                 column_image2.column = colonna2
@@ -203,6 +216,7 @@ class PagesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_page
       @page = Page.find(params[:id])
+      @section = @page.section
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

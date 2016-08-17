@@ -44,10 +44,10 @@ class PagesController < ApplicationController
   # GET /pages.json
   def index
     if params[:articolo]
-      mostra_articoli = 't'
+      mostra_articoli = true
       ordine = 'created_at DESC'
     else
-      mostra_articoli = 'f'
+      mostra_articoli = false
       ordine = 'titolo'
     end
     if params[:section_id]

@@ -1,3 +1,7 @@
-<h1>Nuova pagina</h1>
+<% if !@page.articolo %>
+    <h1>Nuova pagina</h1>
+<% else %>
+    <h1>Nuovo articolo</h1>
+<% end %>
 
 <%= render 'form' %>

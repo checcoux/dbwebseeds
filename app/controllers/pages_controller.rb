@@ -110,6 +110,7 @@ class PagesController < ApplicationController
   def edit
   end
 
+  
   # POST /pages
   # POST /pages.json
   def create

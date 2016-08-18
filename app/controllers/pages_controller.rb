@@ -44,16 +44,17 @@ class PagesController < ApplicationController
   # GET /pages.json
   def index
     if params[:articolo]
-      mostra_articoli = true
+      @mostra_articoli = true
       ordine = 'created_at DESC'
     else
-      mostra_articoli = false
+      @mostra_articoli = false
       ordine = 'titolo'
     end
     if params[:section_id]
-      @pages = Page.where("section_id = ? AND articolo = ?", params[:section_id], mostra_articoli).page(params[:page]).order(ordine).all
+      @pages = Page.where("section_id = ? AND articolo = ?", params[:section_id], @mostra_articoli).page(params[:page]).order(ordine).all
+      @section = Section.find(params[:section_id])
     else
-      @pages = Page.where("articolo = ?", mostra_articoli).page(params[:page]).order(ordine).all
+      @pages = Page.where("articolo = ?", @mostra_articoli).page(params[:page]).order(ordine).all
     end
   end
 

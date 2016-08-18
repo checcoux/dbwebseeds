@@ -12,8 +12,12 @@
       else
         abstract = ''
       end
+
+      # verifichiamo se esiste almeno una foto associata all'articolo
+      foto = ColumnImage.joins(:column => :row).where(:rows => {:page_id => page}).first
     %>
       <tr>
+        <td><%= image_tag foto.immagine.url(:thumb) if foto %></td>
         <td><%= link_to page.titolo.mb_chars.upcase, "/#{page.slug}" %>
         <br><i><%= abstract %></i>
         </td>

@@ -57,7 +57,6 @@ Rails.application.routes.draw do
   get 'articoli' => 'pages#articoli'
   get ':slug' => 'pages#route'
 
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

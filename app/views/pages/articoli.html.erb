@@ -1,0 +1,29 @@
+<h1>Articoli</h1>
+
+<table>
+  <tbody>
+    <% @pages.each do |page|
+
+      # verifichiamo se esiste il campo abstract
+      abstract_column = Column.joins(:row).where(:rows => {:page_id => page}, :ruolo => 'abstract').first
+
+      if abstract_column
+        abstract = strip_tags abstract_column.contenuto
+      else
+        abstract = ''
+      end
+    %>
+      <tr>
+        <td><%= link_to page.titolo.mb_chars.upcase, "/#{page.slug}" %>
+        <br><i><%= abstract %></i>
+        </td>
+        <td><%= page.published_at.to_s(:data) %></td>
+        <td><%= "Sezione " + page.section.titolo %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="text-center">
+<%= will_paginate @pages, renderer: FoundationPagination::Rails %>
+</div>

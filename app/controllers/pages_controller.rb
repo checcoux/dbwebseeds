@@ -57,6 +57,15 @@ class PagesController < ApplicationController
     end
   end
 
+  # indice articoli per il pubblico
+  def articoli
+    if params[:section_id]
+      @pages = Page.where("section_id = ? AND articolo = ?", params[:section_id], true).page(params[:page]).order('created_at DESC').all
+    else
+      @pages = Page.where("articolo = ?", true).page(params[:page]).order('created_at DESC').all
+    end
+  end
+
   # GET /pages/1
   # GET /pages/1.json
   def show
@@ -140,7 +149,7 @@ class PagesController < ApplicationController
             riga.columns.each do |colonna|
               colonna2 = colonna.dup
               colonna2.row = riga2
-              if colonna2.ruolo = 'titolo'
+              if colonna2.ruolo == 'titolo'
                 colonna2.contenuto.sub! /titolo/i, @page.titolo
               end
               colonna2.save

@@ -54,6 +54,7 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'articoli' => 'pages#articoli'
   get ':slug' => 'pages#route'
 
   # The priority is based upon order of creation: first created -> highest priority.

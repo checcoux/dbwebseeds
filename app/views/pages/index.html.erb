@@ -8,6 +8,7 @@
       <tr>
         <td><%= link_to page.titolo, "/#{page.slug}", method: :get, class: "primary medium button bottone-largo" %></td>
         <td><%= link_to "/#{page.slug}", "/#{page.slug}" %></td>
+        <td><%= page.published_at.to_s(:data_ora) %></td>
         <td><%= "home" if page.home %>
             <%= "header" if page.header %>
             <%= "footer" if page.footer %>

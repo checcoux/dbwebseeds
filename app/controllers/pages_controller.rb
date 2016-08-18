@@ -87,9 +87,12 @@ class PagesController < ApplicationController
       @page.footer = false
       @page.modello = false
       @page.articolo = true
+
+      @page.published_at = Time.now
     else
       @page = Page.new
       @page.section = section if section
+      @page.published_at = Time.now
     end
 
   end
@@ -110,7 +113,7 @@ class PagesController < ApplicationController
     respond_to do |format|
       if @page.save
 
-        # solo una pagina di una certa sezione può avere il flag home / header / footer
+        # solo una pagina di una certa sezione può avere il flag home / header / footer / modello
         if(@page.home)
           Page.where("id != ? AND section_id = ?", @page.id, @page.section.id).update_all(home: false)
         end
@@ -119,6 +122,9 @@ class PagesController < ApplicationController
         end
         if(@page.footer)
           Page.where("id != ? AND section_id = ?", @page.id, @page.section.id).update_all(footer: false)
+        end
+        if(@page.modello)
+          Page.where("id != ? AND section_id = ?", @page.id, @page.section.id).update_all(modello: false)
         end
 
         if @page.articolo
@@ -183,6 +189,9 @@ class PagesController < ApplicationController
         if(@page.footer)
           Page.where("id != ? AND section_id = ?", @page.id, @page.section.id).update_all(footer: false)
         end
+        if(@page.modello)
+          Page.where("id != ? AND section_id = ?", @page.id, @page.section.id).update_all(modello: false)
+        end
 
         format.html { redirect_to pages_url }
         format.json { render :show, status: :ok, location: @page }
@@ -221,7 +230,7 @@ class PagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def page_params
-      params.require(:page).permit(:titolo, :descrizione, :section_id, :home, :header, :footer, :modello, :visibile, :articolo)
+      params.require(:page).permit(:titolo, :descrizione, :section_id, :home, :header, :footer, :modello, :visibile, :articolo, :published_at)
     end
 
     def pagina_non_trovata

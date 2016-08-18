@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160814101714) do
+ActiveRecord::Schema.define(version: 20160817080727) do
 
   create_table "ckeditor_assets", force: :cascade do |t|
     t.string   "data_file_name",    limit: 255, null: false
@@ -73,17 +73,18 @@ ActiveRecord::Schema.define(version: 20160814101714) do
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
 
   create_table "pages", force: :cascade do |t|
-    t.string   "titolo",     limit: 255
+    t.string   "titolo",       limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "section_id"
-    t.boolean  "home",                   default: false
-    t.boolean  "header",                 default: false
-    t.boolean  "footer",                 default: false
+    t.boolean  "home",                     default: false
+    t.boolean  "header",                   default: false
+    t.boolean  "footer",                   default: false
     t.string   "slug"
-    t.boolean  "modello",                default: false
-    t.boolean  "articolo",               default: false
-    t.boolean  "visibile",               default: true
+    t.boolean  "modello",                  default: false
+    t.boolean  "articolo",                 default: false
+    t.boolean  "visibile",                 default: true
+    t.datetime "published_at",             default: '2016-08-17 08:12:10'
   end
 
   add_index "pages", ["section_id"], name: "index_pages_on_section_id"

@@ -28,17 +28,23 @@
     <%= render(header.rows.order('ordine ASC')) if header %>
 
     <% if @page.articolo %>
-    <div class="column row">
-      <nav aria-label="Sei qui:" role="navigation">
-        <p></p>
-        <ul class="breadcrumbs">
-          <li><a href="/">Home</a></li>
-          <% if !@page.section.principale %><li><a href="/<%= @page.section.percorso %>"><%= @page.section.titolo %></a></li><% end %>
-          <li>
-            <span class="show-for-sr">Current: </span> <%= @page.titolo %>
-          </li>
-        </ul>
-      </nav>
+    <div class="row">
+      <div class="column large-8">
+        <nav aria-label="Sei qui:" role="navigation">
+          <p></p>
+          <ul class="breadcrumbs">
+            <li><a href="/">Home</a></li>
+            <% if !@page.section.principale %><li><a href="/<%= @page.section.percorso %>"><%= @page.section.titolo %></a></li><% end %>
+            <li>
+              <span class="show-for-sr">Current: </span> <%= @page.titolo %>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="column large-4">
+        <p></p><p class="text-right">Pubblicato il <%= @page.published_at.to_s(:data) %></p>
+      </div>
+
     </div>
     <% end %>
 

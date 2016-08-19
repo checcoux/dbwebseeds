@@ -417,6 +417,27 @@ class ColumnsController < ApplicationController
     end
   end
 
+  def contenuti_dinamici_pagina
+    if @column.fonte > 1
+      @column.fonte = 1
+      @column.save
+    end
+  end
+
+  def contenuti_dinamici_sezione
+    if @column.fonte > 0
+      @column.fonte = 2
+      @column.save
+    end
+  end
+
+  def contenuti_dinamici_sito
+    if @column.fonte > 0
+      @column.fonte = 4
+      @column.save
+    end
+  end
+
   def rendi_statica
     if @column.fonte > 0
       @column.fonte = 0

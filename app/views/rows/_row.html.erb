@@ -1,3 +1,6 @@
+<%
+  fonte = ['statica', 'pagina', 'sezione', 'parent', 'sito', 'siti affini', 'cloud']
+%>
 <% if row.page.footer %>
 <div class="footer"<%= " style='background: ##{row.colore_sfondo}'".html_safe if !row.colore_sfondo.blank? %>>
 <% end %>
@@ -19,10 +22,11 @@
   <% row.columns.order('ordine ASC').each do |column|
       column_id = column.id
       if column.fonte > 0
-        selezionata = @page.candidata
+        selezionata = @page.candidata(column.fonte)
         if selezionata
           selezionata.larghezza = column.larghezza
           selezionata.ordine = column.ordine
+          selezionata.fonte = column.fonte
           column = selezionata
         end
         editable = false
@@ -41,7 +45,7 @@
               <%= " #{column.ruolo}".html_safe if column.ruolo %>
               </div>
             <% elsif user_signed_in? %>
-                <div class="gestione-immagini"><i class="fi-link"></i></div>
+                <div class="gestione-immagini"><i class="fi-link"></i> <%= fonte[column.fonte] %></div>
             <% end %>
           </div>
       <% elsif column.column_images.count == 1 %>
@@ -67,7 +71,7 @@
             <% if editable %>
               <div class="gestione-immagini"><button onclick="aggiungiImmagine(<%= column_id %>);"><i class="fi-plus"></i></button> <button onclick="modificaImmagine(<%= column.column_images.first.id %>);"><i class="fi-pencil"></i></button> <button onclick="eliminaImmagine(<%= column.column_images.first.id %>);"><i class="fi-x"></i></button></div>
             <% elsif user_signed_in? %>
-                <div class="gestione-immagini"><i class="fi-link"></i></div>
+                <div class="gestione-immagini"><i class="fi-link"></i> <%= fonte[column.fonte] %></div>
             <% end %>
           </div>
         <% else %>
@@ -94,7 +98,7 @@
                         <% if editable %>
                           <div class="gestione-immagini"><button onclick="aggiungiImmagine(<%= column_id %>);"><i class="fi-plus"></i></button> <button onclick="modificaImmagine(<%= column_image.id %>);"><i class="fi-pencil"></i></button> <button onclick="eliminaImmagine(<%= column_image.id %>);"><i class="fi-x"></i></button></div>
                         <% elsif user_signed_in? %>
-                            <div class="gestione-immagini"><i class="fi-link"></i></div>
+                            <div class="gestione-immagini"><i class="fi-link"></i> <%= fonte[column.fonte] %></div>
                         <% end %>
 
                       </div>

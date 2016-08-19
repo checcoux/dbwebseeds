@@ -40,6 +40,7 @@ GEM
     bcrypt (3.1.11)
     bcrypt (3.1.11-x86-mingw32)
     builder (3.2.2)
+    callsite (0.0.11)
     ckeditor (4.1.6)
       cocaine
       orm_adapter (~> 0.5.0)
@@ -64,6 +65,7 @@ GEM
     execjs (2.7.0)
     friendly_id (5.1.0)
       activerecord (>= 4.0.0)
+    git-version-bump (0.15.1)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     hike (1.2.3)
@@ -85,6 +87,10 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.4)
       mime-types (>= 1.16, < 4)
+    meta_request (0.4.0)
+      callsite (~> 0.0, >= 0.0.11)
+      rack-contrib (~> 1.1)
+      railties (>= 3.0.0, < 5.1.0)
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
@@ -106,6 +112,9 @@ GEM
       mime-types
       mimemagic (= 0.3.0)
     rack (1.6.4)
+    rack-contrib (1.4.0)
+      git-version-bump (~> 0.15)
+      rack (~> 1.4)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.6)
@@ -190,6 +199,7 @@ DEPENDENCIES
   jquery-colorpicker-rails
   jquery-rails
   jquery-ui-rails
+  meta_request
   mysql2 (~> 0.3.18)
   paperclip
   rails (= 4.2.6)

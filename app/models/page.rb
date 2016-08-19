@@ -45,12 +45,19 @@ class Page < ActiveRecord::Base
     piedipagina
   end
 
-  def dinamiche
-    Column.where("page_id = ? AND row_id = 0", id)
+  def dinamiche(fonte = 1)
+    case fonte
+      when 1 # colonne della stessa pagina
+        Column.where("page_id = ? AND row_id = 0", id)
+      when 2..3 # colonne della stessa sezione (todo: stesso parent)
+        Column.joins(:page).where(:row_id => 0, :pages => {:section_id => section})
+      when 4..6 # tutto il sito (todo: siti affini e intero cloud)
+        Column.where("row_id = 0")
+    end
   end
 
   def candidata(fonte = 1)
-    dinamiche.order('created_at DESC').each do |colonna|
+    dinamiche(fonte).order('created_at DESC').each do |colonna|
       if !@colonne_selezionate.include?(colonna.id)
         @colonne_selezionate << colonna.id
         return colonna

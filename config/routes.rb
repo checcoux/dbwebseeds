@@ -22,8 +22,6 @@ Rails.application.routes.draw do
       post 'allarga_colonna'
       post 'stringi_colonna'
       post 'elimina_colonna'
-      post 'rendi_dinamica_inserendo'
-      post 'rendi_dinamica_eliminando'
       post 'rendi_statica'
       post 'elimina_contenuto_dinamico'
       post 'aggiungi_ruolo_titolo'

@@ -401,7 +401,7 @@ class ColumnsController < ApplicationController
     end
   end
 
-  def rendi_dinamica_inserendo
+  def rendi_dinamica_inserendo # obsoleta
     if @column.fonte == 0
       # crea una nuova colonna, identica a quella selezionata, ma con contenuto nullo
       column2 = @column.dup
@@ -429,10 +429,14 @@ class ColumnsController < ApplicationController
 
       # la colonna di origine viene eliminata
       @column.destroy
+
+      @column = column2
     end
   end
 
   def contenuti_dinamici_pagina
+    rendi_dinamica_eliminando
+
     if @column.fonte > 1
       @column.fonte = 1
       @column.save
@@ -440,6 +444,8 @@ class ColumnsController < ApplicationController
   end
 
   def contenuti_dinamici_sezione
+    rendi_dinamica_eliminando
+
     if @column.fonte > 0
       @column.fonte = 2
       @column.save
@@ -447,6 +453,8 @@ class ColumnsController < ApplicationController
   end
 
   def contenuti_dinamici_sito
+    rendi_dinamica_eliminando
+
     if @column.fonte > 0
       @column.fonte = 4
       @column.save

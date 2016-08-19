@@ -133,10 +133,18 @@ class ColumnsController < ApplicationController
   end
 
   def elimina_riga
+    posizione = @row.ordine
 
     # se è l'ultima riga non la elimino
     if(@column.row.page.rows.count > 1) then
       @row.destroy
+
+      # rinumero le righe successive
+      rows = Row.where('ordine > ? AND page_id = ?', posizione, @row.page).order(ordine: :asc)
+      rows.each do |row|
+        row.ordine = row.ordine - 1
+        row.save
+      end
     end
 
     respond_to do |format|
@@ -382,6 +390,13 @@ class ColumnsController < ApplicationController
         vicina.save
 
         @column.destroy
+      end
+
+      # rinumero le colonne successive
+      columns = Column.where('ordine > ? AND row_id = ?', posizione, @row).order(ordine: :asc)
+      columns.each do |column|
+        column.ordine = column.ordine - 1
+        column.save
       end
     end
   end

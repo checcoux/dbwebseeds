@@ -1,6 +1,10 @@
 <h1>
   <% if @mostra_articoli %>Articoli<% else %>Pagine<% end %> <%= @section.titolo if @section %>
-  <%= link_to 'NUOVA PAGINA', new_page_path, class: "large warning button float-right" %>
+  <% if @mostra_articoli %>
+    <%= link_to 'NUOVO ARTICOLO', { controller: 'pages', action: 'new', articolo: 1, section_id: @section }, class: "large warning button float-right" if @section %>
+  <% else %>
+    <%= link_to 'NUOVA PAGINA', { controller: 'pages', action: 'new', section_id: @section }, class: "large warning button float-right" %>
+  <% end %>
 </h1>
 
 <table>
@@ -14,6 +18,7 @@
         <% if @mostra_articoli %><td><%= image_tag foto.immagine.url(:thumb) if foto %></td><% end %>
         <td><%= link_to page.titolo, "/#{page.slug}", method: :get, class: "primary medium button bottone-largo" %></td>
         <td><%= link_to "/#{page.slug}", "/#{page.slug}" %></td>
+        <td><%= "<span class='warning label'>Non visibile</span>".html_safe if !page.visibile %></td>
         <td><%= page.published_at.to_s(:data_ora) %></td>
         <td><%= "home" if page.home %>
             <%= "header" if page.header %>

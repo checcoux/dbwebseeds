@@ -97,12 +97,11 @@ class PagesController < ApplicationController
       @page.footer = false
       @page.modello = false
       @page.articolo = true
-
-      @page.published_at = Time.now
+      # @page.published_at = Time.now
     else
       @page = Page.new
       @page.section = section if section
-      @page.published_at = Time.now
+      # @page.published_at = Time.now
     end
 
   end
@@ -119,7 +118,7 @@ class PagesController < ApplicationController
     @page.articolo = false if @page.modello
     # @layout = Layout.find_by(titolo: 'Layout 1')
     # @page.layout = @layout
-    @page.published_at = Time.new if !@page.articolo
+    @page.published_at = Time.new # if !@page.articolo
 
     respond_to do |format|
       if @page.save

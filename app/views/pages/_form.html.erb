@@ -19,11 +19,11 @@
     <%= f.label "Sezione" %><br>
     <%= f.collection_select(:section_id, Section.all, :id, :titolo) %>
   </div>
-  <div class="field">
-    <%= f.label "Data e ora di pubblicazione" %><br>
-    <%= f.datetime_local_field :published_at %>
-  </div>
   <% if @page.articolo %>
+    <div class="field">
+      <%= f.label "Data e ora di pubblicazione" %><br>
+      <%= f.datetime_local_field :published_at %>
+    </div>
     <%= f.hidden_field :visibile %>
     <%= f.hidden_field :home %>
     <%= f.hidden_field :header %>

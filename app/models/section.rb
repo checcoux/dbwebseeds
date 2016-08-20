@@ -16,4 +16,8 @@ class Section < ActiveRecord::Base
 
     modello
   end
+
+  def trova_home
+    home = Page.find_by section: self, home: true
+  end
 end

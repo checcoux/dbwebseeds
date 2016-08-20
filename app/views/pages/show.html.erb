@@ -42,7 +42,16 @@
         </nav>
       </div>
       <div class="column large-4">
-        <p></p><p class="text-right">Pubblicato il <%= @page.published_at.to_s(:data) %></p>
+        <p></p><p class="text-right">
+        <% if user_signed_in? && @page.visibile %>
+          <span class="success label">Pubblicato il <%= @page.published_at.to_s(:data_ora) %></span>
+          <%= link_to 'NASCONDI', { controller: "pages", action: "nascondi", id: @page}, class: "tiny alert button" %>
+      <% elsif user_signed_in? %>
+          <span class="warning label">Al momento non visibile!</span>
+          <%= link_to 'PUBBLICA', { controller: "pages", action: "pubblica", id: @page}, class: "tiny alert button" %>
+        <% else %>
+          Pubblicato il <%= @page.published_at.to_s(:data) %>
+        <% end %></p>
       </div>
 
     </div>

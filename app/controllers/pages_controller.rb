@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_action :set_page, only: [:show, :edit, :update, :destroy, :row0, :nuovo_contenuto_dinamico]
+  before_action :set_page, only: [:show, :edit, :update, :destroy, :row0, :nuovo_contenuto_dinamico, :pubblica, :nascondi]
   rescue_from ActiveRecord::RecordNotFound, with: :pagina_non_trovata
 
   # GET /
@@ -91,7 +91,7 @@ class PagesController < ApplicationController
       @page.section = section # il modello potrebbe venire dalla sezione principale
 
       # impostazione dei flag
-      @page.visibile = true
+      @page.visibile = false
       @page.home = false
       @page.header = false
       @page.footer = false
@@ -119,6 +119,7 @@ class PagesController < ApplicationController
     @page.articolo = false if @page.modello
     # @layout = Layout.find_by(titolo: 'Layout 1')
     # @page.layout = @layout
+    @page.published_at = Time.new if !@page.articolo
 
     respond_to do |format|
       if @page.save
@@ -220,6 +221,55 @@ class PagesController < ApplicationController
       format.html { redirect_to pages_url }
       format.json { head :no_content }
     end
+  end
+
+  def pubblica
+    @page.visibile = true
+    @page.published_at = Time.new
+    @page.save
+
+    # se è un articolo creiamo una colonna dinamica nella home della sezione
+    home = @section.trova_home
+    if @page.articolo && home
+      # se esiste estrae l'abstract
+      abstract_column = Column.joins(:row).where(:rows => {:page_id => @page}, :ruolo => 'abstract').first
+
+      if abstract_column
+        abstract = ActionController::Base.helpers.strip_tags abstract_column.contenuto
+      else
+        abstract = ''
+      end
+
+      column = Column.new
+      column.ordine = 1
+      column.larghezza = 4
+      column.row_id = 0
+      column.page = home
+      column.contenuto = "<h2><a href='#{@page.slug}'>#{@page.titolo}</a></h2><p>#{abstract}</p>"
+      column.save
+
+      # se esiste copia anche l'immagine
+      column_image = ColumnImage.joins(:column => :row).where(:rows => {:page_id => @page}).first
+
+      if column_image
+        column_image2 = column_image.dup
+        column_image2.column = column
+        column_image2.immagine = column_image.immagine
+        column_image2.titolo = @page.titolo
+        column_image2.descrizione = abstract
+        column_image2.collegamento = "/#{@page.slug}"
+        column_image2.save
+      end
+    end
+
+    redirect_to @page
+  end
+
+  def nascondi
+    @page.visibile = false
+    @page.save
+
+    redirect_to @page
   end
 
   def row0

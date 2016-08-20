@@ -60,7 +60,7 @@ class Page < ActiveRecord::Base
     # todo: recupero le ultime n dinamiche e le metto in un array
     # recupero gli ultimi n articoli e metto nell'array delle colonne create al volo
     # riordino l'array e seleziono... problema dell'id
-    
+
     dinamiche(fonte).order('created_at DESC').each do |colonna|
       if !@colonne_selezionate.include?(colonna.id)
         @colonne_selezionate << colonna.id

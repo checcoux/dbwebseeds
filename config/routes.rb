@@ -45,6 +45,8 @@ Rails.application.routes.draw do
     member do
       get 'route'
       get 'row0'
+      get 'pubblica'
+      get 'nascondi'
       post 'nuovo_contenuto_dinamico'
     end
   end

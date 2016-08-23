@@ -19,14 +19,14 @@ class PagesController < ApplicationController
       sezione = Section.find_by principale: true
     end
 
-    if @page
+    if @page && (@page.visibile || user_signed_in?)
       @section = @page.section
       render :show
     else
       if sezione
         # trovo la home della sezione richiesta
         @page = Page.find_by section: sezione, home: true
-        if @page
+        if @page && (@page.visibile || user_signed_in?)
           @section = @page.section
           render :show
         else
@@ -43,6 +43,10 @@ class PagesController < ApplicationController
   # GET /pages
   # GET /pages.json
   def index
+    if !user_signed_in? # todo: ci penserà pundit, questa riga non serve
+      redirect_to home_path
+    end
+
     if params[:articolo]
       @mostra_articoli = true
       ordine = 'created_at DESC'
@@ -70,7 +74,9 @@ class PagesController < ApplicationController
   # GET /pages/1
   # GET /pages/1.json
   def show
-
+    if !@page.visibile && !user_signed_in?
+      redirect_to home_path
+    end
   end
 
   # GET /pages/new

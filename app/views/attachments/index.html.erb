@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Allegati
+  <%= link_to 'Nuovo allegato', new_attachment_path, class: 'large warning button float-right' %>
+</h1>
+
+<table>
+  <tbody>
+    <% @attachments.each do |attachment| %>
+      <tr>
+        <td><%= link_to attachment.titolo, edit_attachment_path(attachment) %></td>
+        <td><%= link_to 'Scarica', attachment.allegato.url %></td>
+        <td><%= attachment.descrizione %></td>
+        <td><%= attachment.updated_at.to_s(:data_ora) %></td>
+        <td><%= link_to 'Elimina', attachment, method: :delete, data: { confirm: 'Desideri cancellare il file?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

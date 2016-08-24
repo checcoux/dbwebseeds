@@ -63,3 +63,5 @@ gem 'will_paginate-foundation'
 group :development do
   gem 'meta_request'
 end
+
+gem 'rails-i18n', '~> 4.0.0'

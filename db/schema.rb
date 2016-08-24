@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160817080727) do
+ActiveRecord::Schema.define(version: 20160824142838) do
+
+  create_table "attachments", force: :cascade do |t|
+    t.string   "titolo"
+    t.text     "descrizione"
+    t.integer  "column_id"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.string   "allegato_file_name"
+    t.string   "allegato_content_type"
+    t.integer  "allegato_file_size"
+    t.datetime "allegato_updated_at"
+  end
+
+  add_index "attachments", ["column_id"], name: "index_attachments_on_column_id"
 
   create_table "ckeditor_assets", force: :cascade do |t|
     t.string   "data_file_name",    limit: 255, null: false

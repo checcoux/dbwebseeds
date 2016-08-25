@@ -1,5 +1,4 @@
 class Attachment < ActiveRecord::Base
-  belongs_to :column
   belongs_to :section
 
   has_attached_file :allegato,

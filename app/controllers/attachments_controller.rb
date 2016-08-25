@@ -4,7 +4,12 @@ class AttachmentsController < ApplicationController
   # GET /attachments
   # GET /attachments.json
   def index
-    @attachments = Attachment.all
+    if params[:section_id]
+      @attachments = Attachment.where("section_id = ?", params[:section_id]).page(params[:page]).order('updated_at DESC').all
+      @section = Section.find(params[:section_id])
+    else
+      @attachments = Attachment.page(params[:page]).order('updated_at DESC').all
+    end
   end
 
   # GET /attachments/1
@@ -14,7 +19,10 @@ class AttachmentsController < ApplicationController
 
   # GET /attachments/new
   def new
+    section = Section.find(params[:section_id]) if params[:section_id]
+
     @attachment = Attachment.new
+    @attachment.section = section if section
   end
 
   # GET /attachments/1/edit
@@ -28,7 +36,7 @@ class AttachmentsController < ApplicationController
 
     respond_to do |format|
       if @attachment.save
-        format.html { redirect_to attachments_path }
+        format.html { redirect_to attachments_path(section_id: @attachment.section_id) }
         format.json { render :show, status: :created, location: @attachment }
       else
         format.html { render :new }
@@ -42,7 +50,7 @@ class AttachmentsController < ApplicationController
   def update
     respond_to do |format|
       if @attachment.update(attachment_params)
-        format.html { redirect_to attachments_path }
+        format.html { redirect_to attachments_path(section_id: @attachment.section_id) }
         format.json { render :show, status: :ok, location: @attachment }
       else
         format.html { render :edit }
@@ -54,9 +62,11 @@ class AttachmentsController < ApplicationController
   # DELETE /attachments/1
   # DELETE /attachments/1.json
   def destroy
+    section_id = @attachment.section.id
+
     @attachment.destroy
     respond_to do |format|
-      format.html { redirect_to attachments_url }
+      format.html { redirect_to attachments_url(section_id: section_id) }
       format.json { head :no_content }
     end
   end
@@ -69,6 +79,6 @@ class AttachmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def attachment_params
-      params.require(:attachment).permit(:titolo, :descrizione, :collegamento, :allegato)
+      params.require(:attachment).permit(:titolo, :descrizione, :collegamento, :allegato, :section_id, :column_id)
     end
 end

@@ -14,6 +14,7 @@
         <td><%= "principale" if section.principale %></td>
         <td><%= link_to 'Nuova pagina', new_page_path(:section_id => section.id), class: "tiny warning button" %></td>
         <td><%= link_to 'Nuovo articolo', new_page_path(:section_id => section.id, :articolo => 1), class: "tiny warning button" %></td>
+        <td><%= link_to 'Nuovo allegato', new_attachment_path(:section_id => section.id), class: "tiny warning button" %></td>
         <td><%= link_to 'Proprietà', edit_section_path(section), class: "tiny primary button" %></td>
         <td><%= link_to 'Elimina', section, method: :delete, data: { confirm: 'Sei sicuro? Verranno cancellate tutte le pagine di questa sezione...' }, class: "tiny alert button" %></td>
       </tr>

@@ -209,7 +209,7 @@ class PagesController < ApplicationController
           Page.where("id != ? AND section_id = ?", @page.id, @page.section.id).update_all(modello: false)
         end
 
-        format.html { redirect_to pages_url }
+        format.html { redirect_to pages_url(section_id: @page.section) }
         format.json { render :show, status: :ok, location: @page }
       else
         format.html { render :edit }
@@ -221,9 +221,10 @@ class PagesController < ApplicationController
   # DELETE /pages/1
   # DELETE /pages/1.json
   def destroy
+    section_id = @page.section.id
     @page.destroy
     respond_to do |format|
-      format.html { redirect_to pages_url }
+      format.html { redirect_to pages_url(section_id: section_id) }
       format.json { head :no_content }
     end
   end

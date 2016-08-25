@@ -73,8 +73,15 @@
           <li>
             <a href="#">Allegati</a>
             <ul class="menu">
-              <li><a href="/attachments">Elenco</a></li>
-              <li><a href="/attachments/new">Nuovo allegato</a></li>
+              <% Section.order('titolo').each do |section| %>
+                  <li><%= link_to section.titolo, attachments_path(:section_id => section.id) %></li>
+              <% end %>
+              <li><a href="/attachments">Tutti gli allegati</a></li>
+              <% if @section %>
+                  <li><a href="/attachments/new?section_id=<%= @section.id %>">Nuovo allegato</a></li>
+              <% else %>
+                  <li><a href="/attachments/new">Nuovo allegato</a></li>
+              <% end %>
             </ul>
           </li>
           <li>

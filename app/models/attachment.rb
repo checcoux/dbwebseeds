@@ -1,5 +1,6 @@
 class Attachment < ActiveRecord::Base
   belongs_to :column
+  belongs_to :section
 
   has_attached_file :allegato,
                     :hash_secret => "hj42HB5!76",
@@ -16,4 +17,6 @@ class Attachment < ActiveRecord::Base
     application/vnd.openxmlformats-officedocument.wordprocessingml.document application/msword
     text/plain
   )
+
+  self.per_page = 15
 end

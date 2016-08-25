@@ -2,6 +2,7 @@ class Section < ActiveRecord::Base
   validates :titolo, :descrizione, presence: true
 
   has_many :pages, dependent: :destroy
+  has_many :attachments, dependent: :destroy
 
   def trova_modello
     # cerchiamo un modello
@@ -18,6 +19,6 @@ class Section < ActiveRecord::Base
   end
 
   def trova_home
-    home = Page.find_by section: self, home: true
+    Page.find_by section: self, home: true
   end
 end

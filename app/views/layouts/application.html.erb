@@ -38,21 +38,18 @@
       <div class="top-bar-left">
         <ul class="dropdown menu" data-dropdown-menu>
           <li class="menu-text"><a href="/"><img src="/img/logodbwebcore.png" width="200"></a></li>
-          <%= @menu_aggiuntivi %>
           <li>
-            <a href="#">Sezioni</a>
+            <a href="/sections">Sezioni</a>
             <ul class="menu">
-              <li><a href="/sections">Elenco</a></li>
               <li><a href="/sections/new">Nuova sezione</a></li>
             </ul>
           </li>
           <li>
-            <a href="#">Pagine</a>
+            <a href="/pages">Pagine</a>
             <ul class="menu">
               <% Section.order('titolo').each do |section| %>
               <li><%= link_to section.titolo, pages_path(:section_id => section.id) %></li>
               <% end %>
-              <li><a href="/pages">Tutte le pagine</a></li>
               <% if @section %>
               <li><a href="/pages/new?section_id=<%= @section.id %>">Nuova pagina</a></li>
               <% else %>
@@ -61,22 +58,20 @@
             </ul>
           </li>
           <li>
-            <a href="#">Articoli</a>
+            <a href="/pages?articolo=1">Articoli</a>
             <ul class="menu">
               <% Section.order('titolo').each do |section| %>
                   <li><%= link_to section.titolo, pages_path(:section_id => section.id, :articolo => 1) %></li>
               <% end %>
-              <li><a href="/pages?articolo=1">Tutti gli articoli</a></li>
               <% if @section %><li><a href="/pages/new?section_id=<%= @section.id %>&articolo=1">Nuovo articolo</a></li><% end %>
             </ul>
           </li>
           <li>
-            <a href="#">Allegati</a>
+            <a href="/attachments">Allegati</a>
             <ul class="menu">
               <% Section.order('titolo').each do |section| %>
                   <li><%= link_to section.titolo, attachments_path(:section_id => section.id) %></li>
               <% end %>
-              <li><a href="/attachments">Tutti gli allegati</a></li>
               <% if @section %>
                   <li><a href="/attachments/new?section_id=<%= @section.id %>">Nuovo allegato</a></li>
               <% else %>
@@ -85,12 +80,12 @@
             </ul>
           </li>
           <li>
-            <a href="#">Utenti</a>
+            <a href="/admin/users">Utenti</a>
             <ul class="menu">
-              <li><a href="/admin/users">Elenco</a></li>
               <li><a href="/admin/users/new">Nuovo utente</a></li>
             </ul>
           </li>
+          <%= @menu_aggiuntivi %>
         </ul>
       </div>
       <div class="top-bar-right">

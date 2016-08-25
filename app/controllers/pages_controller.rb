@@ -301,6 +301,6 @@ class PagesController < ApplicationController
 
     def pagina_non_trovata
       logger.error "Tentativo di accedere alla pagina non esistente #{params[:id]}"
-      redirect_to pages_url, notice: 'Pagina non valida'
+      redirect_to home_url
     end
 end

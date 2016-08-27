@@ -9,4 +9,4 @@ row = Row.create(ordine: 1, page_id: page.id, estesa: false, colore_sfondo: '')
 Column.create(ordine: 1, contenuto: 'Cantami o diva del pelide Achille l\'ira funesta...', row_id: row.id, larghezza: 12)
 
 # viene creato un amministratore di default
-user = User.create(email: 'admin', password: '123456', password_confirmation: '123456', admin: true)
+user = User.create(email: 'admin@dbweb.core', password: '123456', password_confirmation: '123456', admin: true)

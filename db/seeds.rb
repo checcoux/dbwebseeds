@@ -6,7 +6,7 @@ page = Page.create(titolo: 'Home page', section_id: section.id, home: true, slug
 
 row = Row.create(ordine: 1, page_id: page.id, estesa: false, colore_sfondo: '')
 
-Column.create(ordine: 1, contenuto: "<a href='/users/sign_up'>Crea un utente</a>, poi <a href='/login'>accedi</a> per poter amministrare il sito.".html_safe, row_id: row.id, larghezza: 12)
+Column.create(ordine: 1, contenuto: "<a href='/login'>Accedi</a> con utente <b>admin@dbweb.core</b> e password <b>123456</b> per poter amministrare il sito.".html_safe, row_id: row.id, larghezza: 12)
 
 # viene creato un amministratore di default
 user = User.new(email: 'admin@dbweb.core', password: '123456', password_confirmation: '123456', admin: true)

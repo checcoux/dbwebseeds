@@ -3,6 +3,7 @@ class Section < ActiveRecord::Base
 
   has_many :pages, dependent: :destroy
   has_many :attachments, dependent: :destroy
+  has_many :users, dependent: :nullify
 
   def trova_modello
     # cerchiamo un modello

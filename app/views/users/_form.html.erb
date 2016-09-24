@@ -27,8 +27,13 @@
   </div>
 
   <div class="field">
+    <%= f.label "Gestore della sezione" %><br>
+    <%= f.collection_select(:section_id, Section.all, :id, :titolo, prompt: true) %>
+  </div>
+
+  <div class="field">
     <%= f.check_box :admin %>
-    <%= f.label :admin %>
+    <%= f.label 'amministratore' %>
   </div>
 
   <div class="actions">

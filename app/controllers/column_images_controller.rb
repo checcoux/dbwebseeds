@@ -1,6 +1,7 @@
 class ColumnImagesController < ApplicationController
   # before_action :set_column_image, only: [:show, :edit, :update, :destroy]
   before_action :set_column_image, except: [:index, :new, :create]
+  before_action :authenticate_user!
 
   # GET /column_images
   # GET /column_images.json

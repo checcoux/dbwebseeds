@@ -1,6 +1,7 @@
 class ColumnsController < ApplicationController
   # before_action :set_column, only: [:show, :edit, :update, :editor_update, :destroy, :estendi_riga]
   before_action :set_column, except: [:index, :new, :create, :modifica_immagine]
+  before_action :authenticate_user!
 
   # GET /columns
   # GET /columns.json

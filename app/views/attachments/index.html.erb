@@ -1,12 +1,10 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Allegati
   <%= link_to 'Nuovo allegato', { controller: 'attachments', action: 'new', section_id: @section }, class: 'large warning button float-right' %>
 </h1>
 
 <table>
   <tbody>
-    <% @attachments.each do |attachment| %>
+    <% policy_scope(@attachments).each do |attachment| %>
       <tr>
         <td><%= link_to attachment.titolo, edit_attachment_path(attachment) %></td>
         <td><%= link_to 'Scarica', attachment.allegato.url %></td>

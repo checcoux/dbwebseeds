@@ -55,13 +55,14 @@ gem 'jquery-colorpicker-rails'
 gem 'mysql2', '~> 0.3.18'
 
 gem 'devise'
+gem 'pundit'
 
 gem 'friendly_id', '~> 5.1.0'
 
 gem 'will_paginate-foundation'
 
+gem 'rails-i18n', '~> 4.0.0'
+
 group :development do
   gem 'meta_request'
 end
-
-gem 'rails-i18n', '~> 4.0.0'

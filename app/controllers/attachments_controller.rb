@@ -1,11 +1,15 @@
 class AttachmentsController < ApplicationController
   before_action :set_attachment, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /attachments
   # GET /attachments.json
   def index
+    authorize Attachment
+
     if params[:section_id]
       @attachments = Attachment.where("section_id = ?", params[:section_id]).page(params[:page]).order('updated_at DESC').all
+
       @section = Section.find(params[:section_id])
     else
       @attachments = Attachment.page(params[:page]).order('updated_at DESC').all

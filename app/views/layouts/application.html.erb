@@ -38,16 +38,18 @@
       <div class="top-bar-left">
         <ul class="dropdown menu" data-dropdown-menu>
           <li class="menu-text"><a href="/"><img src="/img/logodbwebcore.png" width="200"></a></li>
+          <% if policy(Section).index? %>
           <li>
             <a href="/sections">Sezioni</a>
             <ul class="menu">
               <li><a href="/sections/new">Nuova sezione</a></li>
             </ul>
           </li>
+          <% end %>
           <li>
             <a href="/pages">Pagine</a>
             <ul class="menu">
-              <% Section.order('titolo').each do |section| %>
+              <% policy_scope(Section).order('titolo').each do |section| %>
               <li><%= link_to section.titolo, pages_path(:section_id => section.id) %></li>
               <% end %>
               <% if @section %>
@@ -60,16 +62,17 @@
           <li>
             <a href="/pages?articolo=1">Articoli</a>
             <ul class="menu">
-              <% Section.order('titolo').each do |section| %>
+              <% policy_scope(Section).order('titolo').each do |section| %>
                   <li><%= link_to section.titolo, pages_path(:section_id => section.id, :articolo => 1) %></li>
               <% end %>
               <% if @section %><li><a href="/pages/new?section_id=<%= @section.id %>&articolo=1">Nuovo articolo</a></li><% end %>
             </ul>
           </li>
+          <% if policy(Attachment).index? %>
           <li>
             <a href="/attachments">Allegati</a>
             <ul class="menu">
-              <% Section.order('titolo').each do |section| %>
+              <% policy_scope(Section).order('titolo').each do |section| %>
                   <li><%= link_to section.titolo, attachments_path(:section_id => section.id) %></li>
               <% end %>
               <% if @section %>
@@ -79,12 +82,15 @@
               <% end %>
             </ul>
           </li>
+          <% end %>
+          <% if policy(User).index? %>
           <li>
             <a href="/admin/users">Utenti</a>
             <ul class="menu">
               <li><a href="/admin/users/new">Nuovo utente</a></li>
             </ul>
           </li>
+          <% end %>
           <%= @menu_aggiuntivi %>
         </ul>
       </div>

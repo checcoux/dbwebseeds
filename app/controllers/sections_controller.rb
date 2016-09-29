@@ -6,6 +6,7 @@ class SectionsController < ApplicationController
   # GET /sections.json
   def index
     @sections = Section.all
+    authorize @sections
   end
 
   # GET /sections/1
@@ -16,6 +17,7 @@ class SectionsController < ApplicationController
   # GET /sections/new
   def new
     @section = Section.new
+    authorize Section
   end
 
   # GET /sections/1/edit
@@ -26,6 +28,7 @@ class SectionsController < ApplicationController
   # POST /sections.json
   def create
     @section = Section.new(section_params)
+    authorize Section
 
     respond_to do |format|
       if @section.save
@@ -78,6 +81,7 @@ class SectionsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_section
       @section = Section.find(params[:id])
+      authorize @section
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

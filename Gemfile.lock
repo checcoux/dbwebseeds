@@ -111,6 +111,8 @@ GEM
       cocaine (~> 0.5.5)
       mime-types
       mimemagic (= 0.3.0)
+    pundit (1.1.0)
+      activesupport (>= 3.0.0)
     rack (1.6.4)
     rack-contrib (1.4.0)
       git-version-bump (~> 0.15)
@@ -205,6 +207,7 @@ DEPENDENCIES
   meta_request
   mysql2 (~> 0.3.18)
   paperclip
+  pundit
   rails (= 4.2.6)
   rails-html-sanitizer
   rails-i18n (~> 4.0.0)

@@ -55,10 +55,10 @@ class PagesController < ApplicationController
       ordine = 'titolo'
     end
     if params[:section_id]
-      @pages = Page.where("section_id = ? AND articolo = ?", params[:section_id], @mostra_articoli).page(params[:page]).order(ordine).all
-      @section = Section.find(params[:section_id])
+      @pages = policy_scope(Page).where("section_id = ? AND articolo = ?", params[:section_id], @mostra_articoli).page(params[:page]).order(ordine).all
+      @section = policy_scope(Section).find(params[:section_id])
     else
-      @pages = Page.where("articolo = ?", @mostra_articoli).page(params[:page]).order(ordine).all
+      @pages = policy_scope(Page).where("articolo = ?", @mostra_articoli).page(params[:page]).order(ordine).all
     end
   end
 

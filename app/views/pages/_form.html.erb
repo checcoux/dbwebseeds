@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label "Sezione" %><br>
-    <%= f.collection_select(:section_id, Section.all, :id, :titolo) %>
+    <%= f.collection_select(:section_id, policy_scope(Section), :id, :titolo) %>
   </div>
   <% if @page.articolo %>
     <%= f.hidden_field :visibile %>

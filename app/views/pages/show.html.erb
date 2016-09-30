@@ -1,3 +1,4 @@
+<% if policy(@page).edit? %>
 <%
   @menu_aggiuntivi = '<li>
           <a id="pageSave" onclick="pageSave();" class="error button"><i class="fi-save"></i> Salva</a>
@@ -12,6 +13,7 @@
           <a id="layoutDesign" onclick="layoutDesign();" class="toolbar button"><i class="fi-pencil"></i> Layout design</a>
         </li>'.html_safe
 %>
+<% end %>
 
 <div class="reveal" id="finestra_modale" data-reveal>
   <button class="close-button" data-close aria-label="Close modal" type="button">
@@ -43,10 +45,10 @@
         </div>
         <div class="column large-4">
           <p></p><p class="text-right">
-          <% if user_signed_in? && @page.visibile %>
+          <% if policy(@page).edit? && @page.visibile %>
             <span class="success label">Pubblicato il <%= @page.published_at.to_s(:data_ora) %></span>
             <%= link_to 'NASCONDI', { controller: "pages", action: "nascondi", id: @page}, class: "tiny alert button" %>
-        <% elsif user_signed_in? %>
+          <% elsif policy(@page).edit? %>
             <span class="warning label">Al momento non visibile!</span>
             <%= link_to 'PUBBLICA', { controller: "pages", action: "pubblica", id: @page}, class: "tiny button" %>
           <% else %>

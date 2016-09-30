@@ -46,6 +46,7 @@
             </ul>
           </li>
           <% end %>
+          <% if policy(Page).index? %>
           <li>
             <a href="/pages">Pagine</a>
             <ul class="menu">
@@ -68,6 +69,7 @@
               <% if @section %><li><a href="/pages/new?section_id=<%= @section.id %>&articolo=1">Nuovo articolo</a></li><% end %>
             </ul>
           </li>
+          <% end %>
           <% if policy(Attachment).index? %>
           <li>
             <a href="/attachments">Allegati</a>

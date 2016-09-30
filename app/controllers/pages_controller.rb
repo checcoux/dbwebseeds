@@ -43,9 +43,7 @@ class PagesController < ApplicationController
   # GET /pages
   # GET /pages.json
   def index
-    if !user_signed_in? # todo: ci penserà pundit, questa riga non serve
-      redirect_to home_path
-    end
+    authorize Page
 
     if params[:articolo]
       @mostra_articoli = true
@@ -65,9 +63,9 @@ class PagesController < ApplicationController
   # indice articoli per il pubblico
   def articoli
     if params[:section_id]
-      @pages = Page.where("section_id = ? AND articolo = ?", params[:section_id], true).page(params[:page]).order('created_at DESC').all
+      @pages = policy_scope(Page).where("section_id = ? AND articolo = ?", params[:section_id], true).page(params[:page]).order('created_at DESC').all
     else
-      @pages = Page.where("articolo = ?", true).page(params[:page]).order('created_at DESC').all
+      @pages = policy_scope(Page).where("articolo = ?", true).page(params[:page]).order('created_at DESC').all
     end
   end
 
@@ -82,6 +80,7 @@ class PagesController < ApplicationController
   # GET /pages/new
   def new
     section = Section.find(params[:section_id]) if params[:section_id]
+    authorize Page
 
     if params[:articolo]
       # se non è stata trovata la sezione genera un errore
@@ -119,6 +118,8 @@ class PagesController < ApplicationController
   # POST /pages
   # POST /pages.json
   def create
+    authorize Page
+
     @page = Page.new(page_params)
     @page.visibile = false if @page.modello
     @page.articolo = false if @page.modello
@@ -292,6 +293,8 @@ class PagesController < ApplicationController
     def set_page
       @page = Page.find(params[:id])
       @section = @page.section
+
+      authorize @page
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

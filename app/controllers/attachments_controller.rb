@@ -23,6 +23,8 @@ class AttachmentsController < ApplicationController
 
   # GET /attachments/new
   def new
+    authorize Attachment
+
     section = Section.find(params[:section_id]) if params[:section_id]
 
     @attachment = Attachment.new
@@ -37,6 +39,8 @@ class AttachmentsController < ApplicationController
   # POST /attachments.json
   def create
     @attachment = Attachment.new(attachment_params)
+
+    authorize @attachment
 
     respond_to do |format|
       if @attachment.save
@@ -79,6 +83,8 @@ class AttachmentsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_attachment
       @attachment = Attachment.find(params[:id])
+
+      authorize @attachment
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

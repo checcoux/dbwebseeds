@@ -3,6 +3,30 @@ class AttachmentPolicy < ApplicationPolicy
     user.admin? or user.section
   end
 
+  def show?
+    true
+  end
+
+  def create?
+    user.admin? or user.section
+  end
+
+  def new?
+    create?
+  end
+
+  def edit?
+    user.admin? or (record.section == user.section)
+  end
+
+  def update?
+    edit?
+  end
+
+  def destroy?
+    edit?
+  end
+
   class Scope < Scope
     def resolve
       if user.admin?

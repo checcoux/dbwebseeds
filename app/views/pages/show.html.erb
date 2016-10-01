@@ -1,4 +1,4 @@
-<% if true or policy(@page).edit? %>
+<% if !user_signed_in? or policy(@page).edit? %>
 <%
   @menu_aggiuntivi = '<li>
           <a id="pageSave" onclick="pageSave();" class="error button"><i class="fi-save"></i> Salva</a>

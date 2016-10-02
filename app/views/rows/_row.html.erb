@@ -16,12 +16,11 @@
 
   # " style='background: url(/ckeditor_assets/pictures/3/original_13461656733527-0-680x276.jpg) no-repeat center top #005500;'".html_safe if row.estesa
 
+  # <% if false && row.page.footer
+  #  <div class="footer"<%= " style='background: #{style}'".html_safe if !style.blank?
 %>
-<% if row.page.footer %>
-<div class="footer"<%= " style='background: #{style}'".html_safe if !style.blank? %>>
-<% else %>
+
 <div <%= " style='background: #{style}'".html_safe if !style.blank? %>>
-<% end %>
 <div id="row<%= row.id %>" class="<%= "expanded " if row.estesa %><%= "full-width " if row.page.footer %>collapse row">
   <% row.columns.order('ordine ASC').each do |column|
       column_id = column.id

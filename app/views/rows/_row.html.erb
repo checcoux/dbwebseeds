@@ -1,24 +1,28 @@
 <%
   fonte = ['statica', 'pagina', 'sezione', 'parent', 'sito', 'siti affini', 'cloud']
-%>
-<% if row.page.footer %>
-<div class="footer"<%= " style='background: ##{row.colore_sfondo}'".html_safe if !row.colore_sfondo.blank? %>>
-<% end %>
-<div id="row<%= row.id %>" class="<%= "expanded " if row.estesa %><%= "full-width " if row.page.footer %>collapse row" <%=
+
   style = ''
-  if row.immagine_sfondo.exists?
-    style = "url( #{row.immagine_sfondo.url(:content)} ) center top "
-  end
   if !row.colore_sfondo.blank?
-    style = style + '#' + row.colore_sfondo
+    style = '#' + row.colore_sfondo + ' '
   end
+  if row.immagine_sfondo.exists?
+    style = style + "url( #{row.immagine_sfondo.url(:content)} ) center center no-repeat; background-size:cover;"
+  end
+
   # esperimenti con sfondo sfuocato: va messo in un'immagine sovrapposta allo sfondo
   #if row.immagine_sfondo.exists?
   #  style = style + "; -webkit-filter: blur(100px); -webkit-transform: translate3d(0, 0, 0);"
   #end
-  " style='background: #{style}'".html_safe if !style.blank?
+
   # " style='background: url(/ckeditor_assets/pictures/3/original_13461656733527-0-680x276.jpg) no-repeat center top #005500;'".html_safe if row.estesa
-%>>
+
+%>
+<% if row.page.footer %>
+<div class="footer"<%= " style='background: #{style}'".html_safe if !style.blank? %>>
+<% else %>
+<div <%= " style='background: #{style}'".html_safe if !style.blank? %>>
+<% end %>
+<div id="row<%= row.id %>" class="<%= "expanded " if row.estesa %><%= "full-width " if row.page.footer %>collapse row">
   <% row.columns.order('ordine ASC').each do |column|
       column_id = column.id
       if column.fonte > 0
@@ -109,6 +113,4 @@
         <% end %>
   <% end %>
 </div>
-<% if row.page.footer %>
 </div>
-<% end %>

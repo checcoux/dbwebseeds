@@ -27,7 +27,13 @@
       footer = @page.trova_footer if !@page.footer
     %>
 
-    <%= render(header.rows.order('ordine ASC')) if header %>
+    <% if header %>
+      <div data-sticky-container>
+        <div class="sticky" data-sticky data-options="marginTop:0;" style="width:100%; z-index:999;">
+          <%= render(header.rows.order('ordine ASC')) %>
+        </div>
+      </div>
+    <% end %>
 
     <% if @page.articolo %>
       <div class="row">

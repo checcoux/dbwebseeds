@@ -3,7 +3,7 @@
 
   style = ''
   if !row.colore_sfondo.blank?
-    style = '#' + row.colore_sfondo + ' '
+    style = '#' + row.colore_sfondo + '; '
   end
   if row.immagine_sfondo.exists?
     style = style + "url( #{row.immagine_sfondo.url(:content)} ) center center no-repeat; background-size:cover;"
@@ -20,7 +20,7 @@
   #  <div class="footer"<%= " style='background: #{style}'".html_safe if !style.blank?
 %>
 
-<div <%= " style='background: #{style}'".html_safe if !style.blank? %>>
+<div<%= " style='background: #{style}'".html_safe if !style.blank? %>>
 <div id="row<%= row.id %>" class="<%= "expanded " if row.estesa %><%= "full-width " if row.page.footer %>collapse row">
   <% row.columns.order('ordine ASC').each do |column|
       column_id = column.id

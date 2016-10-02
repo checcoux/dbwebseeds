@@ -10,7 +10,7 @@ CKEDITOR.stylesSet.add( 'my_styles', [
     { name: 'Bottone (warning)', element: 'a', attributes: { 'class': 'warning button' } },
     { name: 'Bottone (alert)', element: 'a', attributes: { 'class': 'alert button' } },
     { name: 'Bottone (disabled)', element: 'a', attributes: { 'class': 'disabled button' } },
-    
+
     { name: 'Bottone vuoto (primary)', element: 'a', attributes: { 'class': 'hollow button' } },
     { name: 'Bottone vuoto (secondary)', element: 'a', attributes: { 'class': 'hollow secondary button' } },
     { name: 'Bottone vuoto (success)', element: 'a', attributes: { 'class': 'hollow success button' } },

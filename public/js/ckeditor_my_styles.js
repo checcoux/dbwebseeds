@@ -3,7 +3,7 @@
 
 CKEDITOR.stylesSet.add( 'my_styles', [
     // Object-level styles
-    { name: 'Menu', element: 'ul', attributes: { 'class': 'menu' } },
+    { name: 'Menu', element: 'ul', attributes: { 'class': 'vertical medium-horizontal menu' } },
     { name: 'Bottone (primary)', element: 'a', attributes: { 'class': 'button' } },
     { name: 'Bottone (secondary)', element: 'a', attributes: { 'class': 'secondary button' } },
     { name: 'Bottone (success)', element: 'a', attributes: { 'class': 'success button' } },

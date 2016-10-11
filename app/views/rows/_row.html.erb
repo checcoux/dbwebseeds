@@ -37,6 +37,8 @@
         editable = true
       end
       editable = false if !user_signed_in?
+      editable = false if row.page.header && !@page.header
+      editable = false if row.page.footer && !@page.footer
       if column.column_images.count == 0 %>
           <div id="weditr<%= column_id %>" class="large-<%= column.larghezza %> columns" style="position: relative;">
             <div id="editor<%= column_id %>"<% if editable %> class="inline-editor" contenteditable="false"<% end %>>

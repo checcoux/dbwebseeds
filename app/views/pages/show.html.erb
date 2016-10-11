@@ -22,9 +22,9 @@
 </div>
 
     <%
-      header = @page.trova_header if !@page.header # non lo mostro se sto modificando proprio un header
+      header = @page.trova_header if !@page.header && !@page.footer # non lo mostro se sto modificando proprio un header
 
-      footer = @page.trova_footer if !@page.footer
+      footer = @page.trova_footer if !@page.header && !@page.footer
     %>
 
     <% if header %>
@@ -92,7 +92,9 @@
       </div>
     <% end %>
 
-    <%= render(@page.rows.order('ordine ASC')) %>
+    <% @page.rows.order('ordine ASC').each do |row| %>
+    <%= render row, :page => @page %>
+    <% end %>
 
     <%= render 'row0' if user_signed_in? && !@page.modello && !@page.header && !@page.footer %>
 

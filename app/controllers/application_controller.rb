@@ -1,8 +1,10 @@
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
-  include Pundit
   protect_from_forgery with: :exception
+
+  include Pundit
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   protected
 
@@ -21,5 +23,12 @@ class ApplicationController < ActionController::Base
     # logger.debug "colonna da create: " + params[:column_id]
     asset.assetable = Column.find(params[:column_id])
     return true
+  end
+
+  private
+
+  def user_not_authorized
+    flash[:alert] = "Non autorizzato."
+    redirect_to(request.referrer || home_path )
   end
 end

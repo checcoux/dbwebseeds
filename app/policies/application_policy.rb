@@ -3,8 +3,9 @@ class ApplicationPolicy
 
   def initialize(user, record)
     @user = user
-    if !@user
-      @user = new User
+
+    if !user
+      @user = User.new
     end
     @record = record
   end

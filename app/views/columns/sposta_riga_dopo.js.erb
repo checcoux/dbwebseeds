@@ -1,0 +1,23 @@
+$('#row<%= @row2.id %>').replaceWith("");
+$('#row<%= @row.id %>').replaceWith("<%= escape_javascript render(@row2) + render(@row) %>").foundation();
+
+$('#row<%= @row.id %> > .columns').addClass('bordo_layout');
+$('#row<%= @row2.id %> > .columns').addClass('bordo_layout');
+
+$('#row<%= @row.id %> .mioslider').slick({
+  slidestoshow: 1,
+  slidestoscroll: 1,
+  autoplay: true,
+  autoplayspeed: 2000,
+  zIndex: 100,
+  arrows: true
+});
+
+$('#row<%= @row2.id %> .mioslider').slick({
+  slidestoshow: 1,
+  slidestoscroll: 1,
+  autoplay: true,
+  autoplayspeed: 2000,
+  zIndex: 100,
+  arrows: true
+});

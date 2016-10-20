@@ -113,6 +113,38 @@ class ColumnsController < ApplicationController
     column.save
   end
 
+  def sposta_riga_prima
+    posizione = @row.ordine
+    page = @row.page
+
+    # cerco la riga precedente...
+    @row2 = Row.where('ordine < ? AND page_id = ?', posizione, page.id).order(ordine: :desc).first
+
+    # ...e se esiste scambio i numeri d'ordine delle due righe
+    if @row2
+      @row.ordine, @row2.ordine = @row2.ordine, @row.ordine
+
+      @row.save
+      @row2.save
+    end
+  end
+
+  def sposta_riga_dopo
+    posizione = @row.ordine
+    page = @row.page
+
+    # cerco la riga successiva...
+    @row2 = Row.where('ordine > ? AND page_id = ?', posizione, page.id).order(ordine: :asc).first
+
+    # ...e se esiste scambio i numeri d'ordine delle due righe
+    if @row2
+      @row.ordine, @row2.ordine = @row2.ordine, @row.ordine
+
+      @row.save
+      @row2.save
+    end
+  end
+
   def inserisci_riga_dopo
     posizione = @row.ordine
     page = @row.page
@@ -260,6 +292,36 @@ class ColumnsController < ApplicationController
         @column2 = Column.create(ordine: posizione, larghezza: 1, row_id: @row.id, contenuto: '<p>Cantami o Diva del pelide Achille l\'ira funesta...</p>')
         @column2.save
       end
+    end
+  end
+
+  def sposta_colonna_prima
+    posizione = @column.ordine
+
+    # cerco la colonna precedente...
+    column2 = Column.where('ordine < ? AND row_id = ?', posizione, @row.id).order(ordine: :desc).first
+
+    # ...e se esiste scambio i numeri d'ordine delle due righe
+    if column2
+      @column.ordine, column2.ordine = column2.ordine, @column.ordine
+
+      @column.save
+      column2.save
+    end
+  end
+
+  def sposta_colonna_dopo
+    posizione = @column.ordine
+
+    # cerco la colonna seguente...
+    column2 = Column.where('ordine > ? AND row_id = ?', posizione, @row.id).order(ordine: :asc).first
+
+    # ...e se esiste scambio i numeri d'ordine delle due righe
+    if column2
+      @column.ordine, column2.ordine = column2.ordine, @column.ordine
+
+      @column.save
+      column2.save
     end
   end
 

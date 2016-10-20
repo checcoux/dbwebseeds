@@ -412,7 +412,7 @@ class ColumnsController < ApplicationController
 
     # procedo solo se ci sono almeno due colonne
     columns = Column.where('row_id = ?', @row.id)
-    if columns.count > 1 then
+    if columns.count > 1
 
       vicina = Column.where('ordine > ? AND row_id = ?', posizione, @row.id).order(ordine: :asc).first
 
@@ -429,6 +429,28 @@ class ColumnsController < ApplicationController
         @column.larghezza = @column.larghezza - 1
         @column.save
         end
+    end
+  end
+
+  def equalizza_colonne
+    #seleziono tutte le colonne
+    columns = Column.where('row_id = ?', @row.id).order(ordine: :asc)
+
+    numero = columns.count
+
+    if numero > 1
+      larghezza = 12 / numero
+      resto = 12 % numero
+
+      columns.each_with_index do |column, index|
+        if index == 0
+          column.larghezza = larghezza + resto
+        else
+          column.larghezza = larghezza
+        end
+
+        column.save
+      end
     end
   end
 

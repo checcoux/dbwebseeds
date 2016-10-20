@@ -37,6 +37,7 @@ Rails.application.routes.draw do
       post 'duplica_riga'
       post 'sposta_colonna_prima'
       post 'sposta_colonna_dopo'
+      post 'equalizza_colonne'
       get 'dialog_sfondo'
       get 'dialog_immagine'
       get 'modifica_immagine'

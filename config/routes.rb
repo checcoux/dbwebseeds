@@ -53,6 +53,7 @@ Rails.application.routes.draw do
       get 'route'
       get 'row0'
       get 'pubblica'
+      get 'duplica'
       get 'nascondi'
       post 'nuovo_contenuto_dinamico'
     end

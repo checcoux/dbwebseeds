@@ -179,6 +179,7 @@ class ColumnsController < ApplicationController
     # duplico la riga
     @row2 = @row.dup
     @row2.ordine = posizione + 1
+    @row2.immagine_sfondo = @row.immagine_sfondo if @row.immagine_sfondo
     @row2.save
 
     @row.columns.each do |colonna|

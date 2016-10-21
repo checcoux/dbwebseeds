@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_action :set_page, only: [:show, :edit, :update, :destroy, :row0, :nuovo_contenuto_dinamico, :pubblica, :nascondi]
+  before_action :set_page, only: [:show, :edit, :update, :destroy, :row0, :nuovo_contenuto_dinamico, :pubblica, :nascondi, :duplica]
   rescue_from ActiveRecord::RecordNotFound, with: :pagina_non_trovata
 
   # GET /
@@ -278,6 +278,48 @@ class PagesController < ApplicationController
 
     redirect_to @page
   end
+
+  def duplica
+    authorize Page
+
+    section_id = @page.section.id
+
+    @page2 = @page.dup
+    @page2.home = false
+    @page2.header = false
+    @page2.footer = false
+    @page2.published_at = Time.new
+    @page2.titolo = "Copia di " + @page2.titolo
+
+
+    # duplicazione di tutte le righe
+    @page.rows.each do |riga|
+      riga2 = riga.dup
+      riga2.page = @page2
+      riga2.immagine_sfondo = riga.immagine_sfondo if riga.immagine_sfondo
+      riga2.save
+
+      riga.columns.each do |colonna|
+        colonna2 = colonna.dup
+        colonna2.row = riga2
+        colonna2.save
+
+        # duplicazione di tutte le column_images
+        colonna.column_images.each do |column_image|
+          column_image2 = column_image.dup
+          column_image2.column = colonna2
+          column_image2.immagine = column_image.immagine
+          column_image2.save
+        end
+      end
+    end
+
+    respond_to do |format|
+      format.html { redirect_to pages_url(section_id: section_id) }
+      format.json { head :no_content }
+    end
+  end
+
 
   def row0
     render layout: false

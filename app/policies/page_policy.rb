@@ -35,6 +35,10 @@ class PagePolicy < ApplicationPolicy
     edit?
   end
 
+  def duplica?
+    edit?
+  end
+
   def row0
     edit?
   end

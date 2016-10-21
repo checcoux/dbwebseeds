@@ -165,6 +165,37 @@ class ColumnsController < ApplicationController
     column.save
   end
 
+  def duplica_riga
+    posizione = @row.ordine
+    page = @row.page
+
+    # prendo la collezione delle righe e aumento di uno l'ordine di tutte quelle con ordine > posizione
+    rows = Row.where('ordine > ? AND page_id = ?', posizione, page.id).order(ordine: :asc)
+    rows.each do |riga|
+      riga.ordine = riga.ordine + 1
+      riga.save
+    end
+
+    # duplico la riga
+    @row2 = @row.dup
+    @row2.ordine = posizione + 1
+    @row2.save
+
+    @row.columns.each do |colonna|
+      colonna2 = colonna.dup
+      colonna2.row = @row2
+      colonna2.save
+
+      # duplicazione di tutte le column_images
+      colonna.column_images.each do |column_image|
+        column_image2 = column_image.dup
+        column_image2.column = colonna2
+        column_image2.immagine = column_image.immagine
+        column_image2.save
+      end
+    end
+  end
+
   def elimina_riga
     posizione = @row.ordine
 

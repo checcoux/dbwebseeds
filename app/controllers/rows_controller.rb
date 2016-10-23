@@ -18,6 +18,7 @@ class RowsController < ApplicationController
   # GET /rows/new
   def new
     @row = Row.new
+    @row.colore_sfondo = 'ffffff'
   end
 
   # GET /rows/1/edit

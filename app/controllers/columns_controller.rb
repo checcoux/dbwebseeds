@@ -105,7 +105,7 @@ class ColumnsController < ApplicationController
     end
 
     # creo una riga vuota
-    @row2 = Row.create(ordine: posizione, page_id: page.id)
+    @row2 = Row.create(ordine: posizione, page_id: page.id, colore_sfondo: 'ffffff')
     @row2.save
 
     # creo una colonna vuota
@@ -157,7 +157,7 @@ class ColumnsController < ApplicationController
     end
 
     # creo una riga vuota
-    @row2 = Row.create(ordine: posizione + 1, page_id: page.id)
+    @row2 = Row.create(ordine: posizione + 1, page_id: page.id, colore_sfondo: 'ffffff')
     @row2.save
 
     # creo una colonna vuota

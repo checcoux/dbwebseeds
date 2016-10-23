@@ -173,7 +173,7 @@ class PagesController < ApplicationController
           end
         else
           # creo una riga vuota
-          row = Row.create(ordine: 1, page_id: @page.id)
+          row = Row.create(ordine: 1, page_id: @page.id, colore_sfondo: 'ffffff')
           row.save
 
           # creo una colonna vuota

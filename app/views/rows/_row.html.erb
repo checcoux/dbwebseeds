@@ -6,7 +6,7 @@
     style = "url( #{row.immagine_sfondo.url(:content)} ) center center no-repeat; background-size:cover; "
   end
   if !row.colore_sfondo.blank?
-    style = style + '#' + row.colore_sfondo + ';'
+    style = style + row.colore_sfondo + ';'
   end
 
   # esperimenti con sfondo sfuocato: va messo in un'immagine sovrapposta allo sfondo

@@ -4,6 +4,8 @@
 <script>
 
   $( "form" ).submit( function(e) {
+        e.preventDefault();
+
         $.ajax( {
           url: $(this).attr("action"),
           type: 'POST',
@@ -11,6 +13,7 @@
           processData: false,
           contentType: false,
           success: function(data) {
+
             // chiudiamo la finestra modale
             $("#finestra_modale").foundation('close');
 
@@ -28,7 +31,7 @@
             });
           }
         } );
-        e.preventDefault();
+
       } );
 
   /*

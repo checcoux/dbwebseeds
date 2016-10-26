@@ -18,7 +18,7 @@ class RowsController < ApplicationController
   # GET /rows/new
   def new
     @row = Row.new
-    @row.colore_sfondo = 'ffffff'
+    @row.colore_sfondo = '#ffffff'
   end
 
   # GET /rows/1/edit
@@ -46,7 +46,8 @@ class RowsController < ApplicationController
   def update
     respond_to do |format|
       if @row.update(row_params)
-        format.html { redirect_to @row }
+        # format.html { redirect_to @row }
+        format.html { render :show, layout: false }
         format.json { render :show, status: :ok, location: @row }
       else
         format.html { render :edit }

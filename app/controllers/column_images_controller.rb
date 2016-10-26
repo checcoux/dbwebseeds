@@ -31,7 +31,10 @@ class ColumnImagesController < ApplicationController
     respond_to do |format|
       if @column_image.save
         if @column_image.column.row
-          format.html { redirect_to @column_image.column.row }
+          # format.html { redirect_to @column_image.column.row }
+          @row = @column_image.column.row
+          format.html { render 'rows/show', layout: false }
+
           format.json { render :show, status: :created, location: @column_image.column.row }
         else
           @page = @column_image.column.page
@@ -51,7 +54,10 @@ class ColumnImagesController < ApplicationController
     respond_to do |format|
       if @column_image.update(column_image_params)
         if @column_image.column.row
-          format.html { redirect_to @column_image.column.row }
+          # format.html { redirect_to @column_image.column.row }
+          @row = @column_image.column.row
+          format.html { render 'rows/show', layout: false }
+
           format.json { render :show, status: :ok, location: @column_image.column.row }
         else
           @page = @column_image.column.page

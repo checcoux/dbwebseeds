@@ -2,6 +2,7 @@
   fonte = ['statica', 'pagina', 'sezione', 'parent', 'sito', 'siti affini', 'cloud']
 
   style = ''
+  # row = @row if !row
   if row.immagine_sfondo.exists?
     style = "url( #{row.immagine_sfondo.url(:content)} ) center center no-repeat; background-size:cover; "
   end
@@ -32,15 +33,30 @@
           selezionata.fonte = column.fonte
           column = selezionata
         end
+        colonna_dinamica = true
+      else
+        colonna_dinamica = false
+      end
+
+      # stiamo visualizzando la riga di un header o un footer, che non deve essere modificabile
+      parte_fissa = false
+      parte_fissa = true if row.page.header && !@page.header
+      parte_fissa = true if row.page.footer && !@page.footer
+
+      if !user_signed_in? || parte_fissa || colonna_dinamica
         editable = false
       else
         editable = true
       end
-      editable = false if !user_signed_in?
-      editable = false if row.page.header && !@page.header
-      editable = false if row.page.footer && !@page.footer
+
+      if !editable && !colonna_dinamica
+        column_class = 'column' # queste sono colonne semplici, senza menù contestuale
+      else
+        column_class = 'columns' # queste sono colonne con il menù contestuale
+      end
+
       if column.column_images.count == 0 %>
-          <div id="weditr<%= column_id %>" class="large-<%= column.larghezza %> columns" style="position: relative;">
+          <div id="weditr<%= column_id %>" class="large-<%= column.larghezza %> <%= column_class %>" style="position: relative;">
             <div id="editor<%= column_id %>"<% if editable %> class="inline-editor" contenteditable="false"<% end %>>
               <%= column.contenuto.html_safe %>
             </div>
@@ -49,12 +65,12 @@
               <div class="gestione-immagini"><button onclick="aggiungiImmagine(<%= column_id %>);"><i class="fi-photo"></i></button>
               <%= " #{column.ruolo}".html_safe if column.ruolo %>
               </div>
-            <% elsif user_signed_in? %>
+            <% elsif user_signed_in? && !parte_fissa %>
                 <div class="gestione-immagini"><i class="fi-link"></i> <%= fonte[column.fonte] %></div>
             <% end %>
           </div>
       <% elsif column.column_images.count == 1 %>
-          <div id="image_<%= column_id %>" class="large-<%= column.larghezza %> columns" style="position: relative;">
+          <div id="image_<%= column_id %>" class="large-<%= column.larghezza %> <%= column_class %>" style="position: relative;">
             <% immagine = column.column_images.first %>
             <% if immagine.collegamento.length > 0 %>
                 <a href="<%= immagine.collegamento %>">
@@ -75,12 +91,12 @@
             <% end %>
             <% if editable %>
               <div class="gestione-immagini"><button onclick="aggiungiImmagine(<%= column_id %>);"><i class="fi-plus"></i></button> <button onclick="modificaImmagine(<%= column.column_images.first.id %>);"><i class="fi-pencil"></i></button> <button onclick="eliminaImmagine(<%= column.column_images.first.id %>);"><i class="fi-x"></i></button></div>
-            <% elsif user_signed_in? %>
+            <% elsif user_signed_in? && !parte_fissa %>
                 <div class="gestione-immagini"><i class="fi-link"></i> <%= fonte[column.fonte] %></div>
             <% end %>
           </div>
         <% else %>
-          <div id="slider<%= column_id %>" class="large-<%= column.larghezza %> columns mioslider" style="position: relative;">
+          <div id="slider<%= column_id %>" class="large-<%= column.larghezza %> <%= column_class %> mioslider" style="position: relative;">
 
                   <% column.column_images.each do |column_image| %>
                       <div class="slide slick-slide">
@@ -102,7 +118,7 @@
 
                         <% if editable %>
                           <div class="gestione-immagini"><button onclick="aggiungiImmagine(<%= column_id %>);"><i class="fi-plus"></i></button> <button onclick="modificaImmagine(<%= column_image.id %>);"><i class="fi-pencil"></i></button> <button onclick="eliminaImmagine(<%= column_image.id %>);"><i class="fi-x"></i></button></div>
-                        <% elsif user_signed_in? %>
+                        <% elsif user_signed_in? && !parte_fissa %>
                             <div class="gestione-immagini"><i class="fi-link"></i> <%= fonte[column.fonte] %></div>
                         <% end %>
 

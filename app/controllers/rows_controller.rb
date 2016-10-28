@@ -47,7 +47,8 @@ class RowsController < ApplicationController
     respond_to do |format|
       if @row.update(row_params)
         # format.html { redirect_to @row }
-        format.html { render :show, layout: false }
+        @page = @row.page
+        format.html { render '_row', locals: { row: @row }, layout: false }
         format.json { render :show, status: :ok, location: @row }
       else
         format.html { render :edit }

@@ -33,7 +33,9 @@ class ColumnImagesController < ApplicationController
         if @column_image.column.row
           # format.html { redirect_to @column_image.column.row }
           @row = @column_image.column.row
-          format.html { render 'rows/show', layout: false }
+          @page = @row.page
+          # format.html { render 'rows/show', layout: false }
+          format.html { render 'rows/_row', locals: { row: @row }, layout: false }
 
           format.json { render :show, status: :created, location: @column_image.column.row }
         else
@@ -56,7 +58,9 @@ class ColumnImagesController < ApplicationController
         if @column_image.column.row
           # format.html { redirect_to @column_image.column.row }
           @row = @column_image.column.row
-          format.html { render 'rows/show', layout: false }
+          @page = @row.page
+          # format.html { render 'rows/show', layout: false }
+          format.html { render 'rows/_row', locals: { row: @row }, layout: false }
 
           format.json { render :show, status: :ok, location: @column_image.column.row }
         else
@@ -85,6 +89,7 @@ class ColumnImagesController < ApplicationController
     @row = @column_image.column.row
 
     if @row
+      @page = @row.page
       @row_id = @row.id
     else
       @row_id = 0

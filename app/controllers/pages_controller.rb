@@ -214,7 +214,7 @@ class PagesController < ApplicationController
           Page.where("id != ? AND section_id = ?", @page.id, @page.section.id).update_all(modello: false)
         end
 
-        format.html { redirect_to pages_url(section_id: @page.section, articolo: @page.articolo) }
+        format.html { redirect_to pages_url(section_id: @page.section, articolo: @page.articolo ? '1' : nil) }
         format.json { render :show, status: :ok, location: @page }
       else
         format.html { render :edit }

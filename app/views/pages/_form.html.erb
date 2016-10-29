@@ -48,6 +48,10 @@
     </div>
   <% end %>
   <%= f.hidden_field :articolo %>
+  <div class="field">
+    <%= check_box_tag 'rigenera_slug' %>
+    <%= f.label 'rigenera percorso della pagina' %>
+  </div>
   <div class="actions">
     <%= f.submit "SALVA", class: "button" %>
   </div>

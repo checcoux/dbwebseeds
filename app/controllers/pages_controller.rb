@@ -193,6 +193,10 @@ class PagesController < ApplicationController
   # PATCH/PUT /pages/1
   # PATCH/PUT /pages/1.json
   def update
+    if(params[:rigenera_slug])
+      @page.slug = nil
+    end
+
     respond_to do |format|
       if @page.update(page_params)
 
@@ -210,7 +214,7 @@ class PagesController < ApplicationController
           Page.where("id != ? AND section_id = ?", @page.id, @page.section.id).update_all(modello: false)
         end
 
-        format.html { redirect_to pages_url(section_id: @page.section) }
+        format.html { redirect_to pages_url(section_id: @page.section, articolo: @page.articolo) }
         format.json { render :show, status: :ok, location: @page }
       else
         format.html { render :edit }
@@ -225,7 +229,7 @@ class PagesController < ApplicationController
     section_id = @page.section.id
     @page.destroy
     respond_to do |format|
-      format.html { redirect_to pages_url(section_id: section_id) }
+      format.html { redirect_to pages_url(section_id: params[:section_id], articolo: params[:articolo]) }
       format.json { head :no_content }
     end
   end
@@ -282,8 +286,6 @@ class PagesController < ApplicationController
   def duplica
     authorize Page
 
-    section_id = @page.section.id
-
     @page2 = @page.dup
     @page2.home = false
     @page2.header = false
@@ -315,7 +317,7 @@ class PagesController < ApplicationController
     end
 
     respond_to do |format|
-      format.html { redirect_to pages_url(section_id: section_id) }
+      format.html { redirect_to pages_url(section_id: params[:section_id], articolo: params[:articolo]) }
       format.json { head :no_content }
     end
   end
@@ -341,7 +343,7 @@ class PagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def page_params
-      params.require(:page).permit(:titolo, :descrizione, :section_id, :home, :header, :footer, :modello, :visibile, :articolo, :published_at)
+      params.require(:page).permit(:titolo, :descrizione, :section_id, :home, :header, :footer, :modello, :visibile, :articolo, :published_at, :rigenera_slug)
     end
 
     def pagina_non_trovata

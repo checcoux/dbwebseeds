@@ -15,6 +15,7 @@
   <link rel="stylesheet" type="text/css" href="/slick/slick.css"/>
   <link rel="stylesheet" type="text/css" href="/slick/slick-theme.css"/>
 
+  <script src="/js/vendor/jquery.js"></script>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <script src="/js/what-input.js"></script>
   <script src="/js/foundation.min.js"></script>
@@ -25,34 +26,42 @@
 
 <body class='<%= controller.controller_name %>'>
 
-  <script>
-    $(function() {
-      $(document).foundation();
-    });
-  </script>
-
   <!-- Menu amministrativo -->
   <% if user_signed_in? %>
-  <div data-sticky-container>
-    <div class="top-bar show-for-medium sticky" data-sticky data-options="marginTop:0;" style="width:100%; z-index:1000;">
-      <div class="top-bar-left">
-        <ul class="dropdown menu" data-dropdown-menu>
-          <li class="menu-text"><a href="/"><img src="/img/logodbwebcore.png" width="200"></a></li>
+    <div class="title-bar" data-responsive-toggle="main-menu" data-hide-for="medium">
+      <button class="menu-icon" type="button" data-toggle></button>
+      <div class="title-bar-title"><a href="/"><img src="/img/logodbwebcore.png" width="200"></a></div>
+    </div>
+
+
+
+    <div class="top-bar" id="main-menu">
+
+        <ul class="menu vertical medium-horizontal expanded" data-responsive-menu="accordion medium-dropdown">
+
+        <li class="menu-text"><a href="/"><img src="/img/logodbwebcore.png" width="200"></a></li>
+          <%= @menu_aggiuntivi %>
+
           <% if policy(Section).index? %>
-          <li>
-            <a href="/sections">Sezioni</a>
-            <ul class="menu">
+          <li class="has-submenu">
+            <a>Sezioni</a>
+            <ul class="submenu menu vertical" data-submenu>
+              <% policy_scope(Section).order('titolo').each do |section| %>
+                  <li><%= link_to section.titolo, '/' + section.percorso %></li>
+              <% end %>
+              <li><a href="/sections">Tutte</a></li>
               <li><a href="/sections/new">Nuova sezione</a></li>
             </ul>
           </li>
           <% end %>
           <% if policy(Page).index? %>
-          <li>
-            <a href="/pages">Pagine</a>
-            <ul class="menu">
+          <li class="has-submenu">
+            <a>Pagine</a>
+            <ul class="submenu menu vertical" data-submenu>
               <% policy_scope(Section).order('titolo').each do |section| %>
               <li><%= link_to section.titolo, pages_path(:section_id => section.id) %></li>
               <% end %>
+              <li><a href="/pages">Tutte</a></li>
               <% if @section %>
               <li><a href="/pages/new?section_id=<%= @section.id %>">Nuova pagina</a></li>
               <% else %>
@@ -60,23 +69,25 @@
               <% end %>
             </ul>
           </li>
-          <li>
-            <a href="/pages?articolo=1">Articoli</a>
-            <ul class="menu">
+          <li class="has-submenu">
+            <a>Articoli</a>
+            <ul class="submenu menu vertical" data-submenu>
               <% policy_scope(Section).order('titolo').each do |section| %>
                   <li><%= link_to section.titolo, pages_path(:section_id => section.id, :articolo => 1) %></li>
               <% end %>
+              <li><a href="/pages?articolo=1">Tutti</a></li>
               <% if @section %><li><a href="/pages/new?section_id=<%= @section.id %>&articolo=1">Nuovo articolo</a></li><% end %>
             </ul>
           </li>
           <% end %>
           <% if policy(Attachment).index? %>
-          <li>
-            <a href="/attachments">Allegati</a>
-            <ul class="menu">
+          <li class="has-submenu">
+            <a>Allegati</a>
+            <ul class="submenu menu vertical" data-submenu>
               <% policy_scope(Section).order('titolo').each do |section| %>
                   <li><%= link_to section.titolo, attachments_path(:section_id => section.id) %></li>
               <% end %>
+              <li><a href="/attachments">Tutti</a></li>
               <% if @section %>
                   <li><a href="/attachments/new?section_id=<%= @section.id %>">Nuovo allegato</a></li>
               <% else %>
@@ -86,32 +97,35 @@
           </li>
           <% end %>
           <% if policy(User).index? %>
-          <li>
-            <a href="/admin/users">Utenti</a>
-            <ul class="menu">
+          <li class="has-submenu">
+            <a>Utenti</a>
+            <ul class="submenu menu vertical" data-submenu>
+              <li><a href="/admin/users">Tutti</a></li>
               <li><a href="/admin/users/new">Nuovo utente</a></li>
             </ul>
           </li>
           <% end %>
-          <%= @menu_aggiuntivi %>
-        </ul>
-      </div>
-      <div class="top-bar-right">
-        <ul class="dropdown menu align-right" data-dropdown-menu>
-          <li>
-            <a href="/">Account</a>
-            <ul class="menu">
+          <li class="has-submenu">
+            <a>Account</a>
+            <ul class="submenu menu vertical" data-submenu>
               <% # link_to "Dati personali", edit_user_registration_path %>
               <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
             </ul>
           </li>
         </ul>
-      </div>
-    </div>
-  </div>
+
+     </div>
+
   <% end %>
 
   <%= yield %>
+
+  <script>
+    $(function() {
+      $(document).foundation();
+      // setTimeout(function() { $(document).foundation('topbar', 'init');}, 250);
+    });
+  </script>
 
 </body>
 </html>

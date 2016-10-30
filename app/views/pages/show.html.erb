@@ -28,11 +28,15 @@
     %>
 
     <% if header %>
-      <div data-sticky-container>
-        <div class="sticky" data-sticky data-options="marginTop:0;" style="width:100%; z-index:999;">
-          <%= render(header.rows.order('ordine ASC')) %>
+      <% if !user_signed_in? %>
+        <div data-sticky-container>
+          <div class="sticky" data-sticky data-options="marginTop:0;" style="width:100%; z-index:999;">
+      <% end %>
+            <%= render(header.rows.order('ordine ASC')) %>
+      <% if !user_signed_in? %>
+          </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
 
     <% if @page.articolo %>

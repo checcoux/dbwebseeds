@@ -317,7 +317,9 @@ class PagesController < ApplicationController
     end
 
     respond_to do |format|
-      format.html { redirect_to pages_url(section_id: params[:section_id], articolo: params[:articolo]) }
+      # format.html { redirect_to pages_url(section_id: params[:section_id], articolo: params[:articolo]) }
+      format.html { redirect_to edit_page_url(@page2) }
+
       format.json { head :no_content }
     end
   end

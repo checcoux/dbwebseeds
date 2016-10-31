@@ -1,16 +1,16 @@
 <% if !user_signed_in? or policy(@page).edit? %>
 <%
   @menu_aggiuntivi = '<li>
-          <a id="pageSave" onclick="pageSave();" class="error button"><i class="fi-save"></i> Salva</a>
+          <a id="pageSave" onclick="pageSave();" class="error button" accesskey="s" title="Salva: ALT + S"><i class="fi-save"></i> Salva</a>
         </li>
         <li>
-          <a id="pagePreview" onclick="pagePreview();" class="toolbar warning button"><i class="fi-eye"></i> Page preview</a>
+          <a id="pagePreview" onclick="pagePreview();" class="toolbar warning button" accesskey="p" title="Page preview: ALT + P"><i class="fi-eye"></i> Page preview</a>
         </li>
         <li>
-          <a id="inlineEdit" onclick="inlineEdit();" class="toolbar button"><i class="fi-page"></i> Inline edit</a>
+          <a id="inlineEdit" onclick="inlineEdit();" class="toolbar button" accesskey="i" title="Inline edit: ALT + I"><i class="fi-page"></i> Inline edit</a>
         </li>
         <li>
-          <a id="layoutDesign" onclick="layoutDesign();" class="toolbar button"><i class="fi-pencil"></i> Layout design</a>
+          <a id="layoutDesign" onclick="layoutDesign();" class="toolbar button" accesskey="l" title="Layout design: ALT + L"><i class="fi-pencil"></i> Layout design</a>
         </li>'.html_safe
 %>
 <% end %>
@@ -96,11 +96,12 @@
       </div>
     <% end %>
 
+    <%= render 'row0' if user_signed_in? && !@page.modello && !@page.header && !@page.footer %>
+
+
     <% @page.rows.order('ordine ASC').each do |row| %>
     <%= render row, :page => @page %>
     <% end %>
-
-    <%= render 'row0' if user_signed_in? && !@page.modello && !@page.header && !@page.footer %>
 
     <%= render(footer.rows.order('ordine ASC')) if footer %>
 

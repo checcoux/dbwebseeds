@@ -1,16 +1,19 @@
 <% if !user_signed_in? or policy(@page).edit? %>
 <%
   @menu_aggiuntivi = '<li>
-          <a id="pageSave" onclick="pageSave();" class="error button" accesskey="s" title="Salva: ALT + S"><i class="fi-save"></i> Salva</a>
-        </li>
-        <li>
           <a id="pagePreview" onclick="pagePreview();" class="toolbar warning button" accesskey="p" title="Page preview: ALT + P"><i class="fi-eye"></i> Page preview</a>
         </li>
         <li>
-          <a id="inlineEdit" onclick="inlineEdit();" class="toolbar button" accesskey="i" title="Inline edit: ALT + I"><i class="fi-page"></i> Inline edit</a>
+          <a id="pageSave" onclick="pageSave();" class="error button" accesskey="s" title="Salva: ALT + S"><i class="fi-save"></i> Salva</a>
         </li>
         <li>
-          <a id="layoutDesign" onclick="layoutDesign();" class="toolbar button" accesskey="l" title="Layout design: ALT + L"><i class="fi-pencil"></i> Layout design</a>
+          <a id="newsEdit" onclick="newsEdit();" class="toolbar button" accesskey="n" title="News: ALT + I"><i class="fi-page"></i> News</a>
+        </li>
+        <li>
+          <a id="inlineEdit" onclick="inlineEdit();" class="toolbar button" accesskey="i" title="Inline edit: ALT + I"><i class="fi-page"></i> Editor</a>
+        </li>
+        <li>
+          <a id="layoutDesign" onclick="layoutDesign();" class="toolbar button" accesskey="l" title="Layout design: ALT + L"><i class="fi-pencil"></i> Layout</a>
         </li>'.html_safe
 %>
 <% end %>
@@ -190,6 +193,7 @@
 
     // nasconde i pulsanti di gestione delle immagini
     $('.gestione-immagini').hide();
+    $('.info-layout').hide();
 
     // nasconde la riga dei contenuti dinamici
     $('#row0').hide();
@@ -267,9 +271,42 @@
 
     // nasconde i pulsanti di gestione delle immagini
     $('.gestione-immagini').hide();
+    $('.info-layout').hide();
 
     // nasconde la riga dei contenuti dinamici
     $('#row0').hide();
+  }
+
+  function newsEdit() {
+    // disabilita gli editor inline
+    for (instance in CKEDITOR.instances) {
+      var editor = CKEDITOR.instances[instance];
+
+      if(editor) {
+        editor.destroy();
+        elemento = document.getElementById(editor.name)
+
+        elemento.setAttribute('contenteditable', false);
+      }
+    }
+
+    // disabilita i menù contestuali
+    $('.columns').each(function () {
+      var $this = $(this);
+      $this.contextMenu(false);
+    });
+    $('.columns').removeClass('bordo_layout');
+
+    $('.toolbar').attr('class','toolbar button');
+    $('#newsEdit').attr('class','toolbar warning button');
+
+    // nasconde i pulsanti di gestione delle immagini
+    $('.gestione-immagini').hide();
+    $('.info-layout').hide();
+
+    // visualizza la riga dei contenuti dinamici
+    $('#row0').show();
+    $('#row0 .gestione-immagini').show();
   }
 
   function inlineEdit() {
@@ -304,9 +341,10 @@
 
     // visualizza i pulsanti di gestione delle immagini
     $('.gestione-immagini').show();
+    $('.info-layout').hide();
 
-    // visualizza la riga dei contenuti dinamici
-    $('#row0').show();
+    // nasconde la riga dei contenuti dinamici
+    $('#row0').hide();
   }
 
   function layoutDesign() {
@@ -331,8 +369,9 @@
     $('.toolbar').attr('class','toolbar button');
     $('#layoutDesign').attr('class','toolbar warning button');
 
-    // visualizza i pulsanti di gestione delle immagini
-    $('.gestione-immagini').show();
+    // nasconde i pulsanti di gestione delle immagini
+    $('.gestione-immagini').hide();
+    $('.info-layout').show();
 
     // nasconde la riga dei contenuti dinamici
     $('#row0').hide();

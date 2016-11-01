@@ -62,11 +62,10 @@
             </div>
 
             <% if editable %>
-              <div class="gestione-immagini"><button onclick="aggiungiImmagine(<%= column_id %>);"><i class="fi-photo"></i></button>
-              <%= " #{column.ruolo}".html_safe if column.ruolo %>
-              </div>
+              <div class="gestione-immagini"><button onclick="aggiungiImmagine(<%= column_id %>);"><i class="fi-photo"></i></button></div>
+              <div class="info-layout"><%= " #{column.ruolo}".html_safe if column.ruolo %></div>
             <% elsif user_signed_in? && !parte_fissa %>
-                <div class="gestione-immagini"><i class="fi-link"></i> <%= fonte[column.fonte] %></div>
+                <div class="info-layout"><i class="fi-link"></i> <%= fonte[column.fonte] %></div>
             <% end %>
           </div>
       <% elsif column.column_images.count == 1 %>
@@ -92,7 +91,7 @@
             <% if editable %>
               <div class="gestione-immagini"><button onclick="aggiungiImmagine(<%= column_id %>);"><i class="fi-plus"></i></button> <button onclick="modificaImmagine(<%= column.column_images.first.id %>);"><i class="fi-pencil"></i></button> <button onclick="eliminaImmagine(<%= column.column_images.first.id %>);"><i class="fi-x"></i></button></div>
             <% elsif user_signed_in? && !parte_fissa %>
-                <div class="gestione-immagini"><i class="fi-link"></i> <%= fonte[column.fonte] %></div>
+                <div class="info-layout"><i class="fi-link"></i> <%= fonte[column.fonte] %></div>
             <% end %>
           </div>
         <% else %>
@@ -119,7 +118,7 @@
                         <% if editable %>
                           <div class="gestione-immagini"><button onclick="aggiungiImmagine(<%= column_id %>);"><i class="fi-plus"></i></button> <button onclick="modificaImmagine(<%= column_image.id %>);"><i class="fi-pencil"></i></button> <button onclick="eliminaImmagine(<%= column_image.id %>);"><i class="fi-x"></i></button></div>
                         <% elsif user_signed_in? && !parte_fissa %>
-                            <div class="gestione-immagini"><i class="fi-link"></i> <%= fonte[column.fonte] %></div>
+                            <div class="info-layout"><i class="fi-link"></i> <%= fonte[column.fonte] %></div>
                         <% end %>
 
                       </div>

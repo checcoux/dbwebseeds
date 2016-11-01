@@ -107,12 +107,12 @@
                           <% if column_image.titolo.length > 0 %>
                               <div class='titolo-slide'>
                                 <p class='column_image_titolo'><%= column_image.titolo %></p>
-                                <% if column_image.descrizione.length > 0 %>
+                                <% if column_image.descrizione.length > 0 && column.larghezza > 3 %>
                                     <p class='column_image_descrizione show-for-medium'><%= column_image.descrizione %></p>
                                 <% end %>
                               </div>
                           <% end %>
-                        <% if column_image.collegamento.length > 0 && column.larghezza > 3 %>
+                        <% if column_image.collegamento.length > 0 %>
                             </a>
                         <% end %>
 

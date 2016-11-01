@@ -151,36 +151,61 @@
         }
       },
       items: {
-        "inserisci_riga_prima": {name: "<i class='fi-arrow-up'></i>&nbsp;&nbsp;Inserisci riga prima", isHtmlName: true},
-        "inserisci_riga_dopo": {name: "<i class='fi-arrow-down'></i>&nbsp;&nbsp;Inserisci riga dopo", isHtmlName: true},
-        "duplica_riga": {name: "<i class='fi-page-copy'></i>&nbsp;Duplica riga", isHtmlName: true},
-        "estendi_riga": {name: "<i class='fi-arrows-expand'></i>&nbsp;Estendi riga", isHtmlName: true},
-        "riduci_riga": {name: "<i class='fi-arrows-compress'></i>&nbsp;Comprimi riga", isHtmlName: true},
-        "sposta_riga_prima": {name: "<i class='fi-arrow-up'></i>&nbsp;&nbsp;Sposta riga in alto", isHtmlName: true},
-        "sposta_riga_dopo": {name: "<i class='fi-arrow-down'></i>&nbsp;&nbsp;Sposta riga in basso", isHtmlName: true},
-        "elimina_riga": {name: "<i class='fi-trash'></i>&nbsp;&nbsp;Elimina riga", isHtmlName: true},
-        "sep1": "---------",
-        "inserisci_colonna_prima": {name: "<i class='fi-arrow-left'></i>&nbsp;Inserisci colonna prima", isHtmlName: true},
-        "inserisci_colonna_dopo": {name: "<i class='fi-arrow-right'></i>&nbsp;Inserisci colonna dopo", isHtmlName: true},
-        "allarga_colonna": {name: "<i class='fi-arrows-expand'></i>&nbsp;Allarga colonna", isHtmlName: true},
-        "stringi_colonna": {name: "<i class='fi-arrows-compress'></i>&nbsp;Stringi colonna", isHtmlName: true},
-        "equalizza_colonne": {name: "<i class='fi-align-justify'></i>&nbsp;Equalizza colonne", isHtmlName: true},
-        "sposta_colonna_prima": {name: "<i class='fi-arrow-left'></i>&nbsp;Sposta colonna a sinistra", isHtmlName: true},
-        "sposta_colonna_dopo": {name: "<i class='fi-arrow-right'></i>&nbsp;Sposta colonna a destra", isHtmlName: true},
-        "elimina_colonna": {name: "<i class='fi-trash'></i>&nbsp;&nbsp;Elimina colonna", isHtmlName: true},
-        "sep2": "---------",
+        "fold_riga": {
+          "name": "Riga",
+          items: {
+            "inserisci_riga_prima": {name: "<i class='fi-arrow-up'></i>&nbsp;&nbsp;Inserisci prima", isHtmlName: true},
+            "inserisci_riga_dopo": {name: "<i class='fi-arrow-down'></i>&nbsp;&nbsp;Inserisci dopo", isHtmlName: true},
+            "duplica_riga": {name: "<i class='fi-page-copy'></i>&nbsp;Duplica", isHtmlName: true},
+            "estendi_riga": {name: "<i class='fi-arrows-expand'></i>&nbsp;Estendi", isHtmlName: true},
+            "riduci_riga": {name: "<i class='fi-arrows-compress'></i>&nbsp;Comprimi", isHtmlName: true},
+            "equalizza_colonne": {name: "<i class='fi-align-justify'></i>&nbsp;Equalizza colonne", isHtmlName: true},
+            "sposta_riga_prima": {name: "<i class='fi-arrow-up'></i>&nbsp;&nbsp;Sposta in alto", isHtmlName: true},
+            "sposta_riga_dopo": {name: "<i class='fi-arrow-down'></i>&nbsp;&nbsp;Sposta in basso", isHtmlName: true},
+            "elimina_riga": {name: "<i class='fi-trash'></i>&nbsp;&nbsp;Elimina", isHtmlName: true}
+          }
+        },
+        "fold_colonna": {
+          "name": "Colonna",
+          items: {
+            "inserisci_colonna_prima": {name: "<i class='fi-arrow-left'></i>&nbsp;Inserisci prima", isHtmlName: true},
+            "inserisci_colonna_dopo": {name: "<i class='fi-arrow-right'></i>&nbsp;Inserisci dopo", isHtmlName: true},
+            "allarga_colonna": {name: "<i class='fi-arrows-expand'></i>&nbsp;Allarga", isHtmlName: true},
+            "stringi_colonna": {name: "<i class='fi-arrows-compress'></i>&nbsp;Stringi", isHtmlName: true},
+            "sposta_colonna_prima": {name: "<i class='fi-arrow-left'></i>&nbsp;Sposta a sinistra", isHtmlName: true},
+            "sposta_colonna_dopo": {name: "<i class='fi-arrow-right'></i>&nbsp;Sposta a destra", isHtmlName: true},
+            "elimina_colonna": {name: "<i class='fi-trash'></i>&nbsp;&nbsp;Elimina", isHtmlName: true}
+          }
+        },
         "dialog_sfondo": {name: "<i class='fi-paint-bucket'></i>&nbsp;Sfondo...", isHtmlName: true},
-        "sep3": "---------",
-        "contenuti_dinamici_pagina": {name: "<i class='fi-link'></i>&nbsp;Seleziona contenuti dalla pagina", isHtmlName: true},
-        "contenuti_dinamici_sezione": {name: "<i class='fi-link'></i>&nbsp;Seleziona contenuti dalla sezione", isHtmlName: true},
-        "contenuti_dinamici_sito": {name: "<i class='fi-link'></i>&nbsp;Seleziona contenuti dall'intero sito", isHtmlName: true},
-        "rendi_statica": {name: "<i class='fi-unlink'></i>&nbsp;Reimposta area statica", isHtmlName: true},
+        "fold_dinamici": {
+          "name": "Contenuti",
+          items: {
+            "contenuti_dinamici_pagina": {
+              name: "<i class='fi-link'></i>&nbsp;Seleziona contenuti dalla pagina",
+              isHtmlName: true
+            },
+            "contenuti_dinamici_sezione": {
+              name: "<i class='fi-link'></i>&nbsp;Seleziona contenuti dalla sezione",
+              isHtmlName: true
+            },
+            "contenuti_dinamici_sito": {
+              name: "<i class='fi-link'></i>&nbsp;Seleziona contenuti dall'intero sito",
+              isHtmlName: true
+            },
+            "rendi_statica": {name: "<i class='fi-unlink'></i>&nbsp;Reimposta area statica", isHtmlName: true}
+          }
+        },
       <% if @page.modello || @page.articolo %>
-        "sep4": "---------",
-        "aggiungi_ruolo_titolo": {name: "<i class='fi-quote'></i>&nbsp;Titolo", isHtmlName: true},
-        "aggiungi_ruolo_abstract": {name: "<i class='fi-quote'></i>&nbsp;Abstract", isHtmlName: true},
-        "aggiungi_ruolo_testo": {name: "<i class='fi-quote'></i>&nbsp;Testo", isHtmlName: true},
-        "cancella_ruolo": {name: "<i class='fi-x'></i>&nbsp;Cancella ruolo", isHtmlName: true},
+        "fold_ruolo": {
+          "name": "Ruolo della colonna",
+          items: {
+            "aggiungi_ruolo_titolo": {name: "<i class='fi-quote'></i>&nbsp;Titolo", isHtmlName: true},
+            "aggiungi_ruolo_abstract": {name: "<i class='fi-quote'></i>&nbsp;Abstract", isHtmlName: true},
+            "aggiungi_ruolo_testo": {name: "<i class='fi-quote'></i>&nbsp;Testo", isHtmlName: true},
+            "cancella_ruolo": {name: "<i class='fi-x'></i>&nbsp;Cancella ruolo", isHtmlName: true}
+          }
+        }
       <% end %>
       }
     });

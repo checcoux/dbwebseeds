@@ -13,7 +13,7 @@
 // require jquery
 //= require jquery_ujs
 //= require jquery.minicolors
-//= require jquery-ui
+// require jquery-ui
 // require jquery-colorpicker
 //= require ckeditor/init
 //= require turbolinks

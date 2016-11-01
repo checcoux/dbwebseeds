@@ -80,7 +80,7 @@
                 <% if immagine.titolo.length > 0 %>
                   <figcaption class='orbit-caption'>
                     <p class='column_image_titolo'><%= immagine.titolo %></p>
-                    <% if immagine.descrizione.length > 0 %>
+                    <% if immagine.descrizione.length > 0 && column.larghezza > 3 %>
                         <p class='column_image_descrizione show-for-medium'><%= immagine.descrizione %></p>
                     <% end %>
                   </figcaption>
@@ -112,7 +112,7 @@
                                 <% end %>
                               </div>
                           <% end %>
-                        <% if column_image.collegamento.length > 0 %>
+                        <% if column_image.collegamento.length > 0 && column.larghezza > 3 %>
                             </a>
                         <% end %>
 

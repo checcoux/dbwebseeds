@@ -118,7 +118,7 @@
   z-index: 200;
   font-size: 1em;
   text-align: left;
-  
+
   min-height: 80px;
 
   padding-left: 0.5em;
@@ -151,11 +151,29 @@
   padding: 0px;
 }
 
+.column_image_titolo_small {
+  color: #ffffff;
+  font-size: 1em;
+  font-weight: bold;
+  margin: 0px;
+  padding: 0px;
+}
+
 .column_image_descrizione {
   color: #ffffff;
   font-size: 0.9em;
   margin: 0px;
   padding: 0px;
+}
+
+@media screen and (max-width: 63.9375em) {
+  .column_image_titolo_small {
+    font-size: 1.5em;
+  }
+
+  .column_image_descrizione {
+    font-size: 1.2em;
+  }
 }
 
 .full-width {

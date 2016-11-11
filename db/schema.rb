@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161111155008) do
+ActiveRecord::Schema.define(version: 20161111162223) do
 
   create_table "attachments", force: :cascade do |t|
     t.string   "titolo"
@@ -67,7 +67,6 @@ ActiveRecord::Schema.define(version: 20161111155008) do
     t.integer  "larghezza"
     t.integer  "fonte",      default: 0
     t.integer  "page_id",    default: 0
-    t.string   "ruolo"
   end
 
   add_index "columns", ["page_id"], name: "index_columns_on_page_id"

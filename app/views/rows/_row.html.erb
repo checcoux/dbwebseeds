@@ -63,7 +63,6 @@
 
             <% if editable %>
               <div class="gestione-immagini"><button onclick="aggiungiImmagine(<%= column_id %>);"><i class="fi-photo"></i></button></div>
-              <div class="info-layout"><%= " #{column.ruolo}".html_safe if column.ruolo %></div>
             <% elsif user_signed_in? && !parte_fissa %>
                 <div class="info-layout"><i class="fi-link"></i> <%= fonte[column.fonte] %></div>
             <% end %>

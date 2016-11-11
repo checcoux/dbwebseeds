@@ -59,6 +59,23 @@ class ColumnsController < ApplicationController
     respond_to do |format|
       @column.contenuto = params[:contenuto]
       @column.save
+
+      # se la colonna appartiene a un articolo cerca di estrarre titolo e abstract per gli indici
+      if !@column.page
+        page = @column.row.page
+        if page.articolo
+          doc = Nokogiri::HTML(params[:contenuto])
+
+          titolo = doc.at_css('h1')
+          page.titolo = titolo.text if titolo
+
+          abstract = doc.at_css('span.abstract')
+          page.abstract = abstract.text if abstract
+
+          page.save if titolo || abstract
+        end
+      end
+
       format.html { head :no_content }
       format.json { render :show, status: :ok, location: @column }
     end

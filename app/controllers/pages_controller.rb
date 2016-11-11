@@ -157,9 +157,19 @@ class PagesController < ApplicationController
             riga.columns.each do |colonna|
               colonna2 = colonna.dup
               colonna2.row = riga2
-              if colonna2.ruolo == 'titolo'
-                colonna2.contenuto.sub! /titolo/i, @page.titolo
+
+              # se nella colonna è presente un tag H1 lo sostituisce col titolo dell'articolo
+              doc = Nokogiri::HTML(colonna2.contenuto)
+              h1 = doc.at_css('h1')
+              if h1
+                h1.content = @page.titolo
+                colonna2.contenuto = doc.to_html
               end
+
+              #if colonna2.ruolo == 'titolo'
+              #  colonna2.contenuto.sub! /titolo/i, @page.titolo
+              #end
+
               colonna2.save
 
               # duplicazione di tutte le column_images
@@ -197,8 +207,11 @@ class PagesController < ApplicationController
       @page.slug = nil
     end
 
+    params = page_params
+    params[:articolo] = false if params[:modello]
+
     respond_to do |format|
-      if @page.update(page_params)
+      if @page.update(params)
 
         # solo una pagina di una certa sezione può avere il flag home / header / footer
         if(@page.home)
@@ -243,13 +256,14 @@ class PagesController < ApplicationController
     home = @section.trova_home
     if @page.articolo && home
       # se esiste estrae l'abstract
-      abstract_column = Column.joins(:row).where(:rows => {:page_id => @page}, :ruolo => 'abstract').first
+      # abstract_column = Column.joins(:row).where(:rows => {:page_id => @page}, :ruolo => 'abstract').first
 
-      if abstract_column
-        abstract = ActionController::Base.helpers.strip_tags abstract_column.contenuto
-      else
-        abstract = ''
-      end
+      #if abstract_column
+      #  abstract = ActionController::Base.helpers.strip_tags abstract_column.contenuto
+      #else
+      #  abstract = ''
+      #end
+      abstract = @page.abstract
 
       column = Column.new
       column.ordine = 1

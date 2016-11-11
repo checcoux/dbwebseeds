@@ -66,3 +66,5 @@ gem 'rails-i18n', '~> 4.0.0'
 group :development do
   gem 'meta_request'
 end
+
+require 'nokogiri'

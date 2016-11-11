@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160924143925) do
+ActiveRecord::Schema.define(version: 20161111155008) do
 
   create_table "attachments", force: :cascade do |t|
     t.string   "titolo"
@@ -99,6 +99,7 @@ ActiveRecord::Schema.define(version: 20160924143925) do
     t.boolean  "articolo",                 default: false
     t.boolean  "visibile",                 default: true
     t.datetime "published_at",             default: '2016-08-17 08:12:10'
+    t.text     "abstract"
   end
 
   add_index "pages", ["section_id"], name: "index_pages_on_section_id"

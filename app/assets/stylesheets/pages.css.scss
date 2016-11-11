@@ -231,7 +231,28 @@
   margin-top: .5em;
 }
 
-.miostile {
-  color: #f00;
+.abstract {
+  color: #226568;
+  font-style: italic;
 }
 
+.autore {
+  color: #242424;
+  font-weight: bold;
+}
+
+.data {
+  color: #242424;
+}
+
+.fonte a {
+  color: #a20076;
+  padding-left: 3em;
+  &:visited {
+    color: #a20076;
+  }
+  &:hover {
+    color: #ff7000;
+    font-decoration: underline;
+  }
+}

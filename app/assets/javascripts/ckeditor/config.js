@@ -53,7 +53,8 @@ CKEDITOR.editorConfig = function( config )
     ];
 
     config.toolbar = [
-        { name: 'styles', items: [ 'Styles', 'Format', 'Bold', 'Italic', 'TextColor', 'BGColor', 'FontSize', 'RemoveFormat' ] },
+        // per far riapparire h1 ecc: 'Format'
+        { name: 'styles', items: [ 'Styles', 'Bold', 'Italic', 'TextColor', 'BGColor', 'FontSize', 'RemoveFormat' ] },
         '/',
         { name: 'links', items: [ 'Link', 'Unlink', 'Anchor', 'Image' ] },
         { name: 'paragraph', groups: [ 'indent', 'align' ], items: [ 'NumberedList', 'BulletedList', 'Blockquote', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock' ] },

@@ -18,12 +18,16 @@ CKEDITOR.stylesSet.add( 'my_styles', [
     { name: 'Bottone vuoto (alert)', element: 'a', attributes: { 'class': 'hollow alert button' } },
     { name: 'Bottone vuoto (disabled)', element: 'a', attributes: { 'class': 'hollow disabled button' } },
 
+    { name: 'Immagine estesa', element: 'img', styles: { 'width': '100%' } },
+
     // Block-level styles
-    { name: 'Bleue Title', element: 'h2', attributes: { 'class': 'bleu' } },
-    { name: 'Red Title' , element: 'h3', attributes: { 'class': 'rouge' } },
+    { name: 'Titolo' , element: 'h1', attributes: { } },
+    { name: 'Sottotitolo' , element: 'h2', attributes: { } },
 
     // Inline styles
-    { name: 'CSS Style', element: 'span', attributes: { 'class': 'my_style' } },
-    { name: 'Marker: Yellow', element: 'span', styles: { 'background-color': 'Yellow' } },
-    { name: 'Mio stile', element: 'span', attributes: { 'class': 'miostile' } }
+    { name: 'Data', element: 'span', attributes: { 'class': 'data' } },
+    { name: 'Abstract', element: 'span', attributes: { 'class': 'abstract' } },
+    { name: 'Autore', element: 'span', attributes: { 'class': 'autore' } },
+    { name: 'Fonte', element: 'span', attributes: { 'class': 'fonte' } },
+    // { name: 'Marker: Yellow', element: 'span', styles: { 'background-color': 'Yellow' } },
 ] );

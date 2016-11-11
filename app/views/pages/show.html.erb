@@ -1,7 +1,7 @@
 <% if !user_signed_in? or policy(@page).edit? %>
 <%
   @menu_aggiuntivi = '<li>
-          <a id="pagePreview" onclick="pagePreview();" class="toolbar warning button" accesskey="p" title="Page preview: ALT + P"><i class="fi-eye"></i> Page preview</a>
+          <a id="pagePreview" onclick="pagePreview();" class="toolbar warning button" accesskey="p" title="Page preview: ALT + P"><i class="fi-eye"></i> Preview</a>
         </li>
         <li>
           <a id="pageSave" onclick="pageSave();" class="error button" accesskey="s" title="Salva: ALT + S"><i class="fi-save"></i> Salva</a>

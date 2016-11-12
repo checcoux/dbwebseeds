@@ -539,7 +539,6 @@ class ColumnsController < ApplicationController
     if @column.fonte == 0
       # crea una nuova colonna, identica a quella selezionata, ma con contenuto nullo
       column2 = @column.dup
-      column2.ruolo = ''
       column2.contenuto = ' '
       column2.fonte = 1 # visualizza i contenuti dinamici della stessa pagina
       column2.save
@@ -556,7 +555,6 @@ class ColumnsController < ApplicationController
     if @column.fonte == 0
       # crea una nuova colonna, identica a quella selezionata, ma con contenuto nullo
       column2 = @column.dup
-      column2.ruolo = ''
       column2.contenuto = ' '
       column2.fonte = 1 # visualizza i contenuti dinamici della stessa pagina
       column2.save

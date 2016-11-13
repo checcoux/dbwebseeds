@@ -154,6 +154,7 @@ class PagesController < ApplicationController
             riga2.page = @page
             riga2.save
 
+            # duplicazione di tutte le colonne
             riga.columns.each do |colonna|
               colonna2 = colonna.dup
               colonna2.row = riga2
@@ -163,6 +164,13 @@ class PagesController < ApplicationController
               h1 = doc.at_css('h1')
               if h1
                 h1.content = @page.titolo
+                colonna2.contenuto = doc.to_html
+              end
+
+              # se nella colonna è presente uno span di classe data lo sostituisce con la data di pubblicazione
+              span_data = doc.at_css('span.data')
+              if span_data
+                span_data.content = "del #{ I18n.localize @page.published_at, format: :data_lunga}"
                 colonna2.contenuto = doc.to_html
               end
 

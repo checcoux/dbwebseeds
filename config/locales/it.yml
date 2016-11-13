@@ -1,4 +1,7 @@
 it:
+  time:
+    formats:
+      data_lunga: '%d %B %Y'
   will_paginate:
     previous_label: "Precedente"
     next_label: "Successiva"

@@ -12,9 +12,13 @@ class Page < ActiveRecord::Base
   validates_presence_of :titolo, :slug
 
   def slug_candidates
-    [
-        [section.percorso, :titolo]
-    ]
+    [ :titolo, :titolo_e_sequenza ]
+  end
+
+  def titolo_e_sequenza
+    slug = normalize_friendly_id(titolo)
+    sequence = self.class.where("slug like '#{slug}-%'").count + 2
+    "#{slug}-#{sequence}"
   end
 
   def trova_header

@@ -90,7 +90,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:email, :password, :password_confirmation, :admin, :section_id)
+      params.require(:user).permit(:email, :password, :password_confirmation, :admin, :section_id, :designer)
     end
 
     # https://github.com/plataformatec/devise/wiki/How-To%3a-Allow-users-to-edit-their-account-without-providing-a-password

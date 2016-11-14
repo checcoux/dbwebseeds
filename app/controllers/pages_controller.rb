@@ -271,7 +271,7 @@ class PagesController < ApplicationController
       #else
       #  abstract = ''
       #end
-      abstract = @page.abstract
+      abstract = @page.abstract || ''
 
       column = Column.new
       column.ordine = 1

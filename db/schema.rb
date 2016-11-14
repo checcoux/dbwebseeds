@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161111162223) do
+ActiveRecord::Schema.define(version: 20161114204343) do
 
   create_table "attachments", force: :cascade do |t|
     t.string   "titolo"
@@ -147,6 +147,7 @@ ActiveRecord::Schema.define(version: 20161111162223) do
     t.datetime "updated_at",                             null: false
     t.boolean  "admin",                  default: false
     t.integer  "section_id"
+    t.boolean  "designer",               default: false
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true

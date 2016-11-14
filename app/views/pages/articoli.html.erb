@@ -4,14 +4,7 @@
   <tbody>
     <% @pages.each do |page|
 
-      # verifichiamo se esiste il campo abstract
-      abstract_column = Column.joins(:row).where(:rows => {:page_id => page}, :ruolo => 'abstract').first
-
-      if abstract_column
-        abstract = strip_tags abstract_column.contenuto
-      else
-        abstract = ''
-      end
+      abstract = page.abstract
 
       # verifichiamo se esiste almeno una foto associata all'articolo
       foto = ColumnImage.joins(:column => :row).where(:rows => {:page_id => page}).first

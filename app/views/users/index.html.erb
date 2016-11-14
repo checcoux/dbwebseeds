@@ -13,7 +13,7 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= link_to user.email, edit_user_path(user) %></td>
-        <td><%= "gestore #{user.section.titolo}" if user.section %></td>
+        <td><% if user.section %><%= "gestore #{user.section.titolo}" %><%= " (designer)" if user.designer %><% end %></td>
         <td><%= "amministratore" if user.admin %></td>
         <td><%= link_to 'Elimina', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

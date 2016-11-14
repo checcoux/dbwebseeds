@@ -11,10 +11,10 @@
         </li>
         <li>
           <a id="inlineEdit" onclick="inlineEdit();" class="toolbar button" accesskey="i" title="Inline edit: ALT + I"><i class="fi-page"></i> Editor</a>
-        </li>
-        <li>
-          <a id="layoutDesign" onclick="layoutDesign();" class="toolbar button" accesskey="l" title="Layout design: ALT + L"><i class="fi-pencil"></i> Layout</a>
         </li>'.html_safe
+  @menu_aggiuntivi += '<li>
+          <a id="layoutDesign" onclick="layoutDesign();" class="toolbar button" accesskey="l" title="Layout design: ALT + L"><i class="fi-pencil"></i> Layout</a>
+        </li>'.html_safe if current_user && (current_user.designer || current_user.admin)
 %>
 <% end %>
 

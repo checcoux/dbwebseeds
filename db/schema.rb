@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161114204343) do
+ActiveRecord::Schema.define(version: 20161117204417) do
 
   create_table "attachments", force: :cascade do |t|
     t.string   "titolo"
@@ -127,6 +127,16 @@ ActiveRecord::Schema.define(version: 20161114204343) do
     t.boolean  "principale",              default: false
     t.string   "percorso"
   end
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "nome"
+    t.integer  "taggable_id"
+    t.string   "taggable_type"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "tags", ["taggable_type", "taggable_id"], name: "index_tags_on_taggable_type_and_taggable_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false

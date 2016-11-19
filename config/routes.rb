@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :tags
   resources :attachments
   devise_for :users
   scope "/admin" do

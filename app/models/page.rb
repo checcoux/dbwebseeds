@@ -7,6 +7,7 @@ class Page < ActiveRecord::Base
   belongs_to :section
   has_many :rows, dependent: :destroy
   has_many :columns, dependent: :destroy
+  has_many :tags, as: :taggable
 
   friendly_id :slug_candidates, :use => :slugged
   validates_presence_of :titolo, :slug

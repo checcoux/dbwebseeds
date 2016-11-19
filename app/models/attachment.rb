@@ -1,5 +1,6 @@
 class Attachment < ActiveRecord::Base
   belongs_to :section
+  has_many :tags, as: :taggable
 
   has_attached_file :allegato,
                     :hash_secret => "hj42HB5!76",

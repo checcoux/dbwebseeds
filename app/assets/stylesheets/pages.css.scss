@@ -262,3 +262,19 @@ p {
     font-decoration: underline;
   }
 }
+
+.etichetta {
+  margin: 0;
+  list-style-type: none;
+}
+
+.etichetta > li {
+  display: inline-block;
+  font-size: 0.8rem;
+  background-color: #1583cc;
+  color: #fefefe;
+  border: 1em;
+  padding: 0.5rem 0.7rem;
+  margin: 0.2em;
+  line-height: 1;
+}

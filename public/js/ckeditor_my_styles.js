@@ -29,5 +29,6 @@ CKEDITOR.stylesSet.add( 'my_styles', [
     { name: 'Abstract', element: 'span', attributes: { 'class': 'abstract' } },
     { name: 'Autore', element: 'span', attributes: { 'class': 'autore' } },
     { name: 'Fonte', element: 'span', attributes: { 'class': 'fonte' } },
+    { name: 'Tag', element: 'ul', attributes: { 'class': 'etichetta' } },
     // { name: 'Marker: Yellow', element: 'span', styles: { 'background-color': 'Yellow' } },
 ] );

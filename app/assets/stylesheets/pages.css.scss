@@ -233,31 +233,32 @@
 
 p {
   font-size: 1.4em;
-  color: #424242;
+  line-height: 1.44em;
+  color: #696969;
 }
 
 .abstract {
-  color: #226568;
+  color: #808080;
   font-style: italic;
 }
 
 .autore {
-  color: #242424;
+  color: #808080;
   font-weight: bold;
 }
 
 .data {
-  color: #242424;
+  color: #808080;
 }
 
 .fonte a {
-  color: #a20076;
+  color: #808080;
   padding-left: 3em;
   &:visited {
-    color: #a20076;
+    color: #A9A9A9;
   }
   &:hover {
-    color: #ff7000;
+    color: #808080;
     font-decoration: underline;
   }
 }

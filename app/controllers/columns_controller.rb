@@ -60,9 +60,11 @@ class ColumnsController < ApplicationController
       @column.contenuto = params[:contenuto]
       @column.save
 
-      # se la colonna appartiene a un articolo cerca di estrarre titolo e abstract per gli indici
+      # se non si stratta di un contenuto dinamico...
       if !@column.page
         page = @column.row.page
+
+        # se la colonna appartiene a un articolo cerca di estrarre titolo, abstract e tags per gli indici
         if page.articolo
           doc = Nokogiri::HTML(params[:contenuto])
 
@@ -73,6 +75,17 @@ class ColumnsController < ApplicationController
           page.abstract = abstract.text if abstract
 
           page.save if titolo || abstract
+
+          tags = doc.css('ul.etichetta li')
+          if tags
+            # se ci sono dei tag rimuoviamo quelli già associati alla pagina (una sola colonna di ogni pagina potrà contenere tag)
+            page.tags.destroy_all
+
+            tags.each do |tag_element|
+              page.tags << Tag.new(nome: tag_element.text)
+            end
+
+          end
         end
       end
 

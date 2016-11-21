@@ -17,10 +17,10 @@ class Importer
     for i in 0...articoli.count do
       r = articoli.get_row i
 
-      puts "Importazione articolo #{r.get("id")} #{r.get("titolo")} #{r.get("data")}"
+      puts "Importazione articolo #{r.get("id")} #{r.get("titolo")}"
 
       # creazione di una nuova pagina
-      page = Page.create(titolo: r.get('titolo'), abstract: r.get('abstract'), section_id: 9, visibile: true, articolo: true, published_at: r.get('data'))
+      page = Page.create(titolo: r.get('titolo'), abstract: ActionView::Helpers::SanitizeHelper.strip_tags(r.get('abstract')), section_id: 9, visibile: true, articolo: true, published_at: r.get('data'))
 
     end
   end

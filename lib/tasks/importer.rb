@@ -20,7 +20,7 @@ class Importer
       puts "Importazione articolo #{r.get("id")} #{r.get("titolo")}"
 
       # creazione di una nuova pagina
-      page = Page.create(titolo: r.get('titolo'), abstract: ActionController::Base.helpers.strip_tags.strip_tags(r.get('abstract')), section_id: 9, visibile: true, articolo: true, published_at: r.get('data'))
+      page = Page.create(titolo: r.get('titolo'), abstract: ActionController::Base.helpers.strip_tags(r.get('abstract')), section_id: 9, visibile: true, articolo: true, published_at: r.get('data'))
 
     end
   end

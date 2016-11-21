@@ -27,14 +27,14 @@ class Importer
   def use_new_database
     # ActiveRecord::Base.connection.execute("use #{@newDb}")
     ActiveRecord::Base.establish_connection(
-        adapter: mysql2,
-        encoding: utf8,
+        adapter: 'mysql2',
+        encoding: 'utf8',
         reconnect: false,
-        database: donboscoland,
+        database: 'donboscoland',
         pool: 5,
-        username: root,
-        password: password2,
-        host: localhost
+        username: 'root',
+        password: 'password2',
+        host: 'localhost'
     )
 
   end

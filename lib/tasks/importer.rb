@@ -21,12 +21,12 @@ class Importer
       puts "Importazione articolo #{r.get('id')} #{r.get('titolo')}"
 
       # creazione di una nuova pagina
-      page = Page.create(titolo: r.get('titolo'), abstract: ActionController::Base.helpers.strip_tags(r.get('abstract')), section_id: 9, visibile: true, articolo: true, published_at: r.get('data'))
+      page = Page.create(titolo: ActionController::Base.helpers.strip_tags(r.get('titolo')), abstract: ActionController::Base.helpers.strip_tags(r.get('abstract')), section_id: 9, visibile: true, articolo: true, published_at: r.get('data'))
 
       row = Row.create(ordine: 1, page_id: page.id, estesa: false, colore_sfondo: '#ffffff')
 
       Column.create(ordine: 1, contenuto: testo, row_id: row.id, larghezza: 12)
-      
+
     end
   end
 end

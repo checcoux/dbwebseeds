@@ -17,16 +17,11 @@ class Importer
     for i in 0...articoli.count do
       r = articoli.get_row i
 
-      # user = User.new(first_name: row.get("firstname"),
-      # last_name: row.get("lastname"),
-      # email: row.get("mail"),
-      # isfemale: row.get("isfemale"))
-      begin
-        # user.save!
-        puts "Importazione articolo #{r.get("id")} #{r.get("titolo")}"
-      rescue Exception => e
-        # puts "Failed to save #{row.get("firstname")} #{row.get("lastname"): #{e.message}"
-      end
+      puts "Importazione articolo #{r.get("id")} #{r.get("titolo")}"
+
+      # creazione di una nuova pagina
+      page = Page.create(titolo: r.get('titolo'), abstract: r.get('abstract'), section_id: 9, visibile: true, articolo: true, published_at: r.get('data'))
+
     end
   end
 end

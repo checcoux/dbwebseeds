@@ -1,8 +1,4 @@
 class Importer
-
-  # include sub-modules
-  include ArticoliImporter
-
   # initializer for a new importer
   def initialize new, old
     # feedback for the programmer

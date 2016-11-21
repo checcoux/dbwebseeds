@@ -64,9 +64,10 @@ class ColumnsController < ApplicationController
       if !@column.page
         page = @column.row.page
 
+        doc = Nokogiri::HTML(params[:contenuto])
+
         # se la colonna appartiene a un articolo cerca di estrarre titolo, abstract e tags per gli indici
         if page.articolo
-          doc = Nokogiri::HTML(params[:contenuto])
 
           titolo = doc.at_css('h1')
           page.titolo = titolo.text if titolo
@@ -76,17 +77,20 @@ class ColumnsController < ApplicationController
 
           page.save if titolo || abstract
 
-          tags = doc.css('ul.etichetta li')
-          if tags
-            # se ci sono dei tag rimuoviamo quelli già associati alla pagina (una sola colonna di ogni pagina potrà contenere tag)
-            page.tags.destroy_all
+        end
 
-            tags.each do |tag_element|
-              page.tags << Tag.new(nome: tag_element.text)
-              logger.info "Riconosciuto tag #{tag_element.text}"
-            end
+        # verifichiamo se ci sono dei tag da aggiornare
 
+        tags = doc.css('ul.etichetta li')
+        if tags
+          # se ci sono dei tag rimuoviamo quelli già associati alla pagina (una sola colonna di ogni pagina potrà contenere tag)
+          page.tags.destroy_all
+
+          tags.each do |tag_element|
+            page.tags << Tag.new(nome: tag_element.text)
+            # logger.info "Riconosciuto tag #{tag_element.text}"
           end
+
         end
       end
 

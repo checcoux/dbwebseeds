@@ -18,7 +18,9 @@ class Importer
       r = articoli.get_row i
       titolo = ActionController::Base.helpers.strip_tags(r.get('titolo'))
       abstract = ActionController::Base.helpers.strip_tags(r.get('abstract'))
-      testo = r.get('testo')
+      testo = "<h1>#{titolo}</h1><h2>da #{r.get('old_testata')}</h2>#{r.get('testo')}"
+      # attenzione: anche il testo va sanitizzato
+      # vanno poi aggiunti autore e link
 
       puts "Importazione articolo #{r.get('id')} #{titolo}"
 

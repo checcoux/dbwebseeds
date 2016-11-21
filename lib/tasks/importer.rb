@@ -11,17 +11,22 @@ class Importer
     puts "Importing articles..."
 
     articoli = ActiveRecord::Base.connection.execute('
-      SELECT * from articoli ORDER BY id LIMIT 5
+      SELECT * from articoli ORDER BY id LIMIT 5 OFFSET 100
       ')
 
     for i in 0...articoli.count do
       r = articoli.get_row i
+      testo = r.get('testo')
 
-      puts "Importazione articolo #{r.get("id")} #{r.get("titolo")}"
+      puts "Importazione articolo #{r.get('id')} #{r.get('titolo')}"
 
       # creazione di una nuova pagina
       page = Page.create(titolo: r.get('titolo'), abstract: ActionController::Base.helpers.strip_tags(r.get('abstract')), section_id: 9, visibile: true, articolo: true, published_at: r.get('data'))
 
+      row = Row.create(ordine: 1, page_id: page.id, estesa: false, colore_sfondo: '#ffffff')
+
+      Column.create(ordine: 1, contenuto: testo, row_id: row.id, larghezza: 12)
+      
     end
   end
 end

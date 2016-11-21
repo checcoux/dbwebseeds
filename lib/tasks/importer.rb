@@ -2,7 +2,7 @@ class Importer
   # initializer for a new importer
   def initialize new
     # feedback for the programmer
-    puts "Importing on {new}"
+    puts "Importing on #{new}"
 
     @newDb = new
   end
@@ -25,7 +25,18 @@ class Importer
 
   # use new database (= switch to new database)
   def use_new_database
-    ActiveRecord::Base.connection.execute("use #{@newDb}")
+    # ActiveRecord::Base.connection.execute("use #{@newDb}")
+    ActiveRecord::Base.establish_connection(
+        adapter: mysql2,
+        encoding: utf8,
+        reconnect: false,
+        database: donboscoland,
+        pool: 5,
+        username: root,
+        password: password2,
+        host: localhost
+    )
+
   end
 
   # import articoli

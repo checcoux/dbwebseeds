@@ -1,5 +1,5 @@
 namespace :articoli do
-  require "importer"
+  require "importer/importer.rb"
 
   desc "Import old database, usage: rake articoli:import['old_database_name']"
   task :import, :oldDatabase, needs::environment do |t, args|

@@ -16,12 +16,14 @@ class Importer
 
     for i in 0...articoli.count do
       r = articoli.get_row i
+      titolo = ActionController::Base.helpers.strip_tags(r.get('titolo'))
+      abstract = ActionController::Base.helpers.strip_tags(r.get('abstract'))
       testo = r.get('testo')
 
       puts "Importazione articolo #{r.get('id')} #{r.get('titolo')}"
 
       # creazione di una nuova pagina
-      page = Page.create(titolo: ActionController::Base.helpers.strip_tags(r.get('titolo')), abstract: ActionController::Base.helpers.strip_tags(r.get('abstract')), section_id: 9, visibile: true, articolo: true, published_at: r.get('data'))
+      page = Page.create(titolo: titolo, abstract: abstract, section_id: 9, visibile: true, articolo: true, published_at: r.get('data'))
 
       row = Row.create(ordine: 1, page_id: page.id, estesa: false, colore_sfondo: '#ffffff')
 

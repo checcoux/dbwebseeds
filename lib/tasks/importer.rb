@@ -20,7 +20,7 @@ class Importer
       abstract = ActionController::Base.helpers.strip_tags(r.get('abstract'))
       testo = r.get('testo')
 
-      puts "Importazione articolo #{r.get('id')} #{r.get('titolo')}"
+      puts "Importazione articolo #{r.get('id')} #{titolo)}"
 
       # creazione di una nuova pagina
       page = Page.create(titolo: titolo, abstract: abstract, section_id: 9, visibile: true, articolo: true, published_at: r.get('data'))

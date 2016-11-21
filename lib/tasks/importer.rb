@@ -1,11 +1,10 @@
 class Importer
   # initializer for a new importer
-  def initialize new, old
+  def initialize new
     # feedback for the programmer
     puts "Importing on {new}"
 
     @newDb = new
-    @oldDb = old
   end
 
   # execute the import
@@ -27,11 +26,6 @@ class Importer
   # use new database (= switch to new database)
   def use_new_database
     ActiveRecord::Base.connection.execute("use #{@newDb}")
-  end
-
-  # use old database (= switch to old database)
-  def use_old_database
-    ActiveRecord::Base.connection.execute("use #{@oldDb}")
   end
 
   # import articoli

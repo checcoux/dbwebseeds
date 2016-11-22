@@ -47,7 +47,7 @@ class PagesController < ApplicationController
 
     if params[:articolo]
       @mostra_articoli = true
-      ordine = 'created_at DESC'
+      ordine = 'published_at DESC'
     else
       @mostra_articoli = false
       ordine = 'titolo'

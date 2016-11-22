@@ -20,8 +20,9 @@ class Importer
       abstract = ActionController::Base.helpers.strip_tags(r.get('abstract'))
       solo_testo = ActionController::Base.helpers.sanitize(r.get('testo'), tags: %w(p strong em a b i), attributes: %w(href) )
       testo = "<h1>#{titolo}</h1><h2>da #{r.get('old_testata')}</h2>#{solo_testo}"
-      # attenzione: anche il testo va sanitizzato
+      # verificare se ci sono altri tag da salvare
       # vanno poi aggiunti autore e link
+      # infine va aggiunta l'immagine preparata da Jaime
 
       puts "Importazione articolo #{r.get('id')} #{titolo}"
 

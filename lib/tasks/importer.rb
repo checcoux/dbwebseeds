@@ -21,7 +21,7 @@ class Importer
       abstract = ActionController::Base.helpers.strip_tags(r.get('abstract'))
       solo_testo = ActionController::Base.helpers.sanitize(r.get('testo'), tags: %w(p strong em a b i), attributes: %w(href) )
       testo = "<p><img src='/img/copertine/articoli_#{anno}.jpg' style='width: 100%;'></p><h1>#{titolo}</h1><h2>da #{r.get('old_testata')}</h2><p><span class='data'>del #{ I18n.localize r.get('data'), format: :data_lunga }</span>#{solo_testo}<p><span class='autore'>#{r.get('autore')}</span></p>"
-      if r.get('links')
+      if r.get('links').length > 5
         testo = testo + "<p><span class='fonte'><a href='http://#{r.get('links')}'>http://#{r.get('links')}</a></span></p>"
       end
       # verificare se ci sono altri tag da salvare

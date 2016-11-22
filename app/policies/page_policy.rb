@@ -49,10 +49,12 @@ class PagePolicy < ApplicationPolicy
 
   class Scope < Scope
     def resolve
-      if user.admin?
-        scope.all
-      elsif user.section
-        scope.where(section_id: user.section)
+      if user
+        if user.admin?
+          scope.all
+        elsif user.section
+          scope.where(section_id: user.section)
+        end
       else
         scope.where(visibile: true)
       end

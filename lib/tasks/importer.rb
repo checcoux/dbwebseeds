@@ -16,8 +16,7 @@ class Importer
 
     for i in 0...articoli.count do
       r = articoli.get_row i
-      anno = r.get('data')
-      anno = anno[0..3]
+      anno = r.get('data').year
       titolo = ActionController::Base.helpers.strip_tags(r.get('titolo'))
       abstract = ActionController::Base.helpers.strip_tags(r.get('abstract'))
       solo_testo = ActionController::Base.helpers.sanitize(r.get('testo'), tags: %w(p strong em a b i), attributes: %w(href) )

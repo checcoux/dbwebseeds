@@ -67,6 +67,7 @@ class PagesController < ApplicationController
     else
       @pages = policy_scope(Page).where("articolo = ?", true).page(params[:page]).order('created_at DESC').all
     end
+    render layout: true
   end
 
   # GET /pages/1

@@ -57,7 +57,7 @@ class ColumnsController < ApplicationController
   # PATCH/PUT /columns/1/editor_update.json
   def editor_update
     respond_to do |format|
-      @column.contenuto = params[:contenuto].gsub('<a id="cerca" name="cerca"></a>', '<input type="search" placeholder="Cerca..." style="width:10em;">')
+      @column.contenuto = params[:contenuto].gsub('<a id="cerca" name="cerca"></a>', '<input type="search" placeholder="Cerca...">')
       @column.save
 
       # se non si stratta di un contenuto dinamico...

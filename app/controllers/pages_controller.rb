@@ -63,8 +63,12 @@ class PagesController < ApplicationController
   # indice articoli per il pubblico
   def search
     if params[:section_id]
+      sezione = Section.find(params[:section_id])
+      @page = Page.find_by section: sezione, home: true
       @pages = policy_scope(Page).where("section_id = ? AND articolo = ?", params[:section_id], true).page(params[:page]).order('created_at DESC').all
     else
+      sezione = Section.find_by principale: true
+      @page = Page.find_by section: sezione, home: true
       @pages = policy_scope(Page).where("articolo = ?", true).page(params[:page]).order('created_at DESC').all
     end
     render layout: true

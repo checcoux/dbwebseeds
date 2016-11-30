@@ -1,3 +1,21 @@
+<%
+  header = @page.trova_header
+
+  footer = @page.trova_footer
+%>
+
+<% if header %>
+    <% if !user_signed_in? %>
+        <div data-sticky-container>
+          <div class="sticky" data-sticky data-options="marginTop:0;" style="width:100%; z-index:999;">
+    <% end %>
+    <%= render(header.rows.order('ordine ASC')) %>
+    <% if !user_signed_in? %>
+        </div>
+        </div>
+    <% end %>
+<% end %>
+
 <table>
   <tbody>
     <% @pages.each do |page|
@@ -22,3 +40,5 @@
 <div class="text-center">
 <%= will_paginate @pages, renderer: FoundationPagination::Rails %>
 </div>
+
+<%= render(footer.rows.order('ordine ASC')) if footer %>

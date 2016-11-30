@@ -61,7 +61,7 @@ class PagesController < ApplicationController
   end
 
   # indice articoli per il pubblico
-  def articoli
+  def search
     if params[:section_id]
       @pages = policy_scope(Page).where("section_id = ? AND articolo = ?", params[:section_id], true).page(params[:page]).order('created_at DESC').all
     else

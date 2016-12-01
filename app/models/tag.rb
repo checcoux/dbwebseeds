@@ -6,9 +6,9 @@ class Tag < ActiveRecord::Base
       words = search.strip.split
       # find(:all)
       # find(:all, :conditions => [(['nome LIKE ?'] * search_length).join(' AND ')] + search.strip.split.map { |word| "%#{word}%" })
-      Tag.where( (['nome LIKE ?'] * words.length).join(' AND '), words.map { |word| "%#{word}%" } ).select(:taggable_id,:taggable_type).distinct
+      Tag.where( (['nome LIKE ?'] * words.length).join(' AND '), words.map { |word| "%#{word}%" } ).select(:taggable_id,:taggable_type).distinct.order(id: :desc)
     else
-      Tag.all.select(:taggable_id).distinct
+      Tag.all.select(:taggable_id,:taggable_type).distinct.order(id: :desc)
     end
   end
 

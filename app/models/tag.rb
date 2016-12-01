@@ -10,9 +10,9 @@ class Tag < ActiveRecord::Base
 
       words.map! { |word| "nome LIKE '%#{word}%'" }
       sql = words.join(' AND ')
-      Tag.where(sql).select(:taggable_id,:taggable_type).distinct.order(id: :desc)
+      Tag.where(sql).select(:taggable_id,:taggable_type).distinct.order(taggable_id: :desc)
     else
-      Tag.all.select(:taggable_id,:taggable_type).distinct.order(id: :desc)
+      Tag.all.select(:taggable_id,:taggable_type).distinct.order(taggable_id: :desc)
     end
   end
 

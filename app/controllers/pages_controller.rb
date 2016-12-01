@@ -71,7 +71,8 @@ class PagesController < ApplicationController
     @tags.each do |tag|
       # logger.info "Tag2 = #{tag.taggable_id} #{tag.taggable_type}"
       if tag.taggable_type == 'Page'
-        @pages << Page.find(tag.taggable_id)
+        pagina = Page.find(tag.taggable_id)
+        @pages << pagina if pagina.visibile
       end
     end
 

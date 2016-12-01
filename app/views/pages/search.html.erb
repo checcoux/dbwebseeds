@@ -38,7 +38,7 @@
 </table>
 
 <div class="text-center">
-<%= will_paginate @pages, renderer: FoundationPagination::Rails %>
+<%= will_paginate @tags, renderer: FoundationPagination::Rails %>
 </div>
 
 <%= render(footer.rows.order('ordine ASC')) if footer %>

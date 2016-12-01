@@ -62,16 +62,29 @@ class PagesController < ApplicationController
 
   # indice articoli per il pubblico
   def search
-    if params[:section_id]
-      sezione = Section.find(params[:section_id])
-      @page = Page.find_by section: sezione, home: true
-      @pages = policy_scope(Page).where("section_id = ? AND articolo = ?", params[:section_id], true).page(params[:page]).order('created_at DESC').all
-    else
-      sezione = Section.find_by principale: true
-      @page = Page.find_by section: sezione, home: true
-      @pages = policy_scope(Page).where("articolo = ?", true).page(params[:page]).order('created_at DESC').all
+    sezione = Section.find_by principale: true
+    @page = Page.find_by section: sezione, home: true
+    @pages = []
+
+    @tags = Tag.search(params[:q]).page(params[:page])
+
+    @tags.each do |tag|
+      # logger.info "Tag2 = #{tag.taggable_id} #{tag.taggable_type}"
+      if tag.taggable_type == 'Page'
+        @pages << Page.find(tag.taggable_id)
+      end
     end
-    render layout: true
+
+
+    # if params[:section_id]
+    #  sezione = Section.find(params[:section_id])
+    #  @page = Page.find_by section: sezione, home: true
+    #  @pages = policy_scope(Page).where("section_id = ? AND articolo = ?", params[:section_id], true).page(params[:page]).order('created_at DESC').all
+    # else
+    #  sezione = Section.find_by principale: true
+    #  @page = Page.find_by section: sezione, home: true
+    #  @pages = policy_scope(Page).where("articolo = ?", true).page(params[:page]).order('created_at DESC').all
+    # end
   end
 
   # GET /pages/1
@@ -372,7 +385,7 @@ class PagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def page_params
-      params.require(:page).permit(:titolo, :descrizione, :section_id, :home, :header, :footer, :modello, :visibile, :articolo, :published_at, :rigenera_slug)
+      params.require(:page).permit(:titolo, :descrizione, :section_id, :home, :header, :footer, :modello, :visibile, :articolo, :published_at, :rigenera_slug, :q)
     end
 
     def pagina_non_trovata

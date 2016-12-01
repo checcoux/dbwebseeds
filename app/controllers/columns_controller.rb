@@ -58,7 +58,7 @@ class ColumnsController < ApplicationController
   def editor_update
     respond_to do |format|
       @column.contenuto = params[:contenuto].gsub('<a id="cerca" name="cerca"></a>', '<form method="GET" action="/search" class="form-cerca"><div class="input-group">
-  <input class="input-group-field" type="search" id="cerca" placeholder="Cerca..." name="p">
+  <input class="input-group-field" type="search" id="cerca" placeholder="Cerca..." name="q">
 </div></form>')
       @column.save
 

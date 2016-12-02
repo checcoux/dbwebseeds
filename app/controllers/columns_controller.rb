@@ -90,7 +90,6 @@ class ColumnsController < ApplicationController
 
           tags.each do |tag_element|
             page.tags << Tag.new(nome: tag_element.text)
-            # logger.info "Riconosciuto tag #{tag_element.text}"
           end
 
         end

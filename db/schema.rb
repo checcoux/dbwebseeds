@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161117204417) do
+ActiveRecord::Schema.define(version: 20161202200631) do
 
   create_table "attachments", force: :cascade do |t|
     t.string   "titolo"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20161117204417) do
     t.integer  "allegato_file_size"
     t.datetime "allegato_updated_at"
     t.integer  "section_id"
+    t.text     "parole"
   end
 
   add_index "attachments", ["section_id"], name: "index_attachments_on_section_id"

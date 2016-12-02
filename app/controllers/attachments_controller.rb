@@ -44,6 +44,12 @@ class AttachmentsController < ApplicationController
 
     respond_to do |format|
       if @attachment.save
+        # salviamo i tag
+        tags = @attachment.parole.strip.split(',')
+        tags.each do |tag|
+          @attachment.tags << Tag.new(nome: tag.strip)
+        end
+
         format.html { redirect_to attachments_path(section_id: @attachment.section_id) }
         format.json { render :show, status: :created, location: @attachment }
       else
@@ -58,6 +64,15 @@ class AttachmentsController < ApplicationController
   def update
     respond_to do |format|
       if @attachment.update(attachment_params)
+        # rimuoviamo tutti i tag associati
+        @attachment.tags.destroy_all
+
+        # salviamo i tag
+        tags = @attachment.parole.strip.split(',')
+        tags.each do |tag|
+          @attachment.tags << Tag.new(nome: tag.strip)
+        end
+        
         format.html { redirect_to attachments_path(section_id: @attachment.section_id) }
         format.json { render :show, status: :ok, location: @attachment }
       else
@@ -80,15 +95,15 @@ class AttachmentsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_attachment
-      @attachment = Attachment.find(params[:id])
+  # Use callbacks to share common setup or constraints between actions.
+  def set_attachment
+    @attachment = Attachment.find(params[:id])
 
-      authorize @attachment
-    end
+    authorize @attachment
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def attachment_params
-      params.require(:attachment).permit(:titolo, :descrizione, :collegamento, :allegato, :section_id )
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def attachment_params
+    params.require(:attachment).permit(:titolo, :descrizione, :collegamento, :allegato, :section_id, :parole)
+  end
 end

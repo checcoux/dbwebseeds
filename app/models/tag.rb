@@ -2,6 +2,7 @@ class Tag < ActiveRecord::Base
   belongs_to :taggable, polymorphic: true
 
   def self.search(search)
+    result = Tag.all
     if search
       words = search.strip.split
       # find(:all)
@@ -11,14 +12,12 @@ class Tag < ActiveRecord::Base
       # words.map! { |word| "nome LIKE '%#{word}%'" }
       # sql = words.join(' AND ')
       # Tag.where(sql).select(:taggable_id,:taggable_type).distinct.order(taggable_id: :desc)
-      result = Tag.all
+
       words.each do |word|
         result = result.where("nome LIKE ?", "%#{word}%")
       end
-      result.select(:taggable_id, :taggable_type).distinct.order(taggable_id: :desc)
-    else
-      Tag.all.select(:taggable_id, :taggable_type).distinct.order(taggable_id: :desc)
     end
+    result.select(:taggable_id, :taggable_type, :updated_at).distinct.order(updated_at: :desc)
   end
 
   self.per_page = 30

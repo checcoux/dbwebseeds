@@ -16,8 +16,7 @@
     <% end %>
 <% end %>
 
-<table>
-  <tbody>
+
     <% @pages.each do |page|
 
       abstract = page.abstract
@@ -25,17 +24,19 @@
       # verifichiamo se esiste almeno una foto associata all'articolo
       foto = ColumnImage.joins(:column => :row).where(:rows => {:page_id => page}).first
     %>
-      <tr>
-        <td><%= image_tag foto.immagine.url(:thumb) if foto %></td>
-        <td><%= link_to page.titolo.mb_chars.upcase, "/#{page.slug}" %>
-        <br><i><%= abstract %></i>
-        </td>
-        <td><%= page.published_at.to_s(:data) %></td>
-        <td><%= "Sezione " + page.section.titolo %></td>
-      </tr>
+      <div class="expanded row">
+        <div class="large-2 columns">
+          <% if foto %>
+              <a href="<%= "/#{page.slug}" %>"><%= image_tag foto.immagine.url(:thumb), style: 'width: 100%;' %></a>
+          <% end %>
+        </div>
+        <div class="large-10 columns"><h1><%= link_to page.titolo.mb_chars.upcase, "/#{page.slug}" %></h1>
+          <p>del <%= page.published_at.to_s(:data) %>, sezione <%= page.section.titolo %>
+          <br><i><%= abstract %></i></p>
+        </div>
+      </div>
     <% end %>
-  </tbody>
-</table>
+
 
 <div class="text-center">
 <%= will_paginate @tags, renderer: FoundationPagination::Rails %>

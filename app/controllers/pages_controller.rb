@@ -72,12 +72,7 @@ class PagesController < ApplicationController
       # logger.info "Tag2 = #{tag.taggable_id} #{tag.taggable_type}"
       if tag.taggable_type == 'Page'
         pagina = Page.find_by id: tag.taggable_id
-        if pagina
-          @pages << pagina if pagina.visibile
-        else
-          # pulizia di eventuali tag orfani
-          tag.destroy
-        end
+        @pages << pagina if pagina && pagina.visibile
       end
     end
 

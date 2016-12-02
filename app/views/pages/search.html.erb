@@ -20,6 +20,7 @@
     <% @pages.each do |page|
 
       abstract = page.abstract
+      anno = page.published_at.year
 
       # verifichiamo se esiste almeno una foto associata all'articolo
       foto = ColumnImage.joins(:column => :row).where(:rows => {:page_id => page}).first
@@ -28,9 +29,11 @@
         <div class="large-2 columns">
           <% if foto %>
               <a href="<%= "/#{page.slug}" %>"><%= image_tag foto.immagine.url(:thumb), style: 'width: 100%;' %></a>
+          <% else %>
+              <a href="<%= "/#{page.slug}" %>"><%= image_tag "/img/copertine/articoli_#{anno}.jpg", style: 'width: 100%;' %></a>
           <% end %>
         </div>
-        <div class="large-10 columns"><h1><%= link_to page.titolo.mb_chars.upcase, "/#{page.slug}" %></h1>
+        <div class="large-10 columns"><h2><%= link_to page.titolo.mb_chars.upcase, "/#{page.slug}" %></h2>
           <p>del <%= page.published_at.to_s(:data) %>, sezione <%= page.section.titolo %>
           <br><i><%= abstract %></i></p>
         </div>

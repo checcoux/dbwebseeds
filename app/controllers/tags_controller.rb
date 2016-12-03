@@ -8,6 +8,10 @@ class TagsController < ApplicationController
   end
 
   def cloud
+    @tags = Tag.group(:nome).distinct.count(:id)
+  end
+
+  def cloud3d
     @tags = Tag.select(:nome).distinct.order(nome: :asc)
   end
 

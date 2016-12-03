@@ -1,0 +1,36 @@
+<div id="tag-cloud"></div>
+
+<script>
+  $( document ).ready( function() {
+
+    var entries = [
+      <% @tags.each do |tag| %>
+          { label: '<%= escape_javascript tag.nome.html_safe %>', url: '/search?q=<%=u tag.nome %>', target: '_top' },
+      <% end %>
+    ];
+
+    var settings = {
+      entries: entries,
+      height: '90%',
+      radius: '70%',
+      radiusMin: 75,
+      bgDraw: true,
+      bgColor: '#ffffff',
+      opacityOver: 1.00,
+      opacityOut: 0.2,
+      opacitySpeed: 6,
+      fov: 800,
+      speed: 0.5,
+      fontSize: '1em',
+      fontColor: '#444444',
+      fontWeight: 'bold',
+      fontStyle: 'normal',//italic
+      fontStretch: 'wider',//wider, narrower, ultra-condensed, extra-condensed, condensed, semi-condensed, semi-expanded, expanded, extra-expanded, ultra-expanded
+      fontToUpperCase: false
+
+    };
+
+$('#tag-cloud').svg3DTagCloud( settings );
+
+  } );
+</script>

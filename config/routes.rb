@@ -73,6 +73,7 @@ Rails.application.routes.draw do
   end
 
   get 'search' => 'pages#search'
+  get 'tag-cloud-3d' => 'tags#cloud3d'
   get 'tag-cloud' => 'tags#cloud'
   get ':slug' => 'pages#route'
 

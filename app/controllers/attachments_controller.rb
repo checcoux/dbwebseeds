@@ -1,5 +1,5 @@
 class AttachmentsController < ApplicationController
-  before_action :set_attachment, only: [:show, :edit, :update, :destroy]
+  before_action :set_attachment, only: [:show, :edit, :update, :destroy, :download]
   before_action :authenticate_user!
 
   # GET /attachments
@@ -19,6 +19,13 @@ class AttachmentsController < ApplicationController
   # GET /attachments/1
   # GET /attachments/1.json
   def show
+  end
+
+  def download
+    send_file @attachment.allegato.path,
+              :filename => @attachment.allegato_file_name,
+              :type => @attachment.allegato_content_type,
+              :disposition => 'attachment'
   end
 
   # GET /attachments/new

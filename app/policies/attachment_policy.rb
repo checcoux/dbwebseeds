@@ -7,6 +7,10 @@ class AttachmentPolicy < ApplicationPolicy
     true
   end
 
+  def download?
+    show?
+  end
+
   def create?
     user.admin? or user.section
   end

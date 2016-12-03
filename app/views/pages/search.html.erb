@@ -49,9 +49,9 @@
         %>
             <div class="expanded row">
               <div class="large-2 columns">
-                <a href="<%= "#{ attachment.allegato.url }" %>"><%= image_tag "/img/formati/#{ File.extname(attachment.allegato_file_name).gsub('.','') }.png", class: 'show-for-medium', style: 'width: 100%;' %></a>
+                <a href="<%= "/attachments/#{ attachment.id }/download/#{attachment.allegato_file_name}" %>"><%= image_tag "/img/formati/#{ File.extname(attachment.allegato_file_name).gsub('.','') }.png", class: 'show-for-medium', style: 'width: 100%;' %></a>
               </div>
-              <div class="large-10 columns"><span class="titolo-ricerca"><%= link_to attachment.titolo.mb_chars.upcase, attachment.allegato.url %></span>
+              <div class="large-10 columns"><span class="titolo-ricerca"><%= link_to attachment.titolo.mb_chars.upcase, "/attachments/#{ attachment.id }/download/#{attachment.allegato_file_name}" %></span>
                 <p><span class="info-ricerca">file: <b><%= attachment.allegato_file_name %>, <%= attachment.allegato_file_size / 1024 %> KB</b>, data <b><%= attachment.updated_at.to_s(:data) %></b>, sezione <b><%= attachment.section.titolo %></b></span>
                   <br><span class="descrizione-ricerca"><%= attachment.descrizione %></span></p>
               </div>

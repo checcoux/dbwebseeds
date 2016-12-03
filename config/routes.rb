@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
 
   resources :tags
-  resources :attachments
+  resources :attachments do
+    member do
+      get 'download/:filename' => 'attachments#download'
+    end
+  end
+
   devise_for :users
   scope "/admin" do
     resources :users

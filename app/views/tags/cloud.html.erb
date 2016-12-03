@@ -11,7 +11,7 @@
   %>
 
 <% @tags.each do |tag|
-  dimensione = (tag[1].to_f / max).round(2)
+  dimensione = 1 + (5 * Math.log10(tag[1]).to_f / max).round(2)
 %>
   <span style="font-size: <%= dimensione %>em;"><a href="/search?q=<%=u tag[0] %>"><%= tag[0].html_safe %></a></span>
 <% end %>

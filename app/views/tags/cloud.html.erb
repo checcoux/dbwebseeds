@@ -4,13 +4,14 @@
     # trovo il numero di occorrenze massimo
     max = 0
     @tags.each do |tag|
-      max = tag[1] if tag[1] > max
+      logaritmo = Math.log10(tag[1])
+      max = logaritmo if logaritmo > max
     end
 
   %>
 
 <% @tags.each do |tag|
-  dimensione = 0.5 + (5.0 * tag[1].to_f / max).round(2)
+  dimensione = (tag[1].to_f / max).round(2)
 %>
   <span style="font-size: <%= dimensione %>em;"><a href="/search?q=<%=u tag[0] %>"><%= tag[0].html_safe %></a></span>
 <% end %>

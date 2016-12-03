@@ -15,7 +15,7 @@
       foto = ColumnImage.joins(:column => :row).where(:rows => {:page_id => page}).first
     %>
       <tr>
-        <% if @mostra_articoli %><td><%= image_tag foto.immagine.url(:thumb) if foto %></td><% end %>
+        <% if @mostra_articoli %><td><%= image_tag foto.immagine.url(:thumb), style: "width: 200px;" if foto %></td><% end %>
         <td><%= link_to page.titolo, "/#{page.slug}", method: :get, class: "primary medium button bottone-largo" %></td>
         <td><%= link_to "/#{page.slug}", "/#{page.slug}" %></td>
         <td><%= "<span class='warning label'>Non visibile</span>".html_safe if !page.visibile %></td>

@@ -11,8 +11,9 @@ class Attachment < ActiveRecord::Base
   validates_attachment_content_type :allegato, :content_type => %w(
     application/pdf
     image/png image/gif image/jpeg
-    application/zip application/msword application/vnd.ms-office application/vnd.ms-excel
+    application/zip application/msword application/rtf application/x-rtf application/vnd.ms-office application/vnd.ms-excel
     audio/mpeg audio/x-mpeg audio/mp3 audio/x-mp3 audio/mpeg3 audio/x-mpeg3 audio/mpg audio/x-mpg audio/x-mpegaudio
+    video/mpeg video/quicktime
     application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
     application/vnd.openxmlformats-officedocument.wordprocessingml.document application/msword
     text/plain

@@ -17,28 +17,47 @@
 <% end %>
 
 
-    <% @pages.each do |page|
+    <% @tags.each do |tag| %>
 
-      abstract = page.abstract
-      anno = page.published_at.year
+      <% if tag.taggable_type == 'Page'
+        page = Page.find_by id: tag.taggable_id
+        if page && page.visibile
+          abstract = page.abstract
+          anno = page.published_at.year
 
-      # verifichiamo se esiste almeno una foto associata all'articolo
-      foto = ColumnImage.joins(:column => :row).where(:rows => {:page_id => page}).first
-    %>
-      <div class="expanded row">
-        <div class="large-2 columns">
-          <% if foto %>
-              <a href="<%= "/#{page.slug}" %>"><%= image_tag foto.immagine.url(:thumb), style: 'width: 100%;' %></a>
-          <% else %>
-              <a href="<%= "/#{page.slug}" %>"><%= image_tag "/img/copertine/articoli_#{anno}.jpg", style: 'width: 100%;' %></a>
-          <% end %>
-        </div>
-        <div class="large-10 columns"><h2><%= link_to page.titolo.mb_chars.upcase, "/#{page.slug}" %></h2>
-          <p>del <%= page.published_at.to_s(:data) %>, sezione <%= page.section.titolo %>
-          <br><i><%= abstract %></i></p>
-        </div>
-      </div>
-    <% end %>
+          # verifichiamo se esiste almeno una foto associata all'articolo
+          foto = ColumnImage.joins(:column => :row).where(:rows => {:page_id => page}).first
+      %>
+            <div class="expanded row">
+              <div class="large-2 columns">
+                <% if foto %>
+                    <a href="<%= "/#{page.slug}" %>"><%= image_tag foto.immagine.url(:thumb), style: 'width: 100%;' %></a>
+                <% else %>
+                    <a href="<%= "/#{page.slug}" %>"><%= image_tag "/img/copertine/articoli_#{anno}.jpg", class: 'show-for-medium', style: 'width: 100%;' %></a>
+                <% end %>
+              </div>
+              <div class="large-10 columns"><span class="titolo-ricerca"><%= link_to page.titolo.mb_chars.upcase, "/#{page.slug}" %></span>
+                <p><span class="info-ricerca">del <b><%= page.published_at.to_s(:data) %></b>, sezione <b><%= page.section.titolo %></b></span>
+                <br><span class="descrizione-ricerca"><%= abstract %></span></p>
+              </div>
+            </div>
+      <%
+        end %>
+      <% elsif tag.taggable_type == 'Attachment'
+          attachment = Attachment.find_by id: tag.taggable_id
+          if attachment
+        %>
+            <div class="expanded row">
+              <div class="large-2 columns">
+              </div>
+              <div class="large-10 columns"><span class="titolo-ricerca"><%= link_to attachment.titolo.mb_chars.upcase, attachment.allegato.url %></span>
+                <p><span class="info-ricerca">del <b><%= attachment.updated_at.to_s(:data) %></b>, sezione <b><%= attachment.section.titolo %></b>, <%= attachment.allegato_file_size / 1024 %> KB</span>
+                  <br><span class="descrizione-ricerca"><%= attachment.descrizione %></span></p>
+              </div>
+            </div>
+      <%  end
+         end
+    end %>
 
 
 <div class="text-center">

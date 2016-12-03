@@ -68,13 +68,13 @@ class PagesController < ApplicationController
 
     @tags = Tag.search(params[:q]).page(params[:page])
 
-    @tags.each do |tag|
+    #@tags.each do |tag|
       # logger.info "Tag2 = #{tag.taggable_id} #{tag.taggable_type}"
-      if tag.taggable_type == 'Page'
-        pagina = Page.find_by id: tag.taggable_id
-        @pages << pagina if pagina && pagina.visibile
-      end
-    end
+    #  if tag.taggable_type == 'Page'
+    #    pagina = Page.find_by id: tag.taggable_id
+    #    @pages << pagina if pagina && pagina.visibile
+    #  end
+    #end
 
 
     # if params[:section_id]

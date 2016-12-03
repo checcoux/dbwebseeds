@@ -72,7 +72,7 @@ class AttachmentsController < ApplicationController
         tags.each do |tag|
           @attachment.tags << Tag.new(nome: tag.strip)
         end
-        
+
         format.html { redirect_to attachments_path(section_id: @attachment.section_id) }
         format.json { render :show, status: :ok, location: @attachment }
       else

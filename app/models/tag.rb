@@ -17,7 +17,7 @@ class Tag < ActiveRecord::Base
         result = result.where("nome LIKE ?", "%#{word}%")
       end
     end
-    result.select(:taggable_id, :taggable_type).distinct.order(id: :desc)
+    result.select(:taggable_id, :taggable_type).distinct.order(created_at: :desc)
   end
 
   self.per_page = 30

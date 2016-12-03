@@ -7,6 +7,10 @@ class TagsController < ApplicationController
     @tags = Tag.all
   end
 
+  def cloud
+    @tags = Tag.select(:nome).distinct.order(nome: :asc)
+  end
+
   # GET /tags/1
   # GET /tags/1.json
   def show

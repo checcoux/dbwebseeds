@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   resources :tags
+
   resources :attachments do
     member do
       get 'download/:filename' => 'attachments#download'
@@ -72,6 +73,7 @@ Rails.application.routes.draw do
   end
 
   get 'search' => 'pages#search'
+  get 'tag-cloud' => 'tags#cloud'
   get ':slug' => 'pages#route'
 
   # The priority is based upon order of creation: first created -> highest priority.

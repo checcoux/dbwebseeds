@@ -60,7 +60,6 @@ class PagesController < ApplicationController
     end
   end
 
-  # indice articoli per il pubblico
   def search
     sezione = Section.find_by principale: true
     @page = Page.find_by section: sezione, home: true

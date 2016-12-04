@@ -22,7 +22,7 @@
 %>
 
 <div<%= " style='background: #{style}'".html_safe if !style.blank? %>>
-<div id="row<%= row.id %>" class="<%= "expanded " if row.estesa %><%= "full-width " if row.page.footer %>collapse row">
+<div id="row<%= row.id %>" class="<%= "expanded " if row.estesa %><%= "full-width " if row.page.footer %>row">
   <% row.columns.order('ordine ASC').each do |column|
       column_id = column.id
       if column.fonte > 0

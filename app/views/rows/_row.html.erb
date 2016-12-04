@@ -22,7 +22,7 @@
 %>
 
 <div<%= " style='background: #{style}'".html_safe if !style.blank? %>>
-<div id="row<%= row.id %>" class="<%= "expanded " if row.estesa %><%= "full-width " if row.page.footer %>row">
+<div id="row<%= row.id %>" class="<%= "expanded " if row.estesa %><%= "full-width " if row.page.footer %>collapse row">
   <% row.columns.order('ordine ASC').each do |column|
       column_id = column.id
       if column.fonte > 0
@@ -56,7 +56,7 @@
       end
 
       if column.column_images.count == 0 %>
-          <div id="weditr<%= column_id %>" class="large-<%= column.larghezza %> <%= column_class %>" style="position: relative; min-height: 1.5em;">
+          <div id="weditr<%= column_id %>" class="large-<%= column.larghezza %> <%= column_class %>" style="position: relative; min-height: 1.5em; padding: 10px;">
             <div id="editor<%= column_id %>"<% if editable %> class="inline-editor" contenteditable="false"<% end %>>
               <%= column.contenuto.html_safe %>
             </div>

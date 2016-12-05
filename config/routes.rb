@@ -76,6 +76,7 @@ Rails.application.routes.draw do
   get 'tag-cloud-3d' => 'tags#cloud3d'
   get 'tag-cloud' => 'tags#cloud'
   get ':slug' => 'pages#route'
+  get 'articoli/articolo.php' => 'pages#search'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

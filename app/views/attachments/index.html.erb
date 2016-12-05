@@ -7,9 +7,9 @@
     <% policy_scope(@attachments).each do |attachment| %>
       <% if attachment.allegato %>
       <tr>
-        <td><%= link_to attachment.titolo, attachment.allegato.url, class: "primary medium button bottone-largo" %></td>
+        <td><%= link_to attachment.titolo, edit_attachment_path(attachment), class: "primary medium button bottone-largo" %></td>
         <td><%= attachment.descrizione %></td>
-        <td><%= link_to attachment.allegato_file_name, edit_attachment_path(attachment), class: "secondary medium button bottone-largo" %></td>
+        <td><%= link_to attachment.allegato_file_name, "/attachments/#{ attachment.id }/download/#{attachment.allegato_file_name}", class: "secondary medium button bottone-largo" %></td>
         <td><%= attachment.allegato_file_size / 1024 %> KB</td>
         <td><%= attachment.updated_at.to_s(:data_ora) %></td>
         <td><%= "Sezione " + attachment.section.titolo %></td>

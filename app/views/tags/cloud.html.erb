@@ -1,3 +1,21 @@
+<%
+  header = @page.trova_header
+
+  footer = @page.trova_footer
+%>
+
+<% if header %>
+    <% if !user_signed_in? %>
+        <div data-sticky-container>
+          <div class="sticky" data-sticky data-options="marginTop:0;" style="width:100%; z-index:999;">
+    <% end %>
+    <%= render(header.rows.order('ordine ASC')) %>
+    <% if !user_signed_in? %>
+        </div>
+        </div>
+    <% end %>
+<% end %>
+
 <h1>Tag cloud</h1>
 <p align="center">
   <%
@@ -16,3 +34,5 @@
   <span style="font-size: <%= dimensione %>em;"><a href="/search?q=<%=u tag[0] %>"><%= tag[0].html_safe %></a></span>
 <% end %>
 </p>
+
+<%= render(footer.rows.order('ordine ASC')) if footer %>

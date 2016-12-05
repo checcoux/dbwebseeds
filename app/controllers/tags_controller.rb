@@ -8,6 +8,9 @@ class TagsController < ApplicationController
   end
 
   def cloud
+    sezione = Section.find_by principale: true
+    @page = Page.find_by section: sezione, home: true
+
     @tags = Tag.group(:nome).distinct.count(:id)
   end
 

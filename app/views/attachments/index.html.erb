@@ -6,7 +6,11 @@
   <tbody>
     <% policy_scope(@attachments).each do |attachment| %>
       <tr>
-        <td><%= link_to attachment.titolo, attachment.allegato.url, class: "primary medium button bottone-largo" if attachment.allegato_file_name %></td>
+        <td><%= if attachment.allegato
+                  link_to attachment.titolo, attachment.allegato.url, class: "primary medium button bottone-largo"
+                end
+        %>
+              </td>
         <td><%= attachment.descrizione %></td>
         <td><%= link_to attachment.allegato_file_name, edit_attachment_path(attachment), class: "secondary medium button bottone-largo" %></td>
         <td><%= attachment.allegato_file_size / 1024 %> KB</td>

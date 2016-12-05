@@ -44,8 +44,8 @@
       <%
         end %>
       <% elsif tag.taggable_type == 'Attachment'
-          attachment = Attachment.find_by id: tag.taggable_id
-          if attachment && attachment.allegato_file_name != null
+          attachment = Attachment.where( "id = ? AND allegato_file_name IS NOT NULL", tag.taggable_id )
+          if attachment
         %>
             <div class="expanded row">
               <div class="large-2 columns">

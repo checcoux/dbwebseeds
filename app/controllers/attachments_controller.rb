@@ -8,7 +8,7 @@ class AttachmentsController < ApplicationController
     authorize Attachment
 
     if params[:section_id]
-      @attachments = Attachment.where("section_id = ?", params[:section_id]).page(params[:page]).order('updated_at DESC').all
+      @attachments = Attachment.where("section_id = ? AND allegato_file_name != null", params[:section_id]).page(params[:page]).order('updated_at DESC').all
 
       @section = Section.find(params[:section_id])
     else

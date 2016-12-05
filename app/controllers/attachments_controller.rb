@@ -12,7 +12,7 @@ class AttachmentsController < ApplicationController
 
       @section = Section.find(params[:section_id])
     else
-      @attachments = Attachment.page(params[:page]).order('updated_at DESC').all
+      @attachments = Attachment.where("allegato_file_name != null").page(params[:page]).order('updated_at DESC').all
     end
   end
 

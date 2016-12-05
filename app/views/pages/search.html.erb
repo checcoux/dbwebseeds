@@ -45,7 +45,7 @@
         end %>
       <% elsif tag.taggable_type == 'Attachment'
           attachment = Attachment.find_by id: tag.taggable_id
-          if attachment
+          if attachment && attachment.allegato_file_name != null
         %>
             <div class="expanded row">
               <div class="large-2 columns">

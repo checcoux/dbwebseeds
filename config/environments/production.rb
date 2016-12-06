@@ -88,5 +88,5 @@ Rails.application.configure do
   }
   config.action_mailer.default_url_options = { host: 'core.donboscoweb.it' }
 
-  config.nome_sito = "donBOSCOwebSeeds 3"
+  config.nome_sito = "donBOSCOwebSeeds"
 end

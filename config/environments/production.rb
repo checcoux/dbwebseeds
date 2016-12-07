@@ -89,4 +89,15 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'core.donboscoweb.it' }
 
   config.nome_sito = "donBOSCOwebSeeds"
+
+  config.codice_google_analytics = "<script>
+                                      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                                      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                                      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                                      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+                                      ga('create', 'UA-1473871-1', 'auto');
+                                      ga('send', 'pageview');
+
+                                    </script>"
 end

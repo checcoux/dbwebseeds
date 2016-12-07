@@ -59,6 +59,10 @@ class ColumnsController < ApplicationController
     respond_to do |format|
       @column.contenuto = params[:contenuto].gsub('<a id="cerca" name="cerca"></a>', '<form method="GET" action="/search" class="form-cerca"><div class="input-group">
   <input class="input-group-field" type="search" id="cerca" placeholder="Cerca..." name="q">
+</div></form>').gsub('<a id="cerca:m" name="cerca:m"></a>', '<form method="GET" action="/search" class="form-cerca"><div class="input-group">
+  <input class="input-group-field" type="search" id="cerca" placeholder="Cerca..." name="q"><input type="hidden" name="t" value="m">
+</div></form>').gsub('<a id="cerca:a" name="cerca:a"></a>', '<form method="GET" action="/search" class="form-cerca"><div class="input-group">
+  <input class="input-group-field" type="search" id="cerca" placeholder="Cerca..." name="q"><input type="hidden" name="t" value="a">
 </div></form>')
       @column.save
 

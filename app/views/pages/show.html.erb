@@ -57,6 +57,7 @@
             </ul>
           </nav>
         </div>
+        </div>
         <% end %>
         <% if policy(@page).edit? %>
         <div class="row">
@@ -73,7 +74,6 @@
         </div>
         <% end %>
 
-      </div>
     <% elsif user_signed_in? && !(@page.home || @page.header || @page.footer || @page.modello) %>
       <div class="row">
         <div class="column large-8">

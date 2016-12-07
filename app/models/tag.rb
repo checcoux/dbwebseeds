@@ -1,7 +1,7 @@
 class Tag < ActiveRecord::Base
   belongs_to :taggable, polymorphic: true
 
-  def self.search(search)
+  def self.search(search, type)
     result = Tag.all
     if search
       words = search.strip.split
@@ -16,6 +16,11 @@ class Tag < ActiveRecord::Base
       words.each do |word|
         result = result.where("nome LIKE ?", "%#{word}%")
       end
+    end
+    if type=='a'
+      result = result.where("taggable_type = 'Page'")
+    elsif type=='m'
+      result = result.where("taggable_type = 'Attachment'")
     end
     result.select(:taggable_id, :taggable_type).distinct.order(created_at: :desc)
   end

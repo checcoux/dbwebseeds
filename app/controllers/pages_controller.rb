@@ -65,7 +65,7 @@ class PagesController < ApplicationController
     @page = Page.find_by section: sezione, home: true
     @pages = []
 
-    @tags = Tag.search(params[:q]).page(params[:page])
+    @tags = Tag.search(params[:q], params[:t]).page(params[:page])
 
     #@tags.each do |tag|
       # logger.info "Tag2 = #{tag.taggable_id} #{tag.taggable_type}"
@@ -385,7 +385,7 @@ class PagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def page_params
-      params.require(:page).permit(:titolo, :descrizione, :section_id, :home, :header, :footer, :modello, :visibile, :articolo, :published_at, :rigenera_slug, :q)
+      params.require(:page).permit(:titolo, :descrizione, :section_id, :home, :header, :footer, :modello, :visibile, :articolo, :published_at, :rigenera_slug, :q, :t)
     end
 
     def pagina_non_trovata

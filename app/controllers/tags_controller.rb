@@ -4,6 +4,7 @@ class TagsController < ApplicationController
   # GET /tags
   # GET /tags.json
   def index
+    authorize Tag
     @tags = Tag.all
   end
 
@@ -25,6 +26,7 @@ class TagsController < ApplicationController
 
   # GET /tags/new
   def new
+    authorize Tag
     @tag = Tag.new
   end
 
@@ -35,6 +37,7 @@ class TagsController < ApplicationController
   # POST /tags
   # POST /tags.json
   def create
+    authorize Tag
     @tag = Tag.new(tag_params)
 
     respond_to do |format|
@@ -76,6 +79,8 @@ class TagsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_tag
       @tag = Tag.find(params[:id])
+
+      authorize @tag
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

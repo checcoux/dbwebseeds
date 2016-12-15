@@ -73,7 +73,13 @@
             <% if immagine.collegamento.length > 0 %>
                 <a href="<%= immagine.collegamento %>">
             <% end %>
-              <%= image_tag(immagine.immagine.url(:content), style: 'width: 100%;') %>
+              <% if column.larghezza <= 6 %>
+                <%= image_tag(immagine.immagine.url(:small), style: 'width: 100%;') %>
+              <% elsif column.larghezza <= 10 %>
+                <%= image_tag(immagine.immagine.url(:medium), style: 'width: 100%;') %>
+              <% else %>
+                <%= image_tag(immagine.immagine.url(:large), style: 'width: 100%;') %>
+              <% end %>
 
                 <% if immagine.titolo.length > 0 %>
                   <figcaption class='orbit-caption'>
@@ -101,7 +107,13 @@
                         <% if column_image.collegamento.length > 0 %>
                           <a href="<%= column_image.collegamento %>">
                         <% end %>
-                          <img src="<%= column_image.immagine %>" style="width: 100%;">
+                          <% if column.larghezza <= 6 %>
+                              <%= image_tag(column_image.immagine.url(:small), style: 'width: 100%;') %>
+                          <% elsif column.larghezza <= 10 %>
+                              <%= image_tag(column_image.immagine.url(:medium), style: 'width: 100%;') %>
+                          <% else %>
+                              <%= image_tag(column_image.immagine.url(:large), style: 'width: 100%;') %>
+                          <% end %>
                           <% if column_image.titolo.length > 0 %>
                               <div class='titolo-slide'>
                                 <p class='column_image_titolo<%= '_small' if column.larghezza<=3 %>'><%= column_image.titolo %></p>

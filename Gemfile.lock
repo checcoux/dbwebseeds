@@ -41,7 +41,7 @@ GEM
     bcrypt (3.1.11-x86-mingw32)
     builder (3.2.2)
     callsite (0.0.11)
-    ckeditor (4.2.0)
+    ckeditor (4.2.1)
       cocaine
       orm_adapter (~> 0.5.0)
     climate_control (0.0.3)
@@ -96,7 +96,7 @@ GEM
     mime-types-data (3.2016.0521)
     mimemagic (0.3.2)
     mini_portile2 (2.1.0)
-    minitest (5.9.1)
+    minitest (5.10.1)
     multi_json (1.12.1)
     mysql2 (0.3.21)
     mysql2 (0.3.21-x86-mingw32)
@@ -197,7 +197,7 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
-  ckeditor
+  ckeditor (= 4.2.1)
   coffee-rails (~> 4.0.0)
   devise
   friendly_id (~> 5.1.0)

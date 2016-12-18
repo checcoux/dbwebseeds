@@ -38,7 +38,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
 
 gem 'paperclip'
-gem 'ckeditor'
+gem 'ckeditor', '4.2.1'
 
 # transizione a rails 4.2 (necessario solo per avere i responder a livello di classe)
 gem 'responders', '~> 2.0'

@@ -56,8 +56,12 @@ CKEDITOR.editorConfig = function( config )
         // per far riapparire h1 ecc: 'Format'
         { name: 'styles', items: [ 'Styles', 'Bold', 'Italic', 'TextColor', 'BGColor', 'FontSize', 'RemoveFormat' ] },
         '/',
-        { name: 'links', items: [ 'Link', 'Unlink', 'Anchor', 'Image' ] },
+        { name: 'links', items: [ 'Link', 'Unlink', 'Anchor', 'Image', 'Mathjax' ] },
         { name: 'paragraph', groups: [ 'indent', 'align' ], items: [ 'NumberedList', 'BulletedList', 'Blockquote', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock' ] },
     ];
 
+    config.extraPlugins = 'dialogui,widgetselection,dialog,clipboard,lineutils,widget,mathjax,button,toolbar,notification,notificationaggregator,filetools,uploadwidget,uploadimage';
+
+
+    config.mathJaxLib = '//cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS_HTML';
 };

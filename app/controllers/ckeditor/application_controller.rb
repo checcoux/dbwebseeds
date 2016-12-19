@@ -1,5 +1,6 @@
 class Ckeditor::ApplicationController < Ckeditor.parent_controller.constantize
-  layout Ckeditor.controller_layout
+  # layout Ckeditor.controller_layout # (per versione 4.2.1)
+  layout 'ckeditor/application' # (per versione 4.2.0)
 
   before_action :find_asset, :only => [:destroy]
   before_action :ckeditor_authorize!

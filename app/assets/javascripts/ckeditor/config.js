@@ -29,7 +29,7 @@ CKEDITOR.editorConfig = function( config )
     // config.pasteFilter = 'plain-text';
 
     // Toolbar groups configuration.
-    config.toolbar = [
+    /*config.toolbar = [
         { name: 'document', groups: [ 'mode', 'document', 'doctools' ], items: [ 'Source'] },
         { name: 'clipboard', groups: [ 'clipboard', 'undo' ], items: [ 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo' ] },
         { name: 'editing', groups: [ 'find', 'selection', 'spellchecker' ], items: [ 'Find', 'Replace', '-', 'SelectAll', '-', 'Scayt' ] },
@@ -50,18 +50,20 @@ CKEDITOR.editorConfig = function( config )
         // { name: 'colors', items: [ 'TextColor', 'BGColor' ] },
         // { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ], items: [ 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat' ] },
         // { name: 'insert', items: [ 'Image', 'Table', 'HorizontalRule', 'SpecialChar' ] }
-    ];
+    ]; */
 
     config.toolbar = [
         // per far riapparire h1 ecc: 'Format'
-        { name: 'styles', items: [ 'Styles', 'Bold', 'Italic', 'TextColor', 'BGColor', 'FontSize', 'RemoveFormat' ] },
+        { name: 'styles', items: [ 'Styles', 'Bold', 'Italic', 'TextColor', 'BGColor', 'FontSize', 'RemoveFormat', 'Sourcedialog' ] },
         '/',
-        { name: 'links', items: [ 'Link', 'Unlink', 'Anchor', 'Image', 'Mathjax' ] },
+        { name: 'links', items: [ 'Link', 'Unlink', 'Anchor', 'Image', 'EqnEditor' ] },
         { name: 'paragraph', groups: [ 'indent', 'align' ], items: [ 'NumberedList', 'BulletedList', 'Blockquote', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock' ] },
     ];
 
-    config.extraPlugins = 'dialogui,widgetselection,dialog,clipboard,lineutils,widget,mathjax,button,toolbar,notification,notificationaggregator,filetools,uploadwidget,uploadimage';
+    config.extraPlugins = 'dialogui,widgetselection,dialog,clipboard,lineutils,widget,button,toolbar,notification,notificationaggregator,filetools,uploadwidget,uploadimage,sourcedialog';
+    // ,eqneditor
 
 
-    config.mathJaxLib = '//cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS_HTML';
+    // config.mathJaxLib = '//cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS_HTML';
+    // config.mathJaxClass = 'math-tex';
 };

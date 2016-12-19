@@ -89,6 +89,7 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'core.donboscoweb.it' }
 
   config.nome_sito = "donBOSCOwebCore"
+  config.descrizione_sito = ""
 
   config.codice_google_analytics = "<script>
                                       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

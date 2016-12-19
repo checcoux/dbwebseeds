@@ -44,6 +44,7 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
   config.nome_sito = "donBOSCOwebCore"
+  config.descrizione_sito = "Test descrizione sito."
 
   config.codice_google_analytics = "<script>
                                       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

@@ -20,12 +20,10 @@ class Ckeditor::ApplicationController < Ckeditor.parent_controller.constantize
   end
 
   def ckeditor_pictures_scope(options = { :assetable_id => params[:column_id], :assetable_type => "Column"})
-    # options = { :assetable_id => params[:column_id], :assetable_type => "Column"}
     ckeditor_filebrowser_scope(options)
   end
 
-  def ckeditor_attachment_files_scope(options = { :assetable_id => "#{current_page.id}" ,:assetable_type => "Page" })
-    # options = { :assetable_id => params[:column_id], :assetable_type => "Column"}
+  def ckeditor_attachment_files_scope(options = { })
     ckeditor_filebrowser_scope(options)
   end
 

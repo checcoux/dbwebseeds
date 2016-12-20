@@ -10,6 +10,6 @@ class ApplicationController < ActionController::Base
 
   def user_not_authorized
     flash[:alert] = "Non autorizzato."
-    redirect_to(request.referrer || home_path )
+    redirect_to(request.referrer || '/' )
   end
 end

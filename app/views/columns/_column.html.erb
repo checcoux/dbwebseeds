@@ -20,24 +20,12 @@
           <a href="<%= immagine.collegamento %>">
       <% end %>
 
-      <% if !row.estesa %>
-          <% if column.larghezza <= 6 %>
-              <%= image_tag(immagine.immagine.url(:small), style: 'width: 100%;') %>
-          <% elsif column.larghezza <= 10 %>
-              <%= image_tag(immagine.immagine.url(:medium), style: 'width: 100%;') %>
-          <% else %>
-              <%= image_tag(immagine.immagine.url(:large), style: 'width: 100%;') %>
-          <% end %>
+      <% if column.larghezza <= 6 %>
+          <%= image_tag(immagine.immagine.url(:small), style: 'width: 100%;') %>
+      <% elsif column.larghezza <= 10 %>
+          <%= image_tag(immagine.immagine.url(:medium), style: 'width: 100%;') %>
       <% else %>
-          <% if column.larghezza <= 4 %>
-              <%= image_tag(immagine.immagine.url(:small), style: 'width: 100%;') %>
-          <% elsif column.larghezza <= 8 %>
-              <%= image_tag(immagine.immagine.url(:medium), style: 'width: 100%;') %>
-          <% elsif column.larghezza <= 10 %>
-              <%= image_tag(immagine.immagine.url(:large), style: 'width: 100%;') %>
-          <% else %>
-              <%= image_tag(immagine.immagine.url(:xlarge), style: 'width: 100%;') %>
-          <% end %>
+          <%= image_tag(immagine.immagine.url(:large), style: 'width: 100%;') %>
       <% end %>
 
       <% if immagine.titolo.length > 0 %>
@@ -63,25 +51,14 @@
                 <a href="<%= column_image.collegamento %>">
             <% end %>
 
-            <% if !row.estesa %>
-                <% if column.larghezza <= 6 %>
-                    <%= image_tag(column_image.immagine.url(:small), style: 'width: 100%;') %>
-                <% elsif column.larghezza <= 10 %>
-                    <%= image_tag(column_image.immagine.url(:medium), style: 'width: 100%;') %>
-                <% else %>
-                    <%= image_tag(column_image.immagine.url(:large), style: 'width: 100%;') %>
-                <% end %>
-            <% else %>
-                <% if column.larghezza <= 4 %>
-                    <%= image_tag(column_image.immagine.url(:small), style: 'width: 100%;') %>
-                <% elsif column.larghezza <= 8 %>
-                    <%= image_tag(column_image.immagine.url(:medium), style: 'width: 100%;') %>
-                <% elsif column.larghezza <= 10 %>
-                    <%= image_tag(column_image.immagine.url(:large), style: 'width: 100%;') %>
-                <% else %>
-                    <%= image_tag(column_image.immagine.url(:xlarge), style: 'width: 100%;') %>
-                <% end %>
-            <% end %>
+
+              <% if column.larghezza <= 6 %>
+                  <%= image_tag(column_image.immagine.url(:small), style: 'width: 100%;') %>
+              <% elsif column.larghezza <= 10 %>
+                  <%= image_tag(column_image.immagine.url(:medium), style: 'width: 100%;') %>
+              <% else %>
+                  <%= image_tag(column_image.immagine.url(:large), style: 'width: 100%;') %>
+              <% end %>
 
             <% if column_image.titolo.length > 0 %>
                 <div class='titolo-slide'>

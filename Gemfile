@@ -63,7 +63,7 @@ gem 'will_paginate-foundation'
 
 gem 'rails-i18n', '~> 4.0.0'
 
-require 'nokogiri'
+gem 'nokogiri'
 
 group :development do
   gem 'meta_request'

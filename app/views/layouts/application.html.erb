@@ -35,7 +35,7 @@
 <body class='<%= controller.controller_name %>'>
 
   <!-- Menu amministrativo -->
-  <% if user_signed_in? %>
+  <% if current_user && (current_user.admin || current_user.section_id) %>
     <div class="title-bar" data-responsive-toggle="main-menu" data-hide-for="medium">
       <button class="menu-icon" type="button" data-toggle></button>
       <div class="title-bar-title"><a href="/"><img src="/img/logodbwebcore.png" width="200"></a></div>
@@ -117,7 +117,7 @@
             <a>Account</a>
             <ul class="submenu menu vertical" data-submenu>
               <% # link_to "Dati personali", edit_user_registration_path %>
-              <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
+              <li><%= link_to "Logout", destroy_user_session_path %></li>
             </ul>
           </li>
         </ul>

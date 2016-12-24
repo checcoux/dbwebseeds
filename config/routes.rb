@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
 
   get 'login', to: redirect('/users/sign_in')
+  get 'logout', to: redirect('/users/sign_out')
 
   resources :columns do
     member do

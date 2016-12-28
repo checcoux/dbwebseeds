@@ -88,7 +88,7 @@ Rails.application.configure do
   }
   config.action_mailer.default_url_options = { host: 'core.donboscoweb.it' }
 
-  config.nome_sito = "donBOSCOwebCore"
+  config.nome_sito = "donboscowebseeds"
   config.descrizione_sito = ""
 
   config.codice_google_analytics = "<script>

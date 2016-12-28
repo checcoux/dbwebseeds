@@ -48,7 +48,28 @@
         <ul class="menu vertical medium-horizontal expanded" data-responsive-menu="accordion medium-dropdown">
 
         <li class="menu-text"><a href="/"><img src="/img/logodbwebcore.png" width="200"></a></li>
-          <%= @menu_aggiuntivi %>
+
+          <% menu_disattivati = '<li>
+          <a id="pagePreview" onclick="" class="toolbar disabled button" title="Page preview: ALT + P"><i class="fi-eye"></i> Preview</a>
+        </li>
+        <li>
+          <a id="pageSave" onclick="" class="toolbar disabled button" title="Salva: ALT + S"><i class="fi-save"></i> Salva</a>
+        </li>
+        <li>
+          <a id="newsEdit" onclick="" class="toolbar disabled button" title="News: ALT + I"><i class="fi-page"></i> News</a>
+        </li>
+        <li>
+          <a id="inlineEdit" onclick="" class="toolbar disabled button" title="Inline edit: ALT + I"><i class="fi-page"></i> Editor</a>
+        </li>'.html_safe
+
+             menu_disattivati += '<li>
+          <a id="layoutDesign" onclick="" class="toolbar disabled button" accesskey="l" title="Layout design: ALT + L"><i class="fi-pencil"></i> Layout</a>
+        </li>'.html_safe if current_user && (current_user.designer || current_user.admin)
+
+
+          %>
+
+          <%= @menu_aggiuntivi || menu_disattivati %>
 
           <% if policy(Section).index? %>
           <li class="has-submenu">

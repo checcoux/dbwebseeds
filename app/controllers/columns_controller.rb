@@ -149,7 +149,7 @@ class ColumnsController < ApplicationController
     @row2.save
 
     # creo una colonna vuota
-    column = Column.create(ordine: 1, larghezza: 12, row_id: @row2.id, contenuto: '<p>Cantami o Diva del pelide Achille l\'ira funesta...</p>')
+    column = Column.create(ordine: 1, larghezza: 12, row_id: @row2.id, contenuto: '<p>Cantami o Diva del pelide Achille l\'ira funesta...</p>', autocrop: true)
     column.save
   end
 
@@ -201,7 +201,7 @@ class ColumnsController < ApplicationController
     @row2.save
 
     # creo una colonna vuota
-    column = Column.create(ordine: 1, larghezza: 12, row_id: @row2.id, contenuto: '<p>Cantami o Diva del pelide Achille l\'ira funesta...</p>')
+    column = Column.create(ordine: 1, larghezza: 12, row_id: @row2.id, contenuto: '<p>Cantami o Diva del pelide Achille l\'ira funesta...</p>', autocrop: true)
     column.save
   end
 
@@ -278,7 +278,7 @@ class ColumnsController < ApplicationController
       end
       if resto >= 1 then # dovrebbe sempre essere così perché il controllo è stato fatto a monte
         # creo una colonna vuota
-        @column2 = Column.create(ordine: posizione, larghezza: resto, row_id: @row.id, contenuto: '<p>Cantami o Diva del pelide Achille l\'ira funesta...</p>')
+        @column2 = Column.create(ordine: posizione, larghezza: resto, row_id: @row.id, contenuto: '<p>Cantami o Diva del pelide Achille l\'ira funesta...</p>', autocrop: true)
         @column2.save
       end
     end
@@ -309,7 +309,7 @@ class ColumnsController < ApplicationController
       end
       if resto >= 1 then # dovrebbe sempre essere così perché il controllo è stato fatto a monte
         # creo una colonna vuota
-        @column2 = Column.create(ordine: posizione + 1, larghezza: resto, row_id: @row.id, contenuto: '<p>Cantami o Diva del pelide Achille l\'ira funesta...</p>')
+        @column2 = Column.create(ordine: posizione + 1, larghezza: resto, row_id: @row.id, contenuto: '<p>Cantami o Diva del pelide Achille l\'ira funesta...</p>', autocrop: true)
         @column2.save
       end
     else
@@ -318,7 +318,7 @@ class ColumnsController < ApplicationController
         @column.larghezza = @column.larghezza - 1
         @column.save
 
-        @column2 = Column.create(ordine: posizione + 1, larghezza: 1, row_id: @row.id, contenuto: '<p>Cantami o Diva del pelide Achille l\'ira funesta...</p>')
+        @column2 = Column.create(ordine: posizione + 1, larghezza: 1, row_id: @row.id, contenuto: '<p>Cantami o Diva del pelide Achille l\'ira funesta...</p>', autocrop: true)
         @column2.save
       end
     end
@@ -348,7 +348,7 @@ class ColumnsController < ApplicationController
       end
       if resto >= 1 then # dovrebbe sempre essere così perché il controllo è stato fatto a monte
         # creo una colonna vuota
-        @column2 = Column.create(ordine: posizione, larghezza: resto, row_id: @row.id, contenuto: '<p>Cantami o Diva del pelide Achille l\'ira funesta...</p>')
+        @column2 = Column.create(ordine: posizione, larghezza: resto, row_id: @row.id, contenuto: '<p>Cantami o Diva del pelide Achille l\'ira funesta...</p>', autocrop: true)
         @column2.save
       end
     else
@@ -361,7 +361,7 @@ class ColumnsController < ApplicationController
           colonna.save
         end
 
-        @column2 = Column.create(ordine: posizione, larghezza: 1, row_id: @row.id, contenuto: '<p>Cantami o Diva del pelide Achille l\'ira funesta...</p>')
+        @column2 = Column.create(ordine: posizione, larghezza: 1, row_id: @row.id, contenuto: '<p>Cantami o Diva del pelide Achille l\'ira funesta...</p>', autocrop: true)
         @column2.save
       end
     end
@@ -425,7 +425,7 @@ class ColumnsController < ApplicationController
     end
 
     # creo una colonna vuota
-    @column2 = Column.create(ordine: posizione + 1, larghezza: resto, row_id: @row.id, contenuto: '<p>Cantami o Diva del pelide Achille l\'ira funesta...</p>')
+    @column2 = Column.create(ordine: posizione + 1, larghezza: resto, row_id: @row.id, contenuto: '<p>Cantami o Diva del pelide Achille l\'ira funesta...</p>', autocrop: true)
     @column2.save
   end
 

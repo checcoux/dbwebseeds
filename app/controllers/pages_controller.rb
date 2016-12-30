@@ -213,7 +213,7 @@ class PagesController < ApplicationController
           row.save
 
           # creo una colonna vuota
-          column = Column.create(ordine: 1, larghezza: 12, row_id: row.id, contenuto: '<p>Cantami o Diva del pelide Achille l\'ira funesta...</p>')
+          column = Column.create(ordine: 1, larghezza: 12, row_id: row.id, contenuto: '<p>Cantami o Diva del pelide Achille l\'ira funesta...</p>', autocrop: true)
           column.save
         end
 

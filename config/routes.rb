@@ -46,6 +46,8 @@ Rails.application.routes.draw do
       post 'sposta_colonna_prima'
       post 'sposta_colonna_dopo'
       post 'equalizza_colonne'
+      post 'autocrop_on'
+      post 'autocrop_off'
       get 'dialog_sfondo'
       get 'dialog_immagine'
       get 'modifica_immagine'

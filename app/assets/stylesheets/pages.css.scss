@@ -316,3 +316,43 @@ li {
 .form-cerca {
 
 }
+
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  &:before{
+    display: block;
+    content: " ";
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+
+  > .cropped-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    font-family: 'object-fit: cover;'
+  }
+}
+
+.cropped-35 {
+  @include aspect-ratio(100, 35);
+}
+
+.cropped-40 {
+  @include aspect-ratio(100, 40);
+}
+
+.cropped-45 {
+  @include aspect-ratio(100, 45);
+}
+
+.cropped-50 {
+  @include aspect-ratio(100, 50);
+}

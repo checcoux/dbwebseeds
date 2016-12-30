@@ -681,6 +681,16 @@ class ColumnsController < ApplicationController
     @column.save
   end
 
+  def autocrop_on
+    @column.autocrop = true
+    @column.save
+  end
+
+  def autocrop_off
+    @column.autocrop = false
+    @column.save
+  end
+
   private
     def set_column
       @column = Column.find(params[:id])

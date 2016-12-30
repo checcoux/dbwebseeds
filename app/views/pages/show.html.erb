@@ -1,3 +1,5 @@
+<script src="https://unpkg.com/object-fit-images@2.5.9/dist/ofi.browser.js"></script>
+
 <% if !user_signed_in? or policy(@page).edit? %>
 <%
   @menu_aggiuntivi = '<li>
@@ -178,6 +180,8 @@
             "stringi_colonna": {name: "<i class='fi-arrows-compress'></i>&nbsp;Stringi", isHtmlName: true},
             "sposta_colonna_prima": {name: "<i class='fi-arrow-left'></i>&nbsp;Sposta a sinistra", isHtmlName: true},
             "sposta_colonna_dopo": {name: "<i class='fi-arrow-right'></i>&nbsp;Sposta a destra", isHtmlName: true},
+            "autocrop_on": {name: "<i class='fi-crop'></i>&nbsp;Attiva autocrop", isHtmlName: true},
+            "autocrop_off": {name: "<i class='fi-crop'></i>&nbsp;Disattiva autocrop", isHtmlName: true},
             "elimina_colonna": {name: "<i class='fi-trash'></i>&nbsp;&nbsp;Elimina", isHtmlName: true}
           }
         },
@@ -240,6 +244,9 @@
       zIndex: 100,
       arrows: true
     });
+
+    // patch object-fit per IEdge e altri
+    objectFitImages('img.cropped-image');
   });
 
 
@@ -460,6 +467,9 @@
           zIndex: 100,
           arrows: true
         });
+
+        // patch object-fit per IEdge e altri
+        objectFitImages('img.cropped-image');
       });
 
     </script>

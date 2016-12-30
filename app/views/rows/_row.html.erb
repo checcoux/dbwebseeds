@@ -73,25 +73,26 @@
             <% if immagine.collegamento.length > 0 %>
                 <a href="<%= immagine.collegamento %>">
             <% end %>
-                <% if !row.estesa %>
-                  <% if column.larghezza <= 6 %>
-                    <%= image_tag(immagine.immagine.url(:small), style: 'width: 100%;') %>
-                  <% elsif column.larghezza <= 10 %>
-                    <%= image_tag(immagine.immagine.url(:medium), style: 'width: 100%;') %>
-                  <% else %>
-                    <%= image_tag(immagine.immagine.url(:large), style: 'width: 100%;') %>
-                  <% end %>
-                <% else %>
-                  <% if column.larghezza <= 4 %>
-                      <%= image_tag(immagine.immagine.url(:small), style: 'width: 100%;') %>
-                  <% elsif column.larghezza <= 8 %>
-                      <%= image_tag(immagine.immagine.url(:medium), style: 'width: 100%;') %>
-                  <% elsif column.larghezza <= 10 %>
-                      <%= image_tag(immagine.immagine.url(:large), style: 'width: 100%;') %>
-                  <% else %>
-                      <%= image_tag(immagine.immagine.url(:xlarge), style: 'width: 100%;') %>
-                  <% end %>
-                <% end %>
+                <%= if !row.estesa
+                      if column.larghezza <= 6
+                        cropped_image immagine.immagine.url(:small), 50, column.autocrop
+                      elsif column.larghezza <= 10
+                        cropped_image immagine.immagine.url(:medium), 45, column.autocrop
+                      else
+                        cropped_image immagine.immagine.url(:large), 40, column.autocrop
+                      end
+                    else
+                      if column.larghezza <= 4
+                        cropped_image immagine.immagine.url(:small), 50, column.autocrop
+                      elsif column.larghezza <= 8
+                        cropped_image immagine.immagine.url(:medium), 45, column.autocrop
+                      elsif column.larghezza <= 10
+                        cropped_image immagine.immagine.url(:large), 40, column.autocrop
+                      else
+                        cropped_image immagine.immagine.url(:xlarge), 35, column.autocrop
+                      end
+                    end
+                %>
 
                 <% if immagine.titolo.length > 0 %>
                   <figcaption class='orbit-caption'>
@@ -114,44 +115,46 @@
         <% else %>
           <div id="slider<%= column_id %>" class="large-<%= column.larghezza %> <%= column_class %> mioslider" style="position: relative;">
 
-                  <% column.column_images.each do |column_image| %>
+                  <% column.column_images.each do |immagine| %>
                       <div class="slide slick-slide">
-                        <% if column_image.collegamento.length > 0 %>
-                          <a href="<%= column_image.collegamento %>">
+                        <% if immagine.collegamento.length > 0 %>
+                          <a href="<%= immagine.collegamento %>">
                         <% end %>
-                          <% if !row.estesa %>
-                              <% if column.larghezza <= 6 %>
-                                  <%= image_tag(column_image.immagine.url(:small), style: 'width: 100%;') %>
-                              <% elsif column.larghezza <= 10 %>
-                                  <%= image_tag(column_image.immagine.url(:medium), style: 'width: 100%;') %>
-                              <% else %>
-                                  <%= image_tag(column_image.immagine.url(:large), style: 'width: 100%;') %>
-                              <% end %>
-                          <% else %>
-                              <% if column.larghezza <= 4 %>
-                                  <%= image_tag(column_image.immagine.url(:small), style: 'width: 100%;') %>
-                              <% elsif column.larghezza <= 8 %>
-                                  <%= image_tag(column_image.immagine.url(:medium), style: 'width: 100%;') %>
-                              <% elsif column.larghezza <= 10 %>
-                                  <%= image_tag(column_image.immagine.url(:large), style: 'width: 100%;') %>
-                              <% else %>
-                                  <%= image_tag(column_image.immagine.url(:xlarge), style: 'width: 100%;') %>
-                              <% end %>
-                          <% end %>
-                          <% if column_image.titolo.length > 0 %>
+                        <%=
+                            if !row.estesa
+                              if column.larghezza <= 6
+                                cropped_image immagine.immagine.url(:small), 50, column.autocrop
+                              elsif column.larghezza <= 10
+                                cropped_image immagine.immagine.url(:medium), 45, column.autocrop
+                              else
+                                cropped_image immagine.immagine.url(:large), 40, column.autocrop
+                              end
+                            else
+                              if column.larghezza <= 4
+                                cropped_image immagine.immagine.url(:small), 50, column.autocrop
+                              elsif column.larghezza <= 8
+                                cropped_image immagine.immagine.url(:medium), 45, column.autocrop
+                              elsif column.larghezza <= 10
+                                cropped_image immagine.immagine.url(:large), 40, column.autocrop
+                              else
+                                cropped_image immagine.immagine.url(:xlarge), 35, column.autocrop
+                              end
+                            end
+                        %>
+                          <% if immagine.titolo.length > 0 %>
                               <div class='titolo-slide'>
-                                <p class='column_image_titolo<%= '_small' if column.larghezza<=3 %>'><%= column_image.titolo %></p>
-                                <% if column_image.descrizione.length > 0 %>
-                                    <p class='column_image_descrizione<%= ' hide-for-large' if column.larghezza<=3 %>'><%= column_image.descrizione %></p>
+                                <p class='column_image_titolo<%= '_small' if column.larghezza<=3 %>'><%= immagine.titolo %></p>
+                                <% if immagine.descrizione.length > 0 %>
+                                    <p class='column_image_descrizione<%= ' hide-for-large' if column.larghezza<=3 %>'><%= immagine.descrizione %></p>
                                 <% end %>
                               </div>
                           <% end %>
-                        <% if column_image.collegamento.length > 0 %>
+                        <% if immagine.collegamento.length > 0 %>
                             </a>
                         <% end %>
 
                         <% if editable %>
-                          <div class="gestione-immagini"><button onclick="aggiungiImmagine(<%= column_id %>);"><i class="fi-plus"></i></button> <button onclick="modificaImmagine(<%= column_image.id %>);"><i class="fi-pencil"></i></button> <button onclick="eliminaImmagine(<%= column_image.id %>);"><i class="fi-x"></i></button></div>
+                          <div class="gestione-immagini"><button onclick="aggiungiImmagine(<%= column_id %>);"><i class="fi-plus"></i></button> <button onclick="modificaImmagine(<%= immagine.id %>);"><i class="fi-pencil"></i></button> <button onclick="eliminaImmagine(<%= immagine.id %>);"><i class="fi-x"></i></button></div>
                         <% elsif user_signed_in? && !parte_fissa %>
                             <div class="info-layout"><i class="fi-link"></i> <%= fonte[column.fonte] %></div>
                         <% end %>

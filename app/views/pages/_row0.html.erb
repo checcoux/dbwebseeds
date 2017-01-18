@@ -2,5 +2,5 @@
   <div class="column">
     <button class="warning button bottone-gigante" title="Crea nuovo contenuto dinamico" onclick="nuovoContenutoDinamico(<%= @page.id %>);">+</button>
   </div>
-  <%= render(@page.dinamiche.order('created_at DESC')) %>
+  <%= render(@page.dinamiche.order('created_at DESC').limit(14)) %>
 </div>

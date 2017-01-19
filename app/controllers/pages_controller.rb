@@ -234,7 +234,7 @@ class PagesController < ApplicationController
     end
 
     params = page_params
-    params[:articolo] = false if params[:modello]
+    params[:articolo] = false if params[:modello] == 'true'
 
     respond_to do |format|
       if @page.update(params)

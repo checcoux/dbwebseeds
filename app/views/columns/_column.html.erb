@@ -52,7 +52,7 @@
             <% if column_image.collegamento.length > 0 %>
                 <a href="<%= column_image.collegamento %>">
             <% end %>
-            
+
             <%=
               if column.larghezza <= 6
                 cropped_image immagine.immagine.url(:small), 50, true

@@ -2,6 +2,9 @@
 
 <script>
 
+  // salviamo i contenuti della pagina
+  pageSave();
+
   $( "form" ).submit( function(e) {
     $.ajax( {
       url: $(this).attr("action"),

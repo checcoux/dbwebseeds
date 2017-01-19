@@ -117,6 +117,7 @@
 
 <% if user_signed_in? %>
 <script>
+  var current_mode = 'preview';
 
   $(function() {
     // Turn off automatic editor creation first.
@@ -280,7 +281,17 @@
 
   }
 
+  function hideElements() {
+    if(current_mode != 'edit') {
+      // nasconde i pulsanti di gestione delle immagini
+      $('.gestione-immagini').hide();
+      // $('.info-layout').hide();
+    }
+  }
+
   function pagePreview() {
+    current_mode = 'preview';
+
     pageSave();
 
     // disabilita gli editor inline
@@ -314,6 +325,8 @@
   }
 
   function newsEdit() {
+    current_mode = 'news';
+
     // disabilita gli editor inline
     for (instance in CKEDITOR.instances) {
       var editor = CKEDITOR.instances[instance];
@@ -346,6 +359,8 @@
   }
 
   function inlineEdit() {
+    current_mode = 'edit';
+
     // abilita gli editor inline
     $('.inline-editor').attr('contenteditable', true);
     $('.inline-editor').each(function() {
@@ -384,6 +399,8 @@
   }
 
   function layoutDesign() {
+    current_mode = 'layout';
+
     pageSave();
     // disabilita gli editor inline
     for (instance in CKEDITOR.instances) {

@@ -431,12 +431,16 @@
   }
 
   function aggiungiImmagine(id) {
+    pageSave();
+
     $.ajax('/columns/' + id + '/dialog_immagine').done(function (data) {
       $("#finestra_modale").html(data).foundation("open");
     });
   }
 
   function eliminaImmagine(id) {
+    pageSave();
+
     $.ajax({
       url: '/column_images/' + id + '/elimina.js',
       type: 'POST',
@@ -447,6 +451,8 @@
   }
 
   function modificaImmagine(id) { // attenzione: è l'id dell'immagine, non della colonna
+    pageSave();
+
     $.ajax('/columns/' + id + '/modifica_immagine').done(function (data) {
       $("#finestra_modale").html(data).foundation("open");
     });

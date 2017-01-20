@@ -169,6 +169,9 @@
             "equalizza_colonne": {name: "<i class='fi-align-justify'></i>&nbsp;Equalizza colonne", isHtmlName: true},
             "sposta_riga_prima": {name: "<i class='fi-arrow-up'></i>&nbsp;&nbsp;Sposta in alto", isHtmlName: true},
             "sposta_riga_dopo": {name: "<i class='fi-arrow-down'></i>&nbsp;&nbsp;Sposta in basso", isHtmlName: true},
+            "mostra_sempre": {name: "<i class='fi-eye'></i>&nbsp;&nbsp;Mostra su tutti gli schermi", isHtmlName: true},
+            "mostra_small_only": {name: "<i class='fi-eye'></i>&nbsp;&nbsp;Mostra solo su schermi piccoli", isHtmlName: true},
+            "mostra_big_only": {name: "<i class='fi-eye'></i>&nbsp;&nbsp;Mostra solo su schermi grandi", isHtmlName: true},
             "elimina_riga": {name: "<i class='fi-trash'></i>&nbsp;&nbsp;Elimina", isHtmlName: true}
           }
         },
@@ -228,6 +231,7 @@
     // nasconde i pulsanti di gestione delle immagini
     $('.gestione-immagini').hide();
     $('.info-layout').hide();
+    $('.info-visibilita').hide();
 
     // nasconde la riga dei contenuti dinamici
     $('#row0').hide();
@@ -319,6 +323,7 @@
     // nasconde i pulsanti di gestione delle immagini
     $('.gestione-immagini').hide();
     $('.info-layout').hide();
+    $('.info-visibilita').hide();
 
     // nasconde la riga dei contenuti dinamici
     $('#row0').hide();
@@ -352,6 +357,7 @@
     // nasconde i pulsanti di gestione delle immagini
     $('.gestione-immagini').hide();
     $('.info-layout').hide();
+    $('.info-visibilita').hide();
 
     // visualizza la riga dei contenuti dinamici
     $('#row0').show();
@@ -393,6 +399,7 @@
     // visualizza i pulsanti di gestione delle immagini
     $('.gestione-immagini').show();
     $('.info-layout').hide();
+    $('.info-visibilita').hide();
 
     // nasconde la riga dei contenuti dinamici
     $('#row0').hide();
@@ -425,6 +432,7 @@
     // nasconde i pulsanti di gestione delle immagini
     $('.gestione-immagini').hide();
     $('.info-layout').show();
+    $('.info-visibilita').show();
 
     // nasconde la riga dei contenuti dinamici
     $('#row0').hide();

@@ -125,6 +125,23 @@
   background-color: rgba(0, 132, 38, 0.7);
 }
 
+.info-visibilita {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 200;
+  font-size: 1em;
+  text-align: right;
+
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  color: #ffffff;
+  background-color: rgba(162, 0, 118, 0.7);
+}
+
 .slide {
   position: relative;
 }

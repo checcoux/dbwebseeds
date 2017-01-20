@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161230085805) do
+ActiveRecord::Schema.define(version: 20170120204052) do
 
   create_table "attachments", force: :cascade do |t|
     t.string   "titolo"
@@ -118,6 +118,7 @@ ActiveRecord::Schema.define(version: 20161230085805) do
     t.string   "immagine_sfondo_content_type"
     t.integer  "immagine_sfondo_file_size"
     t.datetime "immagine_sfondo_updated_at"
+    t.string   "visibilita",                   default: ""
   end
 
   add_index "rows", ["page_id"], name: "index_rows_on_page_id"

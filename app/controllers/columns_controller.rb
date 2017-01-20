@@ -691,6 +691,21 @@ class ColumnsController < ApplicationController
     @column.save
   end
 
+  def mostra_sempre
+    @row.visibilita = ''
+    @row.save
+  end
+
+  def mostra_small_only
+    @row.visibilita = 'show-for-small-only'
+    @row.save
+  end
+
+  def mostra_big_only
+    @row.visibilita = 'show-for-medium'
+    @row.save
+  end
+
   private
     def set_column
       @column = Column.find(params[:id])

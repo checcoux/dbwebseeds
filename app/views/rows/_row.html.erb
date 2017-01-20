@@ -22,7 +22,8 @@
 %>
 
 <div<%= " style='background: #{style}'".html_safe if !style.blank? %>>
-<div id="row<%= row.id %>" class="<%= "expanded " if row.estesa %><%= "full-width " if row.page.footer %>collapse row">
+<div id="row<%= row.id %>" class="<%= "expanded " if row.estesa %><%= "#{row.visibilita} " if row.visibilita && !user_signed_in? %><%= "full-width " if row.page.footer %>collapse row">
+  <% classe_di_visibilita = row.visibilita %>
   <% row.columns.order('ordine ASC').each do |column|
       column_id = column.id
       if column.fonte > 0
@@ -66,6 +67,9 @@
               <div class="gestione-immagini"><button onclick="aggiungiImmagine(<%= column_id %>);"><i class="fi-photo"></i></button></div>
             <% elsif user_signed_in? && !parte_fissa %>
                 <div class="info-layout"><i class="fi-link"></i> <%= fonte[column.fonte] %></div>
+            <% end %>
+            <% if classe_di_visibilita %>
+                <div class="info-visibilita"><%= classe_di_visibilita %></div>
             <% end %>
           </div>
       <% elsif column.column_images.count == 1 %>
@@ -111,6 +115,9 @@
               <div class="gestione-immagini"><button onclick="aggiungiImmagine(<%= column_id %>);"><i class="fi-plus"></i></button> <button onclick="modificaImmagine(<%= column.column_images.first.id %>);"><i class="fi-pencil"></i></button> <button onclick="eliminaImmagine(<%= column.column_images.first.id %>);"><i class="fi-x"></i></button></div>
             <% elsif user_signed_in? && !parte_fissa %>
                 <div class="info-layout"><i class="fi-link"></i> <%= fonte[column.fonte] %></div>
+            <% end %>
+            <% if classe_di_visibilita %>
+                <div class="info-visibilita"><%= classe_di_visibilita %></div>
             <% end %>
           </div>
         <% else %>
@@ -159,6 +166,9 @@
                         <% elsif user_signed_in? && !parte_fissa %>
                             <div class="info-layout"><i class="fi-link"></i> <%= fonte[column.fonte] %></div>
                         <% end %>
+                        <% if classe_di_visibilita %>
+                            <div class="info-visibilita"><%= classe_di_visibilita %></div>
+                        <% end %>
 
                       </div>
                   <% end %>
@@ -166,6 +176,7 @@
 
           </div>
         <% end %>
+      <% classe_di_visibilita = '' %>
   <% end %>
 </div>
 </div>

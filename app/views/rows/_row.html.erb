@@ -69,7 +69,7 @@
             <% elsif user_signed_in? && !parte_fissa %>
                 <div class="info-layout"><i class="fi-link"></i> <%= fonte[column.fonte] %></div>
             <% end %>
-            <% if classe_di_visibilita %>
+            <% if classe_di_visibilita && user_signed_in? %>
                 <div class="info-visibilita"><%= classe_di_visibilita %></div>
             <% end %>
           </div>
@@ -117,7 +117,7 @@
             <% elsif user_signed_in? && !parte_fissa %>
                 <div class="info-layout"><i class="fi-link"></i> <%= fonte[column.fonte] %></div>
             <% end %>
-            <% if classe_di_visibilita %>
+            <% if classe_di_visibilita && user_signed_in? %>
                 <div class="info-visibilita"><%= classe_di_visibilita %></div>
             <% end %>
           </div>
@@ -167,7 +167,7 @@
                         <% elsif user_signed_in? && !parte_fissa %>
                             <div class="info-layout"><i class="fi-link"></i> <%= fonte[column.fonte] %></div>
                         <% end %>
-                        <% if classe_di_visibilita %>
+                        <% if classe_di_visibilita && user_signed_in? %>
                             <div class="info-visibilita"><%= classe_di_visibilita %></div>
                         <% end %>
 

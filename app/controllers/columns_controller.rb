@@ -706,6 +706,41 @@ class ColumnsController < ApplicationController
     @row.save
   end
 
+  def padding_00
+    @column.padding = '0em'
+    @column.save
+  end
+
+  def padding_05
+    @column.padding = '0.5em'
+    @column.save
+  end
+
+  def padding_10
+    @column.padding = '1.0em'
+    @column.save
+  end
+
+  def padding_15
+    @column.padding = '1.5em'
+    @column.save
+  end
+
+  def padding_20
+    @column.padding = '2.0em'
+    @column.save
+  end
+
+  def padding_25
+    @column.padding = '2.5em'
+    @column.save
+  end
+
+  def padding_30
+    @column.padding = '3.0em'
+    @column.save
+  end
+
   private
     def set_column
       @column = Column.find(params[:id])

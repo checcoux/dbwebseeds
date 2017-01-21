@@ -34,6 +34,7 @@
           selezionata.ordine = column.ordine
           selezionata.fonte = column.fonte
           selezionata.autocrop = column.autocrop
+          selezionata.padding = column.padding
           column = selezionata
         end
         colonna_dinamica = true
@@ -59,7 +60,7 @@
       end
 
       if column.column_images.count == 0 %>
-          <div id="weditr<%= column_id %>" class="large-<%= column.larghezza %> <%= column_class %>" style="position: relative; min-height: 1.5em; padding-left: 1.5em; padding-right: 1.5em;">
+          <div id="weditr<%= column_id %>" class="large-<%= column.larghezza %> <%= column_class %>" style="position: relative; min-height: 1.5em; padding: <%= column.padding!='' ? column.padding : '1.5em' %>;">
             <div id="editor<%= column_id %>"<% if editable %> class="inline-editor" contenteditable="false"<% end %>>
               <%= column.contenuto.html_safe %>
             </div>
@@ -74,7 +75,7 @@
             <% end %>
           </div>
       <% elsif column.column_images.count == 1 %>
-          <div id="image_<%= column_id %>" class="large-<%= column.larghezza %> <%= column_class %>" style="position: relative;">
+          <div id="image_<%= column_id %>" class="large-<%= column.larghezza %> <%= column_class %>" style="position: relative; padding: <%= column.padding!='' ? column.padding : '0em' %>;">
             <% immagine = column.column_images.first %>
             <% if immagine.collegamento.length > 0 %>
                 <a href="<%= immagine.collegamento %>">

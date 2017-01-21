@@ -123,7 +123,7 @@
             <% end %>
           </div>
         <% else %>
-          <div id="slider<%= column_id %>" class="large-<%= column.larghezza %> <%= column_class %> mioslider" style="position: relative;">
+          <div id="slider<%= column_id %>" class="large-<%= column.larghezza %> <%= column_class %> mioslider" style="position: relative; padding: <%= column.padding!='' ? column.padding : '0em' %>;">
 
                   <% column.column_images.each do |immagine| %>
                       <div class="slide slick-slide">

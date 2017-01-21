@@ -19,11 +19,12 @@
 
   # <% if false && row.page.footer
   #  <div class="footer"<%= " style='background: #{style}'".html_safe if !style.blank?
+
+  classe_di_visibilita = row.visibilita
 %>
 
 <div<%= " style='background: #{style}'".html_safe if !style.blank? %>>
-<div id="row<%= row.id %>" class="<%= "expanded " if row.estesa %><%= "#{row.visibilita} " if row.visibilita && !user_signed_in? %><%= "full-width " if row.page.footer %>collapse row">
-  <% classe_di_visibilita = row.visibilita %>
+<div id="row<%= row.id %>" class="<%= "expanded " if row.estesa %><%= "#{classe_di_visibilita} " if classe_di_visibilita %><%= "full-width " if row.page.footer %>collapse row">
   <% row.columns.order('ordine ASC').each do |column|
       column_id = column.id
       if column.fonte > 0

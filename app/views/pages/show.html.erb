@@ -114,7 +114,6 @@
 
     <%= render(footer.rows.order('ordine ASC')) if footer %>
 
-
 <% if user_signed_in? %>
 <script>
   var current_mode = 'preview';
@@ -514,6 +513,12 @@
 
         // patch object-fit per IEdge e altri
         objectFitImages('img.cropped-image');
+      });
+
+      $('ul.etichetta li').each(function() {
+         tag = $(this);
+         text = tag.text().replace(/\s/g,'-');
+         tag.html( "<a href='/search?q=" + text + "'>" + text + "</a>" );
       });
 
     </script>

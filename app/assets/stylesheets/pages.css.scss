@@ -258,10 +258,14 @@ p {
 }
 
 li {
-  margin-left: 2em;
+  margin-left: 1em;
   font-size: 1.4rem;
   line-height: 1.2em;
   color: #696969;
+}
+
+.menu li {
+  margin-left: 0em !important;
 }
 
 .abstract {

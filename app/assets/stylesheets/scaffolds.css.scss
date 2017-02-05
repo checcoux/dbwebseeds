@@ -63,4 +63,8 @@ li a {
     font-size: 12px;
     list-style: square;
   }
+
+  ul li a {
+    margin-left: 0em !important;
+  }
 }

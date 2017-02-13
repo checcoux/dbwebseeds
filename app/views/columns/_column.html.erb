@@ -55,11 +55,11 @@
 
             <%=
               if column.larghezza <= 6
-                cropped_image immagine.immagine.url(:small), 50, true
+                cropped_image column_image.immagine.url(:small), 50, true
               elsif column.larghezza <= 10
-                cropped_image immagine.immagine.url(:medium), 45, true
+                cropped_image column_image.immagine.url(:medium), 45, true
               else
-                cropped_image immagine.immagine.url(:large), 40, true
+                cropped_image column_image.immagine.url(:large), 40, true
               end
             %>
 

@@ -364,7 +364,6 @@ class PagesController < ApplicationController
     end
   end
 
-
   def row0
     render layout: false
   end
@@ -372,6 +371,12 @@ class PagesController < ApplicationController
   def nuovo_contenuto_dinamico
     column = Column.new(page: @page, row_id: 0, contenuto: '', ordine: 0, larghezza: 3)
     column.save
+  end
+
+  def screen
+    offset = Integer(params[:n]) - 1
+    @column = Column.where("row_id = 0").order('created_at DESC').limit(1).offset(offset).first
+    @column.larghezza = 12
   end
 
   private

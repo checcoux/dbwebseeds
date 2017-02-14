@@ -85,6 +85,7 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'screen/:n' => 'pages#screen'
   get 'search' => 'pages#search'
   get 'tag-cloud-3d' => 'tags#cloud3d'
   get 'tag-cloud' => 'tags#cloud'

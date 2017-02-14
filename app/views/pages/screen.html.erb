@@ -1,0 +1,142 @@
+<style>
+  .column_image_titolo {
+    font-size: 5em;
+  }
+  .column_image_descrizione {
+    font-size: 2.5em;
+  }
+</style>
+<div class="row expanded">
+  <%
+    fonte = ['statica', 'pagina', 'sezione', 'parent', 'sito', 'siti affini', 'cloud']
+
+    column = @column
+    column_id = '0'
+    column.autocrop = true
+    column_class = 'columns'
+    row = Row.new
+    row.estesa = true
+    editable = false
+    classe_di_visibilita = ''
+    parte_fissa = false
+
+    if column.column_images.count == 0 %>
+      <div id="weditr<%= column_id %>" class="large-<%= column.larghezza %> <%= column_class %>" style="position: relative; min-height: 1.5em; padding: <%= column.padding!='' ? column.padding : '1.5em' %>;">
+        <div id="editor<%= column_id %>"<% if editable %> class="inline-editor" contenteditable="false"<% end %>>
+          <%= column.contenuto.html_safe %>
+        </div>
+
+        <% if editable %>
+            <div class="gestione-immagini"><button onclick="aggiungiImmagine(<%= column_id %>);"><i class="fi-photo"></i></button></div>
+        <% elsif user_signed_in? && !parte_fissa %>
+            <div class="info-layout"><i class="fi-link"></i> <%= fonte[column.fonte] %></div>
+        <% end %>
+        <% if classe_di_visibilita && user_signed_in? %>
+            <div class="info-visibilita"><%= classe_di_visibilita %></div>
+        <% end %>
+      </div>
+  <% elsif column.column_images.count == 1 %>
+      <div id="image_<%= column_id %>" class="large-<%= column.larghezza %> <%= column_class %>" style="position: relative; padding: <%= column.padding!='' ? column.padding : '0em' %>;">
+        <% immagine = column.column_images.first %>
+        <% if immagine.collegamento.length > 0 %>
+            <a href="<%= immagine.collegamento %>">
+        <% end %>
+        <%= if !row.estesa
+              if column.larghezza <= 6
+                cropped_image immagine.immagine.url(:small), 50, column.autocrop
+              elsif column.larghezza <= 10
+                cropped_image immagine.immagine.url(:medium), 45, column.autocrop
+              else
+                cropped_image immagine.immagine.url(:large), 40, column.autocrop
+              end
+            else
+              if column.larghezza <= 4
+                cropped_image immagine.immagine.url(:small), 50, column.autocrop
+              elsif column.larghezza <= 8
+                cropped_image immagine.immagine.url(:medium), 45, column.autocrop
+              elsif column.larghezza <= 10
+                cropped_image immagine.immagine.url(:large), 40, column.autocrop
+              else
+                cropped_image immagine.immagine.url(:xlarge), 35, column.autocrop
+              end
+            end
+        %>
+
+        <% if immagine.titolo.length > 0 %>
+            <figcaption class='orbit-caption'>
+              <p class='column_image_titolo<%= '_small' if column.larghezza<=3 %>'><%= immagine.titolo %></p>
+              <% if immagine.descrizione.length > 0 %>
+                  <p class='column_image_descrizione<%= ' hide-for-large' if column.larghezza<=3 %>'><%= immagine.descrizione %></p>
+              <% end %>
+            </figcaption>
+        <% end %>
+
+        <% if immagine.collegamento.length > 0 %>
+            </a>
+        <% end %>
+        <% if editable %>
+            <div class="gestione-immagini"><button onclick="aggiungiImmagine(<%= column_id %>);"><i class="fi-plus"></i></button> <button onclick="modificaImmagine(<%= column.column_images.first.id %>);"><i class="fi-pencil"></i></button> <button onclick="eliminaImmagine(<%= column.column_images.first.id %>);"><i class="fi-x"></i></button></div>
+        <% elsif user_signed_in? && !parte_fissa %>
+            <div class="info-layout"><i class="fi-link"></i> <%= fonte[column.fonte] %></div>
+        <% end %>
+        <% if classe_di_visibilita && user_signed_in? %>
+            <div class="info-visibilita"><%= classe_di_visibilita %></div>
+        <% end %>
+      </div>
+  <% else %>
+      <div id="slider<%= column_id %>" class="large-<%= column.larghezza %> <%= column_class %> mioslider" style="position: relative; padding: <%= column.padding!='' ? column.padding : '0em' %>;">
+
+        <% column.column_images.each do |immagine| %>
+            <div class="slide slick-slide">
+              <% if immagine.collegamento.length > 0 %>
+                  <a href="<%= immagine.collegamento %>">
+              <% end %>
+              <%=
+                if !row.estesa
+                  if column.larghezza <= 6
+                    cropped_image immagine.immagine.url(:small), 50, column.autocrop
+                  elsif column.larghezza <= 10
+                    cropped_image immagine.immagine.url(:medium), 45, column.autocrop
+                  else
+                    cropped_image immagine.immagine.url(:large), 40, column.autocrop
+                  end
+                else
+                  if column.larghezza <= 4
+                    cropped_image immagine.immagine.url(:small), 50, column.autocrop
+                  elsif column.larghezza <= 8
+                    cropped_image immagine.immagine.url(:medium), 45, column.autocrop
+                  elsif column.larghezza <= 10
+                    cropped_image immagine.immagine.url(:large), 40, column.autocrop
+                  else
+                    cropped_image immagine.immagine.url(:xlarge), 35, column.autocrop
+                  end
+                end
+              %>
+              <% if immagine.titolo.length > 0 %>
+                  <div class='titolo-slide'>
+                    <p class='column_image_titolo<%= '_small' if column.larghezza<=3 %>'><%= immagine.titolo %></p>
+                    <% if immagine.descrizione.length > 0 %>
+                        <p class='column_image_descrizione<%= ' hide-for-large' if column.larghezza<=3 %>'><%= immagine.descrizione %></p>
+                    <% end %>
+                  </div>
+              <% end %>
+              <% if immagine.collegamento.length > 0 %>
+                  </a>
+              <% end %>
+
+              <% if editable %>
+                  <div class="gestione-immagini"><button onclick="aggiungiImmagine(<%= column_id %>);"><i class="fi-plus"></i></button> <button onclick="modificaImmagine(<%= immagine.id %>);"><i class="fi-pencil"></i></button> <button onclick="eliminaImmagine(<%= immagine.id %>);"><i class="fi-x"></i></button></div>
+              <% elsif user_signed_in? && !parte_fissa %>
+                  <div class="info-layout"><i class="fi-link"></i> <%= fonte[column.fonte] %></div>
+              <% end %>
+              <% if classe_di_visibilita && user_signed_in? %>
+                  <div class="info-visibilita"><%= classe_di_visibilita %></div>
+              <% end %>
+
+            </div>
+        <% end %>
+
+
+      </div>
+  <% end %>
+</div>

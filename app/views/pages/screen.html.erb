@@ -140,3 +140,20 @@
       </div>
   <% end %>
 </div>
+
+<script>
+  $(function() {
+    $('.mioslider').slick({
+      slidestoshow: 1,
+      slidestoscroll: 1,
+      autoplay: true,
+      autoplayspeed: 2000,
+      zIndex: 100,
+      arrows: true
+    });
+
+    // patch object-fit per IEdge e altri
+    objectFitImages('img.cropped-image');
+  });
+
+</script>

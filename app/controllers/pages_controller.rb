@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  after_action :allow_iframe, only: :screen
   before_action :set_page, only: [:show, :edit, :update, :destroy, :row0, :nuovo_contenuto_dinamico, :pubblica, :nascondi, :duplica]
   rescue_from ActiveRecord::RecordNotFound, with: :pagina_non_trovata
 
@@ -396,5 +397,9 @@ class PagesController < ApplicationController
     def pagina_non_trovata
       logger.error "Tentativo di accedere alla pagina non esistente #{params[:id]}"
       redirect_to home_url
+    end
+
+    def allow_iframe
+      response.headers.except! 'X-Frame-Options'
     end
 end

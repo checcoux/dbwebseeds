@@ -1,3 +1,9 @@
+<!-- cookie law -->
+<div id="cookie-message">Questo sito utilizza cookie di profilazione propri o di terze parti, per saperne di
+  più <a href="/privacy-policy">clicca qui</a>
+  <button id="cookie-chiudi">OK</button>
+</div>
+
 <script src="https://unpkg.com/object-fit-images@2.5.9/dist/ofi.browser.js"></script>
 
 <% if !user_signed_in? or policy(@page).edit? %>
@@ -117,6 +123,24 @@
 <% if user_signed_in? %>
 <script>
   var current_mode = 'preview';
+
+  /****************************** * privacy cookie *****************************/
+  function setCookie(c_name,value,exdays)
+  {
+    var exdate=new Date();
+    exdate.setDate(exdate.getDate() + exdays);
+    var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString()) + "; path=/";
+    document.cookie=c_name + "=" + c_value;
+  }
+  function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+      var c = ca[i].trim();
+      if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+    }
+    return "";
+  }
 
   $(function() {
     // Turn off automatic editor creation first.
@@ -264,6 +288,20 @@
 
     // patch object-fit per IEdge e altri
     objectFitImages('img.cropped-image');
+
+    // cookie law
+    if (getCookie("cookie-message-readed") == 1)
+    {
+      //$("#cookie-message").hide();
+    }
+    else {
+      $("#cookie-message").show();
+    }
+    $("#cookie-chiudi").click(function(){
+      setCookie("cookie-message-readed",1 , 365);
+      $("#cookie-message").hide();
+    });
+
   });
 
 

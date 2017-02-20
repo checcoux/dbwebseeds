@@ -107,6 +107,22 @@
             </ul>
           </li>
           <% end %>
+          <% if policy(Photoalbum).index? %>
+              <li class="has-submenu">
+                <a>Fotografie</a>
+                <ul class="submenu menu vertical" data-submenu>
+                  <% policy_scope(Section).order('titolo').each do |section| %>
+                      <li><%= link_to section.titolo, photoalbums_path(:section_id => section.id) %></li>
+                  <% end %>
+                  <li><a href="/photoalbums">Tutti</a></li>
+                  <% if @section %>
+                      <li><a href="/photoalbums/new?section_id=<%= @section.id %>">Nuovo album</a></li>
+                  <% else %>
+                      <li><a href="/photoalbums/new">Nuovo album</a></li>
+                  <% end %>
+                </ul>
+              </li>
+          <% end %>
           <% if policy(Attachment).index? %>
           <li class="has-submenu">
             <a>Allegati</a>

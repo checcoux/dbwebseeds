@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :photoalbums
   resources :tags
 
   resources :attachments do

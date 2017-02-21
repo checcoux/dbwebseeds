@@ -4,3 +4,16 @@
   <strong>Titolo:</strong>
   <%= @photoalbum.titolo %>
 </p>
+
+<% @photos.each do |p| %>
+    <%= image_tag p.immagine.thumb.url %>
+    <%= link_to "Modifica foto", edit_photo_path(p) %>
+<% end %>
+
+<form action="/photos" id="media-dropzone" class="dropzone" enctype="multipart/form-data">
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+  <input name="photoalbum_id" type="hidden" value="<%= @photoalbum.id %>">
+  <div class="fallback">
+    <input name="media" type="file" multiple />
+  </div>
+</form>

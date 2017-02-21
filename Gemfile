@@ -40,6 +40,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin]
 gem 'paperclip'
 gem 'ckeditor', '4.2.0'
 
+gem 'carrierwave', '~> 1.0'
+gem 'mini_magick'
+
 # transizione a rails 4.2 (necessario solo per avere i responder a livello di classe)
 gem 'responders', '~> 2.0'
 gem 'rails-html-sanitizer'
@@ -65,7 +68,8 @@ gem 'rails-i18n', '~> 4.0.0'
 
 gem 'nokogiri'
 
+gem 'dropzonejs-rails'
+
 group :development do
   gem 'meta_request'
 end
-

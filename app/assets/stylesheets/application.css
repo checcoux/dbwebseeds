@@ -15,6 +15,7 @@
  * require jquery-ui
  * require jquery.colorpicker
  *= require jquery.minicolors
+ *= require dropzone/dropzone
  */
 
 .sticky.is-anchored { bottom: auto !important; }

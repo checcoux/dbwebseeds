@@ -18,6 +18,7 @@ class PhotoalbumsController < ApplicationController
   # GET /photoalbums/1
   # GET /photoalbums/1.json
   def show
+    @photos = @photoalbum.photos.all
   end
 
   # GET /photoalbums/new
@@ -28,6 +29,7 @@ class PhotoalbumsController < ApplicationController
 
     @photoalbum = Photoalbum.new
     @photoalbum.section = section if section
+    @photo = @photoalbum.photos.build
   end
 
   # GET /photoalbums/1/edit
@@ -47,6 +49,10 @@ class PhotoalbumsController < ApplicationController
         tags = @photoalbum.parole.strip.split(',')
         tags.each do |tag|
           @photoalbum.tags << Tag.new(nome: tag.strip)
+        end
+
+        params[:photos]['immagine'].each do |immagine|
+          @photo = @photoalbum.photos.create!(:immagine => immagine)
         end
 
         format.html { redirect_to photoalbums_path(section_id: @photoalbum.section_id) }
@@ -103,6 +109,6 @@ class PhotoalbumsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def photoalbum_params
-      params.require(:photoalbum).permit(:titolo, :section_id, :parole)
+      params.require(:photoalbum).permit(:titolo, :section_id, :parole, photos_attributes: [:id, :photoalbum_id, :immagine])
     end
 end

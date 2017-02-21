@@ -41,6 +41,10 @@ GEM
     bcrypt (3.1.11-x86-mingw32)
     builder (3.2.2)
     callsite (0.0.11)
+    carrierwave (1.0.0)
+      activemodel (>= 4.0.0)
+      activesupport (>= 4.0.0)
+      mime-types (>= 1.16)
     ckeditor (4.2.0)
       cocaine
       orm_adapter (~> 0.5.0)
@@ -61,6 +65,8 @@ GEM
       railties (>= 4.1.0, < 5.1)
       responders
       warden (~> 1.2.3)
+    dropzonejs-rails (0.7.3)
+      rails (> 3.1)
     erubis (2.7.0)
     execjs (2.7.0)
     friendly_id (5.1.0)
@@ -95,6 +101,7 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
     mimemagic (0.3.2)
+    mini_magick (4.6.1)
     mini_portile2 (2.1.0)
     minitest (5.10.1)
     multi_json (1.12.1)
@@ -197,15 +204,18 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  carrierwave (~> 1.0)
   ckeditor (= 4.2.0)
   coffee-rails (~> 4.0.0)
   devise
+  dropzonejs-rails
   friendly_id (~> 5.1.0)
   jbuilder (~> 2.0)
   jquery-minicolors-rails
   jquery-rails
   jquery-ui-rails
   meta_request
+  mini_magick
   mysql2 (~> 0.3.18)
   nokogiri
   paperclip

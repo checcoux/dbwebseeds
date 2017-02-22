@@ -6,7 +6,7 @@
   <tbody>
   <% policy_scope(@photoalbums).each do |photoalbum| %>
       <tr>
-        <td><%= link_to photoalbum.titolo, edit_photoalbum_path(photoalbum), class: "primary medium button bottone-largo" %></td>
+        <td><%= link_to photoalbum.titolo, photoalbum_path(photoalbum), class: "primary medium button bottone-largo" %></td>
         <td><%= photoalbum.updated_at.to_s(:data_ora) %></td>
         <td><%= "Sezione " + photoalbum.section.titolo %></td>
         <td><%= link_to 'Elimina', photoalbum, method: :delete, data: { confirm: 'Desideri cancellare l\'album fotografico e tutte le sue foto?' }, class: "tiny alert button" %></td>

@@ -1,14 +1,30 @@
-<p id="notice"><%= notice %></p>
+<h1><%= @photoalbum.titolo %></h1>
 
-<p>
-  <strong>Titolo:</strong>
-  <%= @photoalbum.titolo %>
-</p>
+<script>
+  function makeid()
+  {
+    var text = "";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
-<% @photos.each do |p| %>
-    <%= image_tag p.immagine.thumb.url %>
-    <%= link_to "Modifica foto", edit_photo_path(p) %>
-<% end %>
+    for( var i=0; i < 7; i++ )
+      text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+    return text;
+  }
+
+  var randomFilename = function (name) {
+    return makeid() + '.jpg';
+  };
+
+  Dropzone.options.mediaDropzone = {
+    acceptedFiles: "image/jpeg",
+    renameFilename: randomFilename,
+    dictDefaultMessage: "Trascina le immagini qui per caricarle nell'album...",
+    init: function() {
+      this.on("queuecomplete", function(file) { window.location.reload(); });
+    }
+  };
+</script>
 
 <form action="/photos" id="media-dropzone" class="dropzone" enctype="multipart/form-data">
   <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
@@ -17,3 +33,12 @@
     <input name="media" type="file" multiple />
   </div>
 </form>
+
+<div class="row collapse small-up-1 medium-up-2 large-up-4">
+  <% @photos.each do |p| %>
+      <div class="column" style="padding: 3px;">
+        <%= image_tag p.immagine.thumb.url %><br>
+        <% link_to "Modifica foto", edit_photo_path(p) %>
+      </div>
+  <% end %>
+</div>

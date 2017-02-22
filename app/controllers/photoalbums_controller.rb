@@ -51,10 +51,6 @@ class PhotoalbumsController < ApplicationController
           @photoalbum.tags << Tag.new(nome: tag.strip)
         end
 
-        params[:photos]['immagine'].each do |immagine|
-          @photo = @photoalbum.photos.create!(:immagine => immagine)
-        end
-
         format.html { redirect_to photoalbums_path(section_id: @photoalbum.section_id) }
         format.json { render :show, status: :created, location: @photoalbum }
       else

@@ -24,6 +24,8 @@
       this.on("queuecomplete", function(file) { window.location.reload(); });
     }
   };
+
+  Dropzone.autoDiscover = false;
 </script>
 
 <form action="/photos" id="media-dropzone" class="dropzone" enctype="multipart/form-data">
@@ -42,3 +44,12 @@
       </div>
   <% end %>
 </div>
+
+<script>
+  $(function() {
+    // Now that the DOM is fully loaded, create the dropzone, and setup the
+    // event listeners
+    var myDropzone = new Dropzone("#media-dropzone");
+
+  })
+</script>

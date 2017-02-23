@@ -1,5 +1,5 @@
 <h1>Album fotografici
-  <%= link_to 'Nuovo album fotografico', { controller: 'photoalbums', action: 'new', section_id: @section }, class: 'large warning button float-right' %>
+  <%= link_to 'NUOVO ALBUM', { controller: 'photoalbums', action: 'new', section_id: @section }, class: 'large warning button float-right' %>
 </h1>
 
 <table>
@@ -9,7 +9,8 @@
         <td><%= link_to photoalbum.titolo, photoalbum_path(photoalbum), class: "primary medium button bottone-largo" %></td>
         <td><%= photoalbum.updated_at.to_s(:data_ora) %></td>
         <td><%= "Sezione " + photoalbum.section.titolo %></td>
-        <td><%= link_to 'Elimina', photoalbum, method: :delete, data: { confirm: 'Desideri cancellare l\'album fotografico e tutte le sue foto?' }, class: "tiny alert button" %></td>
+        <td><%= link_to 'Proprietà', edit_photoalbum_path(photoalbum), class: "tiny primary button" %></td>
+        <td><%= link_to 'Elimina', photoalbum, method: :delete, data: { confirm: 'Desideri cancellare l\'album e tutte le sue foto?' }, class: "tiny alert button" %></td>
       </tr>
   <% end %>
   </tbody>

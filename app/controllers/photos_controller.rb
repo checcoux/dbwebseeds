@@ -10,6 +10,7 @@ class PhotosController < ApplicationController
   # GET /photos/1
   # GET /photos/1.json
   def show
+    render layout: false
   end
 
   # GET /photos/new
@@ -42,7 +43,7 @@ class PhotosController < ApplicationController
   def update
     respond_to do |format|
       if @photo.update(photo_params)
-        format.html { redirect_to @photo.photoalbum, notice: 'Photo was successfully updated.' }
+        format.html { redirect_to @photo.photoalbum }
       else
         format.html { render :edit }
       end
@@ -52,9 +53,10 @@ class PhotosController < ApplicationController
   # DELETE /photos/1
   # DELETE /photos/1.json
   def destroy
+    photoalbum = @photo.photoalbum
     @photo.destroy
     respond_to do |format|
-      format.html { redirect_to photos_url, notice: 'Photo was successfully destroyed.' }
+      format.html { redirect_to photoalbum }
       format.json { head :no_content }
     end
   end

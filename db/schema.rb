@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170221142429) do
+ActiveRecord::Schema.define(version: 20170223161218) do
 
   create_table "attachments", force: :cascade do |t|
     t.string   "titolo"
@@ -114,9 +114,11 @@ ActiveRecord::Schema.define(version: 20170221142429) do
     t.datetime "updated_at", null: false
     t.integer  "section_id"
     t.text     "parole"
+    t.string   "slug"
   end
 
   add_index "photoalbums", ["section_id"], name: "index_photoalbums_on_section_id"
+  add_index "photoalbums", ["slug"], name: "index_photoalbums_on_slug", unique: true
 
   create_table "photos", force: :cascade do |t|
     t.integer  "photoalbum_id"

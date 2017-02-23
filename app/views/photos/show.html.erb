@@ -1,14 +1,6 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Photoalbum:</strong>
-  <%= @photo.photoalbum_id %>
-</p>
+  <button class="close-button" data-close aria-label="Close modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <%= image_tag @photo.immagine.xlarge.url %>
 
-<p>
-  <strong>Immagine:</strong>
-  <%= @photo.immagine %>
-</p>
-
-<%= link_to 'Edit', edit_photo_path(@photo) %> |
-<%= link_to 'Back', photos_path %>

@@ -21,6 +21,8 @@ class Tag < ActiveRecord::Base
       result = result.where("taggable_type = 'Page'")
     elsif type=='m'
       result = result.where("taggable_type = 'Attachment'")
+    elsif type=='f'
+      result = result.where("taggable_type = 'Photoalbum'")
     end
     result.select(:taggable_id, :taggable_type).distinct.order(created_at: :desc)
   end

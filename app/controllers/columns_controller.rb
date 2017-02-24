@@ -63,6 +63,8 @@ class ColumnsController < ApplicationController
   <input class="input-group-field" type="search" id="cerca" placeholder="Cerca..." name="q"><input type="hidden" name="t" value="m">
 </div></form>').gsub('<a id="cerca:a" name="cerca:a"></a>', '<form method="GET" action="/search" class="form-cerca"><div class="input-group">
   <input class="input-group-field" type="search" id="cerca" placeholder="Cerca..." name="q"><input type="hidden" name="t" value="a">
+</div></form>').gsub('<a id="cerca:f" name="cerca:f"></a>', '<form method="GET" action="/search" class="form-cerca"><div class="input-group">
+  <input class="input-group-field" type="search" id="cerca" placeholder="Cerca..." name="q"><input type="hidden" name="t" value="f">
 </div></form>')
       @column.save
 

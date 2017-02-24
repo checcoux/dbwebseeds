@@ -74,7 +74,9 @@
 
         <% if current_user && (current_user.admin || current_user.section_id) %>
           <div class="gestione-immagini">
+            <%= link_to '<i class="fi-photo"></i>'.html_safe, { controller: 'photoalbums', action: 'copertina', id: photo.photoalbum.id, photo_id: photo.id } %>
             <%= link_to '<i class="fi-x"></i>'.html_safe, photo, method: :delete, data: { confirm: 'Desideri cancellare la foto?' } %>
+
           </div>
         <% end %>
       </div>

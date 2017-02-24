@@ -6,10 +6,19 @@
   <tbody>
   <% policy_scope(@photoalbums).each do |photoalbum| %>
       <tr>
+        <td style="width: 200px;"><%=
+          if photoalbum.copertina
+            photo = Photo.find_by(id: photoalbum.copertina)
+            if photo
+              image_tag photo.immagine.thumb.url, style: "width: 200px;"
+            end
+          end
+        %></td>
         <td><%= link_to photoalbum.titolo, photoalbum_path(photoalbum), class: "primary medium button bottone-largo" %></td>
         <td><%= photoalbum.updated_at.to_s(:data_ora) %></td>
         <td><%= "Sezione " + photoalbum.section.titolo %></td>
         <td><%= link_to 'Proprietà', edit_photoalbum_path(photoalbum), class: "tiny primary button" %></td>
+        <td><%= link_to 'Pubblica', pubblica_photoalbum_path(photoalbum), class: "tiny warning button" if photoalbum.copertina != 0 %></td>
         <td><%= link_to 'Elimina', photoalbum, method: :delete, data: { confirm: 'Desideri cancellare l\'album e tutte le sue foto?' }, class: "tiny alert button" %></td>
       </tr>
   <% end %>

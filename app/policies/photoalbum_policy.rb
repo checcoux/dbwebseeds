@@ -31,6 +31,14 @@ class PhotoalbumPolicy < ApplicationPolicy
     edit?
   end
 
+  def copertina?
+    edit?
+  end
+
+  def pubblica?
+    edit?
+  end
+
   class Scope < Scope
     def resolve
       if user.admin?

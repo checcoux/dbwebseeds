@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
 
   resources :photos
-  resources :photoalbums
+  resources :photoalbums do
+    member do
+      get 'copertina'
+      get 'pubblica'
+    end
+  end
   resources :tags
 
   resources :attachments do

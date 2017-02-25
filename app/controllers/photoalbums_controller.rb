@@ -18,6 +18,7 @@ class PhotoalbumsController < ApplicationController
   # GET /photoalbums/1
   # GET /photoalbums/1.json
   def show
+    @page = @photoalbum.section.trova_home
     @photos = @photoalbum.photos.all
   end
 

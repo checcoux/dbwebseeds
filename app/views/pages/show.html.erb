@@ -129,6 +129,9 @@
     CKEDITOR.disableAutoInline = true;
 
     // prepara i menù contestuali
+
+    $.contextMenu( 'destroy' );
+
     $.contextMenu({
       selector: '.columns',
       zIndex: 1500,

@@ -42,6 +42,8 @@
         colonna_dinamica = false
       end
 
+      column.larghezza = 12 if params[:colonnasingola]
+
       # stiamo visualizzando la riga di un header o un footer, che non deve essere modificabile
       parte_fissa = false
       parte_fissa = true if row.page.header && !@page.header

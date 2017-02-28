@@ -24,7 +24,7 @@
 %>
 
 <div<%= " style='background: #{style}'".html_safe if !style.blank? %>>
-<div id="row<%= row.id %>" class="<%= "expanded " if row.estesa %><%= "#{classe_di_visibilita} " if classe_di_visibilita %><%= "full-width " if row.page.footer %>collapse row"<%= " style='width: 600px;'".html_safe if params[:colonnasingola] %>>
+<div id="row<%= row.id %>" class="<%= "expanded " if row.estesa %><%= "#{classe_di_visibilita} " if classe_di_visibilita %><%= "full-width " if row.page.footer %>collapse row"<%= " style='width: 600px;'".html_safe if params[:email] %>>
   <% row.columns.order('ordine ASC').each do |column|
       column_id = column.id
       if column.fonte > 0
@@ -42,7 +42,7 @@
         colonna_dinamica = false
       end
 
-      column.larghezza = 12 if params[:colonnasingola]
+      column.larghezza = 12 if params[:email]
 
       # stiamo visualizzando la riga di un header o un footer, che non deve essere modificabile
       parte_fissa = false

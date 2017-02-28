@@ -713,6 +713,26 @@ class ColumnsController < ApplicationController
     @column.save
   end
 
+  def padding_01
+    @column.padding = '0.1em'
+    @column.save
+  end
+
+  def padding_02
+    @column.padding = '0.2em'
+    @column.save
+  end
+
+  def padding_03
+    @column.padding = '0.3em'
+    @column.save
+  end
+
+  def padding_04
+    @column.padding = '0.4em'
+    @column.save
+  end
+
   def padding_05
     @column.padding = '0.5em'
     @column.save

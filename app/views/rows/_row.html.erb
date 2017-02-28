@@ -24,7 +24,7 @@
 %>
 
 <div<%= " style='background: #{style}'".html_safe if !style.blank? %>>
-<div id="row<%= row.id %>" class="<%= "expanded " if row.estesa %><%= "#{classe_di_visibilita} " if classe_di_visibilita %><%= "full-width " if row.page.footer %>collapse row"<%= " style='width: 600px;'".html_safe if params[:email] %>>
+<div id="row<%= row.id %>" class="<%= "expanded " if row.estesa %><%= "#{classe_di_visibilita} " if classe_di_visibilita %><%= "full-width " if row.page.footer %>collapse row"<%= " style='width: 500px;'".html_safe if params[:email] %>>
   <% row.columns.order('ordine ASC').each do |column|
       column_id = column.id
       if column.fonte > 0

@@ -19,6 +19,7 @@ CKEDITOR.stylesSet.add( 'my_styles', [
     { name: 'Bottone vuoto (disabled)', element: 'a', attributes: { 'class': 'hollow disabled button' } },
 
     { name: 'Immagine estesa', element: 'img', styles: { 'width': '100%' } },
+    { name: 'Immagine circolare', element: 'img', attributes: { 'class': 'immagine-circolare' } },
 
     // Block-level styles
     { name: 'Titolo' , element: 'h1', attributes: { } },

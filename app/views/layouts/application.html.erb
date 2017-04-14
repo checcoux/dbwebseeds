@@ -6,7 +6,18 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title><%= Rails.configuration.nome_sito %><%= " - #{@page.titolo}" if @page %></title>
+  <title><%= Rails.configuration.nome_sito %><%=
+    if @page
+      if @page.home
+        if !@page.section.principale
+          " - #{@page.section.titolo}"
+        end
+      else
+        " - #{@page.titolo}"
+      end
+    end
+    %>
+  </title>
   <meta name="description" content="<%= if @page && @page.abstract
                                           @page.abstract
                                         else

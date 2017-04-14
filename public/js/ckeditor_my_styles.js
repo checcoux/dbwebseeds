@@ -31,5 +31,6 @@ CKEDITOR.stylesSet.add( 'my_styles', [
     { name: 'Autore', element: 'span', attributes: { 'class': 'autore' } },
     { name: 'Fonte', element: 'span', attributes: { 'class': 'fonte' } },
     { name: 'Tag', element: 'ul', attributes: { 'class': 'etichetta' } },
+    { name: 'Testo piccolo', element: 'p', attributes: { 'class': 'testo_piccolo' } },
     // { name: 'Marker: Yellow', element: 'span', styles: { 'background-color': 'Yellow' } },
 ] );

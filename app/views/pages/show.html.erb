@@ -270,10 +270,15 @@
       slidestoshow: 1,
       slidestoscroll: 1,
       autoplay: true,
-      autoplayspeed: 2000,
+      autoplayspeed: 3000,
+      speed: 2000,
       zIndex: 100,
       arrows: true
     });
+
+    $('.large-12.mioslider').slick('slickSetOption','fade',true);
+    $('.large-12.mioslider').slick('slickSetOption','autoplayspeed',1000);
+    $('.large-12.mioslider').slick('slickSetOption','speed',5000);
 
     // patch object-fit per IEdge e altri
     objectFitImages('img.cropped-image');
@@ -541,6 +546,10 @@
           zIndex: 100,
           arrows: true
         });
+
+        $('.large-12.mioslider').slick('slickSetOption','fade',true);
+        $('.large-12.mioslider').slick('slickSetOption','autoplayspeed',1000);
+        $('.large-12.mioslider').slick('slickSetOption','speed',5000);
 
         // patch object-fit per IEdge e altri
         objectFitImages('img.cropped-image');

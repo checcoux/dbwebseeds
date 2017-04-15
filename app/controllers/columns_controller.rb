@@ -324,6 +324,8 @@ class ColumnsController < ApplicationController
         @column2.save
       end
     end
+
+    equalizza_colonne
   end
 
   def inserisci_colonna_prima
@@ -367,6 +369,8 @@ class ColumnsController < ApplicationController
         @column2.save
       end
     end
+
+    equalizza_colonne
   end
 
   def sposta_colonna_prima

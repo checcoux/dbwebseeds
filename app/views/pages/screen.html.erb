@@ -21,7 +21,11 @@
     classe_di_visibilita = ''
     parte_fissa = false
 
-    da_sezione = " <i>(da sezione #{column.page.section.descrizione})</i>"
+    if !column.page.section.principale
+      da_sezione = " <i>(da sezione #{column.page.section.descrizione})</i>"
+    else
+      da_sezione = ''
+    end
 
     if column.column_images.count == 0 %>
       <div id="weditr<%= column_id %>" class="large-<%= column.larghezza %> <%= column_class %>" style="position: relative; min-height: 1.5em; padding: <%= column.padding!='' ? column.padding : '1.5em' %>;">

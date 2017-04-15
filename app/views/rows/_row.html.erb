@@ -38,7 +38,7 @@
           column = selezionata
           colonna_dinamica = true
 
-          if selezionata.page.section != @page.section
+          if selezionata.page.section != @page.section && !selezionata.page.section.principale
             da_sezione = " <i>(da sezione #{selezionata.page.section.descrizione})</i>"
           else
             da_sezione = ''

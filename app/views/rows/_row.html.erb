@@ -27,6 +27,7 @@
 <div id="row<%= row.id %>" class="<%= "expanded " if row.estesa %><%= "#{classe_di_visibilita} " if classe_di_visibilita %><%= "full-width " if row.page.footer %>collapse row"<%= " style='width: 500px;'".html_safe if params[:email] %>>
   <% row.columns.order('ordine ASC').each do |column|
       column_id = column.id
+      da_sezione = ''
       if column.fonte > 0
         selezionata = @page.candidata(column.fonte)
         if selezionata
@@ -40,15 +41,12 @@
 
           if selezionata.page.section != @page.section && !selezionata.page.section.principale
             da_sezione = " <i>(da sezione #{selezionata.page.section.descrizione})</i>"
-          else
-            da_sezione = ''
           end
         else
           colonna_dinamica = false
         end
       else
         colonna_dinamica = false
-        da_sezione = ''
       end
 
       column.larghezza = 12 if params[:email]

@@ -36,10 +36,19 @@
           selezionata.autocrop = column.autocrop
           selezionata.padding = column.padding
           column = selezionata
+          colonna_dinamica = true
+
+          if selezionata.page.section != @page.section
+            da_sezione = " <i>(da sezione #{selezionata.page.section.descrizione})</i>"
+          else
+            da_sezione = ''
+          end
+        else
+          colonna_dinamica = false
         end
-        colonna_dinamica = true
       else
         colonna_dinamica = false
+        da_sezione = ''
       end
 
       column.larghezza = 12 if params[:email]
@@ -64,7 +73,7 @@
       if column.column_images.count == 0 %>
           <div id="weditr<%= column_id %>" class="large-<%= column.larghezza %> <%= column_class %>" style="position: relative; min-height: 1.5em; padding: <%= column.padding!='' ? column.padding : '1.5em' %>;">
             <div id="editor<%= column_id %>"<% if editable %> class="inline-editor" contenteditable="false"<% end %>>
-              <%= column.contenuto.html_safe %>
+              <%= (column.contenuto + da_sezione).html_safe %>
             </div>
 
             <% if editable %>
@@ -107,7 +116,7 @@
                   <figcaption class='orbit-caption'>
                     <p class='column_image_titolo<%= '_small' if column.larghezza<=3 %>'><%= immagine.titolo %></p>
                     <% if immagine.descrizione.length > 0 %>
-                        <p class='column_image_descrizione<%= ' hide-for-large' if column.larghezza<=3 %>'><%= immagine.descrizione %></p>
+                        <p class='column_image_descrizione<%= ' hide-for-large' if column.larghezza<=3 %>'><%= (immagine.descrizione + da_sezione).html_safe %></p>
                     <% end %>
                   </figcaption>
                 <% end %>
@@ -157,7 +166,7 @@
                               <div class='titolo-slide'>
                                 <p class='column_image_titolo<%= '_small' if column.larghezza<=3 %>'><%= immagine.titolo %></p>
                                 <% if immagine.descrizione.length > 0 %>
-                                    <p class='column_image_descrizione<%= ' hide-for-large' if column.larghezza<=3 %>'><%= immagine.descrizione %></p>
+                                    <p class='column_image_descrizione<%= ' hide-for-large' if column.larghezza<=3 %>'><%= (immagine.descrizione + da_sezione).html_safe %></p>
                                 <% end %>
                               </div>
                           <% end %>

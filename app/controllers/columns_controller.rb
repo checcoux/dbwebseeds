@@ -6,6 +6,7 @@ class ColumnsController < ApplicationController
   # GET /columns
   # GET /columns.json
   def index
+    authorize Column
     @columns = Column.all
   end
 
@@ -16,6 +17,7 @@ class ColumnsController < ApplicationController
 
   # GET /columns/new
   def new
+    authorize Column
     @column = Column.new
   end
 
@@ -26,6 +28,7 @@ class ColumnsController < ApplicationController
   # POST /columns
   # POST /columns.json
   def create
+    authorize Column
     @column = Column.new(column_params)
 
     respond_to do |format|
@@ -770,6 +773,9 @@ class ColumnsController < ApplicationController
   private
     def set_column
       @column = Column.find(params[:id])
+
+      authorize @column, :edit?
+
       @row = @column.row
 
       if @row

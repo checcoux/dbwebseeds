@@ -1,9 +1,11 @@
 class PhotosController < ApplicationController
   before_action :set_photo, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /photos
   # GET /photos.json
   def index
+    authorize Photo
     @photos = Photo.all
   end
 
@@ -15,6 +17,7 @@ class PhotosController < ApplicationController
 
   # GET /photos/new
   def new
+    authorize Photo
     @photo = Photo.new
   end
 
@@ -25,6 +28,7 @@ class PhotosController < ApplicationController
   # POST /photos
   # POST /photos.json
   def create
+    authorize Photo
     @photo = Photo.new(immagine: params[:file], photoalbum_id: params[:photoalbum_id])
 
     respond_to do |format|
@@ -65,6 +69,8 @@ class PhotosController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_photo
       @photo = Photo.find(params[:id])
+
+      authorize @photo, :edit?
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

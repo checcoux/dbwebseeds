@@ -5,6 +5,7 @@ class RowsController < ApplicationController
   # GET /rows
   # GET /rows.json
   def index
+    authorize Row
     @rows = Row.all
   end
 
@@ -17,6 +18,7 @@ class RowsController < ApplicationController
 
   # GET /rows/new
   def new
+    authorize Row
     @row = Row.new
     @row.colore_sfondo = '#ffffff'
   end
@@ -28,6 +30,7 @@ class RowsController < ApplicationController
   # POST /rows
   # POST /rows.json
   def create
+    authorize Row
     @row = Row.new(row_params)
 
     respond_to do |format|
@@ -71,6 +74,8 @@ class RowsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_row
       @row = Row.find(params[:id])
+
+      authorize @row, :edit?
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

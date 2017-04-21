@@ -6,6 +6,7 @@ class ColumnImagesController < ApplicationController
   # GET /column_images
   # GET /column_images.json
   def index
+    authorize ColumnImage
     @column_images = ColumnImage.all
   end
 
@@ -16,6 +17,7 @@ class ColumnImagesController < ApplicationController
 
   # GET /column_images/new
   def new
+    authorize ColumnImage
     @column_image = ColumnImage.new
   end
 
@@ -26,6 +28,7 @@ class ColumnImagesController < ApplicationController
   # POST /column_images
   # POST /column_images.json
   def create
+    authorize ColumnImage
     @column_image = ColumnImage.new(column_image_params)
 
     respond_to do |format|
@@ -103,6 +106,8 @@ class ColumnImagesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_column_image
       @column_image = ColumnImage.find(params[:id])
+
+      authorize @column_image, :edit?
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -1,3 +1,5 @@
+// configurazione degli editor inline
+
 CKEDITOR.editorConfig = function( config )
 {
     /* Filebrowser routes */
@@ -61,8 +63,8 @@ CKEDITOR.editorConfig = function( config )
     ];
 
     config.extraPlugins = 'dialogui,widgetselection,dialog,clipboard,lineutils,widget,button,toolbar,notification,notificationaggregator,filetools,uploadwidget,uploadimage,sourcedialog';
-    // ,eqneditor
 
+    // per il plugin equation editor: ,eqneditor
 
     // config.mathJaxLib = '//cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS_HTML';
     // config.mathJaxClass = 'math-tex';

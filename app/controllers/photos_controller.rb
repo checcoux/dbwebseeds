@@ -1,6 +1,5 @@
 class PhotosController < ApplicationController
   before_action :set_photo, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
 
   # GET /photos
   # GET /photos.json
@@ -70,7 +69,7 @@ class PhotosController < ApplicationController
     def set_photo
       @photo = Photo.find(params[:id])
 
-      authorize @photo, :edit?
+      authorize @photo
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -10,23 +10,11 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require globals
  *= require_tree .
- *= require_self
+ * require_self
  * require jquery-ui
  * require jquery.colorpicker
  *= require jquery.minicolors
  *= require dropzone/dropzone
  */
-
-.sticky.is-anchored { bottom: auto !important; }
-
-.bottone-largo { width: 100%; }
-
-.bottone-gigante {
-    width: 100%;
-    font-size: 5em !important;
-}
-
-.button {
-    margin: 0 0 0 0 !important;
-}

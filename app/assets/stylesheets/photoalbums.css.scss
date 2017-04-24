@@ -2,11 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+// area di rilascio delle foto per l'upload:
+
 .dropzone {
   border: 2px dashed #0087F7 !important;
   border-radius: 5px !important;
   background: white !important;
 }
+
+
+// bottoni di gestione delle singole foto:
 
 .gestione-immagini > a {
   color: #ffffff;

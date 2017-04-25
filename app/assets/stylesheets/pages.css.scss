@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// --- BARRA SUPERIORE ------------------------------
+
 .title-bar {
   background: #333;
   padding: 0rem;
@@ -10,17 +12,17 @@
 .top-bar {
   padding: 0rem !important;
   background: #333;
-}
-.top-bar ul {
-  background: #333;
-}
-.top-bar ul li {
-  background: #333;
-  font-size: 1em;
-  margin-left: 0;
-}
-.top-bar ul li a {
-  color: #fff;
+  ul {
+    background: #333;
+  }
+  ul li {
+    background: #333;
+    font-size: 1em;
+    margin-left: 0;
+  }
+  ul li a {
+    color: #fff;
+  }
 }
 
 .menu-text {
@@ -63,11 +65,44 @@
   border-color: transparent #fff transparent transparent;
 }
 
-.hero_background {
-  // per sfuocare un'immagine
-  -webkit-filter: blur(100px);
-  -webkit-transform: translate3d(0, 0, 0);
+// --- FOOTER ------------------------------
+
+.footer {
+  background-color: #2d2c2c;
+  padding: 2rem 4rem;
+  text-align: center;
+  color: #fff;
 }
+
+.footer h4 {
+  color: #fff;
+  font-size: 1em;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin-top: 2.5rem;
+  margin-bottom: 10px;
+}
+.footer p, .footer a {
+  font-weight: 300;
+  font-size: .8em;
+  color: #fff;
+}
+
+@media only screen and (min-width: 40.063em) {
+  .footer .columns:nth-child(n+2) {
+    border-left: 1px solid #b3b3b3;
+    min-height: 280px;
+  }
+}
+.footer-links {
+  list-style-type: none;
+}
+.footer-links li {
+  margin-top: .5em;
+}
+
+
+// --- GESTIONE DELLA PAGINA ------------------------------
 
 .bordo_layout {
   border-color: #ffccff !important;
@@ -108,6 +143,19 @@
   background-color: rgba(0, 59, 132, 0.7);
 }
 
+.gestione-immagini > button {
+  color: #ffffff;
+}
+
+.gestione-immagini > button:visited {
+  color: #ffffff;
+}
+
+.gestione-immagini > button:hover {
+  color: #ff0000;
+  background: none;
+}
+
 .info-layout {
   position: absolute;
   top: 0;
@@ -142,6 +190,8 @@
   background-color: rgba(162, 0, 118, 0.7);
 }
 
+// --- COLUMN IMAGES E SLIDER ------------------------------
+
 .slide {
   position: relative;
 }
@@ -168,20 +218,6 @@
   background-color: transparent;
 }
 
-
-.gestione-immagini > button {
-  color: #ffffff;
-}
-
-.gestione-immagini > button:visited {
-  color: #ffffff;
-}
-
-.gestione-immagini > button:hover {
-  color: #ff0000;
-  background: none;
-}
-
 .column_image_titolo {
   font-size: 1.2em;
   font-weight: bold;
@@ -202,12 +238,6 @@
   padding: 0px;
 }
 
-.testo_piccolo {
-  font-size: 0.9em;
-  margin: 0px;
-  padding: 0px;
-}
-
 @media screen and (max-width: 63.9375em) {
   .column_image_titolo_small {
     font-size: 1.5em;
@@ -216,136 +246,6 @@
   .column_image_descrizione {
     font-size: 1.2em;
   }
-}
-
-.full-width {
-  max-width: 1400px;
-}
-
-.footer {
-  background-color: #2d2c2c;
-  padding: 2rem 4rem;
-  text-align: center;
-  color: #fff;
-}
-
-.footer h4 {
-  color: #fff;
-  font-size: 1em;
-  font-weight: 400;
-  text-transform: uppercase;
-  margin-top: 2.5rem;
-  margin-bottom: 10px;
-}
-.footer p, .footer a {
-  font-weight: 300;
-  font-size: .8em;
-  color: #fff;
-}
-
-@media only screen and (min-width: 40.063em) {
-  .footer .columns:nth-child(n+2) {
-    border-left: 1px solid #b3b3b3;
-    min-height: 280px;
-  }
-}
-.footer-links {
-  list-style-type: none;
-}
-.footer-links li {
-  margin-top: .5em;
-}
-
-p {
-  font-size: 1.4em;
-  line-height: 1.4em;
-  text-align: justify;
-  color: #696969;
-}
-
-li {
-  margin-left: 1em;
-  font-size: 1.4rem;
-  line-height: 1.2em;
-  color: #696969;
-}
-
-.menu li {
-  margin-left: 0em !important;
-}
-
-.abstract {
-  color: #808080;
-  font-style: italic;
-}
-
-.autore {
-  color: #808080;
-  font-weight: bold;
-}
-
-.data {
-  color: #808080;
-}
-
-.titolo-ricerca {
-  font-size: 1.2em;
-  color: #3c3c3c;
-  font-weight: bold;
-}
-
-.info-ricerca {
-  font-size: 0.8em;
-  color: #494949;
-}
-
-.descrizione-ricerca {
-  font-size: 0.9em;
-  line-height: 1;
-  color: #808080;
-  font-style: italic;
-}
-
-.fonte a {
-  color: #808080;
-  padding-left: 3em;
-  &:visited {
-    color: #A9A9A9;
-  }
-  &:hover {
-    color: #808080;
-    font-decoration: underline;
-  }
-}
-
-.etichetta {
-  margin: 0;
-  list-style-type: none;
-}
-
-.etichetta > li {
-  display: inline-block;
-  font-size: 0.8rem;
-  background-color: #1583cc;
-  color: #fefefe;
-  padding: 0.5rem 0.7rem;
-  margin: 0.2em;
-  line-height: 1;
-  border-radius: 3px;
-}
-
-.etichetta > li > a {
-  color: #fefefe;
-}
-
-#cerca {
-  font-size: 1.2em;
-  color: #808080;
-  padding: 1.5em 1em;
-}
-
-.form-cerca {
-
 }
 
 @mixin aspect-ratio($width, $height) {
@@ -388,6 +288,43 @@ li {
   @include aspect-ratio(100, 50);
 }
 
+.hero_background {
+  // per sfuocare un'immagine
+  -webkit-filter: blur(100px);
+  -webkit-transform: translate3d(0, 0, 0);
+}
+
+// --- RICERCHE E INDICI ------------------------------
+
+#cerca {
+  font-size: 1.2em;
+  color: #808080;
+  padding: 1.5em 1em;
+}
+
+.form-cerca {
+}
+
+.titolo-ricerca {
+  font-size: 1.2em;
+  color: #3c3c3c;
+  font-weight: bold;
+}
+
+.info-ricerca {
+  font-size: 0.8em;
+  color: #494949;
+}
+
+.descrizione-ricerca {
+  font-size: 0.9em;
+  line-height: 1;
+  color: #808080;
+  font-style: italic;
+}
+
+// --- COOKIE LAW ------------------------------
+
 #cookie-message
 {
   display:block;
@@ -419,6 +356,82 @@ li {
   margin-left: 20px;
   cursor: pointer;
   padding:4px;
+}
+
+// --- STILI A DISPOSIZIONE DEGLI EDITOR ------------------------------
+
+p {
+  font-size: 1.4em;
+  line-height: 1.4em;
+  text-align: justify;
+  color: #696969;
+}
+
+.abstract {
+  color: #808080;
+  font-style: italic;
+}
+
+.autore {
+  color: #808080;
+  font-weight: bold;
+}
+
+.data {
+  color: #808080;
+}
+
+.testo_piccolo {
+  font-size: 0.9em;
+  margin: 0px;
+  padding: 0px;
+}
+
+.fonte a {
+  color: #808080;
+  padding-left: 3em;
+  &:visited {
+    color: #A9A9A9;
+  }
+  &:hover {
+    color: #808080;
+    font-decoration: underline;
+  }
+}
+
+.etichetta {
+  margin: 0;
+  list-style-type: none;
+}
+
+.etichetta > li {
+  display: inline-block;
+  font-size: 0.8rem;
+  background-color: #1583cc;
+  color: #fefefe;
+  padding: 0.5rem 0.7rem;
+  margin: 0.2em;
+  line-height: 1;
+  border-radius: 3px;
+}
+
+.etichetta > li > a {
+  color: #fefefe;
+}
+
+li {
+  margin-left: 1em;
+  font-size: 1.4rem;
+  line-height: 1.2em;
+  color: #696969;
+}
+
+.menu li {
+  margin-left: 0em !important;
+}
+
+.full-width {
+  max-width: 1400px;
 }
 
 .immagine-circolare {

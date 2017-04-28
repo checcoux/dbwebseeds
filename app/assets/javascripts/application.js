@@ -10,11 +10,10 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-// require jquery
+//= require jquery3
 //= require jquery_ujs
+//= require jquery-ui
 //= require jquery.minicolors
-// require jquery-ui
-// require jquery-colorpicker
 //= require ckeditor/init
 //= require dropzone
 // require turbolinks

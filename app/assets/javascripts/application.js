@@ -17,5 +17,5 @@
 // require jquery-colorpicker
 //= require ckeditor/init
 //= require dropzone
-//= require turbolinks
+// require turbolinks
 //= require_tree .

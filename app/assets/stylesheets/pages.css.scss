@@ -299,7 +299,7 @@
 {
   width: 50px;
   height: 50px;
-  margin-top: inherit;
+  margin-top: 0;
 
   -webkit-transform: translate(0, -50%);
   -ms-transform: translate(0, -50%);
@@ -324,6 +324,14 @@
 {
   right: auto;
   left: -15px;
+}
+.slick-dotted.slick-slider
+{
+  margin-bottom: 30px;
+}
+.slick-slider
+{
+  margin-bottom: 0;
 }
 .slick-dots
 {

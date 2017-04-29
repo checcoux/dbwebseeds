@@ -70,6 +70,8 @@ gem 'nokogiri'
 
 gem 'dropzonejs-rails'
 
+gem 'jquery-slick-rails'
+
 group :development do
   gem 'meta_request'
 end

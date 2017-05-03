@@ -39,12 +39,12 @@
     %>
 
     <% if header %>
-      <% if false && !user_signed_in? %>
+      <% if !user_signed_in? %>
         <div data-sticky-container>
           <div class="title-bar" data-sticky data-options="marginTop:0;" style="width:100%; z-index:999;">
       <% end %>
             <%= render(header.rows.order('ordine ASC')) %>
-      <% if false && !user_signed_in? %>
+      <% if !user_signed_in? %>
           </div>
         </div>
       <% end %>

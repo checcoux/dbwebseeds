@@ -1,3 +1,5 @@
+# modello per le immagini inserite negli editor
+
 class Ckeditor::Picture < Ckeditor::Asset
   belongs_to :assetable, polymorphic: true
 

@@ -1,3 +1,5 @@
+# Rows: ogni riga è contenuta in una pagina e contiene diverse colonne
+
 class RowsController < ApplicationController
   before_action :set_row, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!

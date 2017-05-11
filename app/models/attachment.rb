@@ -1,3 +1,5 @@
+# singolo allegato
+
 class Attachment < ActiveRecord::Base
   belongs_to :section
   has_many :tags, as: :taggable, dependent: :destroy

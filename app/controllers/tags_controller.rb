@@ -1,3 +1,6 @@
+# Tags: etichette collegate ad articoli, fotoalbum, materiale
+# a scopo di ricerca e correlazione dei contenuti
+
 class TagsController < ApplicationController
   before_action :set_tag, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!

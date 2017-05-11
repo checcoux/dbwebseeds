@@ -1,3 +1,5 @@
+# modello per gli attachment inseriti negli editor, al momento non utilizzato
+
 class Ckeditor::AttachmentFile < Ckeditor::Asset
   has_attached_file :data,
                     :url => "/ckeditor_assets/attachments/:id/:filename",

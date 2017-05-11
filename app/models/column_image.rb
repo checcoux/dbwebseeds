@@ -1,3 +1,5 @@
+# immagine collegata a una colonna; nel caso di più immagini viene generato uno slider
+
 class ColumnImage < ActiveRecord::Base
   belongs_to :column
 

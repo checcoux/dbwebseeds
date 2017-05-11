@@ -1,3 +1,5 @@
+# sezione del sito
+
 class Section < ActiveRecord::Base
   validates :titolo, :descrizione, presence: true
 

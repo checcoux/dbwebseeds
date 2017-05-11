@@ -1,3 +1,5 @@
+# Attachments: lista degli allegati
+
 class AttachmentsController < ApplicationController
   before_action :set_attachment, only: [:show, :edit, :update, :destroy, :download]
 

@@ -1,3 +1,5 @@
+# Photoalbums: collection di Photos
+
 class PhotoalbumsController < ApplicationController
   before_action :set_photoalbum, only: [:show, :edit, :update, :destroy, :copertina, :pubblica]
 

@@ -1,3 +1,5 @@
+# Pages: pagine e articoli
+
 class PagesController < ApplicationController
   after_action :allow_iframe, only: :screen
   before_action :set_page, only: [:show, :edit, :update, :destroy, :row0, :nuovo_contenuto_dinamico, :pubblica, :nascondi, :duplica]

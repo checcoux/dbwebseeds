@@ -1,3 +1,5 @@
+# Columns: elemento fondamentale del layout della pagina
+
 class ColumnsController < ApplicationController
   # before_action :set_column, only: [:show, :edit, :update, :editor_update, :destroy, :estendi_riga]
   before_action :set_column, except: [:index, :new, :create, :modifica_immagine]
@@ -60,6 +62,11 @@ class ColumnsController < ApplicationController
   # PATCH/PUT /columns/1/editor_update.json
   def editor_update
     respond_to do |format|
+      # sostituisco le bandierine segnaposto inserite nell'editor con delle caselle di ricerca:
+      # cerca   = cerca tutto
+      # cerca:m = cerca materiale
+      # cerca:a = cerca articoli
+      # cerca:f = cerca foto
       @column.contenuto = params[:contenuto].gsub('<a id="cerca" name="cerca"></a>', '<form method="GET" action="/search" class="form-cerca"><div class="input-group">
   <input class="input-group-field" type="search" id="cerca" placeholder="Cerca..." name="q">
 </div></form>').gsub('<a id="cerca:m" name="cerca:m"></a>', '<form method="GET" action="/search" class="form-cerca"><div class="input-group">
@@ -158,6 +165,26 @@ class ColumnsController < ApplicationController
     column.save
   end
 
+  def inserisci_riga_dopo
+    posizione = @row.ordine
+    page = @row.page
+
+    # prendo la collezione delle righe e aumento di uno l'ordine di tutte quelle con ordine > posizione
+    rows = Row.where('ordine > ? AND page_id = ?', posizione, page.id).order(ordine: :asc)
+    rows.each do |riga|
+      riga.ordine = riga.ordine + 1
+      riga.save
+    end
+
+    # creo una riga vuota
+    @row2 = Row.create(ordine: posizione + 1, page_id: page.id, colore_sfondo: '#ffffff')
+    @row2.save
+
+    # creo una colonna vuota
+    column = Column.create(ordine: 1, larghezza: 12, row_id: @row2.id, contenuto: '<p>Cantami o Diva del pelide Achille l\'ira funesta...</p>', autocrop: true)
+    column.save
+  end
+
   def sposta_riga_prima
     posizione = @row.ordine
     page = @row.page
@@ -188,26 +215,6 @@ class ColumnsController < ApplicationController
       @row.save
       @row2.save
     end
-  end
-
-  def inserisci_riga_dopo
-    posizione = @row.ordine
-    page = @row.page
-
-    # prendo la collezione delle righe e aumento di uno l'ordine di tutte quelle con ordine > posizione
-    rows = Row.where('ordine > ? AND page_id = ?', posizione, page.id).order(ordine: :asc)
-    rows.each do |riga|
-      riga.ordine = riga.ordine + 1
-      riga.save
-    end
-
-    # creo una riga vuota
-    @row2 = Row.create(ordine: posizione + 1, page_id: page.id, colore_sfondo: '#ffffff')
-    @row2.save
-
-    # creo una colonna vuota
-    column = Column.create(ordine: 1, larghezza: 12, row_id: @row2.id, contenuto: '<p>Cantami o Diva del pelide Achille l\'ira funesta...</p>', autocrop: true)
-    column.save
   end
 
   def duplica_riga
@@ -262,75 +269,6 @@ class ColumnsController < ApplicationController
     end
   end
 
-  def inserisci_colonna_prima1
-    posizione = @column.ordine
-
-    # procedo solo se la differenza tra la somma delle larghezze delle colonne successive e il loro numero è maggiore di zero
-    columns = Column.where('ordine >= ? AND row_id = ?', posizione, @row.id).order(ordine: :asc)
-
-    if columns.sum("larghezza") > columns.count  then
-      # aumento di uno l'ordine delle colonne con ordine >= posizione
-
-      resto = 0
-      columns.each do |colonna|
-        if colonna.larghezza > 1 then
-          resto = resto + 1
-          colonna.larghezza = colonna.larghezza - 1
-        end
-
-        colonna.ordine = colonna.ordine + 1
-        colonna.save
-      end
-      if resto >= 1 then # dovrebbe sempre essere così perché il controllo è stato fatto a monte
-        # creo una colonna vuota
-        @column2 = Column.create(ordine: posizione, larghezza: resto, row_id: @row.id, contenuto: '<p>Cantami o Diva del pelide Achille l\'ira funesta...</p>', autocrop: true)
-        @column2.save
-      end
-    end
-  end
-
-  def inserisci_colonna_dopo
-    posizione = @column.ordine
-
-    # procedo solo se la differenza tra la somma delle larghezze delle colonne successive e il loro numero è maggiore di zero
-    columns = Column.where('ordine > ? AND row_id = ?', posizione, @row.id).order(larghezza: :desc, ordine: :asc)
-
-    if columns.sum("larghezza") > columns.count  then
-      # aumento di uno l'ordine delle colonne con ordine > posizione
-
-      columns.each do |colonna|
-        logger.debug colonna.larghezza.to_s
-      end
-
-      resto = 0
-      columns.each do |colonna|
-        if colonna.larghezza > 1 and resto == 0 then
-          resto = resto + 1
-          colonna.larghezza = colonna.larghezza - 1
-        end
-
-        colonna.ordine = colonna.ordine + 1
-        colonna.save
-      end
-      if resto >= 1 then # dovrebbe sempre essere così perché il controllo è stato fatto a monte
-        # creo una colonna vuota
-        @column2 = Column.create(ordine: posizione + 1, larghezza: resto, row_id: @row.id, contenuto: '<p>Cantami o Diva del pelide Achille l\'ira funesta...</p>', autocrop: true)
-        @column2.save
-      end
-    else
-      # vedo se posso stringere un po' la colonna selezionata
-      if @column.larghezza > 1 then
-        @column.larghezza = @column.larghezza - 1
-        @column.save
-
-        @column2 = Column.create(ordine: posizione + 1, larghezza: 1, row_id: @row.id, contenuto: '<p>Cantami o Diva del pelide Achille l\'ira funesta...</p>', autocrop: true)
-        @column2.save
-      end
-    end
-
-    equalizza_colonne
-  end
-
   def inserisci_colonna_prima
     posizione = @column.ordine
 
@@ -376,6 +314,48 @@ class ColumnsController < ApplicationController
     equalizza_colonne
   end
 
+  def inserisci_colonna_dopo
+    posizione = @column.ordine
+
+    # procedo solo se la differenza tra la somma delle larghezze delle colonne successive e il loro numero è maggiore di zero
+    columns = Column.where('ordine > ? AND row_id = ?', posizione, @row.id).order(larghezza: :desc, ordine: :asc)
+
+    if columns.sum("larghezza") > columns.count  then
+      # aumento di uno l'ordine delle colonne con ordine > posizione
+
+      columns.each do |colonna|
+        logger.debug colonna.larghezza.to_s
+      end
+
+      resto = 0
+      columns.each do |colonna|
+        if colonna.larghezza > 1 and resto == 0 then
+          resto = resto + 1
+          colonna.larghezza = colonna.larghezza - 1
+        end
+
+        colonna.ordine = colonna.ordine + 1
+        colonna.save
+      end
+      if resto >= 1 then # dovrebbe sempre essere così perché il controllo è stato fatto a monte
+        # creo una colonna vuota
+        @column2 = Column.create(ordine: posizione + 1, larghezza: resto, row_id: @row.id, contenuto: '<p>Cantami o Diva del pelide Achille l\'ira funesta...</p>', autocrop: true)
+        @column2.save
+      end
+    else
+      # vedo se posso stringere un po' la colonna selezionata
+      if @column.larghezza > 1 then
+        @column.larghezza = @column.larghezza - 1
+        @column.save
+
+        @column2 = Column.create(ordine: posizione + 1, larghezza: 1, row_id: @row.id, contenuto: '<p>Cantami o Diva del pelide Achille l\'ira funesta...</p>', autocrop: true)
+        @column2.save
+      end
+    end
+
+    equalizza_colonne
+  end
+
   def sposta_colonna_prima
     posizione = @column.ordine
 
@@ -404,38 +384,6 @@ class ColumnsController < ApplicationController
       @column.save
       column2.save
     end
-  end
-
-  def inserisci_colonna_dopo0
-    posizione = @column.ordine
-
-    # prendo la collezione delle colonne e aumento di uno l'ordine di tutte quelle con ordine >= posizione, a partire dall'ultima
-    columns = Column.where('ordine > ? AND row_id = ?', posizione, @row.id).order(ordine: :asc)
-    somma_larghezze = 0
-    prima = true
-    resto = 0
-    columns.each do |colonna|
-      somma_larghezze = somma_larghezze + colonna.larghezza
-      if prima then
-        mezza_larghezza = colonna.larghezza / 2
-        resto = colonna.larghezza - mezza_larghezza
-        if mezza_larghezza < 1 then
-          mezza_larghezza = 1
-        end
-
-        colonna.larghezza = mezza_larghezza
-      end
-      colonna.ordine = colonna.ordine + 1
-      colonna.save
-      prima = false
-    end
-    if resto < 1 then
-      resto = 1
-    end
-
-    # creo una colonna vuota
-    @column2 = Column.create(ordine: posizione + 1, larghezza: resto, row_id: @row.id, contenuto: '<p>Cantami o Diva del pelide Achille l\'ira funesta...</p>', autocrop: true)
-    @column2.save
   end
 
   def allarga_colonna
@@ -567,22 +515,6 @@ class ColumnsController < ApplicationController
     end
   end
 
-  def rendi_dinamica_inserendo # obsoleta
-    if @column.fonte == 0
-      # crea una nuova colonna, identica a quella selezionata, ma con contenuto nullo
-      column2 = @column.dup
-      column2.contenuto = ' '
-      column2.fonte = 1 # visualizza i contenuti dinamici della stessa pagina
-      column2.save
-
-      # la colonna di origine viene inserita nel circuito delle candidate
-      @column.page = @page
-      @column.row_id = 0
-
-      @column.save
-    end
-  end
-
   def rendi_dinamica_eliminando
     if @column.fonte == 0
       # crea una nuova colonna, identica a quella selezionata, ma con contenuto nullo
@@ -663,31 +595,6 @@ class ColumnsController < ApplicationController
     end
 
     render layout: false
-  end
-
-  def elimina_contenuto_dinamico
-    @column_id = @column.id
-    @column.destroy
-  end
-
-  def aggiungi_ruolo_titolo
-    @column.ruolo = 'titolo'
-    @column.save
-  end
-
-  def aggiungi_ruolo_abstract
-    @column.ruolo = 'abstract'
-    @column.save
-  end
-
-  def aggiungi_ruolo_testo
-    @column.ruolo = 'testo'
-    @column.save
-  end
-
-  def cancella_ruolo
-    @column.ruolo = ''
-    @column.save
   end
 
   def autocrop_on

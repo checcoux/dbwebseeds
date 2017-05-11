@@ -1,3 +1,5 @@
+# collection di photos
+
 class Photoalbum < ActiveRecord::Base
 
   extend FriendlyId

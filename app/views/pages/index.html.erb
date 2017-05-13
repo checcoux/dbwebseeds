@@ -20,13 +20,13 @@
       %><% end %></div>
       <div class="large-3 columns"><%= link_to '<i class="fi-paperclip"></i> '.html_safe + "/#{page.slug}", "/#{page.slug}", method: :get, class: "secondary medium button bottone-largo" %></div>
       <div class="large-4 columns">
+        <%= "<span class='warning label'>home</span>".html_safe if page.home %>
         <b><%= page.titolo %></b>
         <br><%= page.published_at.to_s(:data_ora) %>
         <%= "Sezione " + page.section.titolo %>
       </div>
       <div class="large-2 columns">
         <%= "<span class='warning label'>non visibile</span>".html_safe if !page.visibile %>
-        <%= "<span class='secondary label'>home</span>".html_safe if page.home %>
         <%= "<span class='secondary label'>header</span>".html_safe if page.header %>
         <%= "<span class='secondary label'>footer</span>".html_safe if page.footer %>
         <%= "<span class='secondary label'>modello</span>".html_safe if page.modello %>

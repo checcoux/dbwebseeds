@@ -2,22 +2,18 @@
   <%= link_to 'Nuovo utente', new_user_path, class: 'large warning button float-right' %>
 </h1>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= link_to user.email, edit_user_path(user) %></td>
-        <td><% if user.section %><%= "gestore #{user.section.titolo}" %><%= " (designer)" if user.designer %><% end %></td>
-        <td><%= "amministratore" if user.admin %></td>
-        <td><%= link_to 'Elimina', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<% @users.each do |user| %>
+  <div class="expanded row">
+    <div class="large-3 columns">
+      <%= link_to user.email, edit_user_path(user), class: "medium primary button bottone-largo" %>
+    </div>
+    <div class="large-6 columns">
+      <%= "<span class='warning label'>amministratore</span>".html_safe if user.admin %>
+      <% if user.section %><%= "gestore #{user.section.titolo}" %><%= " (designer)" if user.designer %><% end %>
+    </div>
+    <div class="large-3 columns">
+      <%= link_to 'Proprietà', edit_user_path(user), class: "tiny primary button" %>
+      <%= link_to 'Elimina', user, method: :delete, data: { confirm: 'Sei sicuro?' }, class: "tiny alert button" %>
+    </div>
+  </div>
+<% end %>

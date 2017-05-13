@@ -23,6 +23,7 @@
     <%= f.label "Sezione" %><br>
     <%= f.collection_select(:section_id, policy_scope(Section), :id, :titolo) %>
   </div>
+
   <div class="actions">
     <%= f.submit 'SALVA', class: 'button' %>
   </div>

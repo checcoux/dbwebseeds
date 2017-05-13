@@ -1,28 +1,6 @@
-<!-- cookie law -->
-<div id="cookie-message">Questo sito utilizza cookie di profilazione propri o di terze parti, per saperne di
-  più <a href="/privacy-policy">clicca qui</a>
-  <button id="cookie-chiudi" class="tiny warning button">OK</button>
-</div>
+<%= render partial: "pages/cookielaw" %>
 
-<script src="https://unpkg.com/object-fit-images@2.5.9/dist/ofi.browser.js"></script>
-
-<%
-  header = @page.trova_header
-
-  footer = @page.trova_footer
-%>
-
-<% if header %>
-    <% if !user_signed_in? %>
-        <div data-sticky-container>
-          <div class="title-bar" data-sticky data-options="marginTop:0;" style="width:100%; z-index:999;">
-    <% end %>
-    <%= render(header.rows.order('ordine ASC')) %>
-    <% if false && !user_signed_in? %>
-          </div>
-        </div>
-    <% end %>
-<% end %>
+<%= render partial: "pages/header" %>
 
 <div class="row">
   <h1><%= @photoalbum.titolo %></h1>
@@ -109,4 +87,4 @@
   <% end %>
 </div>
 
-<%= render(footer.rows.order('ordine ASC')) if footer %>
+<%= render partial: "pages/footer" %>

@@ -597,6 +597,11 @@ class ColumnsController < ApplicationController
     render layout: false
   end
 
+  def elimina_contenuto_dinamico
+    @column_id = @column.id
+    @column.destroy
+  end
+
   def autocrop_on
     @column.autocrop = true
     @column.save

@@ -7,32 +7,39 @@
   <% end %>
 </h1>
 
-<table>
-  <tbody>
-    <% @pages.each do |page|
+<% @pages.each do |page|
+    # verifichiamo se esiste almeno una foto associata all'articolo
+    foto = ColumnImage.joins(:column => :row).where(:rows => {:page_id => page}).first
+%>
+    <div class="expanded row">
+      <div class="large-1 columns"><% if @mostra_articoli %><%= if foto
+                                                                  image_tag foto.immagine.url(:thumb), style: 'width: 100%;'
+                                                                else
+                                                                  '&nbsp;'.html_safe
+                                                                end
+      %><% end %></div>
+      <div class="large-3 columns"><%= link_to '<i class="fi-paperclip"></i> '.html_safe + "/#{page.slug}", "/#{page.slug}", method: :get, class: "secondary medium button bottone-largo" %></div>
+      <div class="large-4 columns">
+        <b><%= page.titolo %></b>
+        <br><%= page.published_at.to_s(:data_ora) %>
+        <%= "Sezione " + page.section.titolo %>
+      </div>
+      <div class="large-2 columns">
+        <%= "<span class='warning label'>non visibile</span>".html_safe if !page.visibile %>
+        <%= "<span class='secondary label'>home</span>".html_safe if page.home %>
+        <%= "<span class='secondary label'>header</span>".html_safe if page.header %>
+        <%= "<span class='secondary label'>footer</span>".html_safe if page.footer %>
+        <%= "<span class='secondary label'>modello</span>".html_safe if page.modello %>
+        <%= "<span class='secondary label'>articolo</span>".html_safe if page.articolo %>
+      </div>
+      <div class="large-2 columns">
+        <%= link_to 'Proprietà', edit_page_path(page), class: "tiny primary button" %>
+        <%= link_to 'Duplica', { controller: "pages", action: "duplica", id: page, articolo: params[:articolo], section_id: params[:section_id]}, class: "tiny warning button" %>
+        <%= link_to 'Elimina', { controller: "pages", action: "destroy", id: page, articolo: params[:articolo], section_id: params[:section_id]}, method: :delete, data: { confirm: 'Vuoi procedere con la cancellazione della pagina?' }, class: "tiny alert button" %>
+      </div>
+    </div>
 
-      # verifichiamo se esiste almeno una foto associata all'articolo
-      foto = ColumnImage.joins(:column => :row).where(:rows => {:page_id => page}).first
-    %>
-      <tr>
-        <% if @mostra_articoli %><td><%= image_tag foto.immagine.url(:thumb), style: "width: 200px;" if foto %></td><% end %>
-        <td><%= link_to page.titolo, "/#{page.slug}", method: :get, class: "primary medium button bottone-largo" %></td>
-        <td><%= link_to "/#{page.slug}", "/#{page.slug}" %></td>
-        <td><%= "<span class='warning label'>Non visibile</span>".html_safe if !page.visibile %></td>
-        <td><%= page.published_at.to_s(:data_ora) %></td>
-        <td><%= "home" if page.home %>
-            <%= "header" if page.header %>
-            <%= "footer" if page.footer %>
-            <%= "modello" if page.modello %>
-            <%= "articolo" if page.articolo %></td>
-        <td><%= "Sezione " + page.section.titolo %></td>
-        <td><%= link_to 'Proprietà', edit_page_path(page), class: "tiny primary button" %></td>
-        <td><%= link_to 'Duplica', { controller: "pages", action: "duplica", id: page, articolo: params[:articolo], section_id: params[:section_id]}, class: "tiny warning button" %></td>
-        <td><%= link_to 'Elimina', { controller: "pages", action: "destroy", id: page, articolo: params[:articolo], section_id: params[:section_id]}, method: :delete, data: { confirm: 'Vuoi procedere con la cancellazione della pagina?' }, class: "tiny alert button" %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% end %>
 
 <div class="text-center">
 <%= will_paginate @pages, renderer: FoundationPagination::Rails %>

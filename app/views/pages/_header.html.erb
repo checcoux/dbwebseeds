@@ -1,0 +1,17 @@
+<%
+  if !@page.header && !@page.footer
+    header = @page.trova_header
+  end
+%>
+
+<% if header %>
+  <% if !user_signed_in? %>
+      <div data-sticky-container>
+        <div class="title-bar" data-sticky data-options="marginTop:0;" style="width:100%; z-index:999;">
+  <% end %>
+  <%= render(header.rows.order('ordine ASC')) %>
+  <% if !user_signed_in? %>
+      </div>
+      </div>
+  <% end %>
+<% end %>

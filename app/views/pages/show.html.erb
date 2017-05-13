@@ -1,10 +1,4 @@
-<!-- cookie law -->
-<div id="cookie-message">Questo sito utilizza cookie di profilazione propri o di terze parti, per saperne di
-  più <a href="/privacy-policy">clicca qui</a>
-  <button id="cookie-chiudi" class="tiny warning button">OK</button>
-</div>
-
-<script src="https://unpkg.com/object-fit-images@2.5.9/dist/ofi.browser.js"></script>
+<%= render partial: "cookielaw" %>
 
 <% if !user_signed_in? or policy(@page).edit? %>
 <%
@@ -32,548 +26,57 @@
   </button>
 </div>
 
-    <%
-      header = @page.trova_header if !@page.header && !@page.footer # non lo mostro se sto modificando proprio un header
+<%= render partial: "header" %>
 
-      footer = @page.trova_footer if !@page.header && !@page.footer
-    %>
-
-    <% if header %>
-      <% if !user_signed_in? %>
-        <div data-sticky-container>
-          <div class="title-bar" data-sticky data-options="marginTop:0;" style="width:100%; z-index:999;">
-      <% end %>
-            <%= render(header.rows.order('ordine ASC')) %>
-      <% if !user_signed_in? %>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
-
-    <% if @page.articolo %>
-        <% if false %>
-        <div class="row">
-        <div class="column large-8">
-          <nav aria-label="Sei qui:" role="navigation">
-            <p></p>
-            <ul class="breadcrumbs">
-              <li><a href="/">Home</a></li>
-              <% if !@page.section.principale %><li><a href="/<%= @page.section.percorso %>"><%= @page.section.titolo %></a></li><% end %>
-              <li>
-                <span class="show-for-sr">Current: </span> <%= @page.titolo %>
-              </li>
-            </ul>
-          </nav>
-        </div>
-        </div>
-        <% end %>
-        <% if policy(@page).edit? %>
-        <div class="row">
-          <div class="column large-12">
-            <p></p><p class="text-right">
-            <% if @page.visibile %>
-              <span class="success label">Pubblicato il <%= @page.published_at.to_s(:data_ora) %></span>
-              <%= link_to 'NASCONDI', { controller: "pages", action: "nascondi", id: @page}, class: "tiny alert button" %>
-            <% else %>
-              <span class="warning label">Al momento non visibile!</span>
-              <%= link_to 'PUBBLICA', { controller: "pages", action: "pubblica", id: @page}, class: "tiny button" %>
-            <% end %></p>
-          </div>
-        </div>
-        <% end %>
-
-    <% elsif user_signed_in? && !(@page.home || @page.header || @page.footer || @page.modello) %>
+<% if @page.articolo %>
+    <% if policy(@page).edit? %>
       <div class="row">
-        <div class="column large-8">
-          <nav aria-label="Sei qui:" role="navigation">
-            <p></p>
-            <ul class="breadcrumbs">
-              <li><a href="/">Home</a></li>
-              <% if !@page.section.principale %><li><a href="/<%= @page.section.percorso %>"><%= @page.section.titolo %></a></li><% end %>
-              <% if !@page.home %>
-              <li>
-                <span class="show-for-sr">Current: </span> <%= @page.titolo %>
-              </li>
-              <% end %>
-            </ul>
-          </nav>
-        </div>
-        <div class="column large-4">
+        <div class="column large-12">
           <p></p><p class="text-right">
           <% if @page.visibile %>
-              <%= link_to 'NASCONDI LA PAGINA', { controller: "pages", action: "nascondi", id: @page}, class: "tiny alert button" %>
+            <span class="success label">Pubblicato il <%= @page.published_at.to_s(:data_ora) %></span>
+            <%= link_to 'NASCONDI', { controller: "pages", action: "nascondi", id: @page}, class: "tiny alert button" %>
           <% else %>
-              <span class="warning label">Al momento non visibile!</span>
-              <%= link_to 'PUBBLICA', { controller: "pages", action: "pubblica", id: @page}, class: "tiny button" %>
-          <% end %>
+            <span class="warning label">Al momento non visibile!</span>
+            <%= link_to 'PUBBLICA', { controller: "pages", action: "pubblica", id: @page}, class: "tiny button" %>
+          <% end %></p>
         </div>
-
       </div>
     <% end %>
-
-    <%= render 'row0' if user_signed_in? && !@page.modello && !@page.header && !@page.footer %>
-
-
-    <% @page.rows.order('ordine ASC').each do |row| %>
-    <%= render row, :page => @page %>
-    <% end %>
-
-    <%= render(footer.rows.order('ordine ASC')) if footer %>
-
-<% if user_signed_in? %>
-<script>
-  var current_mode = 'preview';
-
-  $(function() {
-    // Turn off automatic editor creation first.
-    CKEDITOR.disableAutoInline = true;
-
-    // prepara i menù contestuali
-
-    $.contextMenu( 'destroy' );
-
-    $.contextMenu({
-      selector: '.columns',
-      zIndex: 1500,
-      callback: function (action, options) {
-        var id = $(this).attr('id').substr(6);
-        // var m = "clicked: " + action + " on " + id;
-        // window.console && console.log(m);
-
-        switch (action) {
-          case 'dialog_sfondo':
-            $.ajax('/columns/' + id + '/' + action).done(function (data) {
-              $("#finestra_modale").html(data).foundation("open");
-            });
-            break;
-          case 'dialog_immagine':
-            $.ajax('/columns/' + id + '/' + action).done(function (data) {
-              $("#finestra_modale").html(data).foundation("open");
-            });
-            break;
-          default:
-            $.ajax({
-              url: '/columns/' + id + '/' + action + '.js',
-              type: 'POST',
-              data: {
-                authenticity_token: '<%= form_authenticity_token %>'
-              }
-              // success: function (response) {
-              //   alert("La pagina è stata salvata.");
-              // }
-              // document.getElementById( 'notice' ).innerHTML = 'La pagina &egrave; stata salvata.';*/
-            });
-        }
-      },
-      items: {
-        "fold_riga": {
-          "name": "Riga",
-          items: {
-            "inserisci_riga_prima": {name: "<i class='fi-arrow-up'></i>&nbsp;&nbsp;Inserisci prima", isHtmlName: true},
-            "inserisci_riga_dopo": {name: "<i class='fi-arrow-down'></i>&nbsp;&nbsp;Inserisci dopo", isHtmlName: true},
-            "duplica_riga": {name: "<i class='fi-page-copy'></i>&nbsp;Duplica", isHtmlName: true},
-            "estendi_riga": {name: "<i class='fi-arrows-expand'></i>&nbsp;Estendi", isHtmlName: true},
-            "riduci_riga": {name: "<i class='fi-arrows-compress'></i>&nbsp;Comprimi", isHtmlName: true},
-            "equalizza_colonne": {name: "<i class='fi-align-justify'></i>&nbsp;Equalizza colonne", isHtmlName: true},
-            "sposta_riga_prima": {name: "<i class='fi-arrow-up'></i>&nbsp;&nbsp;Sposta in alto", isHtmlName: true},
-            "sposta_riga_dopo": {name: "<i class='fi-arrow-down'></i>&nbsp;&nbsp;Sposta in basso", isHtmlName: true},
-            "mostra_sempre": {name: "<i class='fi-eye'></i>&nbsp;&nbsp;Mostra su tutti gli schermi", isHtmlName: true},
-            "mostra_small_only": {name: "<i class='fi-eye'></i>&nbsp;&nbsp;Mostra solo su schermi piccoli", isHtmlName: true},
-            "mostra_big_only": {name: "<i class='fi-eye'></i>&nbsp;&nbsp;Mostra solo su schermi grandi", isHtmlName: true},
-            "elimina_riga": {name: "<i class='fi-trash'></i>&nbsp;&nbsp;Elimina", isHtmlName: true}
-          }
-        },
-        "fold_colonna": {
-          "name": "Colonna",
-          items: {
-            "inserisci_colonna_prima": {name: "<i class='fi-arrow-left'></i>&nbsp;Inserisci prima", isHtmlName: true},
-            "inserisci_colonna_dopo": {name: "<i class='fi-arrow-right'></i>&nbsp;Inserisci dopo", isHtmlName: true},
-            "allarga_colonna": {name: "<i class='fi-arrows-expand'></i>&nbsp;Allarga", isHtmlName: true},
-            "stringi_colonna": {name: "<i class='fi-arrows-compress'></i>&nbsp;Stringi", isHtmlName: true},
-            "sposta_colonna_prima": {name: "<i class='fi-arrow-left'></i>&nbsp;Sposta a sinistra", isHtmlName: true},
-            "sposta_colonna_dopo": {name: "<i class='fi-arrow-right'></i>&nbsp;Sposta a destra", isHtmlName: true},
-            "autocrop_on": {name: "<i class='fi-crop'></i>&nbsp;Attiva autocrop", isHtmlName: true},
-            "autocrop_off": {name: "<i class='fi-crop'></i>&nbsp;Disattiva autocrop", isHtmlName: true},
-            "fold_padding": {
-              "name": "<i class='fi-annotate'></i>&nbsp;Padding",
-              isHtmlName: true,
-              items: {
-                "padding_00": {name: "0 em"},
-                "padding_01": {name: "0.1 em"},
-                "padding_02": {name: "0.2 em"},
-                "padding_03": {name: "0.3 em"},
-                "padding_04": {name: "0.4 em"},
-                "padding_05": {name: "0.5 em"},
-                "padding_10": {name: "1.0 em"},
-                "padding_15": {name: "1.5 em"},
-                "padding_20": {name: "2.0 em"},
-                "padding_25": {name: "2.5 em"},
-                "padding_30": {name: "3.0 em"}
-              }
-            },
-            "elimina_colonna": {name: "<i class='fi-trash'></i>&nbsp;&nbsp;Elimina", isHtmlName: true}
-          }
-        },
-        "dialog_sfondo": {name: "<i class='fi-paint-bucket'></i>&nbsp;Sfondo...", isHtmlName: true},
-        "fold_dinamici": {
-          "name": "Contenuti",
-          items: {
-            "contenuti_dinamici_pagina": {
-              name: "<i class='fi-link'></i>&nbsp;Seleziona contenuti dalla pagina",
-              isHtmlName: true
-            },
-            "contenuti_dinamici_sezione": {
-              name: "<i class='fi-link'></i>&nbsp;Seleziona contenuti dalla sezione",
-              isHtmlName: true
-            },
-            "contenuti_dinamici_sito": {
-              name: "<i class='fi-link'></i>&nbsp;Seleziona contenuti dall'intero sito",
-              isHtmlName: true
-            },
-            "rendi_statica": {name: "<i class='fi-unlink'></i>&nbsp;Reimposta area statica", isHtmlName: true}
-          }
-        },
-      <% if false # @page.modello || @page.articolo %>
-        "fold_ruolo": {
-          "name": "Ruolo della colonna",
-          items: {
-            "aggiungi_ruolo_titolo": {name: "<i class='fi-quote'></i>&nbsp;Titolo", isHtmlName: true},
-            "aggiungi_ruolo_abstract": {name: "<i class='fi-quote'></i>&nbsp;Abstract", isHtmlName: true},
-            "aggiungi_ruolo_testo": {name: "<i class='fi-quote'></i>&nbsp;Testo", isHtmlName: true},
-            "cancella_ruolo": {name: "<i class='fi-x'></i>&nbsp;Cancella ruolo", isHtmlName: true}
-          }
-        }
+<% elsif user_signed_in? && !(@page.home || @page.header || @page.footer || @page.modello) %>
+  <div class="row">
+    <div class="column large-8">
+      <nav aria-label="Sei qui:" role="navigation">
+        <p></p>
+        <ul class="breadcrumbs">
+          <li><a href="/">Home</a></li>
+          <% if !@page.section.principale %><li><a href="/<%= @page.section.percorso %>"><%= @page.section.titolo %></a></li><% end %>
+          <% if !@page.home %>
+            <li>
+              <span class="show-for-sr">Current: </span> <%= @page.titolo %>
+            </li>
+          <% end %>
+        </ul>
+      </nav>
+    </div>
+    <div class="column large-4">
+      <p></p><p class="text-right">
+      <% if @page.visibile %>
+          <%= link_to 'NASCONDI LA PAGINA', { controller: "pages", action: "nascondi", id: @page}, class: "tiny alert button" %>
+      <% else %>
+          <span class="warning label">Al momento non visibile!</span>
+          <%= link_to 'PUBBLICA', { controller: "pages", action: "pubblica", id: @page}, class: "tiny button" %>
       <% end %>
-      }
-    });
-
-    // ...e li disabilita
-    $('.columns').each(function () {
-      var $this = $(this);
-      $this.contextMenu(false);
-    });
-
-    // nasconde i pulsanti di gestione delle immagini
-    $('.gestione-immagini').hide();
-    $('.info-layout').hide();
-    $('.info-visibilita').hide();
-
-    // nasconde la riga dei contenuti dinamici
-    $('#row0').hide();
-
-      /*
-       $('.context-menu-one').on('click', function(e){
-       console.log('clicked', this);
-       })*/
-
-    $('.mioslider').slick({
-      slidestoshow: 1,
-      slidestoscroll: 1,
-      autoplay: true,
-      autoplayspeed: 3000,
-      speed: 2000,
-      zIndex: 100,
-      arrows: true
-    });
-
-    $('.large-12.mioslider').slick('slickSetOption','fade',true);
-    $('.large-12.mioslider').slick('slickSetOption','autoplayspeed',1000);
-    $('.large-12.mioslider').slick('slickSetOption','speed',5000);
-
-    // patch object-fit per IEdge e altri
-    objectFitImages('img.cropped-image');
-
-  });
-
-
-  // salva il contenuto di tutti gli editor inline
-  function pageSave() {
-
-    for (instance in CKEDITOR.instances) {
-      var editor = CKEDITOR.instances[instance]; // CKEDITOR.instances.editor1;
-      var data = editor.getData();
-      var id = editor.name.substr(6);
-
-      // remember to use encodeURIComponent to properly encode the data that is being sent.
-      // document.getElementById( 'editorcontent2' ).innerHTML = data;
-
-      // Send contents to server
-      $.ajax({
-        url: '/columns/' + id + '/editor_update',
-        type: 'POST',
-        data: {
-          contenuto: data,
-          authenticity_token: '<%= form_authenticity_token %>'
-        },
-        // success: function (response) {
-        //   alert("La pagina è stata salvata.");
-        // }
-      });
-    }
-
-    // document.getElementById( 'notice' ).innerHTML = 'La pagina &egrave; stata salvata.';
-    return false;
-
-  }
-
-  function hideElements() {
-    if(current_mode != 'edit' && current_mode!= 'news') {
-      // nasconde i pulsanti di gestione delle immagini
-      $('.gestione-immagini').hide();
-      // $('.info-layout').hide();
-    }
-  }
-
-  function pagePreview() {
-    current_mode = 'preview';
-
-    pageSave();
-
-    // disabilita gli editor inline
-    for (instance in CKEDITOR.instances) {
-      var editor = CKEDITOR.instances[instance];
-
-      if(editor) {
-        editor.destroy();
-        elemento = document.getElementById(editor.name)
-
-        elemento.setAttribute('contenteditable', false);
-      }
-    }
-
-    // disabilita i menù contestuali
-    $('.columns').each(function () {
-      var $this = $(this);
-      $this.contextMenu(false);
-    });
-    $('.columns').removeClass('bordo_layout');
-
-    $('.toolbar').attr('class','toolbar button');
-    $('#pagePreview').attr('class','toolbar warning button');
-
-    // nasconde i pulsanti di gestione delle immagini
-    $('.gestione-immagini').hide();
-    $('.info-layout').hide();
-    $('.info-visibilita').hide();
-
-    // nasconde la riga dei contenuti dinamici
-    $('#row0').hide();
-  }
-
-  function newsEdit() {
-    current_mode = 'news';
-
-    // disabilita gli editor inline
-    for (instance in CKEDITOR.instances) {
-      var editor = CKEDITOR.instances[instance];
-
-      if(editor) {
-        editor.destroy();
-        elemento = document.getElementById(editor.name)
-
-        elemento.setAttribute('contenteditable', false);
-      }
-    }
-
-    // disabilita i menù contestuali
-    $('.columns').each(function () {
-      var $this = $(this);
-      $this.contextMenu(false);
-    });
-    $('.columns').removeClass('bordo_layout');
-
-    $('.toolbar').attr('class','toolbar button');
-    $('#newsEdit').attr('class','toolbar warning button');
-
-    // nasconde i pulsanti di gestione delle immagini
-    $('.gestione-immagini').hide();
-    $('.info-layout').hide();
-    $('.info-visibilita').hide();
-
-    // visualizza la riga dei contenuti dinamici
-    $('#row0').show();
-    $('#row0 .gestione-immagini').show();
-  }
-
-  function inlineEdit() {
-    current_mode = 'edit';
-
-    // abilita gli editor inline
-    $('.inline-editor').attr('contenteditable', true);
-    $('.inline-editor').each(function() {
-      CKEDITOR.inline(this);
-    });
-
-    // configurazione particolare:
-    for (instance in CKEDITOR.instances) {
-      var editor = CKEDITOR.instances[instance];
-      var id = editor.name.substr(6);
-
-      if(editor) {
-        editor.config.filebrowserImageBrowseUrl = "/ckeditor/pictures?column_id=" + id;
-        editor.config.filebrowserImageUploadUrl = "/ckeditor/pictures?column_id=" + id;
-        editor.config.skin = "minimalist";
-        editor.config.stylesSet = "my_styles:/js/ckeditor_my_styles.js";
-      }
-    }
-
-    // disabilita i menù contestuali
-    $('.columns').each(function () {
-      var $this = $(this);
-      $this.contextMenu(false);
-    });
-    $('.columns').removeClass('bordo_layout');
-
-    $('.toolbar').attr('class','toolbar button');
-    $('#inlineEdit').attr('class','toolbar warning button');
-
-    // visualizza i pulsanti di gestione delle immagini
-    $('.gestione-immagini').show();
-    $('.info-layout').hide();
-    $('.info-visibilita').hide();
-
-    // nasconde la riga dei contenuti dinamici
-    $('#row0').hide();
-  }
-
-  function layoutDesign() {
-    current_mode = 'layout';
-
-    pageSave();
-    // disabilita gli editor inline
-    for (instance in CKEDITOR.instances) {
-      var editor = CKEDITOR.instances[instance];
-
-      editor.destroy();
-      elemento = document.getElementById( editor.name )
-
-      elemento.setAttribute( 'contenteditable', false );
-    }
-
-    // abilita i menù contestuali
-    $('.columns').each(function () {
-      var $this = $(this);
-      $this.contextMenu(true);
-    });
-    $('.columns').addClass('bordo_layout');
-
-    $('.toolbar').attr('class','toolbar button');
-    $('#layoutDesign').attr('class','toolbar warning button');
-
-    // nasconde i pulsanti di gestione delle immagini
-    $('.gestione-immagini').hide();
-    $('.info-layout').show();
-    $('.info-visibilita').show();
-
-    // nasconde la riga dei contenuti dinamici
-    $('#row0').hide();
-  }
-
-  function aggiungiImmagine(id) {
-    pageSave();
-
-    $.ajax('/columns/' + id + '/dialog_immagine').done(function (data) {
-      $("#finestra_modale").html(data).foundation("open");
-    });
-  }
-
-  function eliminaImmagine(id) {
-    pageSave();
-
-    $.ajax({
-      url: '/column_images/' + id + '/elimina.js',
-      type: 'POST',
-      data: {
-        authenticity_token: '<%= form_authenticity_token %>'
-      }
-    });
-  }
-
-  function modificaImmagine(id) { // attenzione: è l'id dell'immagine, non della colonna
-    pageSave();
-
-    $.ajax('/columns/' + id + '/modifica_immagine').done(function (data) {
-      $("#finestra_modale").html(data).foundation("open");
-    });
-  }
-
-  function nuovoContenutoDinamico(id) { // attenzione: è l'id della pagina
-    $.ajax({
-      url: '/pages/' + id + '/nuovo_contenuto_dinamico.js',
-      type: 'POST',
-      data: {
-        authenticity_token: '<%= form_authenticity_token %>'
-      }
-    });
-  }
-
-  function eliminaContenutoDinamico(id) {
-    $.ajax({
-      url: '/columns/' + id + '/elimina_contenuto_dinamico.js',
-      type: 'POST',
-      data: {
-        authenticity_token: '<%= form_authenticity_token %>'
-      }
-    });
-  }
-</script>
-
-<% else %>
-    <script>
-      function setCookie(c_name,value,exdays)
-      {
-        var exdate=new Date();
-        exdate.setDate(exdate.getDate() + exdays);
-        var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString()) + "; path=/";
-        document.cookie=c_name + "=" + c_value;
-      }
-      function getCookie(cname) {
-        var name = cname + "=";
-        var ca = document.cookie.split(';');
-        for(var i=0; i<ca.length; i++) {
-          var c = ca[i].trim();
-          if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
-        }
-        return "";
-      }
-
-      $(function() {
-        $('.mioslider').slick({
-          slidestoshow: 1,
-          slidestoscroll: 1,
-          autoplay: true,
-          autoplayspeed: 3000,
-          speed: 2000,
-          zIndex: 100,
-          arrows: true
-        });
-
-        $('.large-12.mioslider').slick('slickSetOption','fade',true);
-        $('.large-12.mioslider').slick('slickSetOption','autoplayspeed',1000);
-        $('.large-12.mioslider').slick('slickSetOption','speed',5000);
-
-        // patch object-fit per IEdge e altri
-        objectFitImages('img.cropped-image');
-      });
-
-      $('ul.etichetta li').each(function() {
-         tag = $(this);
-         text = tag.text().replace(/\s/g,'-');
-         tag.html( "<a href='/search?q=" + text + "'>" + text + "</a>" );
-      });
-
-      // cookie law
-      if (getCookie("cookie-message-readed") == 1)
-      {
-        //$("#cookie-message").hide();
-      }
-      else {
-        $("#cookie-message").show();
-      }
-      $("#cookie-chiudi").click(function(){
-        setCookie("cookie-message-readed",1 , 365);
-        $("#cookie-message").hide();
-      });
-
-    </script>
+    </div>
+  </div>
 <% end %>
+
+<%= render 'row0' if user_signed_in? && !@page.modello && !@page.header && !@page.footer %>
+
+<% @page.rows.order('ordine ASC').each do |row| %>
+  <%= render row, :page => @page %>
+<% end %>
+
+<%= render partial: "footer" %>
+
+<%= render partial: "editing" %>

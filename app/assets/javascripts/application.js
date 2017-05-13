@@ -20,5 +20,6 @@
 //= require jquery.slick
 //= require ckeditor/init
 //= require dropzone
+//= require ofi.min
 // require turbolinks
 //= require_tree .

@@ -38,10 +38,11 @@
   <%= yield %>
 
   <script>
-    $(function() {
-      $(document).foundation();
-      // setTimeout(function() { $(document).foundation('topbar', 'init');}, 250);
-    });
+    // $(function() {
+    //   $(document).foundation();
+    //   // setTimeout(function() { $(document).foundation('topbar', 'init');}, 250);
+    // });
+    $(document).foundation();
   </script>
 
   <%= Rails.configuration.codice_google_analytics.html_safe %>

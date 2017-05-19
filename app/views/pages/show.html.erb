@@ -1,3 +1,5 @@
+<%= render partial: "cookielaw" %>
+
 <% if !user_signed_in? or policy(@page).edit? %>
 <%
   @menu_aggiuntivi = '<li>
@@ -19,8 +21,6 @@
 <% end %>
 
 <%= render partial: "header" %>
-
-<%= render partial: "cookielaw" %>
 
 <div class="reveal" id="finestra_modale" data-reveal>
   <button class="close-button" data-close aria-label="Close modal" type="button">

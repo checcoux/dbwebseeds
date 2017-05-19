@@ -6,12 +6,12 @@
 
 <% if header %>
   <% if !user_signed_in? %>
-      <div data-sticky-container style="z-index:1000;">
-        <div class="top-bar" id="header" data-sticky data-options="marginTop:0;">
+      <div data-sticky-container>
+        <div class="title-bar" data-sticky data-options="marginTop:0;" style="width:100%">
   <% end %>
   <%= render(header.rows.order('ordine ASC')) %>
   <% if !user_signed_in? %>
-      </div>
+        </div>
       </div>
   <% end %>
 <% end %>

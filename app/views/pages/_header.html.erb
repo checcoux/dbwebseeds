@@ -6,8 +6,8 @@
 
 <% if header %>
   <% if !user_signed_in? %>
-      <div data-sticky-container>
-        <div class="top-bar" data-sticky data-options="marginTop:0;" style="width:100%; z-index:999;">
+      <div data-sticky-container style="z-index:1000;">
+        <div class="top-bar" id="header" data-sticky data-options="marginTop:0;">
   <% end %>
   <%= render(header.rows.order('ordine ASC')) %>
   <% if !user_signed_in? %>

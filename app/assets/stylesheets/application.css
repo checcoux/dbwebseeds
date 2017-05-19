@@ -13,7 +13,7 @@
  *= require jquery-ui
  *= require jquery.minicolors
  *= require jquery.contextMenu
- *= require foundation
+ *= require foundation.min
  *= require foundation-icons
  *= require slick
  *= require slick-theme

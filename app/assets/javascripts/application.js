@@ -16,7 +16,7 @@
 //= require jquery.contextMenu
 //= require jquery.minicolors
 //= require what-input
-//= require foundation
+//= require foundation.min
 //= require jquery.slick
 //= require ckeditor/init
 //= require dropzone

@@ -402,6 +402,15 @@
   padding:4px;
 }
 
+// --- SOCIAL ---------------------------------------------------------
+#fb-share-button {
+  position: fixed;
+  bottom: 0;
+  right: 10%;
+  width: 100px;
+  z-index: 1000;
+}
+
 // --- STILI A DISPOSIZIONE DEGLI EDITOR ------------------------------
 
 p {

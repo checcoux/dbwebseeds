@@ -11,12 +11,17 @@
     if @page
       if @page.home
         if !@page.section.principale
-          titolo = "#{@page.section.descrizione}"
+          titolo = @page.section.descrizione
         end
       else
-        titolo = "#{@page.titolo}"
+        titolo = @page.titolo
       end
       immagine_social = @page.trova_immagine_social
+    end
+
+    if @photoalbum
+      titolo = @photoalbum.titolo
+      immagine_social = @photoalbum.trova_immagine_social
     end
 
     if titolo
@@ -28,8 +33,6 @@
     %></title>
   <meta property="og:title" content="<%= titolo %>" />
   <meta property="og:type" content="website" />
-
-
   <meta name="description" content="<%= if @page && @page.abstract
                                           @page.abstract
                                         else

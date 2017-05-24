@@ -16,6 +16,14 @@ class Photoalbum < ActiveRecord::Base
     "#{slug}-#{sequence}"
   end
 
+  def trova_immagine_social
+    # se esiste seleziona un'immagine per i social
+    photo = Photo.find_by(id: copertina)
+    if photo
+      photo.immagine.url(:xlarge)
+    end
+  end
+
   belongs_to :section
 
   has_many :photos, dependent: :destroy

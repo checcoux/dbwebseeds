@@ -1,28 +1,43 @@
 <!DOCTYPE html>
 
-<html class="no-js" lang="it">
+<html class="no-js" lang="it" prefix="og: http://ogp.me/ns#">
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title><%= Rails.configuration.nome_sito %><%=
+  <title><%=
+    nome_sito = Rails.configuration.nome_sito
     if @page
       if @page.home
         if !@page.section.principale
-          " - #{@page.section.descrizione}"
+          titolo = "#{@page.section.descrizione}"
         end
       else
-        " - #{@page.titolo}"
+        titolo = "#{@page.titolo}"
       end
+      immagine_social = @page.trova_immagine_social
     end
-    %>
-  </title>
+
+    if titolo
+      nome_sito + " - " + titolo
+    else
+      nome_sito
+      titolo = nome_sito
+    end
+    %></title>
+  <meta property="og:title" content="<%= titolo %>" />
+  <meta property="og:type" content="website" />
+
+
   <meta name="description" content="<%= if @page && @page.abstract
                                           @page.abstract
                                         else
                                           Rails.configuration.descrizione_sito
                                         end %>">
+  <% if immagine_social %>
+  <meta property="og:image" content="<%= 'http://' + Rails.configuration.action_mailer.default_url_options[:host] + immagine_social %>" />
+  <% end %>
 
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>

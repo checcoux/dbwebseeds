@@ -52,6 +52,15 @@ class Page < ActiveRecord::Base
     piedipagina
   end
 
+  def trova_immagine_social
+    # se esiste seleziona un'immagine per i social
+    column_image = ColumnImage.joins(:column => :row).where(:rows => {:page_id => id}).first
+
+    if column_image
+      column_image.immagine.url(:xlarge)
+    end
+  end
+
   # selezione di tutte le colonne dinamiche di un certo ambito (pagina, sezione, sito...)
   def dinamiche(fonte = 1)
     case fonte

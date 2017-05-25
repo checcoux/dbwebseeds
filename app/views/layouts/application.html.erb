@@ -17,11 +17,18 @@
         titolo = @page.titolo
       end
       immagine_social = @page.trova_immagine_social
+
+      if @page && @page.abstract
+        descrizione = @page.abstract
+      else
+        descrizione = Rails.configuration.descrizione_sito
+      end
     end
 
     if @photoalbum
       titolo = @photoalbum.titolo
       immagine_social = @photoalbum.trova_immagine_social
+      descrizione = 'Guarda tutte le foto!'
     end
 
     if titolo
@@ -33,16 +40,8 @@
     %></title>
   <meta property="og:title" content="<%= titolo %>" />
   <meta property="og:type" content="website" />
-  <meta name="description" content="<%= if @page && @page.abstract
-                                          @page.abstract
-                                        else
-                                          Rails.configuration.descrizione_sito
-                                        end %>">
-  <meta property="og:description" content="<%= if @page && @page.abstract
-                                          @page.abstract
-                                        else
-                                          Rails.configuration.descrizione_sito
-                                        end %>">
+  <meta name="description" content="<%= descrizione %>">
+  <meta property="og:description" content="<%= descrizione %>">
   <% if immagine_social %>
   <meta property="og:image" content="<%= 'http://' + Rails.configuration.action_mailer.default_url_options[:host] + immagine_social %>" />
   <% end %>

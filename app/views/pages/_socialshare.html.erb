@@ -9,9 +9,15 @@
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));</script>
 
+
+  <div id="barra-social">
+  <!-- Bottone di Twitter -->
+  <div style="position: relative; top: 35px; left: -78px;">
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="ctdonbosco" data-size="large">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </div>
+
   <!-- Bottone like & share di Facebook -->
-  <!-- <div id="fb-share-button" class="fb-share-button" data-href="<%= request.original_url %>" data-layout="button" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<%=u request.original_url %>&amp;src=sdkpreparse">Condividi</a></div>
--->
-    <div id="fb-share" class="fb-like" data-href="<%= request.original_url %>" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
+    <div class="fb-like" data-href="<%= request.original_url %>" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
+  </div>
 
 <% end %>

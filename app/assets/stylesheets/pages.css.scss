@@ -403,11 +403,11 @@
 }
 
 // --- SOCIAL ---------------------------------------------------------
-#fb-share-button {
+#fb-share {
   position: fixed;
   bottom: 0;
-  right: 10%;
-  width: 100px;
+  right: 0px;
+  width: auto;
   z-index: 1000;
 }
 

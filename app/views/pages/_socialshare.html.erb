@@ -1,12 +1,14 @@
-<!-- Load Facebook SDK for JavaScript -->
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/it_IT/sdk.js#xfbml=1&version=v2.9&appId=102865639862870";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+<% if Rails.configuration.facebook_app_id!='' %>
+  <!-- Load Facebook SDK for JavaScript -->
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/it_IT/sdk.js#xfbml=1&version=v2.9&appId=<%= Rails.configuration.facebook_app_id %>>";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
 
-<!-- Bottone di condivisione di Facebook -->
-<div id="fb-share-button" class="fb-share-button" data-href="<%= request.original_url %>" data-layout="button" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<%=u request.original_url %>&amp;src=sdkpreparse">Condividi</a></div>
+  <!-- Bottone di condivisione di Facebook -->
+  <div id="fb-share-button" class="fb-share-button" data-href="<%= request.original_url %>" data-layout="button" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<%=u request.original_url %>&amp;src=sdkpreparse">Condividi</a></div>
+<% end %>

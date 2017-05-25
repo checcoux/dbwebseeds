@@ -50,4 +50,6 @@ Rails.application.configure do
                                       ga('send', 'pageview');
 
                                     </script>"
+
+  config.facebook_app_id = "102865639862870"
 end

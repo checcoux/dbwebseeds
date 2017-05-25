@@ -103,4 +103,5 @@ Rails.application.configure do
                                     </script>"
 
   config.facebook_app_id = ""
+  config.twitter_id = ""
 end

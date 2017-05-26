@@ -31,12 +31,8 @@
       descrizione = 'Guarda tutte le foto!'
     end
 
-    if titolo
-      nome_sito + " - " + titolo
-    else
-      nome_sito
-      titolo = nome_sito
-    end
+    titolo ||= nome_sito
+
     %></title>
   <meta property="og:title" content="<%= titolo %>" />
   <meta property="og:type" content="website" />

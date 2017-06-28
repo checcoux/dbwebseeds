@@ -1,11 +1,256 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  titolo: MyString
-  descrizione: MyText
-  section: :one
-
-two:
-  titolo: MyString
-  descrizione: MyText
-  section: :one
+---
+page_24:
+  id: 24
+  titolo: Titolo dell'articolo
+  created_at: 2016-08-15 16:14:58.808910000 Z
+  updated_at: 2016-08-15 16:14:58.808910000 Z
+  section_id: 1
+  home: false
+  header: false
+  footer: false
+  slug: titolo-dell-articolo
+  modello: false
+  articolo: true
+  visibile: true
+  published_at: 2016-08-17 08:12:10.222255000 Z
+  abstract: 
+page_31:
+  id: 31
+  titolo: Quanti gatti!
+  created_at: 2016-08-15 16:42:39.855761000 Z
+  updated_at: 2016-08-15 16:42:39.855761000 Z
+  section_id: 1
+  home: false
+  header: false
+  footer: false
+  slug: quanti-gatti
+  modello: false
+  articolo: true
+  visibile: true
+  published_at: 2016-08-17 08:12:10.222255000 Z
+  abstract: 
+page_32:
+  id: 32
+  titolo: Quali amici troverai
+  created_at: 2016-08-15 16:43:51.693404000 Z
+  updated_at: 2016-08-15 16:43:51.693404000 Z
+  section_id: 1
+  home: false
+  header: false
+  footer: false
+  slug: quali-amici-troverai
+  modello: false
+  articolo: true
+  visibile: true
+  published_at: 2016-08-17 08:12:10.222255000 Z
+  abstract: 
+page_33:
+  id: 33
+  titolo: Prova con gli ò accentì ' e gli apostrofi
+  created_at: 2016-08-15 16:44:16.071003000 Z
+  updated_at: 2016-08-15 16:44:16.071003000 Z
+  section_id: 1
+  home: false
+  header: false
+  footer: false
+  slug: prova-con-gli-o-accenti-e-gli-apostrofi
+  modello: false
+  articolo: true
+  visibile: true
+  published_at: 2016-08-17 08:12:10.222255000 Z
+  abstract: 
+page_35:
+  id: 35
+  titolo: Prova con duplicazione immagini 2
+  created_at: 2016-08-15 16:54:05.656874000 Z
+  updated_at: 2016-08-15 16:54:05.656874000 Z
+  section_id: 1
+  home: false
+  header: false
+  footer: false
+  slug: prova-con-duplicazione-immagini-2
+  modello: false
+  articolo: true
+  visibile: true
+  published_at: 2016-08-17 08:12:10.222255000 Z
+  abstract: 
+page_37:
+  id: 37
+  titolo: prova con data e ora
+  created_at: 2016-08-17 08:18:17.128282000 Z
+  updated_at: 2016-08-17 08:18:17.128282000 Z
+  section_id: 1
+  home: false
+  header: false
+  footer: false
+  slug: prova-con-data-e-ora
+  modello: false
+  articolo: true
+  visibile: true
+  published_at: 2016-08-17 08:12:10.222255000 Z
+  abstract: 
+page_38:
+  id: 38
+  titolo: altro tentativo
+  created_at: 2016-08-17 08:19:42.458315000 Z
+  updated_at: 2016-08-17 08:19:42.458315000 Z
+  section_id: 1
+  home: false
+  header: false
+  footer: false
+  slug: altro-tentativo
+  modello: false
+  articolo: true
+  visibile: true
+  published_at: 2016-08-17 08:19:33.000000000 Z
+  abstract: 
+page_39:
+  id: 39
+  titolo: Prova del 18 agosto
+  created_at: 2016-08-18 09:36:32.795979000 Z
+  updated_at: 2016-08-18 09:36:32.795979000 Z
+  section_id: 1
+  home: false
+  header: false
+  footer: false
+  slug: prova-del-18-agosto
+  modello: false
+  articolo: true
+  visibile: true
+  published_at: 2016-08-18 09:36:21.000000000 Z
+  abstract: 
+page_40:
+  id: 40
+  titolo: Prova 2 del 18 agosto
+  created_at: 2016-08-18 09:38:57.485913000 Z
+  updated_at: 2016-08-18 09:38:57.485913000 Z
+  section_id: 1
+  home: false
+  header: false
+  footer: false
+  slug: prova-2-del-18-agosto
+  modello: false
+  articolo: true
+  visibile: true
+  published_at: 2016-08-18 09:38:50.000000000 Z
+  abstract: 
+page_45:
+  id: 45
+  titolo: Prova
+  created_at: 2016-09-30 15:36:45.911698000 Z
+  updated_at: 2016-09-30 15:36:45.911698000 Z
+  section_id: 1
+  home: false
+  header: false
+  footer: false
+  slug: prova-af1e1e0e-d534-4da0-90cd-75dffe147c6c
+  modello: false
+  articolo: true
+  visibile: false
+  published_at: 2016-09-30 15:36:45.902694000 Z
+  abstract: 
+page_90:
+  id: 90
+  titolo: header
+  created_at: 2016-12-07 17:46:31.777802000 Z
+  updated_at: 2016-12-07 17:46:31.777802000 Z
+  section_id: 1
+  home: false
+  header: true
+  footer: false
+  slug: header
+  modello: false
+  articolo: false
+  visibile: true
+  published_at: 2016-12-07 17:46:31.768800000 Z
+  abstract: 
+page_93:
+  id: 93
+  titolo: modello
+  created_at: 2017-01-18 16:39:18.681473000 Z
+  updated_at: 2017-01-18 16:39:18.681473000 Z
+  section_id: 1
+  home: false
+  header: false
+  footer: false
+  slug: modello
+  modello: true
+  articolo: false
+  visibile: false
+  published_at: 2017-01-18 16:39:18.674470000 Z
+  abstract: 
+page_94:
+  id: 94
+  titolo: gfgfg
+  created_at: 2017-01-18 16:40:01.574326000 Z
+  updated_at: 2017-01-18 17:55:38.375439000 Z
+  section_id: 1
+  home: false
+  header: false
+  footer: false
+  slug: gfgfg
+  modello: false
+  articolo: true
+  visibile: true
+  published_at: 2017-01-18 17:55:38.374438000 Z
+  abstract: Abstract
+page_97:
+  id: 97
+  titolo: Copia di gfgfg zzz
+  created_at: 2017-01-19 16:11:44.035810000 Z
+  updated_at: 2017-01-19 16:12:58.243536000 Z
+  section_id: 1
+  home: false
+  header: false
+  footer: false
+  slug: copia-di-gfgfg-zzz
+  modello: false
+  articolo: true
+  visibile: true
+  published_at: 2017-01-19 16:11:44.021808000 Z
+  abstract: Abstract
+page_98:
+  id: 98
+  titolo: home
+  created_at: 2017-04-14 16:07:02.897026000 Z
+  updated_at: 2017-06-25 14:28:45.828716000 Z
+  section_id: 1
+  home: true
+  header: false
+  footer: false
+  slug: home
+  modello: false
+  articolo: false
+  visibile: true
+  published_at: 2017-04-14 16:07:02.813438000 Z
+  abstract: 
+page_102:
+  id: 102
+  titolo: footer
+  created_at: 2017-06-25 14:29:01.351681000 Z
+  updated_at: 2017-06-25 14:29:01.351681000 Z
+  section_id: 1
+  home: false
+  header: false
+  footer: true
+  slug: footer
+  modello: false
+  articolo: false
+  visibile: true
+  published_at: 2017-06-25 14:29:01.347679000 Z
+  abstract: 
+page_103:
+  id: 103
+  titolo: Home sezione 1
+  created_at: 2017-06-25 15:16:34.114677000 Z
+  updated_at: 2017-06-25 15:16:34.114677000 Z
+  section_id: 6
+  home: true
+  header: false
+  footer: false
+  slug: home-sezione-1
+  modello: false
+  articolo: false
+  visibile: true
+  published_at: 2017-06-25 15:16:34.110676000 Z
+  abstract: 

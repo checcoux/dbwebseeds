@@ -47,9 +47,6 @@ gem 'mini_magick'
 gem 'responders', '~> 2.0'
 gem 'rails-html-sanitizer'
 
-# per fare automaticamente il dump del database nel file seeds.rb
-gem 'seed_dump'
-
 # color picker
 gem 'jquery-minicolors-rails'
 gem 'jquery-ui-rails'
@@ -74,4 +71,21 @@ gem 'jquery-slick-rails'
 
 group :development do
   gem 'meta_request'
+end
+
+group :test do
+  # per utilizzare capybara nei test
+  gem 'minitest-rails-capybara'
+
+  # per aprire la pagina sotto test in un browser
+  gem 'launchy'
+
+  # per eseguire il dump del database nel file seeds.rb
+  # rake db:seed:dump
+  # ricordare di rimuovere utenti amministrativi reali
+  gem 'seed_dump'
+
+  # per eseguire il dump del database nelle fixtures:
+  # rake db:fixtures:dump
+  # ricordare di rimuovere utenti amministrativi reali
 end

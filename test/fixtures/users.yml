@@ -1,11 +1,64 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-# This model initially had no columns defined.  If you add columns to the
-# model remove the '{}' from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
-one: {}
-# column: value
-#
-two: {}
-#  column: value
+---
+user_5:
+  id: 5
+  email: federico@donboscoland.it
+  encrypted_password: "$2a$11$CCV52VCpoqOKC24CAkzXz.FixSWDwsmHTFEE2X9TnSGz8LFOqxQ4O"
+  reset_password_token: 
+  reset_password_sent_at: 
+  remember_created_at: 
+  sign_in_count: 39
+  current_sign_in_at: 2017-04-27 14:31:39.289084000 Z
+  last_sign_in_at: 2017-04-21 14:33:04.610400000 Z
+  current_sign_in_ip: 127.0.0.1
+  last_sign_in_ip: 127.0.0.1
+  confirmation_token: 3453425fff
+  confirmed_at: 2016-07-24 13:41:08.939497000 Z
+  confirmation_sent_at: 2016-07-30 07:54:44.331782000 Z
+  unconfirmed_email: 'NULL'
+  created_at: 2016-07-30 07:54:44.331782000 Z
+  updated_at: 2017-04-27 14:31:39.290586000 Z
+  admin: false
+  section_id: 
+  designer: true
+user_7:
+  id: 7
+  email: a.ros@cnos-fap.it
+  encrypted_password: "$2a$11$9oVuw197qKPr2W9ZNQRa0.78DYWcpjE1QznPd1paVKbFPpCh5Racq"
+  reset_password_token: 
+  reset_password_sent_at: 
+  remember_created_at: 
+  sign_in_count: 2
+  current_sign_in_at: 2016-12-24 14:34:28.297855000 Z
+  last_sign_in_at: 2016-12-24 14:15:32.525994000 Z
+  current_sign_in_ip: 127.0.0.1
+  last_sign_in_ip: "::1"
+  confirmation_token: 78PALehnaRkBRW25f5_E
+  confirmed_at: 2016-12-24 14:15:20.665486000 Z
+  confirmation_sent_at: 2016-12-24 14:14:43.805185000 Z
+  unconfirmed_email: 
+  created_at: 2016-12-24 14:14:43.805185000 Z
+  updated_at: 2016-12-24 14:34:28.298855000 Z
+  admin: false
+  section_id: 
+  designer: false
+user_8:
+  id: 8
+  email: test@donboscoland.it
+  encrypted_password: "$2a$11$7p8VovaLILw4UkxFFHB3d.tBkcw8FOI/FGmXV71abqaOxeWN9YN8S"
+  reset_password_token: 
+  reset_password_sent_at: 
+  remember_created_at: 
+  sign_in_count: 2
+  current_sign_in_at: 2017-06-25 13:28:45.583934000 Z
+  last_sign_in_at: 2017-06-25 13:24:26.616143000 Z
+  current_sign_in_ip: 127.0.0.1
+  last_sign_in_ip: 127.0.0.1
+  confirmation_token: wRtgCygEnxpZcoiYjF1x
+  confirmed_at: 2016-07-24 13:41:08.939497000 Z
+  confirmation_sent_at: 2017-06-25 13:25:48.070835000 Z
+  unconfirmed_email: 
+  created_at: 2017-06-25 13:25:48.070835000 Z
+  updated_at: 2017-06-25 13:28:45.585922000 Z
+  admin: true
+  section_id: 
+  designer: false

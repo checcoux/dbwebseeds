@@ -101,7 +101,7 @@ ActiveRecord::Schema.define(version: 20170224150322) do
     t.boolean  "modello",                  default: false
     t.boolean  "articolo",                 default: false
     t.boolean  "visibile",                 default: true
-    t.datetime "published_at",             default: '2016-08-17 08:12:10'
+    t.datetime "published_at",             default: '2017-06-08 16:07:22'
     t.text     "abstract"
   end
 

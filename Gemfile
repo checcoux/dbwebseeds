@@ -82,10 +82,8 @@ group :test do
 
   # per eseguire il dump del database nel file seeds.rb
   # rake db:seed:dump
-  # ricordare di rimuovere utenti amministrativi reali
   gem 'seed_dump'
 
   # per eseguire il dump del database nelle fixtures:
   # rake db:fixtures:dump
-  # ricordare di rimuovere utenti amministrativi reali
 end

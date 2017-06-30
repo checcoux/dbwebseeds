@@ -327,8 +327,6 @@ class PagesController < ApplicationController
   end
 
   def duplica
-    authorize Page
-
     @page2 = @page.dup
     @page2.home = false
     @page2.header = false

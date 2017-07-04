@@ -86,4 +86,7 @@ group :test do
 
   # per eseguire il dump del database nelle fixtures:
   # rake db:fixtures:dump
+
+  # per fare il seed delle fixtures nel database
+  # rake db:fixtures:load
 end

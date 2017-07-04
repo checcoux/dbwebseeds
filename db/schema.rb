@@ -29,16 +29,16 @@ ActiveRecord::Schema.define(version: 20170224150322) do
   add_index "attachments", ["section_id"], name: "index_attachments_on_section_id"
 
   create_table "ckeditor_assets", force: :cascade do |t|
-    t.string   "data_file_name",    limit: 255, null: false
-    t.string   "data_content_type", limit: 255
+    t.string   "data_file_name",               null: false
+    t.string   "data_content_type"
     t.integer  "data_file_size"
     t.integer  "assetable_id"
     t.string   "assetable_type",    limit: 30
     t.string   "type",              limit: 30
     t.integer  "width"
     t.integer  "height"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable"
@@ -90,18 +90,18 @@ ActiveRecord::Schema.define(version: 20170224150322) do
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
 
   create_table "pages", force: :cascade do |t|
-    t.string   "titolo",       limit: 255
+    t.string   "titolo"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "section_id"
-    t.boolean  "home",                     default: false
-    t.boolean  "header",                   default: false
-    t.boolean  "footer",                   default: false
+    t.boolean  "home",         default: false
+    t.boolean  "header",       default: false
+    t.boolean  "footer",       default: false
     t.string   "slug"
-    t.boolean  "modello",                  default: false
-    t.boolean  "articolo",                 default: false
-    t.boolean  "visibile",                 default: true
-    t.datetime "published_at",             default: '2017-06-08 16:07:22'
+    t.boolean  "modello",      default: false
+    t.boolean  "articolo",     default: false
+    t.boolean  "visibile",     default: true
+    t.datetime "published_at", default: '2016-08-20 18:11:35'
     t.text     "abstract"
   end
 
@@ -145,11 +145,11 @@ ActiveRecord::Schema.define(version: 20170224150322) do
   add_index "rows", ["page_id"], name: "index_rows_on_page_id"
 
   create_table "sections", force: :cascade do |t|
-    t.string   "titolo",      limit: 255
+    t.string   "titolo"
     t.text     "descrizione"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "principale",              default: false
+    t.boolean  "principale",  default: false
     t.string   "percorso"
   end
 

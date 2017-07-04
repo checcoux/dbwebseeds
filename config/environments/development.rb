@@ -38,7 +38,7 @@ Rails.application.configure do
   # richiesto da devise per generare gli url assoluti verso il sito
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-      address: "mail.donboscoweb.it",
+      address: "mail.donbosco.cloud",
       port: 25
   }
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
@@ -56,5 +56,8 @@ Rails.application.configure do
                                       ga('send', 'pageview');
 
                                     </script>"
+
+  config.facebook_app_id = "102865639862870"
+  config.twitter_id = "oratoriosandona"
 
 end

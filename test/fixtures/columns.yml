@@ -1,9 +1,728 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
+---
+column_138:
+  id: 138
   ordine: 1
-  contenuto: MyText
-
-two:
+  contenuto: |
+    <p><span style="color:#0066ff;"><span style="font-size:24px;"><strong>TITOLO</strong></span></span></p>
+  created_at: 2016-08-15 16:42:40.710568000 Z
+  updated_at: 2016-08-15 16:42:40.710568000 Z
+  row_id: 75
+  larghezza: 12
+  fonte: 0
+  page_id: 0
+  autocrop: false
+  padding: ''
+  condivisa: true
+column_139:
+  id: 139
   ordine: 1
-  contenuto: MyText
+  contenuto: |
+    <p><em>L&#39;<b>articolo</b>&nbsp;(dal latino articulus, da artus, &quot;membro&quot;, &quot;arto&quot;; in greco &aacute;rthron) &egrave; un morfema con la funzione di determinante di un sostantivo, nel senso che ne specifica alcune caratteristiche semantiche: l&#39;<b>articolo</b>, infatti, esplicita l&#39;opposizione pragmatica tra tema e rema (cio&egrave; tra ci&ograve; che &egrave; dato e ci&ograve; che &egrave; nuovo ...</em></p>
+  created_at: 2016-08-15 16:42:41.336303000 Z
+  updated_at: 2016-08-15 16:42:41.336303000 Z
+  row_id: 76
+  larghezza: 12
+  fonte: 0
+  page_id: 0
+  autocrop: false
+  padding: ''
+  condivisa: true
+column_140:
+  id: 140
+  ordine: 1
+  contenuto: |
+    <p style="text-align: justify;">Nel&nbsp;<a href="https://it.wikipedia.org/wiki/Giornalismo" title="Giornalismo">giornalismo</a>, un&nbsp;<b>articolo</b>&nbsp;&egrave; un&nbsp;<a href="https://it.wikipedia.org/wiki/Testo" title="Testo">testo</a>&nbsp;individuato da un Quanti gatti! (questo, per tradizione, scelto dalla redazione e non dall&#39;autore) che concorre a formare insieme ad altri articoli un determinato numero di una pubblicazione (&quot;Quell&#39;articolo &egrave; apparso sul numero di ottobre dello Scientific American&quot;). Di origine latina, ma diffuso dal&nbsp;<a href="https://it.wikipedia.org/wiki/Storia_del_giornalismo_inglese" title="Storia del giornalismo inglese">giornalismo inglese</a>, il termine sta a indicare che trattasi di scritto relativamente breve. Nello &#39;slang&#39; tra giornalisti viene familiarmente chiamato &quot;il pezzo&quot; . Testi scritti in forma di articolo appaiono tipicamente in&nbsp;<a href="https://it.wikipedia.org/wiki/Giornale" title="Giornale">giornali</a>,&nbsp;<a href="https://it.wikipedia.org/wiki/Rivista_(periodico)" title="Rivista (periodico)">riviste</a>&nbsp;di costume, scientifiche, professionali, parlamentari, sul&nbsp;<a href="https://it.wikipedia.org/wiki/Web" title="Web">Web</a>&nbsp;o in ogni altro tipo di periodici. Altre regole ha il&nbsp;<b>servizio</b>giornalistico, cio&egrave; l&#39;articolo che fa da base per una&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_radiofonico" title="Programma radiofonico">trasmissione radiofonica</a>&nbsp;e ancor pi&ugrave;&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_televisivo" title="Programma televisivo">televisiva</a>, dove, specie per quest&#39;ultima, il testo &egrave; ampiamente accompagnato da riprese video che limitano il parlato.&nbsp;Nel&nbsp;<a href="https://it.wikipedia.org/wiki/Giornalismo" title="Giornalismo">giornalismo</a>, un&nbsp;<b>articolo</b>&nbsp;&egrave; un&nbsp;<a href="https://it.wikipedia.org/wiki/Testo" title="Testo">testo</a>&nbsp;individuato da un titolo (questo, per tradizione, scelto dalla redazione e non dall&#39;autore) che concorre a formare insieme ad altri articoli un determinato numero di una pubblicazione (&quot;Quell&#39;articolo &egrave; apparso sul numero di ottobre dello Scientific American&quot;). Di origine latina, ma diffuso dal&nbsp;<a href="https://it.wikipedia.org/wiki/Storia_del_giornalismo_inglese" title="Storia del giornalismo inglese">giornalismo inglese</a>, il termine sta a indicare che trattasi di scritto relativamente breve. Nello &#39;slang&#39; tra giornalisti viene familiarmente chiamato &quot;il pezzo&quot; . Testi scritti in forma di articolo appaiono tipicamente in&nbsp;<a href="https://it.wikipedia.org/wiki/Giornale" title="Giornale">giornali</a>,&nbsp;<a href="https://it.wikipedia.org/wiki/Rivista_(periodico)" title="Rivista (periodico)">riviste</a>&nbsp;di costume, scientifiche, professionali, parlamentari, sul&nbsp;<a href="https://it.wikipedia.org/wiki/Web" title="Web">Web</a>&nbsp;o in ogni altro tipo di periodici. Altre regole ha il&nbsp;<b>servizio</b>giornalistico, cio&egrave; l&#39;articolo che fa da base per una&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_radiofonico" title="Programma radiofonico">trasmissione radiofonica</a>&nbsp;e ancor pi&ugrave;&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_televisivo" title="Programma televisivo">televisiva</a>, dove, specie per quest&#39;ultima, il testo &egrave; ampiamente accompagnato da riprese video che limitano il parlato.&nbsp;Nel&nbsp;<a href="https://it.wikipedia.org/wiki/Giornalismo" title="Giornalismo">giornalismo</a>, un&nbsp;<b>articolo</b>&nbsp;&egrave; un&nbsp;<a href="https://it.wikipedia.org/wiki/Testo" title="Testo">testo</a>&nbsp;individuato da un titolo (questo, per tradizione, scelto dalla redazione e non dall&#39;autore) che concorre a formare insieme ad altri articoli un determinato numero di una pubblicazione (&quot;Quell&#39;articolo &egrave; apparso sul numero di ottobre dello Scientific American&quot;). Di origine latina, ma diffuso dal&nbsp;<a href="https://it.wikipedia.org/wiki/Storia_del_giornalismo_inglese" title="Storia del giornalismo inglese">giornalismo inglese</a>, il termine sta a indicare che trattasi di scritto relativamente breve. Nello &#39;slang&#39; tra giornalisti viene familiarmente chiamato &quot;il pezzo&quot; .</p>
+
+    <p style="text-align: justify;">Testi scritti in forma di articolo appaiono tipicamente in&nbsp;<a href="https://it.wikipedia.org/wiki/Giornale" title="Giornale">giornali</a>,&nbsp;<a href="https://it.wikipedia.org/wiki/Rivista_(periodico)" title="Rivista (periodico)">riviste</a>&nbsp;di costume, scientifiche, professionali, parlamentari, sul&nbsp;<a href="https://it.wikipedia.org/wiki/Web" title="Web">Web</a>&nbsp;o in ogni altro tipo di periodici. Altre regole ha il&nbsp;<b>servizio</b>giornalistico, cio&egrave; l&#39;articolo che fa da base per una&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_radiofonico" title="Programma radiofonico">trasmissione radiofonica</a>&nbsp;e ancor pi&ugrave;&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_televisivo" title="Programma televisivo">televisiva</a>, dove, specie per quest&#39;ultima, il testo &egrave; ampiamente accompagnato da riprese video che limitano il parlato.&nbsp;Nel&nbsp;<a href="https://it.wikipedia.org/wiki/Giornalismo" title="Giornalismo">giornalismo</a>, un&nbsp;<b>articolo</b>&nbsp;&egrave; un&nbsp;<a href="https://it.wikipedia.org/wiki/Testo" title="Testo">testo</a>&nbsp;individuato da un titolo (questo, per tradizione, scelto dalla redazione e non dall&#39;autore) che concorre a formare insieme ad altri articoli un determinato numero di una pubblicazione (&quot;Quell&#39;articolo &egrave; apparso sul numero di ottobre dello Scientific American&quot;). Di origine latina, ma diffuso dal&nbsp;<a href="https://it.wikipedia.org/wiki/Storia_del_giornalismo_inglese" title="Storia del giornalismo inglese">giornalismo inglese</a>, il termine sta a indicare che trattasi di scritto relativamente breve. Nello &#39;slang&#39; tra giornalisti viene familiarmente chiamato &quot;il pezzo&quot; . Testi scritti in forma di articolo appaiono tipicamente in&nbsp;<a href="https://it.wikipedia.org/wiki/Giornale" title="Giornale">giornali</a>,&nbsp;<a href="https://it.wikipedia.org/wiki/Rivista_(periodico)" title="Rivista (periodico)">riviste</a>&nbsp;di costume, scientifiche, professionali, parlamentari, sul&nbsp;<a href="https://it.wikipedia.org/wiki/Web" title="Web">Web</a>&nbsp;o in ogni altro tipo di periodici. Altre regole ha il&nbsp;<b>servizio</b>giornalistico, cio&egrave; l&#39;articolo che fa da base per una&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_radiofonico" title="Programma radiofonico">trasmissione radiofonica</a>&nbsp;e ancor pi&ugrave;&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_televisivo" title="Programma televisivo">televisiva</a>, dove, specie per quest&#39;ultima, il testo &egrave; ampiamente accompagnato da riprese video che limitano il parlato.&nbsp;Nel&nbsp;<a href="https://it.wikipedia.org/wiki/Giornalismo" title="Giornalismo">giornalismo</a>, un&nbsp;<b>articolo</b>&nbsp;&egrave; un&nbsp;<a href="https://it.wikipedia.org/wiki/Testo" title="Testo">testo</a>&nbsp;individuato da un titolo (questo, per tradizione, scelto dalla redazione e non dall&#39;autore) che concorre a formare insieme ad altri articoli un determinato numero di una pubblicazione (&quot;Quell&#39;articolo &egrave; apparso sul numero di ottobre dello Scientific American&quot;). Di origine latina, ma diffuso dal&nbsp;<a href="https://it.wikipedia.org/wiki/Storia_del_giornalismo_inglese" title="Storia del giornalismo inglese">giornalismo inglese</a>, il termine sta a indicare che trattasi di scritto relativamente breve. Nello &#39;slang&#39; tra giornalisti viene familiarmente chiamato &quot;il pezzo&quot; . Testi scritti in forma di articolo appaiono tipicamente in&nbsp;<a href="https://it.wikipedia.org/wiki/Giornale" title="Giornale">giornali</a>,&nbsp;<a href="https://it.wikipedia.org/wiki/Rivista_(periodico)" title="Rivista (periodico)">riviste</a>&nbsp;di costume, scientifiche, professionali, parlamentari, sul&nbsp;<a href="https://it.wikipedia.org/wiki/Web" title="Web">Web</a>&nbsp;o in ogni altro tipo di periodici. Altre regole ha il&nbsp;<b>servizio</b>giornalistico, cio&egrave; l&#39;articolo che fa da base per una&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_radiofonico" title="Programma radiofonico">trasmissione radiofonica</a>&nbsp;e ancor pi&ugrave;&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_televisivo" title="Programma televisivo">televisiva</a>, dove, specie per quest&#39;ultima, il testo &egrave; ampiamente accompagnato da riprese video che limitano il parlato.</p>
+
+    <p style="text-align: justify;">Nel&nbsp;<a href="https://it.wikipedia.org/wiki/Giornalismo" title="Giornalismo">giornalismo</a>, un&nbsp;<b>articolo</b>&nbsp;&egrave; un&nbsp;<a href="https://it.wikipedia.org/wiki/Testo" title="Testo">testo</a>&nbsp;individuato da un titolo (questo, per tradizione, scelto dalla redazione e non dall&#39;autore) che concorre a formare insieme ad altri articoli un determinato numero di una pubblicazione (&quot;Quell&#39;articolo &egrave; apparso sul numero di ottobre dello Scientific American&quot;). Di origine latina, ma diffuso dal&nbsp;<a href="https://it.wikipedia.org/wiki/Storia_del_giornalismo_inglese" title="Storia del giornalismo inglese">giornalismo inglese</a>, il termine sta a indicare che trattasi di scritto relativamente breve. Nello &#39;slang&#39; tra giornalisti viene familiarmente chiamato &quot;il pezzo&quot; . Testi scritti in forma di articolo appaiono tipicamente in&nbsp;<a href="https://it.wikipedia.org/wiki/Giornale" title="Giornale">giornali</a>,&nbsp;<a href="https://it.wikipedia.org/wiki/Rivista_(periodico)" title="Rivista (periodico)">riviste</a>&nbsp;di costume, scientifiche, professionali, parlamentari, sul&nbsp;<a href="https://it.wikipedia.org/wiki/Web" title="Web">Web</a>&nbsp;o in ogni altro tipo di periodici. Altre regole ha il&nbsp;<b>servizio</b>giornalistico, cio&egrave; l&#39;articolo che fa da base per una&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_radiofonico" title="Programma radiofonico">trasmissione radiofonica</a>&nbsp;e ancor pi&ugrave;&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_televisivo" title="Programma televisivo">televisiva</a>, dove, specie per quest&#39;ultima, il testo &egrave; ampiamente accompagnato da riprese video che limitano il parlato.</p>
+  created_at: 2016-08-15 16:42:41.954120000 Z
+  updated_at: 2016-08-15 16:42:41.954120000 Z
+  row_id: 77
+  larghezza: 12
+  fonte: 0
+  page_id: 0
+  autocrop: false
+  padding: ''
+  condivisa: true
+column_141:
+  id: 141
+  ordine: 1
+  contenuto: |
+    <p><span style="color:#0066ff;"><span style="font-size:24px;"><strong>Quali amici troverai</strong></span></span></p>
+  created_at: 2016-08-15 16:43:52.562860000 Z
+  updated_at: 2016-08-15 16:43:52.562860000 Z
+  row_id: 78
+  larghezza: 12
+  fonte: 0
+  page_id: 0
+  autocrop: false
+  padding: ''
+  condivisa: true
+column_142:
+  id: 142
+  ordine: 1
+  contenuto: |
+    <p><em>L&#39;<b>articolo</b>&nbsp;(dal latino articulus, da artus, &quot;membro&quot;, &quot;arto&quot;; in greco &aacute;rthron) &egrave; un morfema con la funzione di determinante di un sostantivo, nel senso che ne specifica alcune caratteristiche semantiche: l&#39;<b>articolo</b>, infatti, esplicita l&#39;opposizione pragmatica tra tema e rema (cio&egrave; tra ci&ograve; che &egrave; dato e ci&ograve; che &egrave; nuovo ...</em></p>
+  created_at: 2016-08-15 16:43:53.125778000 Z
+  updated_at: 2016-08-15 16:43:53.125778000 Z
+  row_id: 79
+  larghezza: 12
+  fonte: 0
+  page_id: 0
+  autocrop: false
+  padding: ''
+  condivisa: true
+column_143:
+  id: 143
+  ordine: 1
+  contenuto: |
+    <p style="text-align: justify;">Nel&nbsp;<a href="https://it.wikipedia.org/wiki/Giornalismo" title="Giornalismo">giornalismo</a>, un&nbsp;<b>articolo</b>&nbsp;&egrave; un&nbsp;<a href="https://it.wikipedia.org/wiki/Testo" title="Testo">testo</a>&nbsp;individuato da un Quali amici troverai (questo, per tradizione, scelto dalla redazione e non dall&#39;autore) che concorre a formare insieme ad altri articoli un determinato numero di una pubblicazione (&quot;Quell&#39;articolo &egrave; apparso sul numero di ottobre dello Scientific American&quot;). Di origine latina, ma diffuso dal&nbsp;<a href="https://it.wikipedia.org/wiki/Storia_del_giornalismo_inglese" title="Storia del giornalismo inglese">giornalismo inglese</a>, il termine sta a indicare che trattasi di scritto relativamente breve. Nello &#39;slang&#39; tra giornalisti viene familiarmente chiamato &quot;il pezzo&quot; . Testi scritti in forma di articolo appaiono tipicamente in&nbsp;<a href="https://it.wikipedia.org/wiki/Giornale" title="Giornale">giornali</a>,&nbsp;<a href="https://it.wikipedia.org/wiki/Rivista_(periodico)" title="Rivista (periodico)">riviste</a>&nbsp;di costume, scientifiche, professionali, parlamentari, sul&nbsp;<a href="https://it.wikipedia.org/wiki/Web" title="Web">Web</a>&nbsp;o in ogni altro tipo di periodici. Altre regole ha il&nbsp;<b>servizio</b>giornalistico, cio&egrave; l&#39;articolo che fa da base per una&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_radiofonico" title="Programma radiofonico">trasmissione radiofonica</a>&nbsp;e ancor pi&ugrave;&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_televisivo" title="Programma televisivo">televisiva</a>, dove, specie per quest&#39;ultima, il testo &egrave; ampiamente accompagnato da riprese video che limitano il parlato.&nbsp;Nel&nbsp;<a href="https://it.wikipedia.org/wiki/Giornalismo" title="Giornalismo">giornalismo</a>, un&nbsp;<b>articolo</b>&nbsp;&egrave; un&nbsp;<a href="https://it.wikipedia.org/wiki/Testo" title="Testo">testo</a>&nbsp;individuato da un titolo (questo, per tradizione, scelto dalla redazione e non dall&#39;autore) che concorre a formare insieme ad altri articoli un determinato numero di una pubblicazione (&quot;Quell&#39;articolo &egrave; apparso sul numero di ottobre dello Scientific American&quot;). Di origine latina, ma diffuso dal&nbsp;<a href="https://it.wikipedia.org/wiki/Storia_del_giornalismo_inglese" title="Storia del giornalismo inglese">giornalismo inglese</a>, il termine sta a indicare che trattasi di scritto relativamente breve. Nello &#39;slang&#39; tra giornalisti viene familiarmente chiamato &quot;il pezzo&quot; . Testi scritti in forma di articolo appaiono tipicamente in&nbsp;<a href="https://it.wikipedia.org/wiki/Giornale" title="Giornale">giornali</a>,&nbsp;<a href="https://it.wikipedia.org/wiki/Rivista_(periodico)" title="Rivista (periodico)">riviste</a>&nbsp;di costume, scientifiche, professionali, parlamentari, sul&nbsp;<a href="https://it.wikipedia.org/wiki/Web" title="Web">Web</a>&nbsp;o in ogni altro tipo di periodici. Altre regole ha il&nbsp;<b>servizio</b>giornalistico, cio&egrave; l&#39;articolo che fa da base per una&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_radiofonico" title="Programma radiofonico">trasmissione radiofonica</a>&nbsp;e ancor pi&ugrave;&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_televisivo" title="Programma televisivo">televisiva</a>, dove, specie per quest&#39;ultima, il testo &egrave; ampiamente accompagnato da riprese video che limitano il parlato.&nbsp;Nel&nbsp;<a href="https://it.wikipedia.org/wiki/Giornalismo" title="Giornalismo">giornalismo</a>, un&nbsp;<b>articolo</b>&nbsp;&egrave; un&nbsp;<a href="https://it.wikipedia.org/wiki/Testo" title="Testo">testo</a>&nbsp;individuato da un titolo (questo, per tradizione, scelto dalla redazione e non dall&#39;autore) che concorre a formare insieme ad altri articoli un determinato numero di una pubblicazione (&quot;Quell&#39;articolo &egrave; apparso sul numero di ottobre dello Scientific American&quot;). Di origine latina, ma diffuso dal&nbsp;<a href="https://it.wikipedia.org/wiki/Storia_del_giornalismo_inglese" title="Storia del giornalismo inglese">giornalismo inglese</a>, il termine sta a indicare che trattasi di scritto relativamente breve. Nello &#39;slang&#39; tra giornalisti viene familiarmente chiamato &quot;il pezzo&quot; .</p>
+
+    <p style="text-align: justify;">Testi scritti in forma di articolo appaiono tipicamente in&nbsp;<a href="https://it.wikipedia.org/wiki/Giornale" title="Giornale">giornali</a>,&nbsp;<a href="https://it.wikipedia.org/wiki/Rivista_(periodico)" title="Rivista (periodico)">riviste</a>&nbsp;di costume, scientifiche, professionali, parlamentari, sul&nbsp;<a href="https://it.wikipedia.org/wiki/Web" title="Web">Web</a>&nbsp;o in ogni altro tipo di periodici. Altre regole ha il&nbsp;<b>servizio</b>giornalistico, cio&egrave; l&#39;articolo che fa da base per una&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_radiofonico" title="Programma radiofonico">trasmissione radiofonica</a>&nbsp;e ancor pi&ugrave;&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_televisivo" title="Programma televisivo">televisiva</a>, dove, specie per quest&#39;ultima, il testo &egrave; ampiamente accompagnato da riprese video che limitano il parlato.&nbsp;Nel&nbsp;<a href="https://it.wikipedia.org/wiki/Giornalismo" title="Giornalismo">giornalismo</a>, un&nbsp;<b>articolo</b>&nbsp;&egrave; un&nbsp;<a href="https://it.wikipedia.org/wiki/Testo" title="Testo">testo</a>&nbsp;individuato da un titolo (questo, per tradizione, scelto dalla redazione e non dall&#39;autore) che concorre a formare insieme ad altri articoli un determinato numero di una pubblicazione (&quot;Quell&#39;articolo &egrave; apparso sul numero di ottobre dello Scientific American&quot;). Di origine latina, ma diffuso dal&nbsp;<a href="https://it.wikipedia.org/wiki/Storia_del_giornalismo_inglese" title="Storia del giornalismo inglese">giornalismo inglese</a>, il termine sta a indicare che trattasi di scritto relativamente breve. Nello &#39;slang&#39; tra giornalisti viene familiarmente chiamato &quot;il pezzo&quot; . Testi scritti in forma di articolo appaiono tipicamente in&nbsp;<a href="https://it.wikipedia.org/wiki/Giornale" title="Giornale">giornali</a>,&nbsp;<a href="https://it.wikipedia.org/wiki/Rivista_(periodico)" title="Rivista (periodico)">riviste</a>&nbsp;di costume, scientifiche, professionali, parlamentari, sul&nbsp;<a href="https://it.wikipedia.org/wiki/Web" title="Web">Web</a>&nbsp;o in ogni altro tipo di periodici. Altre regole ha il&nbsp;<b>servizio</b>giornalistico, cio&egrave; l&#39;articolo che fa da base per una&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_radiofonico" title="Programma radiofonico">trasmissione radiofonica</a>&nbsp;e ancor pi&ugrave;&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_televisivo" title="Programma televisivo">televisiva</a>, dove, specie per quest&#39;ultima, il testo &egrave; ampiamente accompagnato da riprese video che limitano il parlato.&nbsp;Nel&nbsp;<a href="https://it.wikipedia.org/wiki/Giornalismo" title="Giornalismo">giornalismo</a>, un&nbsp;<b>articolo</b>&nbsp;&egrave; un&nbsp;<a href="https://it.wikipedia.org/wiki/Testo" title="Testo">testo</a>&nbsp;individuato da un titolo (questo, per tradizione, scelto dalla redazione e non dall&#39;autore) che concorre a formare insieme ad altri articoli un determinato numero di una pubblicazione (&quot;Quell&#39;articolo &egrave; apparso sul numero di ottobre dello Scientific American&quot;). Di origine latina, ma diffuso dal&nbsp;<a href="https://it.wikipedia.org/wiki/Storia_del_giornalismo_inglese" title="Storia del giornalismo inglese">giornalismo inglese</a>, il termine sta a indicare che trattasi di scritto relativamente breve. Nello &#39;slang&#39; tra giornalisti viene familiarmente chiamato &quot;il pezzo&quot; . Testi scritti in forma di articolo appaiono tipicamente in&nbsp;<a href="https://it.wikipedia.org/wiki/Giornale" title="Giornale">giornali</a>,&nbsp;<a href="https://it.wikipedia.org/wiki/Rivista_(periodico)" title="Rivista (periodico)">riviste</a>&nbsp;di costume, scientifiche, professionali, parlamentari, sul&nbsp;<a href="https://it.wikipedia.org/wiki/Web" title="Web">Web</a>&nbsp;o in ogni altro tipo di periodici. Altre regole ha il&nbsp;<b>servizio</b>giornalistico, cio&egrave; l&#39;articolo che fa da base per una&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_radiofonico" title="Programma radiofonico">trasmissione radiofonica</a>&nbsp;e ancor pi&ugrave;&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_televisivo" title="Programma televisivo">televisiva</a>, dove, specie per quest&#39;ultima, il testo &egrave; ampiamente accompagnato da riprese video che limitano il parlato.</p>
+
+    <p style="text-align: justify;">Nel&nbsp;<a href="https://it.wikipedia.org/wiki/Giornalismo" title="Giornalismo">giornalismo</a>, un&nbsp;<b>articolo</b>&nbsp;&egrave; un&nbsp;<a href="https://it.wikipedia.org/wiki/Testo" title="Testo">testo</a>&nbsp;individuato da un titolo (questo, per tradizione, scelto dalla redazione e non dall&#39;autore) che concorre a formare insieme ad altri articoli un determinato numero di una pubblicazione (&quot;Quell&#39;articolo &egrave; apparso sul numero di ottobre dello Scientific American&quot;). Di origine latina, ma diffuso dal&nbsp;<a href="https://it.wikipedia.org/wiki/Storia_del_giornalismo_inglese" title="Storia del giornalismo inglese">giornalismo inglese</a>, il termine sta a indicare che trattasi di scritto relativamente breve. Nello &#39;slang&#39; tra giornalisti viene familiarmente chiamato &quot;il pezzo&quot; . Testi scritti in forma di articolo appaiono tipicamente in&nbsp;<a href="https://it.wikipedia.org/wiki/Giornale" title="Giornale">giornali</a>,&nbsp;<a href="https://it.wikipedia.org/wiki/Rivista_(periodico)" title="Rivista (periodico)">riviste</a>&nbsp;di costume, scientifiche, professionali, parlamentari, sul&nbsp;<a href="https://it.wikipedia.org/wiki/Web" title="Web">Web</a>&nbsp;o in ogni altro tipo di periodici. Altre regole ha il&nbsp;<b>servizio</b>giornalistico, cio&egrave; l&#39;articolo che fa da base per una&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_radiofonico" title="Programma radiofonico">trasmissione radiofonica</a>&nbsp;e ancor pi&ugrave;&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_televisivo" title="Programma televisivo">televisiva</a>, dove, specie per quest&#39;ultima, il testo &egrave; ampiamente accompagnato da riprese video che limitano il parlato.</p>
+  created_at: 2016-08-15 16:43:53.718517000 Z
+  updated_at: 2016-08-15 16:43:53.718517000 Z
+  row_id: 80
+  larghezza: 12
+  fonte: 0
+  page_id: 0
+  autocrop: false
+  padding: ''
+  condivisa: true
+column_144:
+  id: 144
+  ordine: 1
+  contenuto: |
+    <p><span style="color:#0066ff;"><span style="font-size:24px;"><strong>Prova con gli ò accentì ' e gli apostrofi</strong></span></span></p>
+  created_at: 2016-08-15 16:44:16.664474000 Z
+  updated_at: 2016-08-15 16:44:16.664474000 Z
+  row_id: 81
+  larghezza: 12
+  fonte: 0
+  page_id: 0
+  autocrop: false
+  padding: ''
+  condivisa: true
+column_145:
+  id: 145
+  ordine: 1
+  contenuto: |
+    <p><em>L&#39;<b>articolo</b>&nbsp;(dal latino articulus, da artus, &quot;membro&quot;, &quot;arto&quot;; in greco &aacute;rthron) &egrave; un morfema con la funzione di determinante di un sostantivo, nel senso che ne specifica alcune caratteristiche semantiche: l&#39;<b>articolo</b>, infatti, esplicita l&#39;opposizione pragmatica tra tema e rema (cio&egrave; tra ci&ograve; che &egrave; dato e ci&ograve; che &egrave; nuovo ...</em></p>
+  created_at: 2016-08-15 16:44:17.342438000 Z
+  updated_at: 2016-08-15 16:44:17.342438000 Z
+  row_id: 82
+  larghezza: 12
+  fonte: 0
+  page_id: 0
+  autocrop: false
+  padding: ''
+  condivisa: true
+column_146:
+  id: 146
+  ordine: 1
+  contenuto: |
+    <p style="text-align: justify;">Nel&nbsp;<a href="https://it.wikipedia.org/wiki/Giornalismo" title="Giornalismo">giornalismo</a>, un&nbsp;<b>articolo</b>&nbsp;&egrave; un&nbsp;<a href="https://it.wikipedia.org/wiki/Testo" title="Testo">testo</a>&nbsp;individuato da un Prova con gli ò accentì ' e gli apostrofi (questo, per tradizione, scelto dalla redazione e non dall&#39;autore) che concorre a formare insieme ad altri articoli un determinato numero di una pubblicazione (&quot;Quell&#39;articolo &egrave; apparso sul numero di ottobre dello Scientific American&quot;). Di origine latina, ma diffuso dal&nbsp;<a href="https://it.wikipedia.org/wiki/Storia_del_giornalismo_inglese" title="Storia del giornalismo inglese">giornalismo inglese</a>, il termine sta a indicare che trattasi di scritto relativamente breve. Nello &#39;slang&#39; tra giornalisti viene familiarmente chiamato &quot;il pezzo&quot; . Testi scritti in forma di articolo appaiono tipicamente in&nbsp;<a href="https://it.wikipedia.org/wiki/Giornale" title="Giornale">giornali</a>,&nbsp;<a href="https://it.wikipedia.org/wiki/Rivista_(periodico)" title="Rivista (periodico)">riviste</a>&nbsp;di costume, scientifiche, professionali, parlamentari, sul&nbsp;<a href="https://it.wikipedia.org/wiki/Web" title="Web">Web</a>&nbsp;o in ogni altro tipo di periodici. Altre regole ha il&nbsp;<b>servizio</b>giornalistico, cio&egrave; l&#39;articolo che fa da base per una&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_radiofonico" title="Programma radiofonico">trasmissione radiofonica</a>&nbsp;e ancor pi&ugrave;&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_televisivo" title="Programma televisivo">televisiva</a>, dove, specie per quest&#39;ultima, il testo &egrave; ampiamente accompagnato da riprese video che limitano il parlato.&nbsp;Nel&nbsp;<a href="https://it.wikipedia.org/wiki/Giornalismo" title="Giornalismo">giornalismo</a>, un&nbsp;<b>articolo</b>&nbsp;&egrave; un&nbsp;<a href="https://it.wikipedia.org/wiki/Testo" title="Testo">testo</a>&nbsp;individuato da un titolo (questo, per tradizione, scelto dalla redazione e non dall&#39;autore) che concorre a formare insieme ad altri articoli un determinato numero di una pubblicazione (&quot;Quell&#39;articolo &egrave; apparso sul numero di ottobre dello Scientific American&quot;). Di origine latina, ma diffuso dal&nbsp;<a href="https://it.wikipedia.org/wiki/Storia_del_giornalismo_inglese" title="Storia del giornalismo inglese">giornalismo inglese</a>, il termine sta a indicare che trattasi di scritto relativamente breve. Nello &#39;slang&#39; tra giornalisti viene familiarmente chiamato &quot;il pezzo&quot; . Testi scritti in forma di articolo appaiono tipicamente in&nbsp;<a href="https://it.wikipedia.org/wiki/Giornale" title="Giornale">giornali</a>,&nbsp;<a href="https://it.wikipedia.org/wiki/Rivista_(periodico)" title="Rivista (periodico)">riviste</a>&nbsp;di costume, scientifiche, professionali, parlamentari, sul&nbsp;<a href="https://it.wikipedia.org/wiki/Web" title="Web">Web</a>&nbsp;o in ogni altro tipo di periodici. Altre regole ha il&nbsp;<b>servizio</b>giornalistico, cio&egrave; l&#39;articolo che fa da base per una&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_radiofonico" title="Programma radiofonico">trasmissione radiofonica</a>&nbsp;e ancor pi&ugrave;&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_televisivo" title="Programma televisivo">televisiva</a>, dove, specie per quest&#39;ultima, il testo &egrave; ampiamente accompagnato da riprese video che limitano il parlato.&nbsp;Nel&nbsp;<a href="https://it.wikipedia.org/wiki/Giornalismo" title="Giornalismo">giornalismo</a>, un&nbsp;<b>articolo</b>&nbsp;&egrave; un&nbsp;<a href="https://it.wikipedia.org/wiki/Testo" title="Testo">testo</a>&nbsp;individuato da un titolo (questo, per tradizione, scelto dalla redazione e non dall&#39;autore) che concorre a formare insieme ad altri articoli un determinato numero di una pubblicazione (&quot;Quell&#39;articolo &egrave; apparso sul numero di ottobre dello Scientific American&quot;). Di origine latina, ma diffuso dal&nbsp;<a href="https://it.wikipedia.org/wiki/Storia_del_giornalismo_inglese" title="Storia del giornalismo inglese">giornalismo inglese</a>, il termine sta a indicare che trattasi di scritto relativamente breve. Nello &#39;slang&#39; tra giornalisti viene familiarmente chiamato &quot;il pezzo&quot; .</p>
+
+    <p style="text-align: justify;">Testi scritti in forma di articolo appaiono tipicamente in&nbsp;<a href="https://it.wikipedia.org/wiki/Giornale" title="Giornale">giornali</a>,&nbsp;<a href="https://it.wikipedia.org/wiki/Rivista_(periodico)" title="Rivista (periodico)">riviste</a>&nbsp;di costume, scientifiche, professionali, parlamentari, sul&nbsp;<a href="https://it.wikipedia.org/wiki/Web" title="Web">Web</a>&nbsp;o in ogni altro tipo di periodici. Altre regole ha il&nbsp;<b>servizio</b>giornalistico, cio&egrave; l&#39;articolo che fa da base per una&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_radiofonico" title="Programma radiofonico">trasmissione radiofonica</a>&nbsp;e ancor pi&ugrave;&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_televisivo" title="Programma televisivo">televisiva</a>, dove, specie per quest&#39;ultima, il testo &egrave; ampiamente accompagnato da riprese video che limitano il parlato.&nbsp;Nel&nbsp;<a href="https://it.wikipedia.org/wiki/Giornalismo" title="Giornalismo">giornalismo</a>, un&nbsp;<b>articolo</b>&nbsp;&egrave; un&nbsp;<a href="https://it.wikipedia.org/wiki/Testo" title="Testo">testo</a>&nbsp;individuato da un titolo (questo, per tradizione, scelto dalla redazione e non dall&#39;autore) che concorre a formare insieme ad altri articoli un determinato numero di una pubblicazione (&quot;Quell&#39;articolo &egrave; apparso sul numero di ottobre dello Scientific American&quot;). Di origine latina, ma diffuso dal&nbsp;<a href="https://it.wikipedia.org/wiki/Storia_del_giornalismo_inglese" title="Storia del giornalismo inglese">giornalismo inglese</a>, il termine sta a indicare che trattasi di scritto relativamente breve. Nello &#39;slang&#39; tra giornalisti viene familiarmente chiamato &quot;il pezzo&quot; . Testi scritti in forma di articolo appaiono tipicamente in&nbsp;<a href="https://it.wikipedia.org/wiki/Giornale" title="Giornale">giornali</a>,&nbsp;<a href="https://it.wikipedia.org/wiki/Rivista_(periodico)" title="Rivista (periodico)">riviste</a>&nbsp;di costume, scientifiche, professionali, parlamentari, sul&nbsp;<a href="https://it.wikipedia.org/wiki/Web" title="Web">Web</a>&nbsp;o in ogni altro tipo di periodici. Altre regole ha il&nbsp;<b>servizio</b>giornalistico, cio&egrave; l&#39;articolo che fa da base per una&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_radiofonico" title="Programma radiofonico">trasmissione radiofonica</a>&nbsp;e ancor pi&ugrave;&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_televisivo" title="Programma televisivo">televisiva</a>, dove, specie per quest&#39;ultima, il testo &egrave; ampiamente accompagnato da riprese video che limitano il parlato.&nbsp;Nel&nbsp;<a href="https://it.wikipedia.org/wiki/Giornalismo" title="Giornalismo">giornalismo</a>, un&nbsp;<b>articolo</b>&nbsp;&egrave; un&nbsp;<a href="https://it.wikipedia.org/wiki/Testo" title="Testo">testo</a>&nbsp;individuato da un titolo (questo, per tradizione, scelto dalla redazione e non dall&#39;autore) che concorre a formare insieme ad altri articoli un determinato numero di una pubblicazione (&quot;Quell&#39;articolo &egrave; apparso sul numero di ottobre dello Scientific American&quot;). Di origine latina, ma diffuso dal&nbsp;<a href="https://it.wikipedia.org/wiki/Storia_del_giornalismo_inglese" title="Storia del giornalismo inglese">giornalismo inglese</a>, il termine sta a indicare che trattasi di scritto relativamente breve. Nello &#39;slang&#39; tra giornalisti viene familiarmente chiamato &quot;il pezzo&quot; . Testi scritti in forma di articolo appaiono tipicamente in&nbsp;<a href="https://it.wikipedia.org/wiki/Giornale" title="Giornale">giornali</a>,&nbsp;<a href="https://it.wikipedia.org/wiki/Rivista_(periodico)" title="Rivista (periodico)">riviste</a>&nbsp;di costume, scientifiche, professionali, parlamentari, sul&nbsp;<a href="https://it.wikipedia.org/wiki/Web" title="Web">Web</a>&nbsp;o in ogni altro tipo di periodici. Altre regole ha il&nbsp;<b>servizio</b>giornalistico, cio&egrave; l&#39;articolo che fa da base per una&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_radiofonico" title="Programma radiofonico">trasmissione radiofonica</a>&nbsp;e ancor pi&ugrave;&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_televisivo" title="Programma televisivo">televisiva</a>, dove, specie per quest&#39;ultima, il testo &egrave; ampiamente accompagnato da riprese video che limitano il parlato.</p>
+
+    <p style="text-align: justify;">Nel&nbsp;<a href="https://it.wikipedia.org/wiki/Giornalismo" title="Giornalismo">giornalismo</a>, un&nbsp;<b>articolo</b>&nbsp;&egrave; un&nbsp;<a href="https://it.wikipedia.org/wiki/Testo" title="Testo">testo</a>&nbsp;individuato da un titolo (questo, per tradizione, scelto dalla redazione e non dall&#39;autore) che concorre a formare insieme ad altri articoli un determinato numero di una pubblicazione (&quot;Quell&#39;articolo &egrave; apparso sul numero di ottobre dello Scientific American&quot;). Di origine latina, ma diffuso dal&nbsp;<a href="https://it.wikipedia.org/wiki/Storia_del_giornalismo_inglese" title="Storia del giornalismo inglese">giornalismo inglese</a>, il termine sta a indicare che trattasi di scritto relativamente breve. Nello &#39;slang&#39; tra giornalisti viene familiarmente chiamato &quot;il pezzo&quot; . Testi scritti in forma di articolo appaiono tipicamente in&nbsp;<a href="https://it.wikipedia.org/wiki/Giornale" title="Giornale">giornali</a>,&nbsp;<a href="https://it.wikipedia.org/wiki/Rivista_(periodico)" title="Rivista (periodico)">riviste</a>&nbsp;di costume, scientifiche, professionali, parlamentari, sul&nbsp;<a href="https://it.wikipedia.org/wiki/Web" title="Web">Web</a>&nbsp;o in ogni altro tipo di periodici. Altre regole ha il&nbsp;<b>servizio</b>giornalistico, cio&egrave; l&#39;articolo che fa da base per una&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_radiofonico" title="Programma radiofonico">trasmissione radiofonica</a>&nbsp;e ancor pi&ugrave;&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_televisivo" title="Programma televisivo">televisiva</a>, dove, specie per quest&#39;ultima, il testo &egrave; ampiamente accompagnato da riprese video che limitano il parlato.</p>
+  created_at: 2016-08-15 16:44:17.963991000 Z
+  updated_at: 2016-08-15 16:44:17.963991000 Z
+  row_id: 83
+  larghezza: 12
+  fonte: 0
+  page_id: 0
+  autocrop: false
+  padding: ''
+  condivisa: true
+column_152:
+  id: 152
+  ordine: 1
+  contenuto: |
+    <p><span style="color:#0066ff;"><span style="font-size:24px;"><strong>Prova con duplicazione immagini 2</strong></span></span></p>
+  created_at: 2016-08-15 16:54:06.264275000 Z
+  updated_at: 2016-08-15 16:54:06.264275000 Z
+  row_id: 87
+  larghezza: 9
+  fonte: 0
+  page_id: 0
+  autocrop: false
+  padding: ''
+  condivisa: true
+column_153:
+  id: 153
+  ordine: 2
+  contenuto: "<p>Cantami o Diva del pelide Achille l'ira funesta...</p>"
+  created_at: 2016-08-15 16:54:06.582839000 Z
+  updated_at: 2016-08-15 16:54:06.582839000 Z
+  row_id: 87
+  larghezza: 3
+  fonte: 0
+  page_id: 0
+  autocrop: false
+  padding: ''
+  condivisa: true
+column_154:
+  id: 154
+  ordine: 1
+  contenuto: |
+    <p><em>L&#39;<b>articolo</b>&nbsp;(dal latino articulus, da artus, &quot;membro&quot;, &quot;arto&quot;; in greco &aacute;rthron) &egrave; un morfema con la funzione di determinante di un sostantivo, nel senso che ne specifica alcune caratteristiche semantiche: l&#39;<b>articolo</b>, infatti, esplicita l&#39;opposizione pragmatica tra tema e rema (cio&egrave; tra ci&ograve; che &egrave; dato e ci&ograve; che &egrave; nuovo ...</em></p>
+  created_at: 2016-08-15 16:54:08.374871000 Z
+  updated_at: 2016-08-15 16:54:08.374871000 Z
+  row_id: 88
+  larghezza: 12
+  fonte: 0
+  page_id: 0
+  autocrop: false
+  padding: ''
+  condivisa: true
+column_155:
+  id: 155
+  ordine: 1
+  contenuto: |
+    <p style="text-align: justify;">Nel&nbsp;<a href="https://it.wikipedia.org/wiki/Giornalismo" title="Giornalismo">giornalismo</a>, un&nbsp;<b>articolo</b>&nbsp;&egrave; un&nbsp;<a href="https://it.wikipedia.org/wiki/Testo" title="Testo">testo</a>&nbsp;individuato da un Prova con duplicazione immagini 2 (questo, per tradizione, scelto dalla redazione e non dall&#39;autore) che concorre a formare insieme ad altri articoli un determinato numero di una pubblicazione (&quot;Quell&#39;articolo &egrave; apparso sul numero di ottobre dello Scientific American&quot;). Di origine latina, ma diffuso dal&nbsp;<a href="https://it.wikipedia.org/wiki/Storia_del_giornalismo_inglese" title="Storia del giornalismo inglese">giornalismo inglese</a>, il termine sta a indicare che trattasi di scritto relativamente breve. Nello &#39;slang&#39; tra giornalisti viene familiarmente chiamato &quot;il pezzo&quot; . Testi scritti in forma di articolo appaiono tipicamente in&nbsp;<a href="https://it.wikipedia.org/wiki/Giornale" title="Giornale">giornali</a>,&nbsp;<a href="https://it.wikipedia.org/wiki/Rivista_(periodico)" title="Rivista (periodico)">riviste</a>&nbsp;di costume, scientifiche, professionali, parlamentari, sul&nbsp;<a href="https://it.wikipedia.org/wiki/Web" title="Web">Web</a>&nbsp;o in ogni altro tipo di periodici. Altre regole ha il&nbsp;<b>servizio</b>giornalistico, cio&egrave; l&#39;articolo che fa da base per una&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_radiofonico" title="Programma radiofonico">trasmissione radiofonica</a>&nbsp;e ancor pi&ugrave;&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_televisivo" title="Programma televisivo">televisiva</a>, dove, specie per quest&#39;ultima, il testo &egrave; ampiamente accompagnato da riprese video che limitano il parlato.&nbsp;Nel&nbsp;<a href="https://it.wikipedia.org/wiki/Giornalismo" title="Giornalismo">giornalismo</a>, un&nbsp;<b>articolo</b>&nbsp;&egrave; un&nbsp;<a href="https://it.wikipedia.org/wiki/Testo" title="Testo">testo</a>&nbsp;individuato da un titolo (questo, per tradizione, scelto dalla redazione e non dall&#39;autore) che concorre a formare insieme ad altri articoli un determinato numero di una pubblicazione (&quot;Quell&#39;articolo &egrave; apparso sul numero di ottobre dello Scientific American&quot;). Di origine latina, ma diffuso dal&nbsp;<a href="https://it.wikipedia.org/wiki/Storia_del_giornalismo_inglese" title="Storia del giornalismo inglese">giornalismo inglese</a>, il termine sta a indicare che trattasi di scritto relativamente breve. Nello &#39;slang&#39; tra giornalisti viene familiarmente chiamato &quot;il pezzo&quot; . Testi scritti in forma di articolo appaiono tipicamente in&nbsp;<a href="https://it.wikipedia.org/wiki/Giornale" title="Giornale">giornali</a>,&nbsp;<a href="https://it.wikipedia.org/wiki/Rivista_(periodico)" title="Rivista (periodico)">riviste</a>&nbsp;di costume, scientifiche, professionali, parlamentari, sul&nbsp;<a href="https://it.wikipedia.org/wiki/Web" title="Web">Web</a>&nbsp;o in ogni altro tipo di periodici. Altre regole ha il&nbsp;<b>servizio</b>giornalistico, cio&egrave; l&#39;articolo che fa da base per una&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_radiofonico" title="Programma radiofonico">trasmissione radiofonica</a>&nbsp;e ancor pi&ugrave;&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_televisivo" title="Programma televisivo">televisiva</a>, dove, specie per quest&#39;ultima, il testo &egrave; ampiamente accompagnato da riprese video che limitano il parlato.&nbsp;Nel&nbsp;<a href="https://it.wikipedia.org/wiki/Giornalismo" title="Giornalismo">giornalismo</a>, un&nbsp;<b>articolo</b>&nbsp;&egrave; un&nbsp;<a href="https://it.wikipedia.org/wiki/Testo" title="Testo">testo</a>&nbsp;individuato da un titolo (questo, per tradizione, scelto dalla redazione e non dall&#39;autore) che concorre a formare insieme ad altri articoli un determinato numero di una pubblicazione (&quot;Quell&#39;articolo &egrave; apparso sul numero di ottobre dello Scientific American&quot;). Di origine latina, ma diffuso dal&nbsp;<a href="https://it.wikipedia.org/wiki/Storia_del_giornalismo_inglese" title="Storia del giornalismo inglese">giornalismo inglese</a>, il termine sta a indicare che trattasi di scritto relativamente breve. Nello &#39;slang&#39; tra giornalisti viene familiarmente chiamato &quot;il pezzo&quot; .</p>
+
+    <p style="text-align: justify;">Testi scritti in forma di articolo appaiono tipicamente in&nbsp;<a href="https://it.wikipedia.org/wiki/Giornale" title="Giornale">giornali</a>,&nbsp;<a href="https://it.wikipedia.org/wiki/Rivista_(periodico)" title="Rivista (periodico)">riviste</a>&nbsp;di costume, scientifiche, professionali, parlamentari, sul&nbsp;<a href="https://it.wikipedia.org/wiki/Web" title="Web">Web</a>&nbsp;o in ogni altro tipo di periodici. Altre regole ha il&nbsp;<b>servizio</b>giornalistico, cio&egrave; l&#39;articolo che fa da base per una&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_radiofonico" title="Programma radiofonico">trasmissione radiofonica</a>&nbsp;e ancor pi&ugrave;&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_televisivo" title="Programma televisivo">televisiva</a>, dove, specie per quest&#39;ultima, il testo &egrave; ampiamente accompagnato da riprese video che limitano il parlato.&nbsp;Nel&nbsp;<a href="https://it.wikipedia.org/wiki/Giornalismo" title="Giornalismo">giornalismo</a>, un&nbsp;<b>articolo</b>&nbsp;&egrave; un&nbsp;<a href="https://it.wikipedia.org/wiki/Testo" title="Testo">testo</a>&nbsp;individuato da un titolo (questo, per tradizione, scelto dalla redazione e non dall&#39;autore) che concorre a formare insieme ad altri articoli un determinato numero di una pubblicazione (&quot;Quell&#39;articolo &egrave; apparso sul numero di ottobre dello Scientific American&quot;). Di origine latina, ma diffuso dal&nbsp;<a href="https://it.wikipedia.org/wiki/Storia_del_giornalismo_inglese" title="Storia del giornalismo inglese">giornalismo inglese</a>, il termine sta a indicare che trattasi di scritto relativamente breve. Nello &#39;slang&#39; tra giornalisti viene familiarmente chiamato &quot;il pezzo&quot; . Testi scritti in forma di articolo appaiono tipicamente in&nbsp;<a href="https://it.wikipedia.org/wiki/Giornale" title="Giornale">giornali</a>,&nbsp;<a href="https://it.wikipedia.org/wiki/Rivista_(periodico)" title="Rivista (periodico)">riviste</a>&nbsp;di costume, scientifiche, professionali, parlamentari, sul&nbsp;<a href="https://it.wikipedia.org/wiki/Web" title="Web">Web</a>&nbsp;o in ogni altro tipo di periodici. Altre regole ha il&nbsp;<b>servizio</b>giornalistico, cio&egrave; l&#39;articolo che fa da base per una&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_radiofonico" title="Programma radiofonico">trasmissione radiofonica</a>&nbsp;e ancor pi&ugrave;&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_televisivo" title="Programma televisivo">televisiva</a>, dove, specie per quest&#39;ultima, il testo &egrave; ampiamente accompagnato da riprese video che limitano il parlato.&nbsp;Nel&nbsp;<a href="https://it.wikipedia.org/wiki/Giornalismo" title="Giornalismo">giornalismo</a>, un&nbsp;<b>articolo</b>&nbsp;&egrave; un&nbsp;<a href="https://it.wikipedia.org/wiki/Testo" title="Testo">testo</a>&nbsp;individuato da un titolo (questo, per tradizione, scelto dalla redazione e non dall&#39;autore) che concorre a formare insieme ad altri articoli un determinato numero di una pubblicazione (&quot;Quell&#39;articolo &egrave; apparso sul numero di ottobre dello Scientific American&quot;). Di origine latina, ma diffuso dal&nbsp;<a href="https://it.wikipedia.org/wiki/Storia_del_giornalismo_inglese" title="Storia del giornalismo inglese">giornalismo inglese</a>, il termine sta a indicare che trattasi di scritto relativamente breve. Nello &#39;slang&#39; tra giornalisti viene familiarmente chiamato &quot;il pezzo&quot; . Testi scritti in forma di articolo appaiono tipicamente in&nbsp;<a href="https://it.wikipedia.org/wiki/Giornale" title="Giornale">giornali</a>,&nbsp;<a href="https://it.wikipedia.org/wiki/Rivista_(periodico)" title="Rivista (periodico)">riviste</a>&nbsp;di costume, scientifiche, professionali, parlamentari, sul&nbsp;<a href="https://it.wikipedia.org/wiki/Web" title="Web">Web</a>&nbsp;o in ogni altro tipo di periodici. Altre regole ha il&nbsp;<b>servizio</b>giornalistico, cio&egrave; l&#39;articolo che fa da base per una&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_radiofonico" title="Programma radiofonico">trasmissione radiofonica</a>&nbsp;e ancor pi&ugrave;&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_televisivo" title="Programma televisivo">televisiva</a>, dove, specie per quest&#39;ultima, il testo &egrave; ampiamente accompagnato da riprese video che limitano il parlato.</p>
+
+    <p style="text-align: justify;">Nel&nbsp;<a href="https://it.wikipedia.org/wiki/Giornalismo" title="Giornalismo">giornalismo</a>, un&nbsp;<b>articolo</b>&nbsp;&egrave; un&nbsp;<a href="https://it.wikipedia.org/wiki/Testo" title="Testo">testo</a>&nbsp;individuato da un titolo (questo, per tradizione, scelto dalla redazione e non dall&#39;autore) che concorre a formare insieme ad altri articoli un determinato numero di una pubblicazione (&quot;Quell&#39;articolo &egrave; apparso sul numero di ottobre dello Scientific American&quot;). Di origine latina, ma diffuso dal&nbsp;<a href="https://it.wikipedia.org/wiki/Storia_del_giornalismo_inglese" title="Storia del giornalismo inglese">giornalismo inglese</a>, il termine sta a indicare che trattasi di scritto relativamente breve. Nello &#39;slang&#39; tra giornalisti viene familiarmente chiamato &quot;il pezzo&quot; . Testi scritti in forma di articolo appaiono tipicamente in&nbsp;<a href="https://it.wikipedia.org/wiki/Giornale" title="Giornale">giornali</a>,&nbsp;<a href="https://it.wikipedia.org/wiki/Rivista_(periodico)" title="Rivista (periodico)">riviste</a>&nbsp;di costume, scientifiche, professionali, parlamentari, sul&nbsp;<a href="https://it.wikipedia.org/wiki/Web" title="Web">Web</a>&nbsp;o in ogni altro tipo di periodici. Altre regole ha il&nbsp;<b>servizio</b>giornalistico, cio&egrave; l&#39;articolo che fa da base per una&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_radiofonico" title="Programma radiofonico">trasmissione radiofonica</a>&nbsp;e ancor pi&ugrave;&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_televisivo" title="Programma televisivo">televisiva</a>, dove, specie per quest&#39;ultima, il testo &egrave; ampiamente accompagnato da riprese video che limitano il parlato.</p>
+  created_at: 2016-08-15 16:54:08.999390000 Z
+  updated_at: 2016-08-15 16:54:08.999390000 Z
+  row_id: 89
+  larghezza: 12
+  fonte: 0
+  page_id: 0
+  autocrop: false
+  padding: ''
+  condivisa: true
+column_157:
+  id: 157
+  ordine: 1
+  contenuto: |
+    <p><span style="color:#0066ff;"><span style="font-size:24px;"><strong>prova con data e ora</strong></span></span></p>
+  created_at: 2016-08-17 08:18:17.686769000 Z
+  updated_at: 2016-08-17 08:18:17.686769000 Z
+  row_id: 91
+  larghezza: 9
+  fonte: 0
+  page_id: 0
+  autocrop: false
+  padding: ''
+  condivisa: true
+column_158:
+  id: 158
+  ordine: 2
+  contenuto: "<p>Cantami o Diva del pelide Achille l'ira funesta...</p>"
+  created_at: 2016-08-17 08:18:17.976168000 Z
+  updated_at: 2016-08-17 08:18:17.976168000 Z
+  row_id: 91
+  larghezza: 3
+  fonte: 0
+  page_id: 0
+  autocrop: false
+  padding: ''
+  condivisa: true
+column_159:
+  id: 159
+  ordine: 1
+  contenuto: |
+    <p><em>L&#39;<b>articolo</b>&nbsp;(dal latino articulus, da artus, &quot;membro&quot;, &quot;arto&quot;; in greco &aacute;rthron) &egrave; un morfema con la funzione di determinante di un sostantivo, nel senso che ne specifica alcune caratteristiche semantiche: l&#39;<b>articolo</b>, infatti, esplicita l&#39;opposizione pragmatica tra tema e rema (cio&egrave; tra ci&ograve; che &egrave; dato e ci&ograve; che &egrave; nuovo ...</em></p>
+  created_at: 2016-08-17 08:18:19.819694000 Z
+  updated_at: 2016-08-17 08:18:19.819694000 Z
+  row_id: 92
+  larghezza: 12
+  fonte: 0
+  page_id: 0
+  autocrop: false
+  padding: ''
+  condivisa: true
+column_160:
+  id: 160
+  ordine: 1
+  contenuto: |
+    <p style="text-align: justify;">Nel&nbsp;<a href="https://it.wikipedia.org/wiki/Giornalismo" title="Giornalismo">giornalismo</a>, un&nbsp;<b>articolo</b>&nbsp;&egrave; un&nbsp;<a href="https://it.wikipedia.org/wiki/Testo" title="Testo">testo</a>&nbsp;individuato da un prova con data e ora (questo, per tradizione, scelto dalla redazione e non dall&#39;autore) che concorre a formare insieme ad altri articoli un determinato numero di una pubblicazione (&quot;Quell&#39;articolo &egrave; apparso sul numero di ottobre dello Scientific American&quot;). Di origine latina, ma diffuso dal&nbsp;<a href="https://it.wikipedia.org/wiki/Storia_del_giornalismo_inglese" title="Storia del giornalismo inglese">giornalismo inglese</a>, il termine sta a indicare che trattasi di scritto relativamente breve. Nello &#39;slang&#39; tra giornalisti viene familiarmente chiamato &quot;il pezzo&quot; . Testi scritti in forma di articolo appaiono tipicamente in&nbsp;<a href="https://it.wikipedia.org/wiki/Giornale" title="Giornale">giornali</a>,&nbsp;<a href="https://it.wikipedia.org/wiki/Rivista_(periodico)" title="Rivista (periodico)">riviste</a>&nbsp;di costume, scientifiche, professionali, parlamentari, sul&nbsp;<a href="https://it.wikipedia.org/wiki/Web" title="Web">Web</a>&nbsp;o in ogni altro tipo di periodici. Altre regole ha il&nbsp;<b>servizio</b>giornalistico, cio&egrave; l&#39;articolo che fa da base per una&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_radiofonico" title="Programma radiofonico">trasmissione radiofonica</a>&nbsp;e ancor pi&ugrave;&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_televisivo" title="Programma televisivo">televisiva</a>, dove, specie per quest&#39;ultima, il testo &egrave; ampiamente accompagnato da riprese video che limitano il parlato.&nbsp;Nel&nbsp;<a href="https://it.wikipedia.org/wiki/Giornalismo" title="Giornalismo">giornalismo</a>, un&nbsp;<b>articolo</b>&nbsp;&egrave; un&nbsp;<a href="https://it.wikipedia.org/wiki/Testo" title="Testo">testo</a>&nbsp;individuato da un titolo (questo, per tradizione, scelto dalla redazione e non dall&#39;autore) che concorre a formare insieme ad altri articoli un determinato numero di una pubblicazione (&quot;Quell&#39;articolo &egrave; apparso sul numero di ottobre dello Scientific American&quot;). Di origine latina, ma diffuso dal&nbsp;<a href="https://it.wikipedia.org/wiki/Storia_del_giornalismo_inglese" title="Storia del giornalismo inglese">giornalismo inglese</a>, il termine sta a indicare che trattasi di scritto relativamente breve. Nello &#39;slang&#39; tra giornalisti viene familiarmente chiamato &quot;il pezzo&quot; . Testi scritti in forma di articolo appaiono tipicamente in&nbsp;<a href="https://it.wikipedia.org/wiki/Giornale" title="Giornale">giornali</a>,&nbsp;<a href="https://it.wikipedia.org/wiki/Rivista_(periodico)" title="Rivista (periodico)">riviste</a>&nbsp;di costume, scientifiche, professionali, parlamentari, sul&nbsp;<a href="https://it.wikipedia.org/wiki/Web" title="Web">Web</a>&nbsp;o in ogni altro tipo di periodici. Altre regole ha il&nbsp;<b>servizio</b>giornalistico, cio&egrave; l&#39;articolo che fa da base per una&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_radiofonico" title="Programma radiofonico">trasmissione radiofonica</a>&nbsp;e ancor pi&ugrave;&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_televisivo" title="Programma televisivo">televisiva</a>, dove, specie per quest&#39;ultima, il testo &egrave; ampiamente accompagnato da riprese video che limitano il parlato.&nbsp;Nel&nbsp;<a href="https://it.wikipedia.org/wiki/Giornalismo" title="Giornalismo">giornalismo</a>, un&nbsp;<b>articolo</b>&nbsp;&egrave; un&nbsp;<a href="https://it.wikipedia.org/wiki/Testo" title="Testo">testo</a>&nbsp;individuato da un titolo (questo, per tradizione, scelto dalla redazione e non dall&#39;autore) che concorre a formare insieme ad altri articoli un determinato numero di una pubblicazione (&quot;Quell&#39;articolo &egrave; apparso sul numero di ottobre dello Scientific American&quot;). Di origine latina, ma diffuso dal&nbsp;<a href="https://it.wikipedia.org/wiki/Storia_del_giornalismo_inglese" title="Storia del giornalismo inglese">giornalismo inglese</a>, il termine sta a indicare che trattasi di scritto relativamente breve. Nello &#39;slang&#39; tra giornalisti viene familiarmente chiamato &quot;il pezzo&quot; .</p>
+
+    <p style="text-align: justify;">Testi scritti in forma di articolo appaiono tipicamente in&nbsp;<a href="https://it.wikipedia.org/wiki/Giornale" title="Giornale">giornali</a>,&nbsp;<a href="https://it.wikipedia.org/wiki/Rivista_(periodico)" title="Rivista (periodico)">riviste</a>&nbsp;di costume, scientifiche, professionali, parlamentari, sul&nbsp;<a href="https://it.wikipedia.org/wiki/Web" title="Web">Web</a>&nbsp;o in ogni altro tipo di periodici. Altre regole ha il&nbsp;<b>servizio</b>giornalistico, cio&egrave; l&#39;articolo che fa da base per una&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_radiofonico" title="Programma radiofonico">trasmissione radiofonica</a>&nbsp;e ancor pi&ugrave;&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_televisivo" title="Programma televisivo">televisiva</a>, dove, specie per quest&#39;ultima, il testo &egrave; ampiamente accompagnato da riprese video che limitano il parlato.&nbsp;Nel&nbsp;<a href="https://it.wikipedia.org/wiki/Giornalismo" title="Giornalismo">giornalismo</a>, un&nbsp;<b>articolo</b>&nbsp;&egrave; un&nbsp;<a href="https://it.wikipedia.org/wiki/Testo" title="Testo">testo</a>&nbsp;individuato da un titolo (questo, per tradizione, scelto dalla redazione e non dall&#39;autore) che concorre a formare insieme ad altri articoli un determinato numero di una pubblicazione (&quot;Quell&#39;articolo &egrave; apparso sul numero di ottobre dello Scientific American&quot;). Di origine latina, ma diffuso dal&nbsp;<a href="https://it.wikipedia.org/wiki/Storia_del_giornalismo_inglese" title="Storia del giornalismo inglese">giornalismo inglese</a>, il termine sta a indicare che trattasi di scritto relativamente breve. Nello &#39;slang&#39; tra giornalisti viene familiarmente chiamato &quot;il pezzo&quot; . Testi scritti in forma di articolo appaiono tipicamente in&nbsp;<a href="https://it.wikipedia.org/wiki/Giornale" title="Giornale">giornali</a>,&nbsp;<a href="https://it.wikipedia.org/wiki/Rivista_(periodico)" title="Rivista (periodico)">riviste</a>&nbsp;di costume, scientifiche, professionali, parlamentari, sul&nbsp;<a href="https://it.wikipedia.org/wiki/Web" title="Web">Web</a>&nbsp;o in ogni altro tipo di periodici. Altre regole ha il&nbsp;<b>servizio</b>giornalistico, cio&egrave; l&#39;articolo che fa da base per una&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_radiofonico" title="Programma radiofonico">trasmissione radiofonica</a>&nbsp;e ancor pi&ugrave;&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_televisivo" title="Programma televisivo">televisiva</a>, dove, specie per quest&#39;ultima, il testo &egrave; ampiamente accompagnato da riprese video che limitano il parlato.&nbsp;Nel&nbsp;<a href="https://it.wikipedia.org/wiki/Giornalismo" title="Giornalismo">giornalismo</a>, un&nbsp;<b>articolo</b>&nbsp;&egrave; un&nbsp;<a href="https://it.wikipedia.org/wiki/Testo" title="Testo">testo</a>&nbsp;individuato da un titolo (questo, per tradizione, scelto dalla redazione e non dall&#39;autore) che concorre a formare insieme ad altri articoli un determinato numero di una pubblicazione (&quot;Quell&#39;articolo &egrave; apparso sul numero di ottobre dello Scientific American&quot;). Di origine latina, ma diffuso dal&nbsp;<a href="https://it.wikipedia.org/wiki/Storia_del_giornalismo_inglese" title="Storia del giornalismo inglese">giornalismo inglese</a>, il termine sta a indicare che trattasi di scritto relativamente breve. Nello &#39;slang&#39; tra giornalisti viene familiarmente chiamato &quot;il pezzo&quot; . Testi scritti in forma di articolo appaiono tipicamente in&nbsp;<a href="https://it.wikipedia.org/wiki/Giornale" title="Giornale">giornali</a>,&nbsp;<a href="https://it.wikipedia.org/wiki/Rivista_(periodico)" title="Rivista (periodico)">riviste</a>&nbsp;di costume, scientifiche, professionali, parlamentari, sul&nbsp;<a href="https://it.wikipedia.org/wiki/Web" title="Web">Web</a>&nbsp;o in ogni altro tipo di periodici. Altre regole ha il&nbsp;<b>servizio</b>giornalistico, cio&egrave; l&#39;articolo che fa da base per una&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_radiofonico" title="Programma radiofonico">trasmissione radiofonica</a>&nbsp;e ancor pi&ugrave;&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_televisivo" title="Programma televisivo">televisiva</a>, dove, specie per quest&#39;ultima, il testo &egrave; ampiamente accompagnato da riprese video che limitano il parlato.</p>
+
+    <p style="text-align: justify;">Nel&nbsp;<a href="https://it.wikipedia.org/wiki/Giornalismo" title="Giornalismo">giornalismo</a>, un&nbsp;<b>articolo</b>&nbsp;&egrave; un&nbsp;<a href="https://it.wikipedia.org/wiki/Testo" title="Testo">testo</a>&nbsp;individuato da un titolo (questo, per tradizione, scelto dalla redazione e non dall&#39;autore) che concorre a formare insieme ad altri articoli un determinato numero di una pubblicazione (&quot;Quell&#39;articolo &egrave; apparso sul numero di ottobre dello Scientific American&quot;). Di origine latina, ma diffuso dal&nbsp;<a href="https://it.wikipedia.org/wiki/Storia_del_giornalismo_inglese" title="Storia del giornalismo inglese">giornalismo inglese</a>, il termine sta a indicare che trattasi di scritto relativamente breve. Nello &#39;slang&#39; tra giornalisti viene familiarmente chiamato &quot;il pezzo&quot; . Testi scritti in forma di articolo appaiono tipicamente in&nbsp;<a href="https://it.wikipedia.org/wiki/Giornale" title="Giornale">giornali</a>,&nbsp;<a href="https://it.wikipedia.org/wiki/Rivista_(periodico)" title="Rivista (periodico)">riviste</a>&nbsp;di costume, scientifiche, professionali, parlamentari, sul&nbsp;<a href="https://it.wikipedia.org/wiki/Web" title="Web">Web</a>&nbsp;o in ogni altro tipo di periodici. Altre regole ha il&nbsp;<b>servizio</b>giornalistico, cio&egrave; l&#39;articolo che fa da base per una&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_radiofonico" title="Programma radiofonico">trasmissione radiofonica</a>&nbsp;e ancor pi&ugrave;&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_televisivo" title="Programma televisivo">televisiva</a>, dove, specie per quest&#39;ultima, il testo &egrave; ampiamente accompagnato da riprese video che limitano il parlato.</p>
+  created_at: 2016-08-17 08:18:20.370948000 Z
+  updated_at: 2016-08-17 08:18:20.370948000 Z
+  row_id: 93
+  larghezza: 12
+  fonte: 0
+  page_id: 0
+  autocrop: false
+  padding: ''
+  condivisa: true
+column_161:
+  id: 161
+  ordine: 1
+  contenuto: |
+    <p><span style="color:#0066ff;"><span style="font-size:24px;"><strong>altro tentativo</strong></span></span></p>
+  created_at: 2016-08-17 08:19:43.131960000 Z
+  updated_at: 2016-08-17 08:19:43.131960000 Z
+  row_id: 94
+  larghezza: 9
+  fonte: 0
+  page_id: 0
+  autocrop: false
+  padding: ''
+  condivisa: true
+column_162:
+  id: 162
+  ordine: 2
+  contenuto: "<p>Cantami o Diva del pelide Achille l'ira funesta...</p>"
+  created_at: 2016-08-17 08:19:43.442519000 Z
+  updated_at: 2016-08-17 08:19:43.442519000 Z
+  row_id: 94
+  larghezza: 3
+  fonte: 0
+  page_id: 0
+  autocrop: false
+  padding: ''
+  condivisa: true
+column_163:
+  id: 163
+  ordine: 1
+  contenuto: |
+    <p><em>L&#39;<b>articolo</b>&nbsp;(dal latino articulus, da artus, &quot;membro&quot;, &quot;arto&quot;; in greco &aacute;rthron) &egrave; un morfema con la funzione di determinante di un sostantivo, nel senso che ne specifica alcune caratteristiche semantiche: l&#39;<b>articolo</b>, infatti, esplicita l&#39;opposizione pragmatica tra tema e rema (cio&egrave; tra ci&ograve; che &egrave; dato e ci&ograve; che &egrave; nuovo ...</em></p>
+  created_at: 2016-08-17 08:19:45.337236000 Z
+  updated_at: 2016-08-17 08:19:45.337236000 Z
+  row_id: 95
+  larghezza: 12
+  fonte: 0
+  page_id: 0
+  autocrop: false
+  padding: ''
+  condivisa: true
+column_164:
+  id: 164
+  ordine: 1
+  contenuto: |
+    <p style="text-align: justify;">Nel&nbsp;<a href="https://it.wikipedia.org/wiki/Giornalismo" title="Giornalismo">giornalismo</a>, un&nbsp;<b>articolo</b>&nbsp;&egrave; un&nbsp;<a href="https://it.wikipedia.org/wiki/Testo" title="Testo">testo</a>&nbsp;individuato da un altro tentativo (questo, per tradizione, scelto dalla redazione e non dall&#39;autore) che concorre a formare insieme ad altri articoli un determinato numero di una pubblicazione (&quot;Quell&#39;articolo &egrave; apparso sul numero di ottobre dello Scientific American&quot;). Di origine latina, ma diffuso dal&nbsp;<a href="https://it.wikipedia.org/wiki/Storia_del_giornalismo_inglese" title="Storia del giornalismo inglese">giornalismo inglese</a>, il termine sta a indicare che trattasi di scritto relativamente breve. Nello &#39;slang&#39; tra giornalisti viene familiarmente chiamato &quot;il pezzo&quot; . Testi scritti in forma di articolo appaiono tipicamente in&nbsp;<a href="https://it.wikipedia.org/wiki/Giornale" title="Giornale">giornali</a>,&nbsp;<a href="https://it.wikipedia.org/wiki/Rivista_(periodico)" title="Rivista (periodico)">riviste</a>&nbsp;di costume, scientifiche, professionali, parlamentari, sul&nbsp;<a href="https://it.wikipedia.org/wiki/Web" title="Web">Web</a>&nbsp;o in ogni altro tipo di periodici. Altre regole ha il&nbsp;<b>servizio</b>giornalistico, cio&egrave; l&#39;articolo che fa da base per una&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_radiofonico" title="Programma radiofonico">trasmissione radiofonica</a>&nbsp;e ancor pi&ugrave;&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_televisivo" title="Programma televisivo">televisiva</a>, dove, specie per quest&#39;ultima, il testo &egrave; ampiamente accompagnato da riprese video che limitano il parlato.&nbsp;Nel&nbsp;<a href="https://it.wikipedia.org/wiki/Giornalismo" title="Giornalismo">giornalismo</a>, un&nbsp;<b>articolo</b>&nbsp;&egrave; un&nbsp;<a href="https://it.wikipedia.org/wiki/Testo" title="Testo">testo</a>&nbsp;individuato da un titolo (questo, per tradizione, scelto dalla redazione e non dall&#39;autore) che concorre a formare insieme ad altri articoli un determinato numero di una pubblicazione (&quot;Quell&#39;articolo &egrave; apparso sul numero di ottobre dello Scientific American&quot;). Di origine latina, ma diffuso dal&nbsp;<a href="https://it.wikipedia.org/wiki/Storia_del_giornalismo_inglese" title="Storia del giornalismo inglese">giornalismo inglese</a>, il termine sta a indicare che trattasi di scritto relativamente breve. Nello &#39;slang&#39; tra giornalisti viene familiarmente chiamato &quot;il pezzo&quot; . Testi scritti in forma di articolo appaiono tipicamente in&nbsp;<a href="https://it.wikipedia.org/wiki/Giornale" title="Giornale">giornali</a>,&nbsp;<a href="https://it.wikipedia.org/wiki/Rivista_(periodico)" title="Rivista (periodico)">riviste</a>&nbsp;di costume, scientifiche, professionali, parlamentari, sul&nbsp;<a href="https://it.wikipedia.org/wiki/Web" title="Web">Web</a>&nbsp;o in ogni altro tipo di periodici. Altre regole ha il&nbsp;<b>servizio</b>giornalistico, cio&egrave; l&#39;articolo che fa da base per una&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_radiofonico" title="Programma radiofonico">trasmissione radiofonica</a>&nbsp;e ancor pi&ugrave;&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_televisivo" title="Programma televisivo">televisiva</a>, dove, specie per quest&#39;ultima, il testo &egrave; ampiamente accompagnato da riprese video che limitano il parlato.&nbsp;Nel&nbsp;<a href="https://it.wikipedia.org/wiki/Giornalismo" title="Giornalismo">giornalismo</a>, un&nbsp;<b>articolo</b>&nbsp;&egrave; un&nbsp;<a href="https://it.wikipedia.org/wiki/Testo" title="Testo">testo</a>&nbsp;individuato da un titolo (questo, per tradizione, scelto dalla redazione e non dall&#39;autore) che concorre a formare insieme ad altri articoli un determinato numero di una pubblicazione (&quot;Quell&#39;articolo &egrave; apparso sul numero di ottobre dello Scientific American&quot;). Di origine latina, ma diffuso dal&nbsp;<a href="https://it.wikipedia.org/wiki/Storia_del_giornalismo_inglese" title="Storia del giornalismo inglese">giornalismo inglese</a>, il termine sta a indicare che trattasi di scritto relativamente breve. Nello &#39;slang&#39; tra giornalisti viene familiarmente chiamato &quot;il pezzo&quot; .</p>
+
+    <p style="text-align: justify;">Testi scritti in forma di articolo appaiono tipicamente in&nbsp;<a href="https://it.wikipedia.org/wiki/Giornale" title="Giornale">giornali</a>,&nbsp;<a href="https://it.wikipedia.org/wiki/Rivista_(periodico)" title="Rivista (periodico)">riviste</a>&nbsp;di costume, scientifiche, professionali, parlamentari, sul&nbsp;<a href="https://it.wikipedia.org/wiki/Web" title="Web">Web</a>&nbsp;o in ogni altro tipo di periodici. Altre regole ha il&nbsp;<b>servizio</b>giornalistico, cio&egrave; l&#39;articolo che fa da base per una&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_radiofonico" title="Programma radiofonico">trasmissione radiofonica</a>&nbsp;e ancor pi&ugrave;&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_televisivo" title="Programma televisivo">televisiva</a>, dove, specie per quest&#39;ultima, il testo &egrave; ampiamente accompagnato da riprese video che limitano il parlato.&nbsp;Nel&nbsp;<a href="https://it.wikipedia.org/wiki/Giornalismo" title="Giornalismo">giornalismo</a>, un&nbsp;<b>articolo</b>&nbsp;&egrave; un&nbsp;<a href="https://it.wikipedia.org/wiki/Testo" title="Testo">testo</a>&nbsp;individuato da un titolo (questo, per tradizione, scelto dalla redazione e non dall&#39;autore) che concorre a formare insieme ad altri articoli un determinato numero di una pubblicazione (&quot;Quell&#39;articolo &egrave; apparso sul numero di ottobre dello Scientific American&quot;). Di origine latina, ma diffuso dal&nbsp;<a href="https://it.wikipedia.org/wiki/Storia_del_giornalismo_inglese" title="Storia del giornalismo inglese">giornalismo inglese</a>, il termine sta a indicare che trattasi di scritto relativamente breve. Nello &#39;slang&#39; tra giornalisti viene familiarmente chiamato &quot;il pezzo&quot; . Testi scritti in forma di articolo appaiono tipicamente in&nbsp;<a href="https://it.wikipedia.org/wiki/Giornale" title="Giornale">giornali</a>,&nbsp;<a href="https://it.wikipedia.org/wiki/Rivista_(periodico)" title="Rivista (periodico)">riviste</a>&nbsp;di costume, scientifiche, professionali, parlamentari, sul&nbsp;<a href="https://it.wikipedia.org/wiki/Web" title="Web">Web</a>&nbsp;o in ogni altro tipo di periodici. Altre regole ha il&nbsp;<b>servizio</b>giornalistico, cio&egrave; l&#39;articolo che fa da base per una&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_radiofonico" title="Programma radiofonico">trasmissione radiofonica</a>&nbsp;e ancor pi&ugrave;&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_televisivo" title="Programma televisivo">televisiva</a>, dove, specie per quest&#39;ultima, il testo &egrave; ampiamente accompagnato da riprese video che limitano il parlato.&nbsp;Nel&nbsp;<a href="https://it.wikipedia.org/wiki/Giornalismo" title="Giornalismo">giornalismo</a>, un&nbsp;<b>articolo</b>&nbsp;&egrave; un&nbsp;<a href="https://it.wikipedia.org/wiki/Testo" title="Testo">testo</a>&nbsp;individuato da un titolo (questo, per tradizione, scelto dalla redazione e non dall&#39;autore) che concorre a formare insieme ad altri articoli un determinato numero di una pubblicazione (&quot;Quell&#39;articolo &egrave; apparso sul numero di ottobre dello Scientific American&quot;). Di origine latina, ma diffuso dal&nbsp;<a href="https://it.wikipedia.org/wiki/Storia_del_giornalismo_inglese" title="Storia del giornalismo inglese">giornalismo inglese</a>, il termine sta a indicare che trattasi di scritto relativamente breve. Nello &#39;slang&#39; tra giornalisti viene familiarmente chiamato &quot;il pezzo&quot; . Testi scritti in forma di articolo appaiono tipicamente in&nbsp;<a href="https://it.wikipedia.org/wiki/Giornale" title="Giornale">giornali</a>,&nbsp;<a href="https://it.wikipedia.org/wiki/Rivista_(periodico)" title="Rivista (periodico)">riviste</a>&nbsp;di costume, scientifiche, professionali, parlamentari, sul&nbsp;<a href="https://it.wikipedia.org/wiki/Web" title="Web">Web</a>&nbsp;o in ogni altro tipo di periodici. Altre regole ha il&nbsp;<b>servizio</b>giornalistico, cio&egrave; l&#39;articolo che fa da base per una&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_radiofonico" title="Programma radiofonico">trasmissione radiofonica</a>&nbsp;e ancor pi&ugrave;&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_televisivo" title="Programma televisivo">televisiva</a>, dove, specie per quest&#39;ultima, il testo &egrave; ampiamente accompagnato da riprese video che limitano il parlato.</p>
+
+    <p style="text-align: justify;">Nel&nbsp;<a href="https://it.wikipedia.org/wiki/Giornalismo" title="Giornalismo">giornalismo</a>, un&nbsp;<b>articolo</b>&nbsp;&egrave; un&nbsp;<a href="https://it.wikipedia.org/wiki/Testo" title="Testo">testo</a>&nbsp;individuato da un titolo (questo, per tradizione, scelto dalla redazione e non dall&#39;autore) che concorre a formare insieme ad altri articoli un determinato numero di una pubblicazione (&quot;Quell&#39;articolo &egrave; apparso sul numero di ottobre dello Scientific American&quot;). Di origine latina, ma diffuso dal&nbsp;<a href="https://it.wikipedia.org/wiki/Storia_del_giornalismo_inglese" title="Storia del giornalismo inglese">giornalismo inglese</a>, il termine sta a indicare che trattasi di scritto relativamente breve. Nello &#39;slang&#39; tra giornalisti viene familiarmente chiamato &quot;il pezzo&quot; . Testi scritti in forma di articolo appaiono tipicamente in&nbsp;<a href="https://it.wikipedia.org/wiki/Giornale" title="Giornale">giornali</a>,&nbsp;<a href="https://it.wikipedia.org/wiki/Rivista_(periodico)" title="Rivista (periodico)">riviste</a>&nbsp;di costume, scientifiche, professionali, parlamentari, sul&nbsp;<a href="https://it.wikipedia.org/wiki/Web" title="Web">Web</a>&nbsp;o in ogni altro tipo di periodici. Altre regole ha il&nbsp;<b>servizio</b>giornalistico, cio&egrave; l&#39;articolo che fa da base per una&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_radiofonico" title="Programma radiofonico">trasmissione radiofonica</a>&nbsp;e ancor pi&ugrave;&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_televisivo" title="Programma televisivo">televisiva</a>, dove, specie per quest&#39;ultima, il testo &egrave; ampiamente accompagnato da riprese video che limitano il parlato.</p>
+  created_at: 2016-08-17 08:19:45.928370000 Z
+  updated_at: 2016-08-17 08:19:45.928370000 Z
+  row_id: 96
+  larghezza: 12
+  fonte: 0
+  page_id: 0
+  autocrop: false
+  padding: ''
+  condivisa: true
+column_165:
+  id: 165
+  ordine: 1
+  contenuto: |
+    <p><span style="color:#0066ff;"><span style="font-size:24px;"><strong>Prova del 18 agosto</strong></span></span></p>
+  created_at: 2016-08-18 09:36:33.525412000 Z
+  updated_at: 2016-08-18 09:36:33.525412000 Z
+  row_id: 97
+  larghezza: 9
+  fonte: 0
+  page_id: 0
+  autocrop: false
+  padding: ''
+  condivisa: true
+column_166:
+  id: 166
+  ordine: 2
+  contenuto: "<p>Cantami o Diva del pelide Achille l'ira funesta...</p>"
+  created_at: 2016-08-18 09:36:33.847940000 Z
+  updated_at: 2016-08-18 09:36:33.847940000 Z
+  row_id: 97
+  larghezza: 3
+  fonte: 0
+  page_id: 0
+  autocrop: false
+  padding: ''
+  condivisa: true
+column_167:
+  id: 167
+  ordine: 1
+  contenuto: |
+    <p><em>L&#39;<b>articolo</b>&nbsp;(dal latino articulus, da artus, &quot;membro&quot;, &quot;arto&quot;; in greco &aacute;rthron) &egrave; un morfema con la funzione di determinante di un sostantivo, nel senso che ne specifica alcune caratteristiche semantiche: l&#39;<b>articolo</b>, infatti, esplicita l&#39;opposizione pragmatica tra tema e rema (cio&egrave; tra ci&ograve; che &egrave; dato e ci&ograve; che &egrave; nuovo ...</em></p>
+  created_at: 2016-08-18 09:36:35.641804000 Z
+  updated_at: 2016-08-18 09:36:35.641804000 Z
+  row_id: 98
+  larghezza: 12
+  fonte: 0
+  page_id: 0
+  autocrop: false
+  padding: ''
+  condivisa: true
+column_168:
+  id: 168
+  ordine: 1
+  contenuto: |
+    <p style="text-align: justify;">Nel&nbsp;<a href="https://it.wikipedia.org/wiki/Giornalismo" title="Giornalismo">giornalismo</a>, un&nbsp;<b>articolo</b>&nbsp;&egrave; un&nbsp;<a href="https://it.wikipedia.org/wiki/Testo" title="Testo">testo</a>&nbsp;individuato da un Prova del 18 agosto (questo, per tradizione, scelto dalla redazione e non dall&#39;autore) che concorre a formare insieme ad altri articoli un determinato numero di una pubblicazione (&quot;Quell&#39;articolo &egrave; apparso sul numero di ottobre dello Scientific American&quot;). Di origine latina, ma diffuso dal&nbsp;<a href="https://it.wikipedia.org/wiki/Storia_del_giornalismo_inglese" title="Storia del giornalismo inglese">giornalismo inglese</a>, il termine sta a indicare che trattasi di scritto relativamente breve. Nello &#39;slang&#39; tra giornalisti viene familiarmente chiamato &quot;il pezzo&quot; . Testi scritti in forma di articolo appaiono tipicamente in&nbsp;<a href="https://it.wikipedia.org/wiki/Giornale" title="Giornale">giornali</a>,&nbsp;<a href="https://it.wikipedia.org/wiki/Rivista_(periodico)" title="Rivista (periodico)">riviste</a>&nbsp;di costume, scientifiche, professionali, parlamentari, sul&nbsp;<a href="https://it.wikipedia.org/wiki/Web" title="Web">Web</a>&nbsp;o in ogni altro tipo di periodici. Altre regole ha il&nbsp;<b>servizio</b>giornalistico, cio&egrave; l&#39;articolo che fa da base per una&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_radiofonico" title="Programma radiofonico">trasmissione radiofonica</a>&nbsp;e ancor pi&ugrave;&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_televisivo" title="Programma televisivo">televisiva</a>, dove, specie per quest&#39;ultima, il testo &egrave; ampiamente accompagnato da riprese video che limitano il parlato.&nbsp;Nel&nbsp;<a href="https://it.wikipedia.org/wiki/Giornalismo" title="Giornalismo">giornalismo</a>, un&nbsp;<b>articolo</b>&nbsp;&egrave; un&nbsp;<a href="https://it.wikipedia.org/wiki/Testo" title="Testo">testo</a>&nbsp;individuato da un titolo (questo, per tradizione, scelto dalla redazione e non dall&#39;autore) che concorre a formare insieme ad altri articoli un determinato numero di una pubblicazione (&quot;Quell&#39;articolo &egrave; apparso sul numero di ottobre dello Scientific American&quot;). Di origine latina, ma diffuso dal&nbsp;<a href="https://it.wikipedia.org/wiki/Storia_del_giornalismo_inglese" title="Storia del giornalismo inglese">giornalismo inglese</a>, il termine sta a indicare che trattasi di scritto relativamente breve. Nello &#39;slang&#39; tra giornalisti viene familiarmente chiamato &quot;il pezzo&quot; . Testi scritti in forma di articolo appaiono tipicamente in&nbsp;<a href="https://it.wikipedia.org/wiki/Giornale" title="Giornale">giornali</a>,&nbsp;<a href="https://it.wikipedia.org/wiki/Rivista_(periodico)" title="Rivista (periodico)">riviste</a>&nbsp;di costume, scientifiche, professionali, parlamentari, sul&nbsp;<a href="https://it.wikipedia.org/wiki/Web" title="Web">Web</a>&nbsp;o in ogni altro tipo di periodici. Altre regole ha il&nbsp;<b>servizio</b>giornalistico, cio&egrave; l&#39;articolo che fa da base per una&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_radiofonico" title="Programma radiofonico">trasmissione radiofonica</a>&nbsp;e ancor pi&ugrave;&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_televisivo" title="Programma televisivo">televisiva</a>, dove, specie per quest&#39;ultima, il testo &egrave; ampiamente accompagnato da riprese video che limitano il parlato.&nbsp;Nel&nbsp;<a href="https://it.wikipedia.org/wiki/Giornalismo" title="Giornalismo">giornalismo</a>, un&nbsp;<b>articolo</b>&nbsp;&egrave; un&nbsp;<a href="https://it.wikipedia.org/wiki/Testo" title="Testo">testo</a>&nbsp;individuato da un titolo (questo, per tradizione, scelto dalla redazione e non dall&#39;autore) che concorre a formare insieme ad altri articoli un determinato numero di una pubblicazione (&quot;Quell&#39;articolo &egrave; apparso sul numero di ottobre dello Scientific American&quot;). Di origine latina, ma diffuso dal&nbsp;<a href="https://it.wikipedia.org/wiki/Storia_del_giornalismo_inglese" title="Storia del giornalismo inglese">giornalismo inglese</a>, il termine sta a indicare che trattasi di scritto relativamente breve. Nello &#39;slang&#39; tra giornalisti viene familiarmente chiamato &quot;il pezzo&quot; .</p>
+
+    <p style="text-align: justify;">Testi scritti in forma di articolo appaiono tipicamente in&nbsp;<a href="https://it.wikipedia.org/wiki/Giornale" title="Giornale">giornali</a>,&nbsp;<a href="https://it.wikipedia.org/wiki/Rivista_(periodico)" title="Rivista (periodico)">riviste</a>&nbsp;di costume, scientifiche, professionali, parlamentari, sul&nbsp;<a href="https://it.wikipedia.org/wiki/Web" title="Web">Web</a>&nbsp;o in ogni altro tipo di periodici. Altre regole ha il&nbsp;<b>servizio</b>giornalistico, cio&egrave; l&#39;articolo che fa da base per una&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_radiofonico" title="Programma radiofonico">trasmissione radiofonica</a>&nbsp;e ancor pi&ugrave;&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_televisivo" title="Programma televisivo">televisiva</a>, dove, specie per quest&#39;ultima, il testo &egrave; ampiamente accompagnato da riprese video che limitano il parlato.&nbsp;Nel&nbsp;<a href="https://it.wikipedia.org/wiki/Giornalismo" title="Giornalismo">giornalismo</a>, un&nbsp;<b>articolo</b>&nbsp;&egrave; un&nbsp;<a href="https://it.wikipedia.org/wiki/Testo" title="Testo">testo</a>&nbsp;individuato da un titolo (questo, per tradizione, scelto dalla redazione e non dall&#39;autore) che concorre a formare insieme ad altri articoli un determinato numero di una pubblicazione (&quot;Quell&#39;articolo &egrave; apparso sul numero di ottobre dello Scientific American&quot;). Di origine latina, ma diffuso dal&nbsp;<a href="https://it.wikipedia.org/wiki/Storia_del_giornalismo_inglese" title="Storia del giornalismo inglese">giornalismo inglese</a>, il termine sta a indicare che trattasi di scritto relativamente breve. Nello &#39;slang&#39; tra giornalisti viene familiarmente chiamato &quot;il pezzo&quot; . Testi scritti in forma di articolo appaiono tipicamente in&nbsp;<a href="https://it.wikipedia.org/wiki/Giornale" title="Giornale">giornali</a>,&nbsp;<a href="https://it.wikipedia.org/wiki/Rivista_(periodico)" title="Rivista (periodico)">riviste</a>&nbsp;di costume, scientifiche, professionali, parlamentari, sul&nbsp;<a href="https://it.wikipedia.org/wiki/Web" title="Web">Web</a>&nbsp;o in ogni altro tipo di periodici. Altre regole ha il&nbsp;<b>servizio</b>giornalistico, cio&egrave; l&#39;articolo che fa da base per una&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_radiofonico" title="Programma radiofonico">trasmissione radiofonica</a>&nbsp;e ancor pi&ugrave;&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_televisivo" title="Programma televisivo">televisiva</a>, dove, specie per quest&#39;ultima, il testo &egrave; ampiamente accompagnato da riprese video che limitano il parlato.&nbsp;Nel&nbsp;<a href="https://it.wikipedia.org/wiki/Giornalismo" title="Giornalismo">giornalismo</a>, un&nbsp;<b>articolo</b>&nbsp;&egrave; un&nbsp;<a href="https://it.wikipedia.org/wiki/Testo" title="Testo">testo</a>&nbsp;individuato da un titolo (questo, per tradizione, scelto dalla redazione e non dall&#39;autore) che concorre a formare insieme ad altri articoli un determinato numero di una pubblicazione (&quot;Quell&#39;articolo &egrave; apparso sul numero di ottobre dello Scientific American&quot;). Di origine latina, ma diffuso dal&nbsp;<a href="https://it.wikipedia.org/wiki/Storia_del_giornalismo_inglese" title="Storia del giornalismo inglese">giornalismo inglese</a>, il termine sta a indicare che trattasi di scritto relativamente breve. Nello &#39;slang&#39; tra giornalisti viene familiarmente chiamato &quot;il pezzo&quot; . Testi scritti in forma di articolo appaiono tipicamente in&nbsp;<a href="https://it.wikipedia.org/wiki/Giornale" title="Giornale">giornali</a>,&nbsp;<a href="https://it.wikipedia.org/wiki/Rivista_(periodico)" title="Rivista (periodico)">riviste</a>&nbsp;di costume, scientifiche, professionali, parlamentari, sul&nbsp;<a href="https://it.wikipedia.org/wiki/Web" title="Web">Web</a>&nbsp;o in ogni altro tipo di periodici. Altre regole ha il&nbsp;<b>servizio</b>giornalistico, cio&egrave; l&#39;articolo che fa da base per una&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_radiofonico" title="Programma radiofonico">trasmissione radiofonica</a>&nbsp;e ancor pi&ugrave;&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_televisivo" title="Programma televisivo">televisiva</a>, dove, specie per quest&#39;ultima, il testo &egrave; ampiamente accompagnato da riprese video che limitano il parlato.</p>
+
+    <p style="text-align: justify;">Nel&nbsp;<a href="https://it.wikipedia.org/wiki/Giornalismo" title="Giornalismo">giornalismo</a>, un&nbsp;<b>articolo</b>&nbsp;&egrave; un&nbsp;<a href="https://it.wikipedia.org/wiki/Testo" title="Testo">testo</a>&nbsp;individuato da un titolo (questo, per tradizione, scelto dalla redazione e non dall&#39;autore) che concorre a formare insieme ad altri articoli un determinato numero di una pubblicazione (&quot;Quell&#39;articolo &egrave; apparso sul numero di ottobre dello Scientific American&quot;). Di origine latina, ma diffuso dal&nbsp;<a href="https://it.wikipedia.org/wiki/Storia_del_giornalismo_inglese" title="Storia del giornalismo inglese">giornalismo inglese</a>, il termine sta a indicare che trattasi di scritto relativamente breve. Nello &#39;slang&#39; tra giornalisti viene familiarmente chiamato &quot;il pezzo&quot; . Testi scritti in forma di articolo appaiono tipicamente in&nbsp;<a href="https://it.wikipedia.org/wiki/Giornale" title="Giornale">giornali</a>,&nbsp;<a href="https://it.wikipedia.org/wiki/Rivista_(periodico)" title="Rivista (periodico)">riviste</a>&nbsp;di costume, scientifiche, professionali, parlamentari, sul&nbsp;<a href="https://it.wikipedia.org/wiki/Web" title="Web">Web</a>&nbsp;o in ogni altro tipo di periodici. Altre regole ha il&nbsp;<b>servizio</b>giornalistico, cio&egrave; l&#39;articolo che fa da base per una&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_radiofonico" title="Programma radiofonico">trasmissione radiofonica</a>&nbsp;e ancor pi&ugrave;&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_televisivo" title="Programma televisivo">televisiva</a>, dove, specie per quest&#39;ultima, il testo &egrave; ampiamente accompagnato da riprese video che limitano il parlato.</p>
+  created_at: 2016-08-18 09:36:36.399743000 Z
+  updated_at: 2016-08-18 09:36:36.399743000 Z
+  row_id: 99
+  larghezza: 12
+  fonte: 0
+  page_id: 0
+  autocrop: false
+  padding: ''
+  condivisa: true
+column_169:
+  id: 169
+  ordine: 1
+  contenuto: |
+    <p><span style="color:#0066ff;"><span style="font-size:24px;"><strong>Prova 2 del 18 agosto</strong></span></span></p>
+  created_at: 2016-08-18 09:38:58.088948000 Z
+  updated_at: 2016-08-18 09:38:58.088948000 Z
+  row_id: 100
+  larghezza: 9
+  fonte: 0
+  page_id: 0
+  autocrop: false
+  padding: ''
+  condivisa: true
+column_170:
+  id: 170
+  ordine: 2
+  contenuto: "<p>Cantami o Diva del pelide Achille l'ira funesta...</p>"
+  created_at: 2016-08-18 09:38:58.403689000 Z
+  updated_at: 2016-08-18 09:38:58.403689000 Z
+  row_id: 100
+  larghezza: 3
+  fonte: 0
+  page_id: 0
+  autocrop: false
+  padding: ''
+  condivisa: true
+column_171:
+  id: 171
+  ordine: 1
+  contenuto: |
+    <p><em>L&#39;<b>articolo</b>&nbsp;(dal latino articulus, da artus, &quot;membro&quot;, &quot;arto&quot;; in greco &aacute;rthron) &egrave; un morfema con la funzione di determinante di un sostantivo, nel senso che ne specifica alcune caratteristiche semantiche: l&#39;<b>articolo</b>, infatti, esplicita l&#39;opposizione pragmatica tra tema e rema (cio&egrave; tra ci&ograve; che &egrave; dato e ci&ograve; che &egrave; nuovo ...</em></p>
+  created_at: 2016-08-18 09:39:00.154307000 Z
+  updated_at: 2016-08-18 09:39:00.154307000 Z
+  row_id: 101
+  larghezza: 12
+  fonte: 0
+  page_id: 0
+  autocrop: false
+  padding: ''
+  condivisa: true
+column_172:
+  id: 172
+  ordine: 1
+  contenuto: |
+    <p style="text-align: justify;">Nel&nbsp;<a href="https://it.wikipedia.org/wiki/Giornalismo" title="Giornalismo">giornalismo</a>, un&nbsp;<b>articolo</b>&nbsp;&egrave; un&nbsp;<a href="https://it.wikipedia.org/wiki/Testo" title="Testo">testo</a>&nbsp;individuato da un titolo (questo, per tradizione, scelto dalla redazione e non dall&#39;autore) che concorre a formare insieme ad altri articoli un determinato numero di una pubblicazione (&quot;Quell&#39;articolo &egrave; apparso sul numero di ottobre dello Scientific American&quot;). Di origine latina, ma diffuso dal&nbsp;<a href="https://it.wikipedia.org/wiki/Storia_del_giornalismo_inglese" title="Storia del giornalismo inglese">giornalismo inglese</a>, il termine sta a indicare che trattasi di scritto relativamente breve. Nello &#39;slang&#39; tra giornalisti viene familiarmente chiamato &quot;il pezzo&quot; . Testi scritti in forma di articolo appaiono tipicamente in&nbsp;<a href="https://it.wikipedia.org/wiki/Giornale" title="Giornale">giornali</a>,&nbsp;<a href="https://it.wikipedia.org/wiki/Rivista_(periodico)" title="Rivista (periodico)">riviste</a>&nbsp;di costume, scientifiche, professionali, parlamentari, sul&nbsp;<a href="https://it.wikipedia.org/wiki/Web" title="Web">Web</a>&nbsp;o in ogni altro tipo di periodici. Altre regole ha il&nbsp;<b>servizio</b>giornalistico, cio&egrave; l&#39;articolo che fa da base per una&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_radiofonico" title="Programma radiofonico">trasmissione radiofonica</a>&nbsp;e ancor pi&ugrave;&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_televisivo" title="Programma televisivo">televisiva</a>, dove, specie per quest&#39;ultima, il testo &egrave; ampiamente accompagnato da riprese video che limitano il parlato.&nbsp;Nel&nbsp;<a href="https://it.wikipedia.org/wiki/Giornalismo" title="Giornalismo">giornalismo</a>, un&nbsp;<b>articolo</b>&nbsp;&egrave; un&nbsp;<a href="https://it.wikipedia.org/wiki/Testo" title="Testo">testo</a>&nbsp;individuato da un titolo (questo, per tradizione, scelto dalla redazione e non dall&#39;autore) che concorre a formare insieme ad altri articoli un determinato numero di una pubblicazione (&quot;Quell&#39;articolo &egrave; apparso sul numero di ottobre dello Scientific American&quot;). Di origine latina, ma diffuso dal&nbsp;<a href="https://it.wikipedia.org/wiki/Storia_del_giornalismo_inglese" title="Storia del giornalismo inglese">giornalismo inglese</a>, il termine sta a indicare che trattasi di scritto relativamente breve. Nello &#39;slang&#39; tra giornalisti viene familiarmente chiamato &quot;il pezzo&quot; . Testi scritti in forma di articolo appaiono tipicamente in&nbsp;<a href="https://it.wikipedia.org/wiki/Giornale" title="Giornale">giornali</a>,&nbsp;<a href="https://it.wikipedia.org/wiki/Rivista_(periodico)" title="Rivista (periodico)">riviste</a>&nbsp;di costume, scientifiche, professionali, parlamentari, sul&nbsp;<a href="https://it.wikipedia.org/wiki/Web" title="Web">Web</a>&nbsp;o in ogni altro tipo di periodici. Altre regole ha il&nbsp;<b>servizio</b>giornalistico, cio&egrave; l&#39;articolo che fa da base per una&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_radiofonico" title="Programma radiofonico">trasmissione radiofonica</a>&nbsp;e ancor pi&ugrave;&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_televisivo" title="Programma televisivo">televisiva</a>, dove, specie per quest&#39;ultima, il testo &egrave; ampiamente accompagnato da riprese video che limitano il parlato.&nbsp;Nel&nbsp;<a href="https://it.wikipedia.org/wiki/Giornalismo" title="Giornalismo">giornalismo</a>, un&nbsp;<b>articolo</b>&nbsp;&egrave; un&nbsp;<a href="https://it.wikipedia.org/wiki/Testo" title="Testo">testo</a>&nbsp;individuato da un titolo (questo, per tradizione, scelto dalla redazione e non dall&#39;autore) che concorre a formare insieme ad altri articoli un determinato numero di una pubblicazione (&quot;Quell&#39;articolo &egrave; apparso sul numero di ottobre dello Scientific American&quot;). Di origine latina, ma diffuso dal&nbsp;<a href="https://it.wikipedia.org/wiki/Storia_del_giornalismo_inglese" title="Storia del giornalismo inglese">giornalismo inglese</a>, il termine sta a indicare che trattasi di scritto relativamente breve. Nello &#39;slang&#39; tra giornalisti viene familiarmente chiamato &quot;il pezzo&quot; .</p>
+
+    <p style="text-align: justify;">Testi scritti in forma di articolo appaiono tipicamente in&nbsp;<a href="https://it.wikipedia.org/wiki/Giornale" title="Giornale">giornali</a>,&nbsp;<a href="https://it.wikipedia.org/wiki/Rivista_(periodico)" title="Rivista (periodico)">riviste</a>&nbsp;di costume, scientifiche, professionali, parlamentari, sul&nbsp;<a href="https://it.wikipedia.org/wiki/Web" title="Web">Web</a>&nbsp;o in ogni altro tipo di periodici. Altre regole ha il&nbsp;<b>servizio</b>giornalistico, cio&egrave; l&#39;articolo che fa da base per una&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_radiofonico" title="Programma radiofonico">trasmissione radiofonica</a>&nbsp;e ancor pi&ugrave;&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_televisivo" title="Programma televisivo">televisiva</a>, dove, specie per quest&#39;ultima, il testo &egrave; ampiamente accompagnato da riprese video che limitano il parlato.&nbsp;Nel&nbsp;<a href="https://it.wikipedia.org/wiki/Giornalismo" title="Giornalismo">giornalismo</a>, un&nbsp;<b>articolo</b>&nbsp;&egrave; un&nbsp;<a href="https://it.wikipedia.org/wiki/Testo" title="Testo">testo</a>&nbsp;individuato da un titolo (questo, per tradizione, scelto dalla redazione e non dall&#39;autore) che concorre a formare insieme ad altri articoli un determinato numero di una pubblicazione (&quot;Quell&#39;articolo &egrave; apparso sul numero di ottobre dello Scientific American&quot;). Di origine latina, ma diffuso dal&nbsp;<a href="https://it.wikipedia.org/wiki/Storia_del_giornalismo_inglese" title="Storia del giornalismo inglese">giornalismo inglese</a>, il termine sta a indicare che trattasi di scritto relativamente breve. Nello &#39;slang&#39; tra giornalisti viene familiarmente chiamato &quot;il pezzo&quot; . Testi scritti in forma di articolo appaiono tipicamente in&nbsp;<a href="https://it.wikipedia.org/wiki/Giornale" title="Giornale">giornali</a>,&nbsp;<a href="https://it.wikipedia.org/wiki/Rivista_(periodico)" title="Rivista (periodico)">riviste</a>&nbsp;di costume, scientifiche, professionali, parlamentari, sul&nbsp;<a href="https://it.wikipedia.org/wiki/Web" title="Web">Web</a>&nbsp;o in ogni altro tipo di periodici. Altre regole ha il&nbsp;<b>servizio</b>giornalistico, cio&egrave; l&#39;articolo che fa da base per una&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_radiofonico" title="Programma radiofonico">trasmissione radiofonica</a>&nbsp;e ancor pi&ugrave;&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_televisivo" title="Programma televisivo">televisiva</a>, dove, specie per quest&#39;ultima, il testo &egrave; ampiamente accompagnato da riprese video che limitano il parlato.&nbsp;Nel&nbsp;<a href="https://it.wikipedia.org/wiki/Giornalismo" title="Giornalismo">giornalismo</a>, un&nbsp;<b>articolo</b>&nbsp;&egrave; un&nbsp;<a href="https://it.wikipedia.org/wiki/Testo" title="Testo">testo</a>&nbsp;individuato da un titolo (questo, per tradizione, scelto dalla redazione e non dall&#39;autore) che concorre a formare insieme ad altri articoli un determinato numero di una pubblicazione (&quot;Quell&#39;articolo &egrave; apparso sul numero di ottobre dello Scientific American&quot;). Di origine latina, ma diffuso dal&nbsp;<a href="https://it.wikipedia.org/wiki/Storia_del_giornalismo_inglese" title="Storia del giornalismo inglese">giornalismo inglese</a>, il termine sta a indicare che trattasi di scritto relativamente breve. Nello &#39;slang&#39; tra giornalisti viene familiarmente chiamato &quot;il pezzo&quot; . Testi scritti in forma di articolo appaiono tipicamente in&nbsp;<a href="https://it.wikipedia.org/wiki/Giornale" title="Giornale">giornali</a>,&nbsp;<a href="https://it.wikipedia.org/wiki/Rivista_(periodico)" title="Rivista (periodico)">riviste</a>&nbsp;di costume, scientifiche, professionali, parlamentari, sul&nbsp;<a href="https://it.wikipedia.org/wiki/Web" title="Web">Web</a>&nbsp;o in ogni altro tipo di periodici. Altre regole ha il&nbsp;<b>servizio</b>giornalistico, cio&egrave; l&#39;articolo che fa da base per una&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_radiofonico" title="Programma radiofonico">trasmissione radiofonica</a>&nbsp;e ancor pi&ugrave;&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_televisivo" title="Programma televisivo">televisiva</a>, dove, specie per quest&#39;ultima, il testo &egrave; ampiamente accompagnato da riprese video che limitano il parlato.</p>
+
+    <p style="text-align: justify;">Nel&nbsp;<a href="https://it.wikipedia.org/wiki/Giornalismo" title="Giornalismo">giornalismo</a>, un&nbsp;<b>articolo</b>&nbsp;&egrave; un&nbsp;<a href="https://it.wikipedia.org/wiki/Testo" title="Testo">testo</a>&nbsp;individuato da un titolo (questo, per tradizione, scelto dalla redazione e non dall&#39;autore) che concorre a formare insieme ad altri articoli un determinato numero di una pubblicazione (&quot;Quell&#39;articolo &egrave; apparso sul numero di ottobre dello Scientific American&quot;). Di origine latina, ma diffuso dal&nbsp;<a href="https://it.wikipedia.org/wiki/Storia_del_giornalismo_inglese" title="Storia del giornalismo inglese">giornalismo inglese</a>, il termine sta a indicare che trattasi di scritto relativamente breve. Nello &#39;slang&#39; tra giornalisti viene familiarmente chiamato &quot;il pezzo&quot; . Testi scritti in forma di articolo appaiono tipicamente in&nbsp;<a href="https://it.wikipedia.org/wiki/Giornale" title="Giornale">giornali</a>,&nbsp;<a href="https://it.wikipedia.org/wiki/Rivista_(periodico)" title="Rivista (periodico)">riviste</a>&nbsp;di costume, scientifiche, professionali, parlamentari, sul&nbsp;<a href="https://it.wikipedia.org/wiki/Web" title="Web">Web</a>&nbsp;o in ogni altro tipo di periodici. Altre regole ha il&nbsp;<b>servizio</b>giornalistico, cio&egrave; l&#39;articolo che fa da base per una&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_radiofonico" title="Programma radiofonico">trasmissione radiofonica</a>&nbsp;e ancor pi&ugrave;&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_televisivo" title="Programma televisivo">televisiva</a>, dove, specie per quest&#39;ultima, il testo &egrave; ampiamente accompagnato da riprese video che limitano il parlato.</p>
+  created_at: 2016-08-18 09:39:00.947014000 Z
+  updated_at: 2016-08-18 09:39:00.947014000 Z
+  row_id: 102
+  larghezza: 12
+  fonte: 0
+  page_id: 0
+  autocrop: false
+  padding: ''
+  condivisa: true
+column_233:
+  id: 233
+  ordine: 1
+  contenuto: |
+    <p><span style="color:#0066ff;"><span style="font-size:24px;"><strong>Prova</strong></span></span></p>
+  created_at: 2016-09-30 15:36:46.531609000 Z
+  updated_at: 2016-09-30 15:36:46.531609000 Z
+  row_id: 115
+  larghezza: 9
+  fonte: 0
+  page_id: 0
+  autocrop: false
+  padding: ''
+  condivisa: true
+column_234:
+  id: 234
+  ordine: 2
+  contenuto: "<p>Cantami o Diva del pelide Achille l'ira funesta...</p>"
+  created_at: 2016-09-30 15:36:46.877050000 Z
+  updated_at: 2016-09-30 15:36:46.877050000 Z
+  row_id: 115
+  larghezza: 3
+  fonte: 0
+  page_id: 0
+  autocrop: false
+  padding: ''
+  condivisa: true
+column_235:
+  id: 235
+  ordine: 1
+  contenuto: |
+    <p><em>L&#39;<b>articolo</b>&nbsp;(dal latino articulus, da artus, &quot;membro&quot;, &quot;arto&quot;; in greco &aacute;rthron) &egrave; un morfema con la funzione di determinante di un sostantivo, nel senso che ne specifica alcune caratteristiche semantiche: l&#39;<b>articolo</b>, infatti, esplicita l&#39;opposizione pragmatica tra tema e rema (cio&egrave; tra ci&ograve; che &egrave; dato e ci&ograve; che &egrave; nuovo ...</em></p>
+  created_at: 2016-09-30 15:36:48.414541000 Z
+  updated_at: 2016-09-30 15:36:48.414541000 Z
+  row_id: 116
+  larghezza: 12
+  fonte: 0
+  page_id: 0
+  autocrop: false
+  padding: ''
+  condivisa: true
+column_236:
+  id: 236
+  ordine: 1
+  contenuto: |
+    <p style="text-align: justify;">Nel&nbsp;<a href="https://it.wikipedia.org/wiki/Giornalismo" title="Giornalismo">giornalismo</a>, un&nbsp;<b>articolo</b>&nbsp;&egrave; un&nbsp;<a href="https://it.wikipedia.org/wiki/Testo" title="Testo">testo</a>&nbsp;individuato da un titolo (questo, per tradizione, scelto dalla redazione e non dall&#39;autore) che concorre a formare insieme ad altri articoli un determinato numero di una pubblicazione (&quot;Quell&#39;articolo &egrave; apparso sul numero di ottobre dello Scientific American&quot;). Di origine latina, ma diffuso dal&nbsp;<a href="https://it.wikipedia.org/wiki/Storia_del_giornalismo_inglese" title="Storia del giornalismo inglese">giornalismo inglese</a>, il termine sta a indicare che trattasi di scritto relativamente breve. Nello &#39;slang&#39; tra giornalisti viene familiarmente chiamato &quot;il pezzo&quot; . Testi scritti in forma di articolo appaiono tipicamente in&nbsp;<a href="https://it.wikipedia.org/wiki/Giornale" title="Giornale">giornali</a>,&nbsp;<a href="https://it.wikipedia.org/wiki/Rivista_(periodico)" title="Rivista (periodico)">riviste</a>&nbsp;di costume, scientifiche, professionali, parlamentari, sul&nbsp;<a href="https://it.wikipedia.org/wiki/Web" title="Web">Web</a>&nbsp;o in ogni altro tipo di periodici. Altre regole ha il&nbsp;<b>servizio</b>giornalistico, cio&egrave; l&#39;articolo che fa da base per una&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_radiofonico" title="Programma radiofonico">trasmissione radiofonica</a>&nbsp;e ancor pi&ugrave;&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_televisivo" title="Programma televisivo">televisiva</a>, dove, specie per quest&#39;ultima, il testo &egrave; ampiamente accompagnato da riprese video che limitano il parlato.&nbsp;Nel&nbsp;<a href="https://it.wikipedia.org/wiki/Giornalismo" title="Giornalismo">giornalismo</a>, un&nbsp;<b>articolo</b>&nbsp;&egrave; un&nbsp;<a href="https://it.wikipedia.org/wiki/Testo" title="Testo">testo</a>&nbsp;individuato da un titolo (questo, per tradizione, scelto dalla redazione e non dall&#39;autore) che concorre a formare insieme ad altri articoli un determinato numero di una pubblicazione (&quot;Quell&#39;articolo &egrave; apparso sul numero di ottobre dello Scientific American&quot;). Di origine latina, ma diffuso dal&nbsp;<a href="https://it.wikipedia.org/wiki/Storia_del_giornalismo_inglese" title="Storia del giornalismo inglese">giornalismo inglese</a>, il termine sta a indicare che trattasi di scritto relativamente breve. Nello &#39;slang&#39; tra giornalisti viene familiarmente chiamato &quot;il pezzo&quot; . Testi scritti in forma di articolo appaiono tipicamente in&nbsp;<a href="https://it.wikipedia.org/wiki/Giornale" title="Giornale">giornali</a>,&nbsp;<a href="https://it.wikipedia.org/wiki/Rivista_(periodico)" title="Rivista (periodico)">riviste</a>&nbsp;di costume, scientifiche, professionali, parlamentari, sul&nbsp;<a href="https://it.wikipedia.org/wiki/Web" title="Web">Web</a>&nbsp;o in ogni altro tipo di periodici. Altre regole ha il&nbsp;<b>servizio</b>giornalistico, cio&egrave; l&#39;articolo che fa da base per una&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_radiofonico" title="Programma radiofonico">trasmissione radiofonica</a>&nbsp;e ancor pi&ugrave;&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_televisivo" title="Programma televisivo">televisiva</a>, dove, specie per quest&#39;ultima, il testo &egrave; ampiamente accompagnato da riprese video che limitano il parlato.&nbsp;Nel&nbsp;<a href="https://it.wikipedia.org/wiki/Giornalismo" title="Giornalismo">giornalismo</a>, un&nbsp;<b>articolo</b>&nbsp;&egrave; un&nbsp;<a href="https://it.wikipedia.org/wiki/Testo" title="Testo">testo</a>&nbsp;individuato da un titolo (questo, per tradizione, scelto dalla redazione e non dall&#39;autore) che concorre a formare insieme ad altri articoli un determinato numero di una pubblicazione (&quot;Quell&#39;articolo &egrave; apparso sul numero di ottobre dello Scientific American&quot;). Di origine latina, ma diffuso dal&nbsp;<a href="https://it.wikipedia.org/wiki/Storia_del_giornalismo_inglese" title="Storia del giornalismo inglese">giornalismo inglese</a>, il termine sta a indicare che trattasi di scritto relativamente breve. Nello &#39;slang&#39; tra giornalisti viene familiarmente chiamato &quot;il pezzo&quot; .</p>
+
+    <p style="text-align: justify;">Testi scritti in forma di articolo appaiono tipicamente in&nbsp;<a href="https://it.wikipedia.org/wiki/Giornale" title="Giornale">giornali</a>,&nbsp;<a href="https://it.wikipedia.org/wiki/Rivista_(periodico)" title="Rivista (periodico)">riviste</a>&nbsp;di costume, scientifiche, professionali, parlamentari, sul&nbsp;<a href="https://it.wikipedia.org/wiki/Web" title="Web">Web</a>&nbsp;o in ogni altro tipo di periodici. Altre regole ha il&nbsp;<b>servizio</b>giornalistico, cio&egrave; l&#39;articolo che fa da base per una&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_radiofonico" title="Programma radiofonico">trasmissione radiofonica</a>&nbsp;e ancor pi&ugrave;&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_televisivo" title="Programma televisivo">televisiva</a>, dove, specie per quest&#39;ultima, il testo &egrave; ampiamente accompagnato da riprese video che limitano il parlato.&nbsp;Nel&nbsp;<a href="https://it.wikipedia.org/wiki/Giornalismo" title="Giornalismo">giornalismo</a>, un&nbsp;<b>articolo</b>&nbsp;&egrave; un&nbsp;<a href="https://it.wikipedia.org/wiki/Testo" title="Testo">testo</a>&nbsp;individuato da un titolo (questo, per tradizione, scelto dalla redazione e non dall&#39;autore) che concorre a formare insieme ad altri articoli un determinato numero di una pubblicazione (&quot;Quell&#39;articolo &egrave; apparso sul numero di ottobre dello Scientific American&quot;). Di origine latina, ma diffuso dal&nbsp;<a href="https://it.wikipedia.org/wiki/Storia_del_giornalismo_inglese" title="Storia del giornalismo inglese">giornalismo inglese</a>, il termine sta a indicare che trattasi di scritto relativamente breve. Nello &#39;slang&#39; tra giornalisti viene familiarmente chiamato &quot;il pezzo&quot; . Testi scritti in forma di articolo appaiono tipicamente in&nbsp;<a href="https://it.wikipedia.org/wiki/Giornale" title="Giornale">giornali</a>,&nbsp;<a href="https://it.wikipedia.org/wiki/Rivista_(periodico)" title="Rivista (periodico)">riviste</a>&nbsp;di costume, scientifiche, professionali, parlamentari, sul&nbsp;<a href="https://it.wikipedia.org/wiki/Web" title="Web">Web</a>&nbsp;o in ogni altro tipo di periodici. Altre regole ha il&nbsp;<b>servizio</b>giornalistico, cio&egrave; l&#39;articolo che fa da base per una&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_radiofonico" title="Programma radiofonico">trasmissione radiofonica</a>&nbsp;e ancor pi&ugrave;&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_televisivo" title="Programma televisivo">televisiva</a>, dove, specie per quest&#39;ultima, il testo &egrave; ampiamente accompagnato da riprese video che limitano il parlato.&nbsp;Nel&nbsp;<a href="https://it.wikipedia.org/wiki/Giornalismo" title="Giornalismo">giornalismo</a>, un&nbsp;<b>articolo</b>&nbsp;&egrave; un&nbsp;<a href="https://it.wikipedia.org/wiki/Testo" title="Testo">testo</a>&nbsp;individuato da un titolo (questo, per tradizione, scelto dalla redazione e non dall&#39;autore) che concorre a formare insieme ad altri articoli un determinato numero di una pubblicazione (&quot;Quell&#39;articolo &egrave; apparso sul numero di ottobre dello Scientific American&quot;). Di origine latina, ma diffuso dal&nbsp;<a href="https://it.wikipedia.org/wiki/Storia_del_giornalismo_inglese" title="Storia del giornalismo inglese">giornalismo inglese</a>, il termine sta a indicare che trattasi di scritto relativamente breve. Nello &#39;slang&#39; tra giornalisti viene familiarmente chiamato &quot;il pezzo&quot; . Testi scritti in forma di articolo appaiono tipicamente in&nbsp;<a href="https://it.wikipedia.org/wiki/Giornale" title="Giornale">giornali</a>,&nbsp;<a href="https://it.wikipedia.org/wiki/Rivista_(periodico)" title="Rivista (periodico)">riviste</a>&nbsp;di costume, scientifiche, professionali, parlamentari, sul&nbsp;<a href="https://it.wikipedia.org/wiki/Web" title="Web">Web</a>&nbsp;o in ogni altro tipo di periodici. Altre regole ha il&nbsp;<b>servizio</b>giornalistico, cio&egrave; l&#39;articolo che fa da base per una&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_radiofonico" title="Programma radiofonico">trasmissione radiofonica</a>&nbsp;e ancor pi&ugrave;&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_televisivo" title="Programma televisivo">televisiva</a>, dove, specie per quest&#39;ultima, il testo &egrave; ampiamente accompagnato da riprese video che limitano il parlato.</p>
+
+    <p style="text-align: justify;">Nel&nbsp;<a href="https://it.wikipedia.org/wiki/Giornalismo" title="Giornalismo">giornalismo</a>, un&nbsp;<b>articolo</b>&nbsp;&egrave; un&nbsp;<a href="https://it.wikipedia.org/wiki/Testo" title="Testo">testo</a>&nbsp;individuato da un titolo (questo, per tradizione, scelto dalla redazione e non dall&#39;autore) che concorre a formare insieme ad altri articoli un determinato numero di una pubblicazione (&quot;Quell&#39;articolo &egrave; apparso sul numero di ottobre dello Scientific American&quot;). Di origine latina, ma diffuso dal&nbsp;<a href="https://it.wikipedia.org/wiki/Storia_del_giornalismo_inglese" title="Storia del giornalismo inglese">giornalismo inglese</a>, il termine sta a indicare che trattasi di scritto relativamente breve. Nello &#39;slang&#39; tra giornalisti viene familiarmente chiamato &quot;il pezzo&quot; . Testi scritti in forma di articolo appaiono tipicamente in&nbsp;<a href="https://it.wikipedia.org/wiki/Giornale" title="Giornale">giornali</a>,&nbsp;<a href="https://it.wikipedia.org/wiki/Rivista_(periodico)" title="Rivista (periodico)">riviste</a>&nbsp;di costume, scientifiche, professionali, parlamentari, sul&nbsp;<a href="https://it.wikipedia.org/wiki/Web" title="Web">Web</a>&nbsp;o in ogni altro tipo di periodici. Altre regole ha il&nbsp;<b>servizio</b>giornalistico, cio&egrave; l&#39;articolo che fa da base per una&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_radiofonico" title="Programma radiofonico">trasmissione radiofonica</a>&nbsp;e ancor pi&ugrave;&nbsp;<a href="https://it.wikipedia.org/wiki/Programma_televisivo" title="Programma televisivo">televisiva</a>, dove, specie per quest&#39;ultima, il testo &egrave; ampiamente accompagnato da riprese video che limitano il parlato.</p>
+  created_at: 2016-09-30 15:36:48.963631000 Z
+  updated_at: 2016-09-30 15:36:48.963631000 Z
+  row_id: 117
+  larghezza: 12
+  fonte: 0
+  page_id: 0
+  autocrop: false
+  padding: ''
+  condivisa: true
+column_580:
+  id: 580
+  ordine: 1
+  contenuto: |
+    <p><span style="color:#ffd700;"><strong>Sito di Test</strong></span><font color="#d3d3d3">&nbsp;header della pagina <a href="/">home </a><a href="/sezione1">sezione 1</a>&nbsp;<a href="/login">login</a> <a href="/logout">logout</a></font></p>
+  created_at: 2016-12-07 17:46:32.785606000 Z
+  updated_at: 2017-06-25 15:17:57.995767000 Z
+  row_id: 352
+  larghezza: 12
+  fonte: 0
+  page_id: 0
+  autocrop: false
+  padding: 0em
+  condivisa: true
+column_596:
+  id: 596
+  ordine: 1
+  contenuto: |
+    <h1>Titolo</h1>
+
+    <p><span class="abstract">Abstract</span></p>
+
+    <p>Testo...</p>
+
+    <p>&nbsp;</p>
+  created_at: 2017-01-18 16:39:19.511618000 Z
+  updated_at: 2017-01-18 16:39:50.082982000 Z
+  row_id: 359
+  larghezza: 12
+  fonte: 0
+  page_id: 0
+  autocrop: true
+  padding: ''
+  condivisa: true
+column_597:
+  id: 597
+  ordine: 1
+  contenuto: |
+    <h1>gfgfg</h1>
+
+    <p><span class="abstract">Abstract</span></p>
+
+    <p>Testo...</p>
+
+    <p>&nbsp;</p>
+  created_at: 2017-01-18 16:40:02.196465000 Z
+  updated_at: 2017-01-18 16:41:07.966115000 Z
+  row_id: 360
+  larghezza: 12
+  fonte: 0
+  page_id: 0
+  autocrop: true
+  padding: ''
+  condivisa: true
+column_598:
+  id: 598
+  ordine: 1
+  contenuto: |
+    <p>Cantami o Diva del pelide Achille l&#39;ira funesta...</p>
+  created_at: 2017-01-18 16:40:15.031483000 Z
+  updated_at: 2017-01-18 16:41:08.488246000 Z
+  row_id: 361
+  larghezza: 12
+  fonte: 0
+  page_id: 0
+  autocrop: true
+  padding: ''
+  condivisa: true
+column_607:
+  id: 607
+  ordine: 1
+  contenuto: |
+    <h1>gfgfg</h1>
+
+    <p><span class="abstract">Abstract</span></p>
+
+    <p>Testo...</p>
+
+    <p>&nbsp;</p>
+  created_at: 2017-01-19 16:11:44.665380000 Z
+  updated_at: 2017-01-19 16:11:44.665380000 Z
+  row_id: 367
+  larghezza: 12
+  fonte: 0
+  page_id: 0
+  autocrop: true
+  padding: ''
+  condivisa: true
+column_608:
+  id: 608
+  ordine: 1
+  contenuto: |
+    <p>Cantami o Diva del pelide Achille l&#39;ira funesta...</p>
+  created_at: 2017-01-19 16:11:45.312341000 Z
+  updated_at: 2017-01-19 16:11:45.312341000 Z
+  row_id: 368
+  larghezza: 12
+  fonte: 0
+  page_id: 0
+  autocrop: true
+  padding: ''
+  condivisa: true
+column_625:
+  id: 625
+  ordine: 1
+  contenuto: |
+    <p>Contenuto della colonna 3a.</p>
+
+    <p class="testo_piccolo">&nbsp;</p>
+  created_at: 2017-04-14 16:07:03.961514000 Z
+  updated_at: 2017-06-25 14:38:46.893327000 Z
+  row_id: 372
+  larghezza: 8
+  fonte: 0
+  page_id: 0
+  autocrop: true
+  padding: ''
+  condivisa: true
+column_626:
+  id: 626
+  ordine: 4
+  contenuto: |
+    <p>Contenuto della colonna 2d.</p>
+
+    <p class="testo_piccolo">Testo piccolo.</p>
+  created_at: 2017-04-14 16:17:37.662190000 Z
+  updated_at: 2017-06-25 14:44:28.444650000 Z
+  row_id: 373
+  larghezza: 3
+  fonte: 0
+  page_id: 0
+  autocrop: true
+  padding: ''
+  condivisa: true
+column_640:
+  id: 640
+  ordine: 2
+  contenuto: |
+    <p>Contenuto della colonna 3b.</p>
+  created_at: 2017-04-14 16:47:51.180122000 Z
+  updated_at: 2017-06-25 14:38:47.176665000 Z
+  row_id: 372
+  larghezza: 4
+  fonte: 4
+  page_id: 0
+  autocrop: true
+  padding: ''
+  condivisa: true
+column_648:
+  id: 648
+  ordine: 1
+  contenuto: |
+    <p>Cantami o Diva del pelide Achille l&#39;ira funesta...</p>
+  created_at: 2017-04-15 08:58:17.332106000 Z
+  updated_at: 2017-05-13 09:45:47.439374000 Z
+  row_id: 373
+  larghezza: 3
+  fonte: 0
+  page_id: 0
+  autocrop: true
+  padding: ''
+  condivisa: true
+column_649:
+  id: 649
+  ordine: 3
+  contenuto: |
+    <p>Contenuto della colonna 2c.</p>
+  created_at: 2017-04-15 08:59:50.187863000 Z
+  updated_at: 2017-06-25 14:44:28.178743000 Z
+  row_id: 373
+  larghezza: 3
+  fonte: 0
+  page_id: 0
+  autocrop: true
+  padding: ''
+  condivisa: true
+column_651:
+  id: 651
+  ordine: 1
+  contenuto: |
+    <p>Cantami o Diva del pelide Achille l&#39;ira funesta...</p>
+  created_at: 2017-04-15 10:15:56.730687000 Z
+  updated_at: 2017-04-29 16:56:48.811756000 Z
+  row_id: 378
+  larghezza: 12
+  fonte: 0
+  page_id: 0
+  autocrop: true
+  padding: 0em
+  condivisa: true
+column_658:
+  id: 658
+  ordine: 2
+  contenuto: |
+    <p>Contenuto della colonna 2b.</p>
+  created_at: 2017-05-11 14:04:32.099373000 Z
+  updated_at: 2017-06-25 14:44:27.935680000 Z
+  row_id: 373
+  larghezza: 3
+  fonte: 0
+  page_id: 0
+  autocrop: true
+  padding: ''
+  condivisa: true
+column_662:
+  id: 662
+  ordine: 1
+  contenuto: |
+    <p><span style="color:#ffffff;">Footer della pagina<br />
+    Indirizzo<br />
+    Telefono<br />
+    Sito web</span></p>
+  created_at: 2017-06-25 14:29:02.084693000 Z
+  updated_at: 2017-06-25 14:30:06.188397000 Z
+  row_id: 383
+  larghezza: 12
+  fonte: 0
+  page_id: 0
+  autocrop: true
+  padding: ''
+  condivisa: true
+column_663:
+  id: 663
+  ordine: 1
+  contenuto: |
+    <p>Home page della sezione 1.</p>
+  created_at: 2017-06-25 15:16:34.622661000 Z
+  updated_at: 2017-06-25 15:16:54.224657000 Z
+  row_id: 384
+  larghezza: 12
+  fonte: 0
+  page_id: 0
+  autocrop: true
+  padding: ''
+  condivisa: true

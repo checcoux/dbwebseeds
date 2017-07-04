@@ -1,3 +1,5 @@
+# Users: per l'amministrazione degli utenti del sito
+
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 

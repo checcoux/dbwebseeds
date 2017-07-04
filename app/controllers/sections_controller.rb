@@ -1,3 +1,6 @@
+# Sections: sezioni del sito; ogni sezione ha le sue pagine, articoli, fotografie, allegati
+#           e può essere gestita da uno o più utenti
+
 class SectionsController < ApplicationController
   before_action :set_section, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!

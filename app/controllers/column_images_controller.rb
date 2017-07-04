@@ -1,3 +1,5 @@
+# ColumnImages: immagini appartenenti alle singole colonne; gruppi di ColumnImages costituiscono uno slider
+
 class ColumnImagesController < ApplicationController
   # before_action :set_column_image, only: [:show, :edit, :update, :destroy]
   before_action :set_column_image, except: [:index, :new, :create]

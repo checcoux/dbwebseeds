@@ -1,0 +1,373 @@
+---
+ckeditor/asset_1:
+  id: 1
+  data_file_name: american_pastoral.jpg
+  data_content_type: image/jpeg
+  data_file_size: 1145779
+  assetable_id: 402
+  assetable_type: Column
+  type: Ckeditor::Picture
+  width: 1400
+  height: 2000
+  created_at: 2016-10-23 15:22:56.800179000 Z
+  updated_at: 2016-10-23 15:22:56.800179000 Z
+ckeditor/asset_2:
+  id: 2
+  data_file_name: i-magnifici-sette.jpg
+  data_content_type: image/jpeg
+  data_file_size: 57432
+  assetable_id: 511
+  assetable_type: Column
+  type: Ckeditor::Picture
+  width: 634
+  height: 312
+  created_at: 2016-11-10 21:03:34.107668000 Z
+  updated_at: 2016-11-10 21:03:34.107668000 Z
+ckeditor/asset_3:
+  id: 3
+  data_file_name: articoli_2015.jpg
+  data_content_type: image/jpeg
+  data_file_size: 71636
+  assetable_id: 566
+  assetable_type: Column
+  type: Ckeditor::Picture
+  width: 1500
+  height: 586
+  created_at: 2016-11-22 13:40:36.483906000 Z
+  updated_at: 2016-11-22 13:40:36.483906000 Z
+ckeditor/asset_4:
+  id: 4
+  data_file_name: lion.jpg
+  data_content_type: image/jpeg
+  data_file_size: 466309
+  assetable_id: 
+  assetable_type: 
+  type: Ckeditor::Picture
+  width: 1400
+  height: 2000
+  created_at: 2016-12-17 17:55:52.646312000 Z
+  updated_at: 2016-12-17 17:55:52.646312000 Z
+ckeditor/asset_5:
+  id: 5
+  data_file_name: sito_abbandonato.jpg
+  data_content_type: image/jpeg
+  data_file_size: 260209
+  assetable_id: 
+  assetable_type: 
+  type: Ckeditor::Picture
+  width: 900
+  height: 500
+  created_at: 2016-12-17 18:29:07.260777000 Z
+  updated_at: 2016-12-17 18:29:07.260777000 Z
+ckeditor/asset_6:
+  id: 6
+  data_file_name: apertura.jpg
+  data_content_type: image/jpeg
+  data_file_size: 259824
+  assetable_id: 
+  assetable_type: 
+  type: Ckeditor::Picture
+  width: 1280
+  height: 905
+  created_at: 2016-12-17 18:29:54.006500000 Z
+  updated_at: 2016-12-17 18:29:54.006500000 Z
+ckeditor/asset_7:
+  id: 7
+  data_file_name: apertura.jpg
+  data_content_type: image/jpeg
+  data_file_size: 259824
+  assetable_id: 
+  assetable_type: 
+  type: Ckeditor::Picture
+  width: 1280
+  height: 905
+  created_at: 2016-12-17 18:30:36.032295000 Z
+  updated_at: 2016-12-17 18:30:36.032295000 Z
+ckeditor/asset_8:
+  id: 8
+  data_file_name: apertura.jpg
+  data_content_type: image/jpeg
+  data_file_size: 259824
+  assetable_id: 
+  assetable_type: 
+  type: Ckeditor::Picture
+  width: 1280
+  height: 905
+  created_at: 2016-12-17 19:12:17.916679000 Z
+  updated_at: 2016-12-17 19:12:17.916679000 Z
+ckeditor/asset_9:
+  id: 9
+  data_file_name: apertura.jpg
+  data_content_type: image/jpeg
+  data_file_size: 259824
+  assetable_id: 
+  assetable_type: 
+  type: Ckeditor::Picture
+  width: 1280
+  height: 905
+  created_at: 2016-12-17 19:13:17.561662000 Z
+  updated_at: 2016-12-17 19:13:17.561662000 Z
+ckeditor/asset_10:
+  id: 10
+  data_file_name: apertura.jpg
+  data_content_type: image/jpeg
+  data_file_size: 259824
+  assetable_id: 
+  assetable_type: 
+  type: Ckeditor::Picture
+  width: 1280
+  height: 905
+  created_at: 2016-12-17 19:19:21.738183000 Z
+  updated_at: 2016-12-17 19:19:21.738183000 Z
+ckeditor/asset_11:
+  id: 11
+  data_file_name: apertura.jpg
+  data_content_type: image/jpeg
+  data_file_size: 259824
+  assetable_id: 
+  assetable_type: 
+  type: Ckeditor::Picture
+  width: 1280
+  height: 905
+  created_at: 2016-12-17 19:37:48.079030000 Z
+  updated_at: 2016-12-17 19:37:48.079030000 Z
+ckeditor/asset_12:
+  id: 12
+  data_file_name: apertura.jpg
+  data_content_type: image/jpeg
+  data_file_size: 259824
+  assetable_id: 
+  assetable_type: 
+  type: Ckeditor::Picture
+  width: 1280
+  height: 905
+  created_at: 2016-12-17 19:39:34.711015000 Z
+  updated_at: 2016-12-17 19:39:34.711015000 Z
+ckeditor/asset_13:
+  id: 13
+  data_file_name: fuga_da_reuma_park.jpg
+  data_content_type: image/jpeg
+  data_file_size: 168100
+  assetable_id: 
+  assetable_type: 
+  type: Ckeditor::Picture
+  width: 420
+  height: 600
+  created_at: 2016-12-17 20:48:34.558313000 Z
+  updated_at: 2016-12-17 20:48:34.558313000 Z
+ckeditor/asset_14:
+  id: 14
+  data_file_name: il_grande_gigante_gentile.jpg
+  data_content_type: image/jpeg
+  data_file_size: 69747
+  assetable_id: 584
+  assetable_type: Column
+  type: Ckeditor::Picture
+  width: 420
+  height: 600
+  created_at: 2016-12-17 20:52:53.974832000 Z
+  updated_at: 2016-12-17 20:52:53.974832000 Z
+ckeditor/asset_15:
+  id: 15
+  data_file_name: bosch.jpg
+  data_content_type: image/jpeg
+  data_file_size: 95069
+  assetable_id: 
+  assetable_type: 
+  type: Ckeditor::Picture
+  width: 420
+  height: 600
+  created_at: 2016-12-17 21:20:09.525867000 Z
+  updated_at: 2016-12-17 21:20:09.525867000 Z
+ckeditor/asset_16:
+  id: 16
+  data_file_name: animali_fantastici.jpg
+  data_content_type: image/jpeg
+  data_file_size: 421682
+  assetable_id: 
+  assetable_type: 
+  type: Ckeditor::Picture
+  width: 1382
+  height: 2048
+  created_at: 2016-12-17 21:23:19.206417000 Z
+  updated_at: 2016-12-17 21:23:19.206417000 Z
+ckeditor/asset_17:
+  id: 17
+  data_file_name: animali_fantastici.jpg
+  data_content_type: image/jpeg
+  data_file_size: 421682
+  assetable_id: 
+  assetable_type: 
+  type: Ckeditor::Picture
+  width: 1382
+  height: 2048
+  created_at: 2016-12-17 21:24:11.569115000 Z
+  updated_at: 2016-12-17 21:24:11.569115000 Z
+ckeditor/asset_18:
+  id: 18
+  data_file_name: animali_fantastici.jpg
+  data_content_type: image/jpeg
+  data_file_size: 421682
+  assetable_id: 584
+  assetable_type: Column
+  type: Ckeditor::Picture
+  width: 1382
+  height: 2048
+  created_at: 2016-12-17 21:26:40.091135000 Z
+  updated_at: 2016-12-17 21:26:40.091135000 Z
+ckeditor/asset_19:
+  id: 19
+  data_file_name: il_grande_gigante_gentile.jpg
+  data_content_type: image/jpeg
+  data_file_size: 69747
+  assetable_id: 584
+  assetable_type: Column
+  type: Ckeditor::Picture
+  width: 420
+  height: 600
+  created_at: 2016-12-17 21:30:01.441401000 Z
+  updated_at: 2016-12-17 21:30:01.441401000 Z
+ckeditor/asset_20:
+  id: 20
+  data_file_name: image.png
+  data_content_type: image/png
+  data_file_size: 65114
+  assetable_id: 584
+  assetable_type: Column
+  type: Ckeditor::Picture
+  width: 299
+  height: 312
+  created_at: 2016-12-17 21:32:00.903603000 Z
+  updated_at: 2016-12-17 21:32:00.903603000 Z
+ckeditor/asset_21:
+  id: 21
+  data_file_name: lion.jpg
+  data_content_type: image/jpeg
+  data_file_size: 466309
+  assetable_id: 584
+  assetable_type: Column
+  type: Ckeditor::Picture
+  width: 1400
+  height: 2000
+  created_at: 2016-12-18 13:12:04.204899000 Z
+  updated_at: 2016-12-18 13:12:04.204899000 Z
+ckeditor/asset_22:
+  id: 22
+  data_file_name: il_grande_gigante_gentile.jpg
+  data_content_type: image/jpeg
+  data_file_size: 69747
+  assetable_id: 576
+  assetable_type: Column
+  type: Ckeditor::Picture
+  width: 420
+  height: 600
+  created_at: 2016-12-18 13:18:05.986040000 Z
+  updated_at: 2016-12-18 13:18:05.986040000 Z
+ckeditor/asset_23:
+  id: 23
+  data_file_name: lion.jpg
+  data_content_type: image/jpeg
+  data_file_size: 466309
+  assetable_id: 576
+  assetable_type: Column
+  type: Ckeditor::Picture
+  width: 1400
+  height: 2000
+  created_at: 2016-12-18 13:18:18.969300000 Z
+  updated_at: 2016-12-18 13:18:18.969300000 Z
+ckeditor/asset_24:
+  id: 24
+  data_file_name: image.png
+  data_content_type: image/png
+  data_file_size: 4623
+  assetable_id: 576
+  assetable_type: Column
+  type: Ckeditor::Picture
+  width: 149
+  height: 194
+  created_at: 2016-12-18 13:19:17.731637000 Z
+  updated_at: 2016-12-18 13:19:17.731637000 Z
+ckeditor/asset_25:
+  id: 25
+  data_file_name: paw_patrol_2.jpg
+  data_content_type: image/jpeg
+  data_file_size: 282610
+  assetable_id: 576
+  assetable_type: Column
+  type: Ckeditor::Picture
+  width: 1069
+  height: 1500
+  created_at: 2016-12-18 13:20:38.718695000 Z
+  updated_at: 2016-12-18 13:20:38.718695000 Z
+ckeditor/asset_27:
+  id: 27
+  data_file_name: whatsapp_2.jpg
+  data_content_type: image/jpeg
+  data_file_size: 188726
+  assetable_id: 576
+  assetable_type: Column
+  type: Ckeditor::Picture
+  width: 1325
+  height: 750
+  created_at: 2016-12-18 13:23:51.844417000 Z
+  updated_at: 2016-12-18 13:23:51.844417000 Z
+ckeditor/asset_28:
+  id: 28
+  data_file_name: paw_patrol.jpg
+  data_content_type: image/jpeg
+  data_file_size: 99050
+  assetable_id: 576
+  assetable_type: Column
+  type: Ckeditor::Picture
+  width: 420
+  height: 600
+  created_at: 2016-12-18 15:31:48.225919000 Z
+  updated_at: 2016-12-18 15:31:48.225919000 Z
+ckeditor/asset_29:
+  id: 29
+  data_file_name: image.png
+  data_content_type: image/png
+  data_file_size: 73443
+  assetable_id: 576
+  assetable_type: Column
+  type: Ckeditor::Picture
+  width: 608
+  height: 347
+  created_at: 2016-12-18 15:46:33.603565000 Z
+  updated_at: 2016-12-18 15:46:33.603565000 Z
+ckeditor/asset_30:
+  id: 30
+  data_file_name: animali_fantastici.jpg
+  data_content_type: image/jpeg
+  data_file_size: 421682
+  assetable_id: 585
+  assetable_type: Column
+  type: Ckeditor::Picture
+  width: 1382
+  height: 2048
+  created_at: 2016-12-18 17:55:50.753879000 Z
+  updated_at: 2016-12-18 17:55:50.753879000 Z
+ckeditor/asset_32:
+  id: 32
+  data_file_name: image.png
+  data_content_type: image/png
+  data_file_size: 5796
+  assetable_id: 585
+  assetable_type: Column
+  type: Ckeditor::Picture
+  width: 252
+  height: 136
+  created_at: 2016-12-18 18:15:10.747770000 Z
+  updated_at: 2016-12-18 18:15:10.747770000 Z
+ckeditor/asset_33:
+  id: 33
+  data_file_name: bosh_1200x675.jpg
+  data_content_type: image/jpeg
+  data_file_size: 340494
+  assetable_id: 585
+  assetable_type: Column
+  type: Ckeditor::Picture
+  width: 1200
+  height: 675
+  created_at: 2016-12-20 20:37:08.820041000 Z
+  updated_at: 2016-12-20 20:37:08.820041000 Z

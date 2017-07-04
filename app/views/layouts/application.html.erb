@@ -1,184 +1,67 @@
 <!DOCTYPE html>
 
-<html class="no-js" lang="it">
+<html class="no-js" lang="it" prefix="og: http://ogp.me/ns#">
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title><%= Rails.configuration.nome_sito %><%=
+  <title><%=
+    nome_sito = Rails.configuration.nome_sito
     if @page
       if @page.home
         if !@page.section.principale
-          " - #{@page.section.descrizione}"
+          titolo = @page.section.descrizione
         end
       else
-        " - #{@page.titolo}"
+        titolo = @page.titolo
+      end
+      immagine_social = @page.trova_immagine_social
+
+      if @page && @page.abstract
+        descrizione = @page.abstract
+      else
+        descrizione = Rails.configuration.descrizione_sito
       end
     end
-    %>
-  </title>
-  <meta name="description" content="<%= if @page && @page.abstract
-                                          @page.abstract
-                                        else
-                                          Rails.configuration.descrizione_sito
-                                        end %>">
-  <link rel="stylesheet" href="/css/jquery-ui.min.css" />
-  <link rel="stylesheet" href="/css/foundation.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.1.1/motion-ui.min.css" />
-  <link rel="stylesheet" href="/css/jquery.contextMenu.min.css" />
-  <link rel="stylesheet" href="/css/foundation-icons.css" />
-  <link rel="stylesheet" type="text/css" href="/slick/slick.css"/>
-  <link rel="stylesheet" type="text/css" href="/slick/slick-theme.css"/>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
 
-  <script src="/js/vendor/jquery.min.js"></script>
-  <script src="/js/jquery-ui.min.js"></script>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <script src="/js/what-input.js"></script>
-  <script src="/js/foundation.min.js"></script>
-  <script src="/js/jquery.contextMenu.min.js"></script>
-  <script type="text/javascript" src="/slick/slick.min.js"></script>
+    if @photoalbum
+      titolo = @photoalbum.titolo
+      immagine_social = @photoalbum.trova_immagine_social
+      descrizione = 'Guarda tutte le foto!'
+    end
+
+    titolo ||= nome_sito
+
+    %></title>
+  <meta property="og:title" content="<%= titolo %>" />
+  <meta property="og:type" content="website" />
+  <meta name="description" content="<%= descrizione %>">
+  <meta property="og:description" content="<%= descrizione %>">
+  <% if immagine_social %>
+  <meta property="og:image" content="<%= 'http://' + Rails.configuration.action_mailer.default_url_options[:host] + immagine_social %>" />
+  <% end %>
+
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 
 <body class='<%= controller.controller_name %>'>
 
-  <!-- Menu amministrativo -->
   <% if current_user && (current_user.admin || current_user.section_id) %>
-    <div class="title-bar" data-responsive-toggle="main-menu" data-hide-for="medium">
-      <button class="menu-icon" type="button" data-toggle></button>
-      <div class="title-bar-title"><a href="/"><img src="/img/logodbwebcore.png" width="200"></a></div>
-    </div>
-
-    <div class="top-bar" id="main-menu">
-
-        <ul class="menu vertical medium-horizontal expanded" data-responsive-menu="accordion medium-dropdown">
-
-        <li class="menu-text"><a href="/"><img src="/img/logodbwebcore.png" width="200"></a></li>
-
-          <% menu_disattivati = '<li>
-          <a id="pagePreview" onclick="" class="toolbar disabled button" title="Page preview: ALT + P"><i class="fi-eye"></i> Preview</a>
-        </li>
-        <li>
-          <a id="pageSave" onclick="" class="toolbar disabled button" title="Salva: ALT + S"><i class="fi-save"></i> Salva</a>
-        </li>
-        <li>
-          <a id="newsEdit" onclick="" class="toolbar disabled button" title="News: ALT + I"><i class="fi-page"></i> News</a>
-        </li>
-        <li>
-          <a id="inlineEdit" onclick="" class="toolbar disabled button" title="Inline edit: ALT + I"><i class="fi-page"></i> Editor</a>
-        </li>'.html_safe
-
-             menu_disattivati += '<li>
-          <a id="layoutDesign" onclick="" class="toolbar disabled button" accesskey="l" title="Layout design: ALT + L"><i class="fi-pencil"></i> Layout</a>
-        </li>'.html_safe if current_user && (current_user.designer || current_user.admin)
-
-
-          %>
-
-          <%= @menu_aggiuntivi || menu_disattivati %>
-
-          <% if policy(Section).index? %>
-          <li class="has-submenu">
-            <a>Sezioni</a>
-            <ul class="submenu menu vertical" data-submenu>
-              <% policy_scope(Section).order('titolo').each do |section| %>
-                  <li><%= link_to section.titolo, '/' + section.percorso %></li>
-              <% end %>
-              <li><a href="/sections">Tutte</a></li>
-              <li><a href="/sections/new">Nuova sezione</a></li>
-            </ul>
-          </li>
-          <% end %>
-          <% if policy(Page).index? %>
-          <li class="has-submenu">
-            <a>Pagine</a>
-            <ul class="submenu menu vertical" data-submenu>
-              <% policy_scope(Section).order('titolo').each do |section| %>
-              <li><%= link_to section.titolo, pages_path(:section_id => section.id) %></li>
-              <% end %>
-              <li><a href="/pages">Tutte</a></li>
-              <% if @section %>
-              <li><a href="/pages/new?section_id=<%= @section.id %>">Nuova pagina</a></li>
-              <% else %>
-              <li><a href="/pages/new">Nuova pagina</a></li>
-              <% end %>
-            </ul>
-          </li>
-          <li class="has-submenu">
-            <a>Articoli</a>
-            <ul class="submenu menu vertical" data-submenu>
-              <% policy_scope(Section).order('titolo').each do |section| %>
-                  <li><%= link_to section.titolo, pages_path(:section_id => section.id, :articolo => 1) %></li>
-              <% end %>
-              <li><a href="/pages?articolo=1">Tutti</a></li>
-              <% if @section %><li><a href="/pages/new?section_id=<%= @section.id %>&articolo=1">Nuovo articolo</a></li><% end %>
-            </ul>
-          </li>
-          <% end %>
-          <% if policy(Photoalbum).index? %>
-              <li class="has-submenu">
-                <a>Fotografie</a>
-                <ul class="submenu menu vertical" data-submenu>
-                  <% policy_scope(Section).order('titolo').each do |section| %>
-                      <li><%= link_to section.titolo, photoalbums_path(:section_id => section.id) %></li>
-                  <% end %>
-                  <li><a href="/photoalbums">Tutti</a></li>
-                  <% if @section %>
-                      <li><a href="/photoalbums/new?section_id=<%= @section.id %>">Nuovo album</a></li>
-                  <% else %>
-                      <li><a href="/photoalbums/new">Nuovo album</a></li>
-                  <% end %>
-                </ul>
-              </li>
-          <% end %>
-          <% if policy(Attachment).index? %>
-          <li class="has-submenu">
-            <a>Allegati</a>
-            <ul class="submenu menu vertical" data-submenu>
-              <% policy_scope(Section).order('titolo').each do |section| %>
-                  <li><%= link_to section.titolo, attachments_path(:section_id => section.id) %></li>
-              <% end %>
-              <li><a href="/attachments">Tutti</a></li>
-              <% if @section %>
-                  <li><a href="/attachments/new?section_id=<%= @section.id %>">Nuovo allegato</a></li>
-              <% else %>
-                  <li><a href="/attachments/new">Nuovo allegato</a></li>
-              <% end %>
-            </ul>
-          </li>
-          <% end %>
-          <% if policy(User).index? %>
-          <li class="has-submenu">
-            <a>Utenti</a>
-            <ul class="submenu menu vertical" data-submenu>
-              <li><a href="/admin/users">Tutti</a></li>
-              <li><a href="/admin/users/new">Nuovo utente</a></li>
-            </ul>
-          </li>
-          <% end %>
-          <li class="has-submenu">
-            <a>Account</a>
-            <ul class="submenu menu vertical" data-submenu>
-              <% # link_to "Dati personali", edit_user_registration_path %>
-              <li><%= link_to "Logout", destroy_user_session_path %></li>
-            </ul>
-          </li>
-        </ul>
-
-     </div>
-
+    <%= render partial: "pages/menu" %>
   <% end %>
 
   <%= yield %>
 
   <script>
-    $(function() {
-      $(document).foundation();
-      // setTimeout(function() { $(document).foundation('topbar', 'init');}, 250);
-    });
+    // attenzione: la seguente modalità per lanciare Foundation crea problemi:
+    // $(function() {
+    //   $(document).foundation();
+    //   // setTimeout(function() { $(document).foundation('topbar', 'init');}, 250);
+    // });
+    $(document).foundation();
   </script>
 
   <%= Rails.configuration.codice_google_analytics.html_safe %>

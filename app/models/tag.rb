@@ -1,7 +1,10 @@
+# etichette collegate ad articoli, foto e materiale, servono alla ricerca e alla correlazione di contenuti
+
 class Tag < ActiveRecord::Base
   belongs_to :taggable, polymorphic: true
 
   def self.search(search, type)
+    # seleziono inizialmente tutti i tag
     result = Tag.all
     if search
       words = search.strip.split
@@ -13,6 +16,7 @@ class Tag < ActiveRecord::Base
       # sql = words.join(' AND ')
       # Tag.where(sql).select(:taggable_id,:taggable_type).distinct.order(taggable_id: :desc)
 
+      # per ogni parola inserita raffino la ricerca (AND)
       words.each do |word|
         result = result.where("nome LIKE ?", "%#{word}%")
       end

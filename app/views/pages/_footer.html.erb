@@ -1,0 +1,7 @@
+<%
+  if !@page.header && !@page.footer
+    footer = @page.trova_footer
+  end
+%>
+
+<%= render(footer.rows.order('ordine ASC')) if footer %>

@@ -1,3 +1,5 @@
+# pagina o articolo
+
 class Page < ActiveRecord::Base
   after_initialize do |page|
     @colonne_selezionate = []
@@ -50,6 +52,16 @@ class Page < ActiveRecord::Base
     piedipagina
   end
 
+  def trova_immagine_social
+    # se esiste seleziona un'immagine per i social
+    column_image = ColumnImage.joins(:column => :row).where(:rows => {:page_id => id}).first
+
+    if column_image
+      column_image.immagine.url(:xlarge)
+    end
+  end
+
+  # selezione di tutte le colonne dinamiche di un certo ambito (pagina, sezione, sito...)
   def dinamiche(fonte = 1)
     case fonte
       when 1 # colonne della stessa pagina
@@ -61,12 +73,11 @@ class Page < ActiveRecord::Base
     end
   end
 
+  # selezione di una colonna tra quelle disponibili
   def candidata(fonte = 1)
-    # todo: recupero le ultime n dinamiche e le metto in un array
-    # recupero gli ultimi n articoli e metto nell'array delle colonne create al volo
-    # riordino l'array e seleziono... problema dell'id
+    # todo: il criterio di selezione dovrà essere perfezionato, anche in base alla correlazione dei tag
 
-    dinamiche(fonte).order('created_at DESC').each do |colonna|
+    dinamiche(fonte).order('created_at DESC').limit(20).each do |colonna|
       if !@colonne_selezionate.include?(colonna.id)
         @colonne_selezionate << colonna.id
         return colonna

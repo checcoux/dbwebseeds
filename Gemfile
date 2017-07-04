@@ -16,7 +16,7 @@ gem 'coffee-rails', '~> 4.0.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
+# gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
@@ -47,9 +47,6 @@ gem 'mini_magick'
 gem 'responders', '~> 2.0'
 gem 'rails-html-sanitizer'
 
-# per fare automaticamente il dump del database nel file seeds.rb
-gem 'seed_dump'
-
 # color picker
 gem 'jquery-minicolors-rails'
 gem 'jquery-ui-rails'
@@ -70,6 +67,23 @@ gem 'nokogiri'
 
 gem 'dropzonejs-rails'
 
+gem 'jquery-slick-rails'
+
 group :development do
   gem 'meta_request'
+end
+
+group :test do
+  # per utilizzare capybara nei test
+  gem 'minitest-rails-capybara'
+
+  # per aprire la pagina sotto test in un browser
+  gem 'launchy'
+
+  # per eseguire il dump del database nel file seeds.rb
+  # rake db:seed:dump
+  gem 'seed_dump'
+
+  # per eseguire il dump del database nelle fixtures:
+  # rake db:fixtures:dump
 end

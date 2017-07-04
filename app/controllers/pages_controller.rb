@@ -1,3 +1,5 @@
+# Pages: pagine e articoli
+
 class PagesController < ApplicationController
   after_action :allow_iframe, only: :screen
   before_action :set_page, only: [:show, :edit, :update, :destroy, :row0, :nuovo_contenuto_dinamico, :pubblica, :nascondi, :duplica]
@@ -325,8 +327,6 @@ class PagesController < ApplicationController
   end
 
   def duplica
-    authorize Page
-
     @page2 = @page.dup
     @page2.home = false
     @page2.header = false

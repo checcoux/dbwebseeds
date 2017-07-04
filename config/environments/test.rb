@@ -13,7 +13,7 @@ Rails.application.configure do
   config.eager_load = false
 
   # Configure static asset server for tests with Cache-Control for performance.
-  config.serve_static_assets  = true
+  config.serve_static_files  = true
   config.static_cache_control = 'public, max-age=3600'
 
   # Show full error reports and disable caching.
@@ -39,6 +39,16 @@ Rails.application.configure do
 
   config.active_support.test_order = :sorted
 
+  # richiesto da devise per generare gli url assoluti verso il sito
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+      address: "mail.donbosco.cloud",
+      port: 25
+  }
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  config.nome_sito = "donboscowebseeds"
+  config.descrizione_sito = "Test descrizione sito."
 
   config.codice_google_analytics = "<script>
                                       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -50,4 +60,7 @@ Rails.application.configure do
                                       ga('send', 'pageview');
 
                                     </script>"
+
+  config.facebook_app_id = "102865639862870"
+  config.twitter_id = ""
 end

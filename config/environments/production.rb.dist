@@ -101,4 +101,7 @@ Rails.application.configure do
                                       ga('send', 'pageview');
 
                                     </script>"
+
+  config.facebook_app_id = ""
+  config.twitter_id = ""
 end

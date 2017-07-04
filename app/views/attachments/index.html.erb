@@ -1,24 +1,18 @@
 <h1>Allegati
-  <%= link_to 'Nuovo allegato', { controller: 'attachments', action: 'new', section_id: @section }, class: 'large warning button float-right' %>
+  <%= link_to 'NUOVO ALLEGATO', { controller: 'attachments', action: 'new', section_id: @section }, class: 'large warning button float-right' %>
 </h1>
 
-<table>
-  <tbody>
-    <% policy_scope(@attachments).each do |attachment| %>
-      <% if attachment.allegato %>
-      <tr>
-        <td><%= link_to attachment.titolo, edit_attachment_path(attachment), class: "primary medium button bottone-largo" %></td>
-        <td><%= attachment.descrizione %></td>
-        <td><%= link_to attachment.allegato_file_name, "/attachments/#{ attachment.id }/download/#{attachment.allegato_file_name}", class: "secondary medium button bottone-largo" %></td>
-        <td><%= attachment.allegato_file_size / 1024 %> KB</td>
-        <td><%= attachment.updated_at.to_s(:data_ora) %></td>
-        <td><%= "Sezione " + attachment.section.titolo %></td>
-        <td><%= link_to 'Elimina', attachment, method: :delete, data: { confirm: 'Desideri cancellare il file?' }, class: "tiny alert button" %></td>
-      </tr>
-      <% end %>
-    <% end %>
-  </tbody>
-</table>
+<% policy_scope(@attachments).each do |attachment| %>
+  <% if attachment.allegato %>
+    <div class="expanded row">
+      <div class="large-3 columns"><%= link_to '<i class="fi-paperclip"></i> '.html_safe + attachment.allegato_file_name, "/attachments/#{ attachment.id }/download/#{attachment.allegato_file_name}", class: "secondary medium button bottone-largo" %></div>
+      <div class="large-5 columns"><b><%= attachment.titolo %></b>
+      <br><%= attachment.descrizione %></div>
+      <div class="large-2 columns"><small><%= attachment.updated_at.to_s(:data_ora) %> - <%= attachment.allegato_file_size / 1024 %> KB - Sezione <%= attachment.section.titolo %></small></div>
+      <div class="large-2 columns"><%= link_to "Modifica", edit_attachment_path(attachment), class: "tiny primary button" %> <%= link_to 'Elimina', attachment, method: :delete, data: { confirm: 'Desideri cancellare il file?' }, class: "tiny alert button" %></div>
+    </div>
+  <% end %>
+<% end %>
 
 <div class="text-center">
   <%= will_paginate @attachments, renderer: FoundationPagination::Rails %>

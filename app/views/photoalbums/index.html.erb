@@ -2,28 +2,33 @@
   <%= link_to 'NUOVO ALBUM', { controller: 'photoalbums', action: 'new', section_id: @section }, class: 'large warning button float-right' %>
 </h1>
 
-<table>
-  <tbody>
-  <% policy_scope(@photoalbums).each do |photoalbum| %>
-      <tr>
-        <td style="width: 200px;"><%=
-          if photoalbum.copertina
-            photo = Photo.find_by(id: photoalbum.copertina)
-            if photo
-              image_tag photo.immagine.thumb.url, style: "width: 200px;"
-            end
+<% policy_scope(@photoalbums).each do |photoalbum| %>
+    <div class="expanded row">
+      <div class="large-1 columns"><%=
+        if photoalbum.copertina
+          photo = Photo.find_by(id: photoalbum.copertina)
+          if photo
+            image_tag photo.immagine.thumb.url, style: "width: 100%;"
+          else
+            '&nbsp;'.html_safe
           end
-        %></td>
-        <td><%= link_to photoalbum.titolo, photoalbum_path(photoalbum), class: "primary medium button bottone-largo" %></td>
-        <td><%= photoalbum.updated_at.to_s(:data_ora) %></td>
-        <td><%= "Sezione " + photoalbum.section.titolo %></td>
-        <td><%= link_to 'Proprietà', edit_photoalbum_path(photoalbum), class: "tiny primary button" %></td>
-        <td><%= link_to 'Pubblica', pubblica_photoalbum_path(photoalbum), class: "tiny warning button" if photoalbum.copertina != 0 %></td>
-        <td><%= link_to 'Elimina', photoalbum, method: :delete, data: { confirm: 'Desideri cancellare l\'album e tutte le sue foto?' }, class: "tiny alert button" %></td>
-      </tr>
-  <% end %>
-  </tbody>
-</table>
+        end
+      %></div>
+      <div class="large-4 columns"><%= link_to '<i class="fi-paperclip"></i> '.html_safe + " " + photoalbum.titolo, photoalbum_path(photoalbum), class: "secondary medium button bottone-largo" %></div>
+      <div class="large-5 columns">
+        <%= photoalbum.updated_at.to_s(:data_ora) %> - <%= "Sezione " + photoalbum.section.titolo %>
+      </div>
+      <div class="large-2 columns">
+        <%= link_to 'Proprietà', edit_photoalbum_path(photoalbum), class: "tiny primary button" %>
+        <% if photoalbum.copertina != 0 %>
+          <%= link_to 'Pubblica', pubblica_photoalbum_path(photoalbum), class: "tiny warning button" %>
+        <% else %>
+          <span class="tiny disabled warning button">Pubblica</span>
+        <% end %>
+        <%= link_to 'Elimina', photoalbum, method: :delete, data: { confirm: 'Desideri cancellare l\'album e tutte le sue foto?' }, class: "tiny alert button" %>
+      </div>
+    </div>
+<% end %>
 
 <div class="text-center">
   <%= will_paginate @photoalbums, renderer: FoundationPagination::Rails %>

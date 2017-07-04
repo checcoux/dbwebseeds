@@ -1,9 +1,8 @@
-<p></p>
 <%= form_for(@attachment) do |f| %>
+
   <% if @attachment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@attachment.errors.count, "error") %> prohibited this attachment from being saved:</h2>
-
       <ul>
       <% @attachment.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -11,6 +10,7 @@
       </ul>
     </div>
   <% end %>
+
   <div class="field">
     <%= f.label :titolo %><br>
     <%= f.text_field :titolo %>
@@ -32,7 +32,9 @@
     <%= f.label "Sezione" %><br>
     <%= f.collection_select(:section_id, policy_scope(Section), :id, :titolo) %>
   </div>
+
   <div class="actions">
     <%= f.submit 'SALVA', class: 'button' %>
   </div>
+
 <% end %>

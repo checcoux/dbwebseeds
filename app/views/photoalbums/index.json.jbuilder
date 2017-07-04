@@ -1,1 +1,0 @@
-json.array! @photoalbums, partial: 'photoalbums/photoalbum', as: :photoalbum

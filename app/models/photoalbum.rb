@@ -1,3 +1,5 @@
+# collection di photos
+
 class Photoalbum < ActiveRecord::Base
 
   extend FriendlyId
@@ -12,6 +14,14 @@ class Photoalbum < ActiveRecord::Base
     slug = normalize_friendly_id(titolo)
     sequence = self.class.where("slug like '#{slug}-%'").count + 2
     "#{slug}-#{sequence}"
+  end
+
+  def trova_immagine_social
+    # se esiste seleziona un'immagine per i social
+    photo = Photo.find_by(id: copertina)
+    if photo
+      photo.immagine.url(:xlarge)
+    end
   end
 
   belongs_to :section

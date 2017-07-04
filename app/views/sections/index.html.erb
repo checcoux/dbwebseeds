@@ -2,21 +2,24 @@
   <%= link_to 'Nuova sezione', new_section_path, class: 'large warning button float-right' %>
 </h1>
 
-<table>
-  <tbody>
-    <% @sections.each do |section| %>
-      <tr>
-        <td><%= link_to section.titolo, "/#{section.percorso}", method: :get, class: "primary button bottone-largo" %></td>
-        <td><%= link_to "/#{section.percorso}", "/#{section.percorso}" %></td>
-        <td><%= section.descrizione %></td>
-        <td><%= "principale" if section.principale %></td>
-        <td><%= link_to 'Nuova pagina', new_page_path(:section_id => section.id), class: "tiny warning button" %></td>
-        <td><%= link_to 'Nuovo articolo', new_page_path(:section_id => section.id, :articolo => 1), class: "tiny warning button" %></td>
-        <td><%= link_to 'Nuovo allegato', new_attachment_path(:section_id => section.id), class: "tiny warning button" %></td>
-        <td><%= link_to 'Proprietà', edit_section_path(section), class: "tiny primary button" %></td>
-        <td><%= link_to 'Elimina', section, method: :delete, data: { confirm: 'Sei sicuro? Verranno cancellate tutte le pagine di questa sezione...' }, class: "tiny alert button" %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+
+<% @sections.each do |section| %>
+    <div class="expanded row">
+      <div class="large-3 columns"><%= link_to '<i class="fi-paperclip"></i> '.html_safe + " " + "/#{section.percorso}", "/#{section.percorso}", class: "medium secondary button bottone-largo" %></div>
+      <div class="large-4 columns">
+        <%= "<span class='warning label'>principale</span>".html_safe if section.principale %>
+        <b><%= section.titolo %></b>
+        <br><%= section.descrizione %>
+      </div>
+      <div class="large-5 columns">
+        <%= link_to 'Nuova pagina', new_page_path(:section_id => section.id), class: "tiny warning button" %>
+        <%= link_to 'Nuovo articolo', new_page_path(:section_id => section.id, :articolo => 1), class: "tiny warning button" %>
+        <%= link_to 'Nuovo album', new_photoalbum_path(:section_id => section.id), class: "tiny warning button" %>
+        <%= link_to 'Nuovo allegato', new_attachment_path(:section_id => section.id), class: "tiny warning button" %>
+        <%= link_to 'Proprietà', edit_section_path(section), class: "tiny primary button" %>
+        <%= link_to 'Elimina', section, method: :delete, data: { confirm: 'Sei sicuro? Verranno cancellate tutte le pagine di questa sezione...' }, class: "tiny alert button" %>
+      </div>
+    </div>
+<% end %>
+
 

@@ -1,35 +1,80 @@
 require "test_helper"
 
 class PagesTest < Capybara::Rails::TestCase
-  test "l'amministratore gestisce le sezioni" do
+  # todo: provare creazione di una nuova pagina
+
+
+  test "l'amministratore gestisce le pagine" do
     logon_as_administrator
 
-    visit '/sections'
+    visit '/pages'
 
-    # verifica dell'esistenza di alcuni elementi
-    assert page.has_text?("Sezione principale del sito")
-    assert page.has_text?("/sezione1")
+    assert page.has_link?("NUOVA PAGINA")
+    assert page.has_text?("/home-sezione-1")
+    assert page.has_text?("/footer")
+    assert page.has_text?("/header")
+    assert page.has_text?("/home")
+    assert page.has_text?("/modello")
 
-    # creazione di una nuova sezione
-    click_on("NUOVA SEZIONE")
+    page.find_link('Duplica', :href => '/pages/home-sezione-1/duplica').click
 
-    fill_in 'section_titolo', :with => "Sezione nuova"
-    fill_in 'section_percorso', :with => "seznuova"
-    fill_in 'section_descrizione', :with => "Sezione appena creata"
+    fill_in 'page_titolo', :with => "Pagina modificata"
+    select "Principale", :from => 'page_section_id'
+    check 'rigenera_slug'
     click_on "SALVA"
 
-    assert page.has_text?("Sezione appena creata")
+    assert page.has_text?("/pagina-modificata")
 
-    # modifica delle proprietà di una sezione
-    page.find_link('Proprietà', :href => '/sections/7/edit').click
-    fill_in 'section_percorso', :with => "seznuova2"
+    page.find_link('Elimina', :href => '/pages/pagina-modificata?section_id=1').click
+
+    assert page.has_no_text?("/pagina-modificata")
+  end
+
+  test "il designer gestisce le pagine di sua competenza" do
+    logon_as_designer
+
+    visit '/pages'
+
+    assert page.has_link?("NUOVA PAGINA")
+    assert page.has_text?("/home-sezione-1")
+    assert page.has_no_text?("/footer")
+    assert page.has_no_text?("/header")
+    assert page.has_no_text?("/modello")
+
+    page.find_link('Duplica', :href => '/pages/home-sezione-1/duplica').click
+
+    fill_in 'page_titolo', :with => "Pagina modificata"
+    check 'rigenera_slug'
     click_on "SALVA"
 
-    assert page.has_text?("/seznuova2")
+    assert page.has_text?("/pagina-modificata")
 
-    # eliminazione di una sezione
-    page.find_link('Elimina', :href => '/sections/7').click
+    page.find_link('Elimina', :href => '/pages/pagina-modificata?section_id=6').click
 
-    assert page.has_no_text?("Sezione appena creata")
+    assert page.has_no_text?("/pagina-modificata")
+  end
+
+  test "l'editor gestisce le pagine di sua competenza" do
+    logon_as_editor
+
+    visit '/pages'
+
+    assert page.has_link?("NUOVA PAGINA")
+    assert page.has_text?("/home-sezione-1")
+    assert page.has_no_text?("/footer")
+    assert page.has_no_text?("/header")
+    assert page.has_no_text?("/modello")
+
+    page.find_link('Duplica', :href => '/pages/home-sezione-1/duplica').click
+
+    fill_in 'page_titolo', :with => "Pagina modificata"
+    check 'rigenera_slug'
+    click_on "SALVA"
+
+    assert page.has_text?("/pagina-modificata")
+
+    page.find_link('Elimina', :href => '/pages/pagina-modificata?section_id=6').click
+
+    assert page.has_no_text?("/pagina-modificata")
   end
 end

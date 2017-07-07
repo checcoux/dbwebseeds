@@ -1,6 +1,11 @@
 require "test_helper"
 
 class PagesTest < Capybara::Rails::TestCase
+  def setup
+    @sezione_principale = Section.find_by titolo: 'Principale'
+    @sezione1 = Section.find_by titolo: 'Sezione 1'
+  end
+
   test "l'amministratore gestisce le pagine" do
     logon_as_administrator
 
@@ -46,7 +51,7 @@ class PagesTest < Capybara::Rails::TestCase
     assert page.has_text?("/pagina-modificata")
 
     # eliminazione di una pagina
-    page.find_link('Elimina', :href => '/pages/pagina-modificata?section_id=1').click
+    page.find_link('Elimina', :href => "/pages/pagina-modificata?section_id=#{@sezione_principale.id}").click
 
     assert page.has_no_text?("/pagina-modificata")
   end
@@ -93,7 +98,7 @@ class PagesTest < Capybara::Rails::TestCase
     assert page.has_text?("/pagina-modificata")
 
     # eliminazione di una pagina
-    page.find_link('Elimina', :href => '/pages/pagina-modificata?section_id=6').click
+    page.find_link('Elimina', :href => "/pages/pagina-modificata?section_id=#{@sezione1.id}").click
 
     assert page.has_no_text?("/pagina-modificata")
   end
@@ -140,7 +145,7 @@ class PagesTest < Capybara::Rails::TestCase
     assert page.has_text?("/pagina-modificata")
 
     # eliminazione di una pagina
-    page.find_link('Elimina', :href => '/pages/pagina-modificata?section_id=6').click
+    page.find_link('Elimina', :href => "/pages/pagina-modificata?section_id=#{@sezione1.id}").click
 
     assert page.has_no_text?("/pagina-modificata")
   end

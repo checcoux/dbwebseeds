@@ -1,6 +1,10 @@
 require "test_helper"
 
 class SectionsTest < Capybara::Rails::TestCase
+  def setup
+    @sezione1 = Section.find_by titolo: 'Sezione 1'
+  end
+
   test "l'amministratore gestisce le sezioni" do
     logon_as_administrator
 
@@ -21,15 +25,15 @@ class SectionsTest < Capybara::Rails::TestCase
     assert page.has_text?("Sezione appena creata")
 
     # modifica delle proprietà di una sezione
-    page.find_link('Proprietà', :href => '/sections/7/edit').click
+    page.find_link('Proprietà', :href => "/sections/#{@sezione1.id}/edit").click
     fill_in 'section_percorso', :with => "seznuova2"
     click_on "SALVA"
 
     assert page.has_text?("/seznuova2")
 
     # eliminazione di una sezione
-    page.find_link('Elimina', :href => '/sections/7').click
+    page.find_link('Elimina', :href => "/sections/#{@sezione1.id}").click
 
-    assert page.has_no_text?("Sezione appena creata")
+    assert page.has_no_text?("Sezione di test 1")
   end
 end

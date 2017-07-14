@@ -1,6 +1,6 @@
 #!/bin/bash
 git pull
-rake db:migrate RAILS_ENV=production
-rake assets:precompile
-rake tmp:cache:clear
+bundle exec rake db:migrate RAILS_ENV=production
+bundle exec rake assets:precompile
+bundle exec rake tmp:cache:clear
 service apache2 restart

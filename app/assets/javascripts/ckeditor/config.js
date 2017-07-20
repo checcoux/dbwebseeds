@@ -59,7 +59,7 @@ CKEDITOR.editorConfig = function( config )
         { name: 'styles', items: [ 'Styles', 'Bold', 'Italic', 'TextColor', 'BGColor', 'FontSize', 'RemoveFormat', 'Sourcedialog' ] },
         '/',
         { name: 'links', items: [ 'Link', 'Unlink', 'Anchor', 'Image', 'EqnEditor' ] },
-        { name: 'paragraph', groups: [ 'indent', 'align' ], items: [ 'NumberedList', 'BulletedList', 'Blockquote', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock' ] },
+        { name: 'paragraph', groups: [ 'list', 'indent', 'align' ], items: [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', 'Blockquote', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock' ] },
     ];
 
     config.extraPlugins = 'dialogui,widgetselection,dialog,clipboard,lineutils,widget,button,toolbar,notification,notificationaggregator,filetools,uploadwidget,uploadimage,sourcedialog';

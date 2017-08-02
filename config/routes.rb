@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  resources :instances
+  resources :properties
+  resources :entities
   resources :photos
   resources :photoalbums do
     member do

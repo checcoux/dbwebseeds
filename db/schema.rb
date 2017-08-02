@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170224150322) do
+ActiveRecord::Schema.define(version: 20170729102531) do
 
   create_table "attachments", force: :cascade do |t|
     t.string   "titolo"
@@ -29,16 +29,16 @@ ActiveRecord::Schema.define(version: 20170224150322) do
   add_index "attachments", ["section_id"], name: "index_attachments_on_section_id"
 
   create_table "ckeditor_assets", force: :cascade do |t|
-    t.string   "data_file_name",               null: false
-    t.string   "data_content_type"
+    t.string   "data_file_name",    limit: 255, null: false
+    t.string   "data_content_type", limit: 255
     t.integer  "data_file_size"
     t.integer  "assetable_id"
     t.string   "assetable_type",    limit: 30
     t.string   "type",              limit: 30
     t.integer  "width"
     t.integer  "height"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable"
@@ -76,6 +76,23 @@ ActiveRecord::Schema.define(version: 20170224150322) do
   add_index "columns", ["page_id"], name: "index_columns_on_page_id"
   add_index "columns", ["row_id"], name: "index_columns_on_row_id"
 
+  create_table "data", force: :cascade do |t|
+    t.integer  "instance_id"
+    t.integer  "property_id"
+    t.string   "valore"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "entities", force: :cascade do |t|
+    t.string   "label"
+    t.boolean  "nativo",     default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  add_index "entities", ["label"], name: "index_entities_on_label"
+
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
     t.integer  "sluggable_id",              null: false
@@ -89,19 +106,27 @@ ActiveRecord::Schema.define(version: 20170224150322) do
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
 
+  create_table "instances", force: :cascade do |t|
+    t.integer  "entity_id"
+    t.integer  "section_id"
+    t.string   "tags"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "pages", force: :cascade do |t|
-    t.string   "titolo"
+    t.string   "titolo",       limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "section_id"
-    t.boolean  "home",         default: false
-    t.boolean  "header",       default: false
-    t.boolean  "footer",       default: false
+    t.boolean  "home",                     default: false
+    t.boolean  "header",                   default: false
+    t.boolean  "footer",                   default: false
     t.string   "slug"
-    t.boolean  "modello",      default: false
-    t.boolean  "articolo",     default: false
-    t.boolean  "visibile",     default: true
-    t.datetime "published_at", default: '2016-08-20 18:11:35'
+    t.boolean  "modello",                  default: false
+    t.boolean  "articolo",                 default: false
+    t.boolean  "visibile",                 default: true
+    t.datetime "published_at",             default: '2017-06-08 16:07:22'
     t.text     "abstract"
   end
 
@@ -128,6 +153,18 @@ ActiveRecord::Schema.define(version: 20170224150322) do
     t.datetime "updated_at",    null: false
   end
 
+  create_table "properties", force: :cascade do |t|
+    t.string   "nome"
+    t.string   "tipo"
+    t.boolean  "nativo",     default: false
+    t.integer  "entity_id"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  add_index "properties", ["entity_id"], name: "index_properties_on_entity_id"
+  add_index "properties", ["nome"], name: "index_properties_on_nome"
+
   create_table "rows", force: :cascade do |t|
     t.integer  "ordine"
     t.datetime "created_at"
@@ -145,11 +182,11 @@ ActiveRecord::Schema.define(version: 20170224150322) do
   add_index "rows", ["page_id"], name: "index_rows_on_page_id"
 
   create_table "sections", force: :cascade do |t|
-    t.string   "titolo"
+    t.string   "titolo",      limit: 255
     t.text     "descrizione"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "principale",  default: false
+    t.boolean  "principale",              default: false
     t.string   "percorso"
   end
 

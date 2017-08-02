@@ -1,0 +1,29 @@
+<%= form_for(@instance) do |f| %>
+  <% if @instance.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@instance.errors.count, "error") %> prohibited this instance from being saved:</h2>
+
+      <ul>
+      <% @instance.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :entity_id %><br>
+    <%= f.collection_select(:entity_id, Entity.all, :id, :label) %>
+  </div>
+  <div class="field">
+    <%= f.label :section_id %><br>
+    <%= f.collection_select(:section_id, Section.all, :id, :titolo) %>
+  </div>
+  <div class="field">
+    <%= f.label :tags %><br>
+    <%= f.text_field :tags %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

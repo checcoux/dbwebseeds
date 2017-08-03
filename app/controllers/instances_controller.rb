@@ -4,12 +4,20 @@ class InstancesController < ApplicationController
   # GET /instances
   # GET /instances.json
   def index
-    @instances = Instance.all
+    if !params[:type].nil? then
+      entity = Entity.find_by label: params[:type]
+      entity_id = entity ? entity.id : 0
+
+      @instances = Instance.where("entity_id = ?", entity_id)
+    else
+      @instances = Instance.all
+    end
   end
 
   # GET /instances/1
   # GET /instances/1.json
   def show
+    @entity = @instance.entity
   end
 
   # GET /instances/new
@@ -69,6 +77,6 @@ class InstancesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def instance_params
-      params.require(:instance).permit(:entity_id, :section_id, :tags)
+      params.require(:instance).permit(:entity_id, :section_id, :tags, :type)
     end
 end

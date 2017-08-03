@@ -1,13 +1,11 @@
-<p id="notice"><%= notice %></p>
-
 <p>
-  <strong>Entity:</strong>
-  <%= @instance.entity_id %>
+  <strong>Entity di tipo:</strong>
+  <%= @entity.label %>
 </p>
 
 <p>
-  <strong>Section:</strong>
-  <%= @instance.section_id %>
+  <strong>Sezione:</strong>
+  <%= @instance.section.titolo %>
 </p>
 
 <p>
@@ -15,5 +13,9 @@
   <%= @instance.tags %>
 </p>
 
-<%= link_to 'Edit', edit_instance_path(@instance) %> |
-<%= link_to 'Back', instances_path %>
+<p>Proprietà:</p>
+<% @entity.properties.each do |property| %>
+  <br><% dato = Datum.find_by instance_id: @instance.id, property_id: property.id %>
+      <%= property.nome %>: <b><%= dato.valore if dato %></b>
+<% end %>
+

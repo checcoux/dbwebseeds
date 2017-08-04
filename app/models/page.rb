@@ -54,7 +54,7 @@ class Page < ActiveRecord::Base
 
   def trova_immagine_social
     # se esiste seleziona un'immagine per i social
-    column_image = ColumnImage.joins(:column => :row).where(:rows => {:page_id => id}).first
+    column_image = ColumnImage.joins(:column => :row).merge(Row.order(ordine: :asc)).where(:rows => {:page_id => id}).first
 
     if column_image
       column_image.immagine.url(:xlarge)

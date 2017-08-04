@@ -4,9 +4,9 @@ class InstancesController < ApplicationController
   # GET /instances
   # GET /instances.json
   def index
-    if !params[:type].nil? then
-      entity = Entity.find_by label: params[:type]
-      entity_id = entity ? entity.id : 0
+    if !params[:type].nil?
+      @entity = Entity.find_by label: params[:type]
+      entity_id = @entity ? @entity.id : 0
 
       @instances = Instance.where("entity_id = ?", entity_id)
     else
@@ -23,10 +23,19 @@ class InstancesController < ApplicationController
   # GET /instances/new
   def new
     @instance = Instance.new
+
+    if !params[:type].nil?
+      @entity = Entity.find_by label: params[:type]
+      @instance.entity_id = @entity ? @entity.id : 0
+    else
+      # todo: errore, tipo di oggetto non specificato
+      @instance.entity_id = 0
+    end
   end
 
   # GET /instances/1/edit
   def edit
+    @entity = @instance.entity
   end
 
   # POST /instances

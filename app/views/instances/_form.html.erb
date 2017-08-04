@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :entity_id %><br>
-    <%= f.collection_select(:entity_id, Entity.all, :id, :label) %>
+    <%= f.hidden_field(:entity_id) %>
   </div>
   <div class="field">
     <%= f.label :section_id %><br>
@@ -23,7 +23,23 @@
     <%= f.label :tags %><br>
     <%= f.text_field :tags %>
   </div>
+
+  <% @entity.properties.each do |property| %>
+        <%
+          if @instance
+            dato = Datum.find_by instance_id: @instance.id, property_id: property.id
+            valore = dato.valore
+          else
+            valore = ''
+          end
+        %>
+
+        <%= label_tag property.nome %><br>
+        <%= text_field_tag property.nome, valore %>
+
+  <% end %>
+
   <div class="actions">
-    <%= f.submit %>
+  <%= f.submit %>
   </div>
 <% end %>

@@ -70,6 +70,7 @@ gem 'dropzonejs-rails'
 gem 'jquery-slick-rails'
 
 group :development do
+  # per utilizzare l'estensione di Chrome RailsPanel
   gem 'meta_request'
 end
 

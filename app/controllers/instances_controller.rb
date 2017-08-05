@@ -43,9 +43,17 @@ class InstancesController < ApplicationController
   def create
     @instance = Instance.new(instance_params)
 
+    entity = @instance.entity
+
     respond_to do |format|
       if @instance.save
-        format.html { redirect_to @instance, notice: 'Instance was successfully created.' }
+
+        # scrittura dei valori delle singole proprietà
+        entity.properties.each do |property|
+          Datum.create(instance_id: @instance.id, property_id: property.id, valore: params[:dato][property.id.to_s])
+        end
+
+        format.html { redirect_to instances_url(type: entity.label), notice: 'Instance was successfully created.' }
         format.json { render :show, status: :created, location: @instance }
       else
         format.html { render :new }
@@ -57,9 +65,18 @@ class InstancesController < ApplicationController
   # PATCH/PUT /instances/1
   # PATCH/PUT /instances/1.json
   def update
+    entity = @instance.entity
+
     respond_to do |format|
       if @instance.update(instance_params)
-        format.html { redirect_to @instance, notice: 'Instance was successfully updated.' }
+        # scrittura dei valori delle singole proprietà
+        entity.properties.each do |property|
+          datum = Datum.find_by! instance_id: @instance.id, property_id: property.id
+          datum.valore = params[:dato][property.id.to_s]
+          datum.save
+        end
+
+        format.html { redirect_to instances_url(type: entity.label), notice: 'Instance was successfully updated.' }
         format.json { render :show, status: :ok, location: @instance }
       else
         format.html { render :edit }
@@ -71,9 +88,11 @@ class InstancesController < ApplicationController
   # DELETE /instances/1
   # DELETE /instances/1.json
   def destroy
+    type = @instance.entity.label
+
     @instance.destroy
     respond_to do |format|
-      format.html { redirect_to instances_url, notice: 'Instance was successfully destroyed.' }
+      format.html { redirect_to instances_url(type: type), notice: 'Instance was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -86,6 +105,6 @@ class InstancesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def instance_params
-      params.require(:instance).permit(:entity_id, :section_id, :tags, :type)
+      params.require(:instance).permit(:entity_id, :section_id, :tags, :type, :dato )
     end
 end

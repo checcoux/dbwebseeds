@@ -11,10 +11,8 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :entity_id %><br>
-    <%= f.hidden_field(:entity_id) %>
-  </div>
+  <%= f.hidden_field(:entity_id) %>
+
   <div class="field">
     <%= f.label :section_id %><br>
     <%= f.collection_select(:section_id, Section.all, :id, :titolo) %>
@@ -26,16 +24,18 @@
 
   <% @entity.properties.each do |property| %>
         <%
+          field_id = "dato[#{ property.id }]"
+
           if @instance
             dato = Datum.find_by instance_id: @instance.id, property_id: property.id
-            valore = dato.valore
+            valore = dato ? dato.valore : ''
           else
             valore = ''
           end
         %>
 
-        <%= label_tag property.nome %><br>
-        <%= text_field_tag property.nome, valore %>
+        <%= label_tag field_id, property.nome %><br>
+        <%= text_field_tag field_id, valore %>
 
   <% end %>
 

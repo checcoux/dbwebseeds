@@ -25,6 +25,7 @@
   <% @entity.properties.each do |property| %>
         <%
           field_id = "dato[#{ property.id }]"
+          tipo = property.tipo
 
           if @instance
             dato = Datum.find_by instance_id: @instance.id, property_id: property.id
@@ -32,10 +33,37 @@
           else
             valore = ''
           end
-        %>
 
-        <%= label_tag field_id, property.nome %><br>
-        <%= text_field_tag field_id, valore %>
+          etichetta = label_tag field_id, property.nome
+          br = '<br>'.html_safe
+
+          case tipo
+            when 'stringa'
+              tag = etichetta + br + ( text_field_tag field_id, valore )
+            when 'testo'
+              tag = etichetta + br + ( text_area_tag field_id, valore )
+            when 'email'
+              tag = etichetta + br + ( email_field_tag field_id, valore )
+            when 'telefono'
+              tag = etichetta + br + ( telephone_field_tag field_id, valore )
+            when 'url'
+              tag = etichetta + br + ( url_field_tag field_id, valore )
+            when 'check' # check_box_tag(name, value = "1", checked = false, options = {})
+              tag = ( check_box_tag field_id, '1', valore=='1' ? true : false ) + etichetta
+            when 'lista'
+              tag = etichetta + br + ( select_tag field_id, options_for_select("opzione 1,opzione 2,opzione 3".split(','), valore) )
+            when 'intero'
+              tag = etichetta + br + ( number_field_tag field_id, valore, step: 1 )
+            when 'sesso' # radio_button_tag(name, value, checked = false, options = {})
+              tag = (radio_button_tag field_id, 'm', valore=='m' ? true : false) + ( label_tag field_id, 'm' ) +
+                    (radio_button_tag field_id, 'f', valore=='f' ? true : false) + ( label_tag field_id, 'f' )
+            when 'data'
+              tag = etichetta + br + ( date_field_tag field_id, valore )
+            else
+              '<b>Proprietà non valida!</b>'
+          end
+        %>
+        <%= tag %>
 
   <% end %>
 

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  assignment_id: 1
+  user_id: 1
+  url: MyString
+  note: MyText
+  voto: 9.99
+
+two:
+  assignment_id: 1
+  user_id: 1
+  url: MyString
+  note: MyText
+  voto: 9.99

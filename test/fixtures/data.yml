@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  instance_id: 1
+  property_id: 1
+  valore: MyString
+
+two:
+  instance_id: 1
+  property_id: 1
+  valore: MyString

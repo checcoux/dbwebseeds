@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Assignments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Titolo</th>
+      <th>Key</th>
+      <th>Descrizione</th>
+      <th>User</th>
+      <th>Criterio1</th>
+      <th>Criterio2</th>
+      <th>Criterio3</th>
+      <th>Criterio4</th>
+      <th>Criterio5</th>
+      <th>Criterio6</th>
+      <th>Criterio7</th>
+      <th>Criterio8</th>
+      <th>Criterio9</th>
+      <th>Criterio10</th>
+      <th>Stato</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @assignments.each do |assignment| %>
+      <tr>
+        <td><%= assignment.titolo %></td>
+        <td><%= assignment.key %></td>
+        <td><%= assignment.descrizione %></td>
+        <td><%= assignment.user_id %></td>
+        <td><%= assignment.criterio1 %></td>
+        <td><%= assignment.criterio2 %></td>
+        <td><%= assignment.criterio3 %></td>
+        <td><%= assignment.criterio4 %></td>
+        <td><%= assignment.criterio5 %></td>
+        <td><%= assignment.criterio6 %></td>
+        <td><%= assignment.criterio7 %></td>
+        <td><%= assignment.criterio8 %></td>
+        <td><%= assignment.criterio9 %></td>
+        <td><%= assignment.criterio10 %></td>
+        <td><%= assignment.stato %></td>
+        <td><%= link_to 'Show', assignment %></td>
+        <td><%= link_to 'Edit', edit_assignment_path(assignment) %></td>
+        <td><%= link_to 'Destroy', assignment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Assignment', new_assignment_path %>

@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  titolo: MyString
+  key: MyString
+  descrizione: MyText
+  user_id: 1
+  criterio1: MyString
+  criterio2: MyString
+  criterio3: MyString
+  criterio4: MyString
+  criterio5: MyString
+  criterio6: MyString
+  criterio7: MyString
+  criterio8: MyString
+  criterio9: MyString
+  criterio10: MyString
+  stato: 1
+
+two:
+  titolo: MyString
+  key: MyString
+  descrizione: MyText
+  user_id: 1
+  criterio1: MyString
+  criterio2: MyString
+  criterio3: MyString
+  criterio4: MyString
+  criterio5: MyString
+  criterio6: MyString
+  criterio7: MyString
+  criterio8: MyString
+  criterio9: MyString
+  criterio10: MyString
+  stato: 1

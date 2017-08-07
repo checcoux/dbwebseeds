@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  resources :grades
+  resources :homeworks
+  resources :assignments
   resources :instances
   resources :properties
   resources :entities

@@ -7,4 +7,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   belongs_to :section
+
+  has_many :assignments, dependent: :destroy
+  has_many :homeworks, dependent: :destroy
+  has_many :grades, dependent: :destroy
 end

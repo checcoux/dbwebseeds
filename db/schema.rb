@@ -11,7 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170729102531) do
+ActiveRecord::Schema.define(version: 20170806102822) do
+
+  create_table "assignments", force: :cascade do |t|
+    t.string   "titolo"
+    t.string   "key"
+    t.text     "descrizione"
+    t.integer  "user_id"
+    t.string   "criterio1"
+    t.string   "criterio2"
+    t.string   "criterio3"
+    t.string   "criterio4"
+    t.string   "criterio5"
+    t.string   "criterio6"
+    t.string   "criterio7"
+    t.string   "criterio8"
+    t.string   "criterio9"
+    t.string   "criterio10"
+    t.integer  "stato",       default: 1
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  add_index "assignments", ["user_id"], name: "index_assignments_on_user_id"
 
   create_table "attachments", force: :cascade do |t|
     t.string   "titolo"
@@ -105,6 +127,41 @@ ActiveRecord::Schema.define(version: 20170729102531) do
   add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+
+  create_table "grades", force: :cascade do |t|
+    t.integer  "homework_id"
+    t.integer  "user_id"
+    t.integer  "p1"
+    t.integer  "p2"
+    t.integer  "p3"
+    t.integer  "p4"
+    t.integer  "p5"
+    t.integer  "p6"
+    t.integer  "p7"
+    t.integer  "p8"
+    t.integer  "p9"
+    t.integer  "p10"
+    t.text     "note"
+    t.decimal  "voto"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "grades", ["homework_id"], name: "index_grades_on_homework_id"
+  add_index "grades", ["user_id"], name: "index_grades_on_user_id"
+
+  create_table "homeworks", force: :cascade do |t|
+    t.integer  "assignment_id"
+    t.integer  "user_id"
+    t.string   "url"
+    t.text     "note"
+    t.decimal  "voto"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "homeworks", ["assignment_id"], name: "index_homeworks_on_assignment_id"
+  add_index "homeworks", ["user_id"], name: "index_homeworks_on_user_id"
 
   create_table "instances", force: :cascade do |t|
     t.integer  "entity_id"

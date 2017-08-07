@@ -1,0 +1,2 @@
+json.extract! assignment, :id, :titolo, :key, :descrizione, :user_id, :criterio1, :criterio2, :criterio3, :criterio4, :criterio5, :criterio6, :criterio7, :criterio8, :criterio9, :criterio10, :stato, :created_at, :updated_at
+json.url assignment_url(assignment, format: :json)

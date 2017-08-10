@@ -12,12 +12,16 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :label %><br>
-    <%= f.text_field :label %>
+    <%= f.label :titolo %><br>
+    <%= f.text_field :titolo %>
   </div>
   <div class="field">
     <%= f.label :nativo %><br>
     <%= f.check_box :nativo %>
+  </div>
+  <div class="field">
+    <%= check_box_tag 'rigenera_slug' %>
+    <%= f.label 'rigenera slug' %>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -3,7 +3,7 @@
 class Photoalbum < ActiveRecord::Base
 
   extend FriendlyId
-  friendly_id :name, use: :slugged
+  # friendly_id :name, use: :slugged
   friendly_id :slug_candidates, :use => :slugged
 
   def slug_candidates

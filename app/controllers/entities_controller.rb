@@ -40,6 +40,10 @@ class EntitiesController < ApplicationController
   # PATCH/PUT /entities/1
   # PATCH/PUT /entities/1.json
   def update
+    if(params[:rigenera_slug])
+      @entity.slug = nil
+    end
+
     respond_to do |format|
       if @entity.update(entity_params)
         format.html { redirect_to @entity, notice: 'Entity was successfully updated.' }
@@ -69,6 +73,6 @@ class EntitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def entity_params
-      params.require(:entity).permit(:label, :nativo)
+      params.require(:entity).permit(:titolo, :nativo, :rigenera_slug)
     end
 end

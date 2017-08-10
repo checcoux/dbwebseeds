@@ -5,7 +5,7 @@
 <table>
   <thead>
     <tr>
-      <th>Label</th>
+      <th>Titolo</th>
       <th>Nativo</th>
       <th colspan="3"></th>
     </tr>
@@ -14,7 +14,7 @@
   <tbody>
     <% @entities.each do |entity| %>
       <tr>
-        <td><%= entity.label %></td>
+        <td><%= entity.titolo %></td>
         <td><%= entity.nativo %></td>
         <td><%= link_to 'Show', entity %></td>
         <td><%= link_to 'Edit', edit_entity_path(entity) %></td>

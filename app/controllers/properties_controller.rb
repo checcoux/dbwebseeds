@@ -25,6 +25,7 @@ class PropertiesController < ApplicationController
   # POST /properties.json
   def create
     @property = Property.new(property_params)
+    @property.maiuscolo = false if !['stringa', 'testo'].include? @property.tipo
 
     respond_to do |format|
       if @property.save
@@ -40,8 +41,11 @@ class PropertiesController < ApplicationController
   # PATCH/PUT /properties/1
   # PATCH/PUT /properties/1.json
   def update
+    params = property_params
+    params[:maiuscolo] = false if !['stringa', 'testo'].include? params[:tipo]
+
     respond_to do |format|
-      if @property.update(property_params)
+      if @property.update(params)
         format.html { redirect_to @property, notice: 'Property was successfully updated.' }
         format.json { render :show, status: :ok, location: @property }
       else
@@ -69,6 +73,6 @@ class PropertiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def property_params
-      params.require(:property).permit(:nome, :tipo, :nativo, :entity_id)
+      params.require(:property).permit(:nome, :tipo, :nativo, :entity_id, :maiuscolo, :obbligatorio)
     end
 end

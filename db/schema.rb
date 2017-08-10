@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170806102822) do
+ActiveRecord::Schema.define(version: 20170809141928) do
 
   create_table "assignments", force: :cascade do |t|
     t.string   "titolo"
@@ -107,13 +107,15 @@ ActiveRecord::Schema.define(version: 20170806102822) do
   end
 
   create_table "entities", force: :cascade do |t|
-    t.string   "label"
+    t.string   "titolo"
     t.boolean  "nativo",     default: false
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.string   "slug"
   end
 
-  add_index "entities", ["label"], name: "index_entities_on_label"
+  add_index "entities", ["slug"], name: "index_entities_on_slug", unique: true
+  add_index "entities", ["titolo"], name: "index_entities_on_titolo"
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -183,7 +185,7 @@ ActiveRecord::Schema.define(version: 20170806102822) do
     t.boolean  "modello",                  default: false
     t.boolean  "articolo",                 default: false
     t.boolean  "visibile",                 default: true
-    t.datetime "published_at",             default: '2017-06-08 16:07:22'
+    t.datetime "published_at",             default: '2016-08-17 08:12:10'
     t.text     "abstract"
   end
 
@@ -213,10 +215,12 @@ ActiveRecord::Schema.define(version: 20170806102822) do
   create_table "properties", force: :cascade do |t|
     t.string   "nome"
     t.string   "tipo"
-    t.boolean  "nativo",     default: false
+    t.boolean  "nativo",       default: false
     t.integer  "entity_id"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.boolean  "maiuscolo",    default: false
+    t.boolean  "obbligatorio", default: false
   end
 
   add_index "properties", ["entity_id"], name: "index_properties_on_entity_id"

@@ -13,7 +13,7 @@
   <tbody>
     <% @instances.each do |instance| %>
       <tr>
-        <td><%= instance.entity.label %></td>
+        <td><%= instance.entity.slug %></td>
         <td><%= instance.section.titolo %></td>
         <td><%= instance.tags %></td>
         <td><%= link_to 'Show', instance %></td>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to "Nuovo/a #{ @entity.label }", new_instance_path + "?type=#{ @entity.label }", id: 12 if @entity %>
+<%= link_to "Nuovo/a #{ @entity.titolo }", new_instance_path + "?type=#{ @entity.slug }", id: 12 if @entity %>

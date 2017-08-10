@@ -15,6 +15,7 @@ class AssignmentsController < ApplicationController
   # GET /assignments/new
   def new
     @assignment = Assignment.new
+    @assignment.key = rand(36**5).to_s(36).upcase
   end
 
   # GET /assignments/1/edit
@@ -25,6 +26,7 @@ class AssignmentsController < ApplicationController
   # POST /assignments.json
   def create
     @assignment = Assignment.new(assignment_params)
+    @assignment.user_id = current_user.id if user_signed_in?
 
     respond_to do |format|
       if @assignment.save

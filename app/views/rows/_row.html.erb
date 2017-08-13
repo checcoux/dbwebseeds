@@ -58,7 +58,7 @@
       parte_fissa = true if row.page.header && !@page.header
       parte_fissa = true if row.page.footer && !@page.footer
 
-      if !user_signed_in? || parte_fissa || colonna_dinamica
+      if !user_signed_in? || (user_signed_in? && !(current_user.admin? || current_user.section)) || parte_fissa || colonna_dinamica
         editable = false
       else
         editable = true

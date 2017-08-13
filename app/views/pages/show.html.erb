@@ -73,7 +73,7 @@
   </div>
 <% end %>
 
-<%= render 'row0' if user_signed_in? && !@page.modello && !@page.header && !@page.footer %>
+<%= render 'row0' if user_signed_in? && (current_user.admin? || current_user.section) && !@page.modello && !@page.header && !@page.footer %>
 
 <% @page.rows.order('ordine ASC').each do |row| %>
   <%= render row, :page => @page %>

@@ -15,11 +15,15 @@ class Section < ActiveRecord::Base
 
     # se non esiste cerco un modello nella sezione principale
     if !modello
-      sezione = Section.find_by principale: true
+      sezione = trova_principale
       modello = Page.find_by section: sezione, modello: true
     end
 
     modello
+  end
+
+  def trova_principale
+    Section.find_by principale: true
   end
 
   def trova_home

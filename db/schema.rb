@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170809141928) do
+ActiveRecord::Schema.define(version: 20170811144849) do
 
   create_table "assignments", force: :cascade do |t|
     t.string   "titolo"
@@ -185,7 +185,7 @@ ActiveRecord::Schema.define(version: 20170809141928) do
     t.boolean  "modello",                  default: false
     t.boolean  "articolo",                 default: false
     t.boolean  "visibile",                 default: true
-    t.datetime "published_at",             default: '2016-08-17 08:12:10'
+    t.datetime "published_at",             default: '2017-06-08 16:07:22'
     t.text     "abstract"
   end
 
@@ -221,6 +221,11 @@ ActiveRecord::Schema.define(version: 20170809141928) do
     t.datetime "updated_at",                   null: false
     t.boolean  "maiuscolo",    default: false
     t.boolean  "obbligatorio", default: false
+    t.boolean  "riservato",    default: false
+    t.text     "condizioni"
+    t.integer  "ordine"
+    t.text     "descrizione"
+    t.string   "placeholder"
   end
 
   add_index "properties", ["entity_id"], name: "index_properties_on_entity_id"
@@ -281,6 +286,7 @@ ActiveRecord::Schema.define(version: 20170809141928) do
     t.boolean  "admin",                  default: false
     t.integer  "section_id"
     t.boolean  "designer",               default: false
+    t.boolean  "aggiornato",             default: false
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true

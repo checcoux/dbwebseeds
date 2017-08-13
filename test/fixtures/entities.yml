@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  label: MyString
+  titolo: MyString
   nativo: false
 
 two:
-  label: MyString
+  titolo: MyString
   nativo: false

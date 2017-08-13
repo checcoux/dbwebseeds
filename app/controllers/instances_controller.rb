@@ -23,6 +23,7 @@ class InstancesController < ApplicationController
   # GET /instances/new
   def new
     @instance = Instance.new
+    @page = trova_home
 
     if !params[:type].nil?
       @entity = Entity.find_by slug: params[:type]
@@ -36,12 +37,14 @@ class InstancesController < ApplicationController
   # GET /instances/1/edit
   def edit
     @entity = @instance.entity
+    @page = trova_home
   end
 
   # POST /instances
   # POST /instances.json
   def create
     @instance = Instance.new(instance_params)
+    @instance.section||= trova_sezione_principale
 
     @entity = @instance.entity
     if valid_properties? @entity
@@ -76,7 +79,12 @@ class InstancesController < ApplicationController
 
           # scrittura dei valori delle singole proprietà
           @entity.properties.each do |property|
-            datum = Datum.find_by! instance_id: @instance.id, property_id: property.id
+            datum = Datum.find_by instance_id: @instance.id, property_id: property.id
+            if !datum
+              datum = Datum.new
+              datum.instance = @instance
+              datum.property = property
+            end
             datum.valore = params[:dato][property.id.to_s]
             datum.valore = datum.valore.upcase if property.maiuscolo
             datum.save
@@ -123,9 +131,9 @@ class InstancesController < ApplicationController
 
       entity.properties.each do |property|
         # da rimuovere: 'p' + property.id.to_s
-        parametri[property.nome] = params[:dato][property.id.to_s]
+        parametri['p' + property.id.to_s] = params[:dato][property.id.to_s]
 
-        validatori[property.nome] = {:presence => true} if property.obbligatorio
+        validatori['p' + property.id.to_s] = {:presence => true} if property.obbligatorio
       end
 
       @validator = DataValidator.make(

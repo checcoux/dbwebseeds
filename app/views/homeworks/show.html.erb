@@ -1,18 +1,13 @@
-<p id="notice"><%= notice %></p>
+<%= render partial: "pages/cookielaw" %>
+<%= render partial: "pages/header" %>
 
-<p>
-  <strong>Assignment:</strong>
-  <%= @homework.assignment_id %>
-</p>
+<div class="row">
 
-<p>
-  <strong>User:</strong>
-  <%= @homework.user_id %>
-</p>
+<h1>La tua consegna</h1>
 
 <p>
   <strong>Url:</strong>
-  <%= @homework.url %>
+  <%= link_to @homework.url, @homework.url, target: '_blank' %>
 </p>
 
 <p>
@@ -25,5 +20,8 @@
   <%= @homework.voto %>
 </p>
 
-<%= link_to 'Edit', edit_homework_path(@homework) %> |
-<%= link_to 'Back', homeworks_path %>
+<p>&nbsp;</p>
+
+</div>
+
+<%= render partial: "pages/footer" %>

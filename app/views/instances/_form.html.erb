@@ -13,6 +13,7 @@
 
   <%= f.hidden_field(:entity_id) %>
 
+  <% if current_user && current_user.admin? %>
   <div class="small-12 columns field">
     <label>Sezione
       <%= f.collection_select(:section_id, Section.all, :id, :titolo) %>
@@ -23,6 +24,7 @@
       <%= f.text_field :tags %>
     </label>
   </div>
+  <% end %>
 
   <% @entity.properties.each do |property| %>
         <%
@@ -44,43 +46,51 @@
           case tipo
             when 'stringa'
               if property.obbligatorio?
-                tag = text_field_tag field_id, valore, required: ''
+                tag = text_field_tag field_id, valore, placeholder: property.placeholder, required: ''
                 tag += "<span class='form-error'>Questo campo è obbligatorio.</span>".html_safe
               else
-                tag = text_field_tag field_id, valore
+                tag = text_field_tag field_id, valore, placeholder: property.placeholder
               end
 
             when 'testo'
               if property.obbligatorio?
-                tag = text_area_tag field_id, valore, required: ''
+                tag = text_area_tag field_id, valore, placeholder: property.placeholder, required: ''
                 tag += "<span class='form-error'>Questo campo è obbligatorio.</span>".html_safe
               else
-                tag = text_area_tag field_id, valore
+                tag = text_area_tag field_id, valore, placeholder: property.placeholder
               end
+
+            when 'intero'
+              if property.obbligatorio?
+                tag = number_field_tag field_id, valore, step: 1, pattern: 'number', placeholder: property.placeholder, required: ''
+              else
+                tag = number_field_tag field_id, valore, step: 1, pattern: 'number', placeholder: property.placeholder
+              end
+              tag += "<span class='form-error'>Inserisci un numero valido.</span>".html_safe
 
             when 'email'
               if property.obbligatorio?
-                tag = email_field_tag field_id, valore, pattern: 'email', required: ''
+                tag = email_field_tag field_id, valore, pattern: 'email', placeholder: property.placeholder, required: ''
               else
-                tag = email_field_tag field_id, valore, pattern: 'email'
+                tag = email_field_tag field_id, valore, pattern: 'email', placeholder: property.placeholder
               end
-              tag += "<span class='form-error'>Inserire un indirizzo email valido.</span>".html_safe
+              tag += "<span class='form-error'>Inserisci un indirizzo email valido.</span>".html_safe
 
             when 'telefono'
               if property.obbligatorio?
-                tag = telephone_field_tag field_id, valore, required: ''
-                tag += "<span class='form-error'>Questo campo è obbligatorio.</span>".html_safe
+                tag = telephone_field_tag field_id, valore, placeholder: property.placeholder, required: ''
+                tag += "<span class='form-error'>Inserisci un numero di telefono valido.</span>".html_safe
               else
-                tag = telephone_field_tag field_id, valore
+                tag = telephone_field_tag field_id, valore, placeholder: property.placeholder
               end
 
             when 'url'
               if property.obbligatorio?
-                tag = url_field_tag field_id, valore, pattern: 'url', required: ''
+                tag = url_field_tag field_id, valore, pattern: 'url', placeholder: property.placeholder, required: ''
               else
-                tag = url_field_tag field_id, valore, pattern: 'url'
+                tag = url_field_tag field_id, valore, pattern: 'url', placeholder: property.placeholder
               end
-              tag += "<span class='form-error'>Inserire un url valido.</span>".html_safe
+              tag += "<span class='form-error'>Inserisci un url valido.</span>".html_safe
 
             when 'check' # check_box_tag(name, value = "1", checked = false, options = {})
               if property.obbligatorio?
@@ -95,25 +105,36 @@
               #<input id="checkbox2" type="checkbox" required><label for="checkbox2">Checkbox 2</label>
               #<input id="checkbox3" type="checkbox"><label for="checkbox3">Checkbox 3</label>
               #</fieldset>
-            when 'lista'
-              if property.obbligatorio?
-                tag = select_tag field_id, options_for_select("opzione 1,opzione 2,opzione 3".split(','), valore), required: ''
-                tag += "<span class='form-error'>Questo campo è obbligatorio.</span>".html_safe
-              else
-                tag = select_tag field_id, options_for_select("opzione 1,opzione 2,opzione 3".split(','), valore)
-              end
-
-            when 'intero'
-              if property.obbligatorio?
-                tag = number_field_tag field_id, valore, step: 1, pattern: 'number', required: ''
-              else
-                tag = number_field_tag field_id, valore, step: 1, pattern: 'number'
-              end
-              tag += "<span class='form-error'>Inserire un numero valido.</span>".html_safe
 
             when 'sesso' # radio_button_tag(name, value, checked = false, options = {})
-              tag = br + (radio_button_tag field_id, 'm', valore=='m' ? true : false) + 'maschio' + br +
-                    (radio_button_tag field_id, 'f', valore=='f' ? true : false) + 'femmina'
+              tag = br + (radio_button_tag field_id, 'm', valore=='m' ? true : false, required: '') + 'maschio&nbsp;&nbsp;&nbsp;'.html_safe +
+                  (radio_button_tag field_id, 'f', valore=='f' ? true : false, required: '') + 'femmina'
+              tag += "<span class='form-error'>Seleziona il genere.</span>".html_safe
+
+            when 'lista'
+              valori = property.condizioni.split(',')
+
+              if valori.count > 5
+                if property.obbligatorio?
+                  tag = select_tag field_id, options_for_select(valori, valore), include_blank: true, required: ''
+                  tag+= "<span class='form-error'>Seleziona un valore dalla lista.</span>".html_safe
+                else
+                  tag = select_tag field_id, options_for_select(valori, valore), include_blank: true
+                end
+              else
+                if property.obbligatorio?
+                  tag = br
+                  valori.each do |v|
+                    tag+= ( radio_button_tag field_id, v, valore==v ? true : false, required: '' ) + v.html_safe + '&nbsp;&nbsp;&nbsp;'.html_safe
+                  end
+                  tag+= "<span class='form-error'>Seleziona un valore.</span>".html_safe
+                else
+                  tag = br
+                  valori.each do |v|
+                    tag+= ( radio_button_tag field_id, v, valore==v ? true : false ) + v.html_safe + '&nbsp;&nbsp;&nbsp;'.html_safe
+                  end
+                end
+              end
 
             when 'data'
               if property.obbligatorio?
@@ -121,7 +142,8 @@
               else
                 tag = date_field_tag field_id, valore
               end
-              tag += "<span class='form-error'>Inserire una data valida.</span>".html_safe
+              tag += "<span class='form-error'>Inserisci una data valida.</span>".html_safe
+
             else
               tag = '<b>Proprietà non valida!</b>'
           end
@@ -134,6 +156,6 @@
   <% end %>
 
   <div class="actions">
-  <%= f.submit class: 'button' %>
+  <%= f.submit 'SALVA', class: 'button' %>
   </div>
 <% end %>

@@ -1,5 +1,9 @@
-<h1>New Instance</h1>
+<%= render partial: "pages/cookielaw" %>
+<%= render partial: "pages/header" %>
+
+<h1>Creazione <%= @entity.titolo %></h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', instances_path %>
+<p>&nbsp;</p>
+<%= render partial: "pages/footer" %>

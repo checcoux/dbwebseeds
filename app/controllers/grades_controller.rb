@@ -10,25 +10,43 @@ class GradesController < ApplicationController
   # GET /grades/1
   # GET /grades/1.json
   def show
+    @homework = @grade.homework
+    @assignment = @homework.assignment
+
+    @page = trova_home
   end
 
   # GET /grades/new
   def new
+    @homework = Homework.find(params[:homework_id])
+    @assignment = @homework.assignment
+
     @grade = Grade.new
+    @grade.homework = @homework
+
+    @page = trova_home
   end
 
   # GET /grades/1/edit
   def edit
+    @homework = @grade.homework
+    @assignment = @homework.assignment
+
+    @page = trova_home
   end
 
   # POST /grades
   # POST /grades.json
   def create
     @grade = Grade.new(grade_params)
+    @grade.user = current_user
+
+    @homework = @grade.homework
+    @assignment = @homework.assignment
 
     respond_to do |format|
       if @grade.save
-        format.html { redirect_to @grade, notice: 'Grade was successfully created.' }
+        format.html { redirect_to "/assignments/#{ @assignment.key }", notice: 'La tua valutazione è stata salvata, grazie!' }
         format.json { render :show, status: :created, location: @grade }
       else
         format.html { render :new }
@@ -40,9 +58,12 @@ class GradesController < ApplicationController
   # PATCH/PUT /grades/1
   # PATCH/PUT /grades/1.json
   def update
+    @homework = @grade.homework
+    @assignment = @homework.assignment
+
     respond_to do |format|
       if @grade.update(grade_params)
-        format.html { redirect_to @grade, notice: 'Grade was successfully updated.' }
+        format.html { redirect_to "/assignments/#{ @assignment.key }", notice: 'La tua valutazione è stata modificata, grazie!' }
         format.json { render :show, status: :ok, location: @grade }
       else
         format.html { render :edit }

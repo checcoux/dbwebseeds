@@ -1,12 +1,14 @@
-<p id="notice"><%= notice %></p>
+<%= render partial: "pages/cookielaw" %>
+<%= render partial: "pages/header" %>
 
-<h1>Listing Homeworks</h1>
+<div class="row">
+
+<h1>Lavori consegnati</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Assignment</th>
-      <th>User</th>
+      <th>Compito</th>
       <th>Url</th>
       <th>Note</th>
       <th>Voto</th>
@@ -17,8 +19,7 @@
   <tbody>
     <% @homeworks.each do |homework| %>
       <tr>
-        <td><%= homework.assignment_id %></td>
-        <td><%= homework.user_id %></td>
+        <td><%= homework.assignment.titolo %></td>
         <td><%= homework.url %></td>
         <td><%= homework.note %></td>
         <td><%= homework.voto %></td>
@@ -30,6 +31,8 @@
   </tbody>
 </table>
 
-<br>
+<p>&nbsp;</p>
 
-<%= link_to 'New Homework', new_homework_path %>
+</div>
+
+<%= render partial: "pages/footer" %>

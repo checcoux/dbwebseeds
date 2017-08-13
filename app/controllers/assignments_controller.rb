@@ -1,21 +1,35 @@
 class AssignmentsController < ApplicationController
-  before_action :set_assignment, only: [:show, :edit, :update, :destroy]
+  before_action :set_assignment, only: [:edit, :update, :destroy]
 
   # GET /assignments
   # GET /assignments.json
   def index
     @assignments = Assignment.all
+    @page = trova_home
   end
 
   # GET /assignments/1
   # GET /assignments/1.json
   def show
+    @assignment = Assignment.find_by! key: params[:id]
+    @homework = Homework.find_by user_id: current_user.id, assignment_id: @assignment.id
+
+    # troviamo un elaborato da correggere
+    if @assignment.stato == 2
+      # seleziono gli homework che non sono dell'utente, li riordino casualmente e tolgo quelli per i quali ha già fatto una valutazione
+      @dacorreggere = Homework.where("assignment_id = ? AND homeworks.user_id != ?", @assignment.id, current_user.id).shuffle - Homework.joins(:grades).where("grades.user_id = ?", current_user.id)
+      @dacorreggere = @dacorreggere.first
+    end
+
+    @grades = Grade.where(user_id: current_user.id)
+
+    @page = trova_home
   end
 
   # GET /assignments/new
   def new
     @assignment = Assignment.new
-    @assignment.key = rand(36**5).to_s(36).upcase
+    @assignment.key = rand(36**6).to_s(36).upcase
   end
 
   # GET /assignments/1/edit

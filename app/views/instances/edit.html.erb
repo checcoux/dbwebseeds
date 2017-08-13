@@ -1,6 +1,9 @@
-<h1>Editing Instance</h1>
+<%= render partial: "pages/cookielaw" %>
+<%= render partial: "pages/header" %>
+
+<h1>Modifica <%= @entity.titolo %></h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @instance %> |
-<%= link_to 'Back', instances_path %>
+<p>&nbsp;</p>
+<%= render partial: "pages/footer" %>

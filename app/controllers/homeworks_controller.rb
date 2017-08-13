@@ -4,31 +4,47 @@ class HomeworksController < ApplicationController
   # GET /homeworks
   # GET /homeworks.json
   def index
-    @homeworks = Homework.all
+    @homeworks = Homework.where(user_id: current_user)
+
+    @page = trova_home
   end
 
   # GET /homeworks/1
   # GET /homeworks/1.json
   def show
+    @page = trova_home
   end
 
   # GET /homeworks/new
   def new
-    @homework = Homework.new
+    @assignment = Assignment.find_by! key: params[:key]
+
+    @page = trova_home
+
+    if @assignment.stato == 1
+      @homework = Homework.new
+      @homework.assignment = @assignment
+    else
+      redirect_to "/assignments/#{ @assignment.key }", notice: 'La fase di consegna di questo compito è conclusa.'
+    end
+
   end
 
   # GET /homeworks/1/edit
   def edit
+    @page = trova_home
   end
 
   # POST /homeworks
   # POST /homeworks.json
   def create
     @homework = Homework.new(homework_params)
+    @homework.user = current_user
+    @assignment = @homework.assignment
 
     respond_to do |format|
       if @homework.save
-        format.html { redirect_to @homework, notice: 'Homework was successfully created.' }
+        format.html { redirect_to "/assignments/#{ @assignment.key }", notice: 'Il tuo elaborato è stato consegnato, ora attendi la valutazione.' }
         format.json { render :show, status: :created, location: @homework }
       else
         format.html { render :new }
@@ -40,9 +56,11 @@ class HomeworksController < ApplicationController
   # PATCH/PUT /homeworks/1
   # PATCH/PUT /homeworks/1.json
   def update
+    @assignment = @homework.assignment
+
     respond_to do |format|
       if @homework.update(homework_params)
-        format.html { redirect_to @homework, notice: 'Homework was successfully updated.' }
+        format.html { redirect_to "/assignments/#{ @assignment.key }", notice: 'Le tue modifiche sono state salvate, ora attendi la valutazione.' }
         format.json { render :show, status: :ok, location: @homework }
       else
         format.html { render :edit }
@@ -69,6 +87,6 @@ class HomeworksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def homework_params
-      params.require(:homework).permit(:assignment_id, :user_id, :url, :note, :voto)
+      params.require(:homework).permit(:assignment_id, :user_id, :url, :note, :voto, :key)
     end
 end

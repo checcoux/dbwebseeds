@@ -1,74 +1,31 @@
-<p id="notice"><%= notice %></p>
+<%= render partial: "pages/cookielaw" %>
+<%= render partial: "pages/header" %>
 
-<p>
-  <strong>Homework:</strong>
-  <%= @grade.homework_id %>
+<div class="row">
+
+<h1>Valutazione ricevuta</h1>
 </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @grade.user_id %>
-</p>
-
-<p>
-  <strong>P1:</strong>
-  <%= @grade.p1 %>
-</p>
-
-<p>
-  <strong>P2:</strong>
-  <%= @grade.p2 %>
-</p>
-
-<p>
-  <strong>P3:</strong>
-  <%= @grade.p3 %>
-</p>
-
-<p>
-  <strong>P4:</strong>
-  <%= @grade.p4 %>
-</p>
-
-<p>
-  <strong>P5:</strong>
-  <%= @grade.p5 %>
-</p>
-
-<p>
-  <strong>P6:</strong>
-  <%= @grade.p6 %>
-</p>
-
-<p>
-  <strong>P7:</strong>
-  <%= @grade.p7 %>
-</p>
-
-<p>
-  <strong>P8:</strong>
-  <%= @grade.p8 %>
-</p>
-
-<p>
-  <strong>P9:</strong>
-  <%= @grade.p9 %>
-</p>
-
-<p>
-  <strong>P10:</strong>
-  <%= @grade.p10 %>
-</p>
+  <ol>
+    <% if !@assignment.criterio1.blank? %><li><%= @assignment.criterio1 %>: <b><%= @grade.p1 %></b></li><% end %>
+    <% if !@assignment.criterio2.blank? %><li><%= @assignment.criterio2 %>: <b><%= @grade.p2 %></b></li><% end %>
+    <% if !@assignment.criterio3.blank? %><li><%= @assignment.criterio3 %>: <b><%= @grade.p3 %></b></li><% end %>
+    <% if !@assignment.criterio4.blank? %><li><%= @assignment.criterio4 %>: <b><%= @grade.p4 %></b></li><% end %>
+    <% if !@assignment.criterio5.blank? %><li><%= @assignment.criterio5 %>: <b><%= @grade.p5 %></b></li><% end %>
+    <% if !@assignment.criterio6.blank? %><li><%= @assignment.criterio6 %>: <b><%= @grade.p6 %></b></li><% end %>
+    <% if !@assignment.criterio7.blank? %><li><%= @assignment.criterio7 %>: <b><%= @grade.p7 %></b></li><% end %>
+    <% if !@assignment.criterio8.blank? %><li><%= @assignment.criterio8 %>: <b><%= @grade.p8 %></b></li><% end %>
+    <% if !@assignment.criterio9.blank? %><li><%= @assignment.criterio9 %>: <b><%= @grade.p9 %></b></li><% end %>
+    <% if !@assignment.criterio10.blank? %><li><%= @assignment.criterio10 %>: <b><%= @grade.p10 %></b></li><% end %>
+  </ol>
 
 <p>
   <strong>Note:</strong>
   <%= @grade.note %>
 </p>
 
-<p>
-  <strong>Voto:</strong>
-  <%= @grade.voto %>
-</p>
+<p>&nbsp;</p>
 
-<%= link_to 'Edit', edit_grade_path(@grade) %> |
-<%= link_to 'Back', grades_path %>
+</div>
+
+<%= render partial: "pages/footer" %>

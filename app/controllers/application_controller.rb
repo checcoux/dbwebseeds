@@ -7,6 +7,14 @@ class ApplicationController < ActionController::Base
   include Pundit
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
+  def trova_sezione_principale
+    Section.find_by(principale: true)
+  end
+
+  def trova_home
+    trova_sezione_principale.trova_home
+  end
+
   private
 
   def user_not_authorized

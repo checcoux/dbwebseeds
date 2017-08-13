@@ -45,6 +45,7 @@ class InstancesController < ApplicationController
   def create
     @instance = Instance.new(instance_params)
     @instance.section||= trova_sezione_principale
+    @instance.user = current_user
 
     @entity = @instance.entity
     if valid_properties? @entity
@@ -56,7 +57,9 @@ class InstancesController < ApplicationController
             Datum.create(instance_id: @instance.id, property_id: property.id, valore: params[:dato][property.id.to_s])
           end
 
-          format.html { redirect_to instances_url(type: @entity.slug), notice: 'Instance was successfully created.' }
+          landing_page = !@entity.landing_page.empty? ? @entity.landing_page : instances_url(type: @entity.slug)
+
+          format.html { redirect_to landing_page }
           format.json { render :show, status: :created, location: @instance }
         else
           format.html { render :new }
@@ -90,7 +93,9 @@ class InstancesController < ApplicationController
             datum.save
           end
 
-          format.html { redirect_to instances_url(type: @entity.slug), notice: 'Instance was successfully updated.' }
+          landing_page = !@entity.landing_page.empty? ? @entity.landing_page : instances_url(type: @entity.slug)
+
+          format.html { redirect_to landing_page }
           format.json { render :show, status: :ok, location: @instance }
         else
           format.html { render :edit }

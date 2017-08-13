@@ -25,6 +25,7 @@ class EntitiesController < ApplicationController
   # POST /entities.json
   def create
     @entity = Entity.new(entity_params)
+    @entity.user = current_user
 
     respond_to do |format|
       if @entity.save
@@ -73,6 +74,6 @@ class EntitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def entity_params
-      params.require(:entity).permit(:titolo, :nativo, :rigenera_slug)
+      params.require(:entity).permit(:titolo, :nativo, :rigenera_slug, :landing_page)
     end
 end

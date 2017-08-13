@@ -1,6 +1,8 @@
 class Entity < ActiveRecord::Base
   extend FriendlyId
 
+  belongs_to :user
+
   has_many :properties, dependent: :destroy
   has_many :instances, dependent: :destroy
 

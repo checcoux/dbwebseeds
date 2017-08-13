@@ -8,6 +8,14 @@ class PagesController < ApplicationController
   # GET /
   # GET /:slug
   def route
+    # verifico prima di tutto se l'utente è loggato e non ha ancora aggiornato il suo profilo
+    if user_signed_in?
+      if !current_user.aggiornato
+        redirect_to '/edit-profile'
+        return
+      end
+    end
+
     slug = params[:slug]
 
     if slug

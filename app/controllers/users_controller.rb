@@ -73,6 +73,22 @@ class UsersController < ApplicationController
     end
   end
 
+  # reindirizza all'instanza del profilo dell'utente corrente
+  def edit_profile
+    profilo_id = trova_profilo.id
+
+    redirect_to "/instances/#{profilo_id}/edit"
+  end
+
+  # landing page che registra l'avvenuto aggiornamento del profilo utente
+  def profile_updated
+    @user = User.find(current_user.id)
+    @user.aggiornato = true
+    @user.save
+
+    redirect_to '/profilo-aggiornato'
+  end
+
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy

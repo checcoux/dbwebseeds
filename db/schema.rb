@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170811144849) do
+ActiveRecord::Schema.define(version: 20170813073236) do
 
   create_table "assignments", force: :cascade do |t|
     t.string   "titolo"
@@ -108,10 +108,12 @@ ActiveRecord::Schema.define(version: 20170811144849) do
 
   create_table "entities", force: :cascade do |t|
     t.string   "titolo"
-    t.boolean  "nativo",     default: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.boolean  "nativo",       default: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.string   "slug"
+    t.integer  "user_id"
+    t.string   "landing_page"
   end
 
   add_index "entities", ["slug"], name: "index_entities_on_slug", unique: true
@@ -171,6 +173,7 @@ ActiveRecord::Schema.define(version: 20170811144849) do
     t.string   "tags"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
   end
 
   create_table "pages", force: :cascade do |t|

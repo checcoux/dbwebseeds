@@ -102,6 +102,8 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'profile-updated' => 'users#profile_updated'
+  get 'edit-profile' => 'users#edit_profile'
   get 'screen/:n' => 'pages#screen'
   get 'search' => 'pages#search'
   get 'tag-cloud-3d' => 'tags#cloud3d'

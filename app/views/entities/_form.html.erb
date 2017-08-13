@@ -16,8 +16,12 @@
     <%= f.text_field :titolo %>
   </div>
   <div class="field">
-    <%= f.label :nativo %><br>
+    <%= f.label :landing_page, "Landing page" %><br>
+    <%= f.text_field :landing_page %>
+  </div>
+  <div class="field">
     <%= f.check_box :nativo %>
+    <%= f.label :nativo %>
   </div>
   <div class="field">
     <%= check_box_tag 'rigenera_slug' %>

@@ -13,19 +13,6 @@
 
   <%= f.hidden_field(:entity_id) %>
 
-  <% if current_user && current_user.admin? %>
-  <div class="small-12 columns field">
-    <label>Sezione
-      <%= f.collection_select(:section_id, Section.all, :id, :titolo) %>
-    </label>
-  </div>
-  <div class="small-12 columns field">
-    <label>tags
-      <%= f.text_field :tags %>
-    </label>
-  </div>
-  <% end %>
-
   <% @entity.properties.each do |property| %>
         <%
           field_id = "dato[#{ property.id }]"
@@ -153,6 +140,20 @@
         </label>
         </div>
 
+  <% end %>
+
+  <% if current_user && current_user.admin? %>
+      <hr>
+      <div class="small-12 columns field">
+        <label>Sezione
+          <%= f.collection_select(:section_id, Section.all, :id, :titolo) %>
+        </label>
+      </div>
+      <div class="small-12 columns field">
+        <label>tags
+          <%= f.text_field :tags %>
+        </label>
+      </div>
   <% end %>
 
   <div class="actions">

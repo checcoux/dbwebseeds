@@ -11,4 +11,7 @@ class User < ActiveRecord::Base
   has_many :assignments, dependent: :destroy
   has_many :homeworks, dependent: :destroy
   has_many :grades, dependent: :destroy
+
+  has_many :entities, dependent: :nullify
+  has_many :instances, dependent: :nullify
 end

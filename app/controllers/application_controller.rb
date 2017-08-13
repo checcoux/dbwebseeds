@@ -23,6 +23,7 @@ class ApplicationController < ActionController::Base
   def trova_home
     trova_sezione_principale.trova_home
   end
+  helper_method :trova_home
 
   def trova_profilo
     # attenzione: un'entity di tipo profilo deve essere definita

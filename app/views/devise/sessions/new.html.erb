@@ -1,26 +1,40 @@
+<%= render partial: "pages/cookielaw" %>
+<%= render partial: "pages/header" %>
+
+<div class="row">
+<p>&nbsp;</p>
 <h2>Area riservata</h2>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { 'data-abide' => true, 'novalidate' => true }) do |f| %>
+  <div class="small-12 columns field">
+    <label>Email
+    <%= f.email_field :email, pattern: 'email', placeholder: 'es. mario@rossi.com', autofocus: true, required: '' %>
+    <span class='form-error'>Inserisci un indirizzo email valido.</span>
+    </label>
   </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+  <div class="small-12 columns field">
+    <label>Password
+    <%= f.password_field :password, autocomplete: "off", required: '' %>
+    <span class='form-error'>Inserisci la password.</span>
+    </label>
   </div>
 
   <% if devise_mapping.rememberable? -%>
-    <div class="field">
+    <div class="small-12 columns field">
       <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+      <label for="remember_me">Ricordami</label>
     </div>
   <% end -%>
 
-  <div class="actions">
-    <%= f.submit "Accedi", class:'button' %>
+  <div class="small-12 columns actions">
+    <%= f.submit "Accedi", class:'primary button' %>
   </div>
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+<p>&nbsp;</p>
+</div>
+
+<%= render partial: "pages/footer" %>

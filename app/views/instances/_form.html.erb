@@ -1,15 +1,5 @@
 <%= form_for @instance, html: { 'data-abide' => true, 'novalidate' => true } do |f| %>
-  <% if @instance.errors.any? or (@validator and @validator.errors.any?) %>
-
-     <div data-abide-error class="alert callout">
-      <p><i class="fi-alert"></i> I dati inseriti non sono validi...</p>
-      <ul>
-      <% @instance.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+    <%= render 'layouts/errori', object: @instance %>
 
   <%= f.hidden_field(:entity_id) %>
 
@@ -29,7 +19,13 @@
           br = '<br>'.html_safe
         %>
           <div class="small-12 columns field">
-          <label><%= property.nome %><%=
+          <label><%=
+            if property.obbligatorio
+              "<b>#{ property.nome }</b>".html_safe
+            else
+              property.nome
+            end
+          %><%=
           case tipo
             when 'stringa'
               if property.obbligatorio?
@@ -80,8 +76,9 @@
               tag += "<span class='form-error'>Inserisci un url valido.</span>".html_safe
 
             when 'check' # check_box_tag(name, value = "1", checked = false, options = {})
+              tag = '&nbsp;&nbsp;'.html_safe
               if property.obbligatorio?
-                tag = check_box_tag field_id, '1', valore=='1' ? true : false, required: ''
+                tag += check_box_tag field_id, '1', valore=='1' ? true : false, required: ''
                 tag += "<span class='form-error'>Questo campo dev'essere confermato.</span>".html_safe
               else
                 tag = check_box_tag field_id, '1', valore=='1' ? true : false
@@ -138,6 +135,7 @@
           tag
         %>
         </label>
+        <% if property.descrizione %><p class="help-text"><%= property.descrizione %></p><% end %>
         </div>
 
   <% end %>
@@ -156,7 +154,7 @@
       </div>
   <% end %>
 
-  <div class="actions">
+  <div class="small-12 columns actions">
   <%= f.submit 'SALVA', class: 'button' %>
   </div>
 <% end %>

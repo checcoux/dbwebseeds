@@ -120,7 +120,7 @@ it:
       unlocked: Il tuo account è stato correttamente sbloccato. Ora sei collegato.
   errors:
     messages:
-      already_confirmed: "è stato già confermato"
+      already_confirmed: "è stata già confermata"
       confirmation_period_expired: deve essere confermato entro %{period}, richiedi una nuova conferma
       expired: "è scaduto, si prega di richiederne uno nuovo"
       not_found: non trovato

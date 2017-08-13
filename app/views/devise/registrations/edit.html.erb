@@ -1,41 +1,59 @@
-<h2>Dati personali</h2>
+<%= render partial: "pages/cookielaw" %>
+<%= render partial: "pages/header" %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+<div class="row">
+  <p>&nbsp;</p>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+<h2>Modifica dei dati di accesso</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, 'data-abide' => true, 'novalidate' => true }) do |f| %>
+  <%= render 'layouts/errori', object: resource %>
+
+  <div class="small-12 columns field">
+    <label>Email
+    <%= f.email_field :email, pattern: 'email', placeholder: 'es. mario@rossi.com', autofocus: true, required: '' %>
+    <span class='form-error'>Inserisci un indirizzo email valido.</span>
+    </label>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>In attesa di conferma per: <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :password %> <i>(Lascia il campo vuoto se non vuoi cambiarla)</i><br />
+  <div class="small-12 columns field">
+    <label>Password
     <%= f.password_field :password, autocomplete: "off" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em>Minimo <%= @minimum_password_length %> caratteri</em>
-    <% end %>
+    <p class="help-text">Lascia il campo vuoto se non vuoi cambiarla.</p>
+    </label>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
+  <div class="small-12 columns field">
+    <label>Conferma la password
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    <p class="help-text">Scrivi un'altra volta la password se vuoi cambiarla.</p>
+    </label>
   </div>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(Abbiamo bisogno della tua password attuale per confermare i cambiamenti)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
+  <div class="small-12 columns field">
+    <label>Password corrente
+    <%= f.password_field :current_password, autocomplete: "off", required: '' %>
+    <span class='form-error'>Per continuare la password corrente deve essere inserita.</span>
+    <p class="help-text">Inserisci la password corrente per confermare le modifiche.</p>
+    </label>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Aggiorna", class:'button' %>
+  <div class="small-12 columns actions">
+    <%= f.submit "Salva", class:'primary button' %>
   </div>
 <% end %>
 
-<h3>Cancellazione account</h3>
+<hr>
 
-<p>Clicca sul bottone per cancellare definitivamente il tuo account <%= button_to "Cancella account", registration_path(resource_name), data: { confirm: "Desideri cancellare definitivamente il tuo account?" }, method: :delete, class:'alert button' %></p>
+<h2>Cancellazione account</h2>
+
+<p>Clicca sul bottone per cancellare definitivamente il tuo account: <%= button_to "Cancella account", registration_path(resource_name), data: { confirm: "Desideri cancellare definitivamente il tuo account?" }, method: :delete, class:'alert button' %></p>
+
+  <p>&nbsp;</p>
+</div>
+
+<%= render partial: "pages/footer" %>

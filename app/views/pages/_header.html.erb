@@ -1,4 +1,6 @@
 <%
+  @page = trova_home if !@page
+
   if !@page.header && !@page.footer
     header = @page.trova_header
   end

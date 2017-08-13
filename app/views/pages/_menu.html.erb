@@ -115,7 +115,8 @@
       <li class="has-submenu">
         <a>Account</a>
         <ul class="submenu menu vertical" data-submenu>
-          <% # link_to "Dati personali", edit_user_registration_path %>
+          <li><%= link_to "Dati di accesso", edit_user_registration_path %></li>
+          <li><%= link_to "Profilo", '/edit-profile' %></li>
           <li><%= link_to "Logout", destroy_user_session_path %></li>
         </ul>
       </li>

@@ -1,11 +1,449 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
+---
+datum_2:
+  id: 2
   instance_id: 1
   property_id: 1
-  valore: MyString
-
-two:
+  valore: Andrea
+  created_at: 2017-08-05 08:40:44.451400000 Z
+  updated_at: 2017-08-05 08:40:44.451400000 Z
+datum_3:
+  id: 3
   instance_id: 1
+  property_id: 2
+  valore: Ros
+  created_at: 2017-08-05 08:40:44.451400000 Z
+  updated_at: 2017-08-05 08:40:44.451400000 Z
+datum_4:
+  id: 4
+  instance_id: 2
   property_id: 1
-  valore: MyString
+  valore: Federico
+  created_at: 2017-08-05 08:40:44.451400000 Z
+  updated_at: 2017-08-05 08:40:44.451400000 Z
+datum_5:
+  id: 5
+  instance_id: 2
+  property_id: 2
+  valore: Montagner
+  created_at: 2017-08-05 08:40:44.451400000 Z
+  updated_at: 2017-08-05 08:40:44.451400000 Z
+datum_8:
+  id: 8
+  instance_id: 11
+  property_id: 1
+  valore: Pozza
+  created_at: 2017-08-05 08:40:44.451400000 Z
+  updated_at: 2017-08-05 08:40:44.451400000 Z
+datum_9:
+  id: 9
+  instance_id: 11
+  property_id: 2
+  valore: Paolo
+  created_at: 2017-08-05 08:40:44.681652000 Z
+  updated_at: 2017-08-05 08:40:44.681652000 Z
+datum_10:
+  id: 10
+  instance_id: 12
+  property_id: 3
+  valore: opzione 2
+  created_at: 2017-08-07 19:20:06.662542000 Z
+  updated_at: 2017-08-09 09:45:35.701277000 Z
+datum_11:
+  id: 11
+  instance_id: 12
+  property_id: 4
+  valore: '5'
+  created_at: 2017-08-07 19:20:06.900195000 Z
+  updated_at: 2017-08-08 16:19:39.507532000 Z
+datum_12:
+  id: 12
+  instance_id: 12
+  property_id: 5
+  valore: m
+  created_at: 2017-08-07 19:20:07.136824000 Z
+  updated_at: 2017-08-09 09:45:35.927638000 Z
+datum_13:
+  id: 13
+  instance_id: 12
+  property_id: 6
+  valore: '2017-08-12'
+  created_at: 2017-08-07 19:20:07.409314000 Z
+  updated_at: 2017-08-09 10:14:39.199649000 Z
+datum_14:
+  id: 14
+  instance_id: 12
+  property_id: 7
+  valore: CIAO
+  created_at: 2017-08-07 19:20:07.687459000 Z
+  updated_at: 2017-08-09 15:25:59.153809000 Z
+datum_15:
+  id: 15
+  instance_id: 12
+  property_id: 8
+  valore: CIAO
+  created_at: 2017-08-07 19:20:08.104343000 Z
+  updated_at: 2017-08-09 09:43:33.795483000 Z
+datum_16:
+  id: 16
+  instance_id: 12
+  property_id: 9
+  valore: andrea@donboscoland.it
+  created_at: 2017-08-07 19:20:08.387746000 Z
+  updated_at: 2017-08-09 09:46:14.844418000 Z
+datum_17:
+  id: 17
+  instance_id: 12
+  property_id: 10
+  valore: http://www.donboscoland.it
+  created_at: 2017-08-07 19:20:08.628762000 Z
+  updated_at: 2017-08-09 09:46:15.059877000 Z
+datum_18:
+  id: 18
+  instance_id: 12
+  property_id: 11
+  valore: '1'
+  created_at: 2017-08-07 19:20:08.895973000 Z
+  updated_at: 2017-08-09 10:15:10.159167000 Z
+datum_19:
+  id: 19
+  instance_id: 12
+  property_id: 12
+  valore: 0421 338911
+  created_at: 2017-08-07 19:20:09.166962000 Z
+  updated_at: 2017-08-07 19:20:09.166962000 Z
+datum_20:
+  id: 20
+  instance_id: 14
+  property_id: 3
+  valore: opzione 2
+  created_at: 2017-08-09 15:30:29.147819000 Z
+  updated_at: 2017-08-09 15:30:29.147819000 Z
+datum_21:
+  id: 21
+  instance_id: 14
+  property_id: 4
+  valore: '12'
+  created_at: 2017-08-09 15:30:29.389794000 Z
+  updated_at: 2017-08-09 15:30:29.389794000 Z
+datum_22:
+  id: 22
+  instance_id: 14
+  property_id: 5
+  valore: m
+  created_at: 2017-08-09 15:30:29.619609000 Z
+  updated_at: 2017-08-09 15:30:29.619609000 Z
+datum_23:
+  id: 23
+  instance_id: 14
+  property_id: 6
+  valore: '2017-08-12'
+  created_at: 2017-08-09 15:30:29.887476000 Z
+  updated_at: 2017-08-09 15:30:29.887476000 Z
+datum_24:
+  id: 24
+  instance_id: 14
+  property_id: 7
+  valore: asfdsaf
+  created_at: 2017-08-09 15:30:30.406437000 Z
+  updated_at: 2017-08-09 15:30:30.406437000 Z
+datum_25:
+  id: 25
+  instance_id: 14
+  property_id: 8
+  valore: sdfdsaf
+  created_at: 2017-08-09 15:30:30.611897000 Z
+  updated_at: 2017-08-09 15:30:30.611897000 Z
+datum_26:
+  id: 26
+  instance_id: 14
+  property_id: 9
+  valore: sdfasdfs@fd.it
+  created_at: 2017-08-09 15:30:30.853347000 Z
+  updated_at: 2017-08-09 15:30:30.853347000 Z
+datum_27:
+  id: 27
+  instance_id: 14
+  property_id: 10
+  valore: http://gauss
+  created_at: 2017-08-09 15:30:31.095593000 Z
+  updated_at: 2017-08-09 15:30:31.095593000 Z
+datum_28:
+  id: 28
+  instance_id: 14
+  property_id: 11
+  valore: '1'
+  created_at: 2017-08-09 15:30:31.337654000 Z
+  updated_at: 2017-08-09 15:30:31.337654000 Z
+datum_29:
+  id: 29
+  instance_id: 14
+  property_id: 12
+  valore: '234532'
+  created_at: 2017-08-09 15:30:31.642268000 Z
+  updated_at: 2017-08-09 15:30:31.642268000 Z
+datum_30:
+  id: 30
+  instance_id: 15
+  property_id: 3
+  valore: verde
+  created_at: 2017-08-09 15:30:51.630649000 Z
+  updated_at: 2017-08-13 17:30:29.511763000 Z
+datum_31:
+  id: 31
+  instance_id: 15
+  property_id: 4
+  valore: '12'
+  created_at: 2017-08-09 15:30:51.866688000 Z
+  updated_at: 2017-08-09 15:30:51.866688000 Z
+datum_32:
+  id: 32
+  instance_id: 15
+  property_id: 5
+  valore: m
+  created_at: 2017-08-09 15:30:52.099647000 Z
+  updated_at: 2017-08-09 15:30:52.099647000 Z
+datum_33:
+  id: 33
+  instance_id: 15
+  property_id: 6
+  valore: '2017-08-12'
+  created_at: 2017-08-09 15:30:52.340843000 Z
+  updated_at: 2017-08-09 15:30:52.340843000 Z
+datum_34:
+  id: 34
+  instance_id: 15
+  property_id: 7
+  valore: ASFDSAF
+  created_at: 2017-08-09 15:30:52.585408000 Z
+  updated_at: 2017-08-10 19:10:04.099060000 Z
+datum_35:
+  id: 35
+  instance_id: 15
+  property_id: 8
+  valore: SDFDSAF
+  created_at: 2017-08-09 15:30:52.895118000 Z
+  updated_at: 2017-08-10 19:10:04.373411000 Z
+datum_36:
+  id: 36
+  instance_id: 15
+  property_id: 9
+  valore: sdfasdfs@fd.it
+  created_at: 2017-08-09 15:30:53.183329000 Z
+  updated_at: 2017-08-09 15:30:53.183329000 Z
+datum_37:
+  id: 37
+  instance_id: 15
+  property_id: 10
+  valore: http://gauss.it
+  created_at: 2017-08-09 15:30:53.415954000 Z
+  updated_at: 2017-08-10 19:10:04.618070000 Z
+datum_38:
+  id: 38
+  instance_id: 15
+  property_id: 11
+  valore: '1'
+  created_at: 2017-08-09 15:30:53.658364000 Z
+  updated_at: 2017-08-09 15:30:53.658364000 Z
+datum_39:
+  id: 39
+  instance_id: 15
+  property_id: 12
+  valore: '234532'
+  created_at: 2017-08-09 15:30:53.899507000 Z
+  updated_at: 2017-08-09 15:30:53.899507000 Z
+datum_40:
+  id: 40
+  instance_id: 1
+  property_id: 13
+  valore: '1973-08-08'
+  created_at: 2017-08-11 10:22:32.707976000 Z
+  updated_at: 2017-08-11 10:22:32.707976000 Z
+datum_41:
+  id: 41
+  instance_id: 1
+  property_id: 14
+  valore: m
+  created_at: 2017-08-11 10:22:32.947938000 Z
+  updated_at: 2017-08-11 10:22:32.947938000 Z
+datum_42:
+  id: 42
+  instance_id: 1
+  property_id: 15
+  valore: 346 9605687
+  created_at: 2017-08-11 10:22:33.177870000 Z
+  updated_at: 2017-08-11 10:22:33.177870000 Z
+datum_43:
+  id: 43
+  instance_id: 16
+  property_id: 1
+  valore: Pinco
+  created_at: 2017-08-11 14:46:39.156554000 Z
+  updated_at: 2017-08-11 14:46:39.156554000 Z
+datum_44:
+  id: 44
+  instance_id: 16
+  property_id: 2
+  valore: Pallino
+  created_at: 2017-08-11 14:46:39.394558000 Z
+  updated_at: 2017-08-11 14:46:39.394558000 Z
+datum_45:
+  id: 45
+  instance_id: 16
+  property_id: 13
+  valore: '2017-01-01'
+  created_at: 2017-08-11 14:46:39.680837000 Z
+  updated_at: 2017-08-11 14:46:39.680837000 Z
+datum_46:
+  id: 46
+  instance_id: 16
+  property_id: 14
+  valore: m
+  created_at: 2017-08-11 14:46:39.920018000 Z
+  updated_at: 2017-08-11 14:46:39.920018000 Z
+datum_47:
+  id: 47
+  instance_id: 16
+  property_id: 15
+  valore: '32454'
+  created_at: 2017-08-11 14:46:40.139489000 Z
+  updated_at: 2017-08-11 14:46:40.139489000 Z
+datum_48:
+  id: 48
+  instance_id: 18
+  property_id: 1
+  valore: Andrea
+  created_at: 2017-08-13 08:27:02.594538000 Z
+  updated_at: 2017-08-13 08:27:02.594538000 Z
+datum_49:
+  id: 49
+  instance_id: 18
+  property_id: 2
+  valore: Ros
+  created_at: 2017-08-13 08:27:02.929628000 Z
+  updated_at: 2017-08-13 08:27:02.929628000 Z
+datum_50:
+  id: 50
+  instance_id: 18
+  property_id: 13
+  valore: '1973-08-08'
+  created_at: 2017-08-13 08:27:03.144669000 Z
+  updated_at: 2017-08-13 08:27:03.144669000 Z
+datum_51:
+  id: 51
+  instance_id: 18
+  property_id: 14
+  valore: m
+  created_at: 2017-08-13 08:27:03.452744000 Z
+  updated_at: 2017-08-13 08:27:03.452744000 Z
+datum_52:
+  id: 52
+  instance_id: 18
+  property_id: 15
+  valore: '3469605687'
+  created_at: 2017-08-13 08:27:03.702806000 Z
+  updated_at: 2017-08-13 08:27:03.702806000 Z
+datum_53:
+  id: 53
+  instance_id: 21
+  property_id: 1
+  valore: Ros
+  created_at: 2017-08-13 10:03:10.171763000 Z
+  updated_at: 2017-08-13 10:03:10.171763000 Z
+datum_54:
+  id: 54
+  instance_id: 21
+  property_id: 2
+  valore: Andrea
+  created_at: 2017-08-13 10:03:10.405215000 Z
+  updated_at: 2017-08-13 10:03:10.405215000 Z
+datum_55:
+  id: 55
+  instance_id: 21
+  property_id: 13
+  valore: '1973-08-08'
+  created_at: 2017-08-13 10:03:10.671486000 Z
+  updated_at: 2017-08-13 10:03:10.671486000 Z
+datum_56:
+  id: 56
+  instance_id: 21
+  property_id: 14
+  valore: m
+  created_at: 2017-08-13 10:03:10.904786000 Z
+  updated_at: 2017-08-13 10:03:10.904786000 Z
+datum_57:
+  id: 57
+  instance_id: 21
+  property_id: 15
+  valore: 346 9605687
+  created_at: 2017-08-13 10:03:11.138722000 Z
+  updated_at: 2017-08-13 10:03:11.138722000 Z
+datum_58:
+  id: 58
+  instance_id: 22
+  property_id: 1
+  valore: Rossi
+  created_at: 2017-08-13 19:35:42.104890000 Z
+  updated_at: 2017-08-13 19:35:42.104890000 Z
+datum_59:
+  id: 59
+  instance_id: 22
+  property_id: 2
+  valore: Claudio
+  created_at: 2017-08-13 19:35:42.576612000 Z
+  updated_at: 2017-08-13 19:35:42.576612000 Z
+datum_60:
+  id: 60
+  instance_id: 22
+  property_id: 13
+  valore: '1973-08-08'
+  created_at: 2017-08-13 19:35:43.072091000 Z
+  updated_at: 2017-08-13 19:35:43.072091000 Z
+datum_61:
+  id: 61
+  instance_id: 22
+  property_id: 14
+  valore: m
+  created_at: 2017-08-13 19:35:43.339570000 Z
+  updated_at: 2017-08-13 19:35:43.339570000 Z
+datum_62:
+  id: 62
+  instance_id: 22
+  property_id: 15
+  valore: 32443 23
+  created_at: 2017-08-13 19:35:43.579406000 Z
+  updated_at: 2017-08-13 19:35:43.579406000 Z
+datum_63:
+  id: 63
+  instance_id: 23
+  property_id: 1
+  valore: Ros
+  created_at: 2017-08-13 19:49:41.102212000 Z
+  updated_at: 2017-08-13 19:49:41.102212000 Z
+datum_64:
+  id: 64
+  instance_id: 23
+  property_id: 2
+  valore: Andrea
+  created_at: 2017-08-13 19:49:41.330274000 Z
+  updated_at: 2017-08-13 19:49:41.330274000 Z
+datum_65:
+  id: 65
+  instance_id: 23
+  property_id: 13
+  valore: '1973-08-08'
+  created_at: 2017-08-13 19:49:41.570241000 Z
+  updated_at: 2017-08-13 19:49:41.570241000 Z
+datum_66:
+  id: 66
+  instance_id: 23
+  property_id: 14
+  valore: m
+  created_at: 2017-08-13 19:49:41.812102000 Z
+  updated_at: 2017-08-13 19:49:41.812102000 Z
+datum_67:
+  id: 67
+  instance_id: 23
+  property_id: 15
+  valore: '5342354'
+  created_at: 2017-08-13 19:49:42.054408000 Z
+  updated_at: 2017-08-13 19:49:42.054408000 Z

@@ -166,3 +166,46 @@ column_663:
   autocrop: true
   padding: ''
   condivisa: true
+column_675:
+  id: 675
+  ordine: 1
+  contenuto: "<ul class=\"vertical medium-horizontal dropdown menu\" data-dropdown-menu=\"jnk7lb-dropdown-menu\"
+    role=\"menubar\">\n\t<li role=\"menuitem\"><a href=\"http://fff\">AEDS</a></li>\n\t<li
+    aria-haspopup=\"true\" aria-label=\"SCEOUT\" class=\"is-dropdown-submenu-parent
+    opens-inner opens-right\" data-is-click=\"false\" role=\"menuitem\"><a href=\"#\">SCEOUT</a>\n\t<ul
+    class=\"menu submenu is-dropdown-submenu first-sub vertical\" data-submenu=\"\"
+    role=\"menu\">\n\t\t<li class=\"is-submenu-item is-dropdown-submenu-item\" role=\"menuitem\"><a
+    href=\"http://ffff\">Lupetti</a></li>\n\t\t<li aria-haspopup=\"true\" aria-label=\"Coccinelle\"
+    class=\"is-dropdown-submenu-parent is-submenu-item is-dropdown-submenu-item opens-right\"
+    data-is-click=\"false\" role=\"menuitem\"><a href=\"http://ffff\">Coccinelle</a>\n\t\t<ul
+    class=\"menu submenu is-dropdown-submenu vertical\" data-submenu=\"\" role=\"menu\">\n\t\t\t<li
+    class=\"is-submenu-item is-dropdown-submenu-item\" role=\"menuitem\"><a href=\"http://ffff\">Amichette</a></li>\n\t\t\t<li
+    class=\"is-submenu-item is-dropdown-submenu-item\" role=\"menuitem\"><a href=\"http://fffff\">Amicone</a></li>\n\t\t</ul>\n\t\t</li>\n\t</ul>\n\t</li>\n\t<li
+    role=\"menuitem\"><a href=\"http://ffedsad\">CFP</a></li>\n</ul>\n"
+  created_at: 2017-07-20 14:31:05.707976000 Z
+  updated_at: 2017-08-14 10:13:46.508499000 Z
+  row_id: 395
+  larghezza: 12
+  fonte: 0
+  page_id: 0
+  autocrop: true
+  padding: 0em
+  condivisa: true
+column_676:
+  id: 676
+  ordine: 1
+  contenuto: |
+    <h1>Profilo aggiornato</h1>
+
+    <p>I tuoi dati sono stati aggiornati: grazie!</p>
+
+    <p><a href="/">Clicca qui per tornare alla home page</a>.</p>
+  created_at: 2017-08-13 08:57:02.950602000 Z
+  updated_at: 2017-08-13 08:57:59.748091000 Z
+  row_id: 396
+  larghezza: 12
+  fonte: 0
+  page_id: 0
+  autocrop: true
+  padding: ''
+  condivisa: true

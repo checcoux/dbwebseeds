@@ -27,9 +27,9 @@ row_359:
   visibilita: ''
 row_372:
   id: 372
-  ordine: 3
+  ordine: 4
   created_at: 2017-04-14 16:07:03.675400000 Z
-  updated_at: 2017-04-21 14:31:30.054125000 Z
+  updated_at: 2017-07-20 14:31:05.272819000 Z
   page_id: 98
   estesa: false
   colore_sfondo: "#ffffff"
@@ -40,9 +40,9 @@ row_372:
   visibilita: ''
 row_373:
   id: 373
-  ordine: 2
+  ordine: 3
   created_at: 2017-04-14 16:17:37.362159000 Z
-  updated_at: 2017-06-25 14:44:04.969737000 Z
+  updated_at: 2017-07-20 14:31:05.047714000 Z
   page_id: 98
   estesa: false
   colore_sfondo: "#CCCCCC"
@@ -53,9 +53,9 @@ row_373:
   visibilita: ''
 row_378:
   id: 378
-  ordine: 1
+  ordine: 2
   created_at: 2017-04-15 10:15:56.640230000 Z
-  updated_at: 2017-04-21 14:31:29.523105000 Z
+  updated_at: 2017-07-20 14:31:04.816616000 Z
   page_id: 98
   estesa: false
   colore_sfondo: "#ffffff"
@@ -83,6 +83,32 @@ row_384:
   created_at: 2017-06-25 15:16:34.382297000 Z
   updated_at: 2017-06-25 15:16:34.382297000 Z
   page_id: 103
+  estesa: false
+  colore_sfondo: "#ffffff"
+  immagine_sfondo_file_name: 
+  immagine_sfondo_content_type: 
+  immagine_sfondo_file_size: 
+  immagine_sfondo_updated_at: 
+  visibilita: ''
+row_395:
+  id: 395
+  ordine: 1
+  created_at: 2017-07-20 14:31:05.488906000 Z
+  updated_at: 2017-07-20 15:57:11.297458000 Z
+  page_id: 98
+  estesa: false
+  colore_sfondo: "#B3DB4F"
+  immagine_sfondo_file_name: 
+  immagine_sfondo_content_type: 
+  immagine_sfondo_file_size: 
+  immagine_sfondo_updated_at: 
+  visibilita: ''
+row_396:
+  id: 396
+  ordine: 1
+  created_at: 2017-08-13 08:57:02.659389000 Z
+  updated_at: 2017-08-13 08:57:02.659389000 Z
+  page_id: 114
   estesa: false
   colore_sfondo: "#ffffff"
   immagine_sfondo_file_name: 

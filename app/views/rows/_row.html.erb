@@ -3,6 +3,8 @@
 
   fonte = ['statica', 'pagina', 'sezione', 'parent', 'sito', 'siti affini', 'cloud']
 
+  user_can_edit = user_signed_in? && (current_user.admin? || current_user.section == @page.section)
+
   style = ''
   # row = @row if !row
   if row.immagine_sfondo.exists?
@@ -58,7 +60,7 @@
       parte_fissa = true if row.page.header && !@page.header
       parte_fissa = true if row.page.footer && !@page.footer
 
-      if !user_signed_in? || (user_signed_in? && !(current_user.admin? || current_user.section)) || parte_fissa || colonna_dinamica
+      if !user_can_edit || parte_fissa || colonna_dinamica
         editable = false
       else
         editable = true
@@ -76,13 +78,15 @@
               <%= (column.contenuto + da_sezione).html_safe %>
             </div>
 
-            <% if editable %>
-              <div class="gestione-immagini"><button onclick="aggiungiImmagine(<%= column_id %>);"><i class="fi-photo"></i></button></div>
-            <% elsif user_signed_in? && !parte_fissa %>
-                <div class="info-layout"><i class="fi-link"></i> <%= fonte[column.fonte] %></div>
-            <% end %>
-            <% if classe_di_visibilita && user_signed_in? %>
-                <div class="info-visibilita"><%= classe_di_visibilita %></div>
+            <% if user_can_edit %>
+              <% if editable %>
+                <div class="gestione-immagini"><button onclick="aggiungiImmagine(<%= column_id %>);"><i class="fi-photo"></i></button></div>
+              <% elsif !parte_fissa %>
+                  <div class="info-layout"><i class="fi-link"></i> <%= fonte[column.fonte] %></div>
+              <% end %>
+              <% if classe_di_visibilita %>
+                  <div class="info-visibilita"><%= classe_di_visibilita %></div>
+              <% end %>
             <% end %>
           </div>
       <% elsif column.column_images.count == 1 %>
@@ -124,13 +128,16 @@
             <% if immagine.collegamento.length > 0 %>
                 </a>
             <% end %>
-            <% if editable %>
-              <div class="gestione-immagini"><button onclick="aggiungiImmagine(<%= column_id %>);"><i class="fi-plus"></i></button> <button onclick="modificaImmagine(<%= column.column_images.first.id %>);"><i class="fi-pencil"></i></button> <button onclick="eliminaImmagine(<%= column.column_images.first.id %>);"><i class="fi-x"></i></button></div>
-            <% elsif user_signed_in? && !parte_fissa %>
-                <div class="info-layout"><i class="fi-link"></i> <%= fonte[column.fonte] %></div>
-            <% end %>
-            <% if classe_di_visibilita && user_signed_in? %>
-                <div class="info-visibilita"><%= classe_di_visibilita %></div>
+
+            <% if user_can_edit %>
+              <% if editable %>
+                <div class="gestione-immagini"><button onclick="aggiungiImmagine(<%= column_id %>);"><i class="fi-plus"></i></button> <button onclick="modificaImmagine(<%= column.column_images.first.id %>);"><i class="fi-pencil"></i></button> <button onclick="eliminaImmagine(<%= column.column_images.first.id %>);"><i class="fi-x"></i></button></div>
+              <% elsif !parte_fissa %>
+                  <div class="info-layout"><i class="fi-link"></i> <%= fonte[column.fonte] %></div>
+              <% end %>
+              <% if classe_di_visibilita %>
+                  <div class="info-visibilita"><%= classe_di_visibilita %></div>
+              <% end %>
             <% end %>
           </div>
         <% else %>
@@ -174,13 +181,15 @@
                             </a>
                         <% end %>
 
-                        <% if editable %>
-                          <div class="gestione-immagini"><button onclick="aggiungiImmagine(<%= column_id %>);"><i class="fi-plus"></i></button> <button onclick="modificaImmagine(<%= immagine.id %>);"><i class="fi-pencil"></i></button> <button onclick="eliminaImmagine(<%= immagine.id %>);"><i class="fi-x"></i></button></div>
-                        <% elsif user_signed_in? && !parte_fissa %>
-                            <div class="info-layout"><i class="fi-link"></i> <%= fonte[column.fonte] %></div>
-                        <% end %>
-                        <% if classe_di_visibilita && user_signed_in? %>
-                            <div class="info-visibilita"><%= classe_di_visibilita %></div>
+                        <% if user_can_edit %>
+                          <% if editable %>
+                            <div class="gestione-immagini"><button onclick="aggiungiImmagine(<%= column_id %>);"><i class="fi-plus"></i></button> <button onclick="modificaImmagine(<%= immagine.id %>);"><i class="fi-pencil"></i></button> <button onclick="eliminaImmagine(<%= immagine.id %>);"><i class="fi-x"></i></button></div>
+                          <% elsif !parte_fissa %>
+                              <div class="info-layout"><i class="fi-link"></i> <%= fonte[column.fonte] %></div>
+                          <% end %>
+                          <% if classe_di_visibilita %>
+                              <div class="info-visibilita"><%= classe_di_visibilita %></div>
+                          <% end %>
                         <% end %>
 
                       </div>

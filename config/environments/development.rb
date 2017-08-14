@@ -37,10 +37,23 @@ Rails.application.configure do
 
   # richiesto da devise per generare gli url assoluti verso il sito
   config.action_mailer.delivery_method = :smtp
+
+  #config.action_mailer.smtp_settings = {
+  #    address: "mail.donbosco.cloud",
+  #    port: 25
+  #}
+
   config.action_mailer.smtp_settings = {
-      address: "mail.donbosco.cloud",
-      port: 25
+      address:              'smtp.gmail.com',
+      port:                 587,
+      domain:               'gmail.com',
+      user_name:            'server@donboscoland.it',
+      password:             'Zzer17ver',
+      authentication:       :plain,
+      enable_starttls_auto: true
   }
+
+
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
   config.nome_sito = "donboscowebseeds"

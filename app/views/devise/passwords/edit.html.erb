@@ -12,16 +12,15 @@
 
   <div class="small-12 columns field">
     <label>Nuova password
-    <% if @minimum_password_length %>
-      <em>(minimo <%= @minimum_password_length %> caratteri)</em><br />
-    <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "off", required: '' %>
+      <%= f.password_field :password, autofocus: true, autocomplete: "off", required: '' %>
+      <span class='form-error'>Inserisci una password di almeno <%= @minimum_password_length %> caratteri.</span>
     </label>
   </div>
 
   <div class="small-12 columns field">
-    <label>Conferma la nuova password" %>
-    <%= f.password_field :password_confirmation, autocomplete: "off", required: '' %>
+    <label>Conferma la nuova password
+    <%= f.password_field :password_confirmation, autocomplete: "off", required: '', data: { equalto: "user_password" } %>
+    <span class='form-error'>Le due password devono corrispondere.</span>
     </label>
   </div>
 

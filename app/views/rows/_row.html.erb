@@ -84,7 +84,7 @@
               <% elsif !parte_fissa %>
                   <div class="info-layout"><i class="fi-link"></i> <%= fonte[column.fonte] %></div>
               <% end %>
-              <% if classe_di_visibilita %>
+              <% if editable && classe_di_visibilita %>
                   <div class="info-visibilita"><%= classe_di_visibilita %></div>
               <% end %>
             <% end %>
@@ -135,7 +135,7 @@
               <% elsif !parte_fissa %>
                   <div class="info-layout"><i class="fi-link"></i> <%= fonte[column.fonte] %></div>
               <% end %>
-              <% if classe_di_visibilita %>
+              <% if editable && classe_di_visibilita %>
                   <div class="info-visibilita"><%= classe_di_visibilita %></div>
               <% end %>
             <% end %>
@@ -187,7 +187,7 @@
                           <% elsif !parte_fissa %>
                               <div class="info-layout"><i class="fi-link"></i> <%= fonte[column.fonte] %></div>
                           <% end %>
-                          <% if classe_di_visibilita %>
+                          <% if editable && classe_di_visibilita %>
                               <div class="info-visibilita"><%= classe_di_visibilita %></div>
                           <% end %>
                         <% end %>

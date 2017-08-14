@@ -22,4 +22,4 @@
 /config/secrets.yml
 /config/database.yml
 /config/environments/production.rb
-
+/config/environments/development.rb

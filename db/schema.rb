@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170815075205) do
+ActiveRecord::Schema.define(version: 20170815182212) do
 
   create_table "assignments", force: :cascade do |t|
     t.string   "titolo"
@@ -117,6 +117,7 @@ ActiveRecord::Schema.define(version: 20170815075205) do
     t.string   "slug"
     t.integer  "user_id"
     t.string   "landing_page"
+    t.boolean  "riservata",    default: true
   end
 
   add_index "entities", ["slug"], name: "index_entities_on_slug", unique: true

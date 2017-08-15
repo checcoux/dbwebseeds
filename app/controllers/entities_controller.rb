@@ -4,6 +4,8 @@ class EntitiesController < ApplicationController
   # GET /entities
   # GET /entities.json
   def index
+    authorize Entity
+
     @entities = Entity.all
   end
 
@@ -14,6 +16,8 @@ class EntitiesController < ApplicationController
 
   # GET /entities/new
   def new
+    authorize Entity
+
     @entity = Entity.new
   end
 
@@ -26,6 +30,8 @@ class EntitiesController < ApplicationController
   def create
     @entity = Entity.new(entity_params)
     @entity.user = current_user
+
+    authorize @entity
 
     respond_to do |format|
       if @entity.save
@@ -70,10 +76,12 @@ class EntitiesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_entity
       @entity = Entity.find(params[:id])
+
+      authorize @entity
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def entity_params
-      params.require(:entity).permit(:titolo, :nativo, :rigenera_slug, :landing_page)
+      params.require(:entity).permit(:titolo, :nativo, :rigenera_slug, :landing_page, :riservata)
     end
 end

@@ -7,6 +7,8 @@ class InstancesController < ApplicationController
     if !params[:type].nil?
       @entity = Entity.find_by slug: params[:type]
 
+      authorize @entity, :show?
+
       @instances = @entity.elenco
 
       if !current_user.admin?
@@ -14,9 +16,6 @@ class InstancesController < ApplicationController
       end
 
       @instances = @instances.page(params[:page])
-
-      # @instances = Instance.page(params[:page]).order('id').all
-
     else
       redirect_to '/'
     end
@@ -34,8 +33,10 @@ class InstancesController < ApplicationController
     @page = trova_home
 
     if !params[:type].nil?
-      @entity = Entity.find_by slug: params[:type]
+      @entity = Entity.find_by! slug: params[:type]
       @instance.entity_id = @entity ? @entity.id : 0
+
+      authorize @entity, :show?
     else
       # todo: errore, tipo di oggetto non specificato
       @instance.entity_id = 0
@@ -54,6 +55,8 @@ class InstancesController < ApplicationController
     @instance = Instance.new(instance_params)
     @instance.section||= trova_sezione_principale
     @instance.user = current_user
+
+    authorize @instance
 
     @entity = @instance.entity
     if valid_properties? @entity
@@ -136,6 +139,8 @@ class InstancesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_instance
       @instance = Instance.find(params[:id])
+
+      authorize @instance
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

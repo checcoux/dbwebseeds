@@ -103,12 +103,14 @@
             </ul>
           </li>
       <% end %>
-      <% if policy(User).index? %>
+      <% if current_user.admin? %>
           <li class="has-submenu">
-            <a>Utenti</a>
+            <a>Admin</a>
             <ul class="submenu menu vertical" data-submenu>
-              <li><a href="/admin/users">Tutti</a></li>
-              <li><a href="/admin/users/new">Nuovo utente</a></li>
+              <li><a href="/admin/users">Utenti</a></li>
+              <% Entity.all.order(:titolo).each do |entity| %>
+                  <li><a href="/instances?type=<%= entity.slug %>"><%= entity.titolo %></a></li>
+              <% end %>
             </ul>
           </li>
       <% end %>

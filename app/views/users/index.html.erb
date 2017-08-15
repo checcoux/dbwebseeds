@@ -1,5 +1,7 @@
-<h1>utenti
-  <%= link_to 'Nuovo utente', new_user_path, class: 'large warning button float-right' %>
+<div class="row">
+
+<h1>Utenti
+  <%= link_to 'Nuovo', new_user_path, class: 'large warning button float-right' %>
 </h1>
 
 <% @users.each do |user| %>
@@ -17,3 +19,5 @@
     </div>
   </div>
 <% end %>
+
+</div>

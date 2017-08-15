@@ -6,10 +6,13 @@ class InstancesController < ApplicationController
   def index
     if !params[:type].nil?
       @entity = Entity.find_by slug: params[:type]
-      entity_id = @entity ? @entity.id : 0
 
-      # @instances = Instance.where("entity_id = ?", entity_id)
       @instances = @entity.elenco
+
+      if !current_user.admin?
+        @instances = @instances.where user_id: current_user.id
+      end
+
     else
       redirect_to '/'
     end

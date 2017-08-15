@@ -4,6 +4,8 @@ class PropertiesController < ApplicationController
   # GET /properties
   # GET /properties.json
   def index
+    authorize Property
+
     @properties = Property.all
   end
 
@@ -14,6 +16,8 @@ class PropertiesController < ApplicationController
 
   # GET /properties/new
   def new
+    authorize Property
+
     @property = Property.new
   end
 
@@ -24,6 +28,8 @@ class PropertiesController < ApplicationController
   # POST /properties
   # POST /properties.json
   def create
+    authorize Property
+
     @property = Property.new(property_params)
     @property.maiuscolo = false if !['stringa', 'testo'].include? @property.tipo
 
@@ -69,6 +75,8 @@ class PropertiesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_property
       @property = Property.find(params[:id])
+
+      authorize @property
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

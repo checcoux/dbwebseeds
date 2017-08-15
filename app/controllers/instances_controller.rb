@@ -13,6 +13,10 @@ class InstancesController < ApplicationController
         @instances = @instances.where user_id: current_user.id
       end
 
+      @instances = @instances.page(params[:page])
+
+      # @instances = Instance.page(params[:page]).order('id').all
+
     else
       redirect_to '/'
     end

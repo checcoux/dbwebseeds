@@ -31,4 +31,8 @@
   <p>&nbsp;</p>
 </div>
 
+<div class="text-center">
+  <%= will_paginate @instances, renderer: FoundationPagination::Rails %>
+</div>
+
 <%= render partial: "pages/footer" %>

@@ -22,4 +22,6 @@ class Instance < ActiveRecord::Base
       "#{self.entity.titolo} #{self.id}"
     end
   end
+
+  self.per_page = 20
 end

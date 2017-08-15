@@ -1,24 +1,26 @@
-<h1>Lista <%= @entity.titolo %></h1>
+<%= render partial: "pages/cookielaw" %>
+<%= render partial: "pages/header" %>
+
+<div class="row">
+  <p>&nbsp;</p>
+
+<h2>Tabella <%= @entity.titolo %>
+<%= link_to "+", new_instance_path + "?type=#{ @entity.slug }", class: 'large warning button float-right' if @entity %>
+</h2>
 
 <table>
   <thead>
     <tr>
-      <th>Entity</th>
-      <th>Section</th>
-      <th>Tags</th>
-      <th colspan="3"></th>
+      <th><%= @entity.label %></th>
+      <th colspan="1"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @instances.each do |instance| %>
       <tr>
-        <td><%= instance.entity.slug %></td>
-        <td><%= instance.section.titolo %></td>
-        <td><%= instance.tags %></td>
-        <td><%= link_to 'Show', instance %></td>
-        <td><%= link_to 'Edit', edit_instance_path(instance) %></td>
-        <td><%= link_to 'Destroy', instance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to instance.label, edit_instance_path(instance) %></td>
+        <td><%= link_to 'Elimina', instance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +28,7 @@
 
 <br>
 
-<%= link_to "Nuovo/a #{ @entity.titolo }", new_instance_path + "?type=#{ @entity.slug }", id: 12 if @entity %>
+  <p>&nbsp;</p>
+</div>
+
+<%= render partial: "pages/footer" %>

@@ -3,7 +3,7 @@
 
   <%= f.hidden_field(:entity_id) %>
 
-  <% @entity.properties.each do |property| %>
+  <% @entity.properties.order('ordine ASC').each do |property| %>
         <%
           field_id = "dato[#{ property.id }]"
           tipo = property.tipo
@@ -120,6 +120,55 @@
                 end
               end
 
+            when 'select'
+              parametri = property.condizioni.split(',')
+              tabella = parametri[0]
+              nome = parametri[1]
+              filtro = parametri[2]
+
+              ent = Entity.find_by! slug: tabella
+              prop = Property.find_by! entity_id: ent.id, nome: nome
+
+              # instces = Instance.where("entity_id = ?", ent.id)
+              instces = Instance.joins(:data).where("instances.entity_id = ? AND data.property_id = ?", ent.id, prop.id).order('data.valore ASC')
+
+              #Project.joins(:client)
+              #    .select('projects.id,projects.name,clients.name as client_name')
+              #    .first.client_name
+
+              if instces.count > 5
+                valori = []
+                instces.each do |instce|
+                  valori.push [ instce.data.first.valore, instce.id ]
+                end
+
+                if property.obbligatorio?
+                  tag = select_tag field_id, options_for_select(valori, valore), include_blank: true, required: ''
+                  tag+= "<span class='form-error'>Seleziona un valore dalla lista.</span>".html_safe
+                else
+                  tag = select_tag field_id, options_for_select(valori, valore), include_blank: true
+                end
+              else
+                valori = {}
+
+                instces.each do |instce|
+                  valori[instce.id] = instce.data.first.valore
+                end
+
+                if property.obbligatorio?
+                  tag = br
+                  valori.each do |k, v|
+                    tag+= ( radio_button_tag field_id, k, valore==k.to_s ? true : false, required: '' ) + v.html_safe + '&nbsp;&nbsp;&nbsp;'.html_safe
+                  end
+                  tag+= "<span class='form-error'>Seleziona un valore.</span>".html_safe
+                else
+                  tag = br
+                  valori.each do |k, v|
+                    tag+= ( radio_button_tag field_id, k, valore==k.to_s ? true : false ) + v.html_safe + '&nbsp;&nbsp;&nbsp;'.html_safe
+                  end
+                end
+              end
+
             when 'data'
               if property.obbligatorio?
                 tag = date_field_tag field_id, valore, required: ''
@@ -129,7 +178,7 @@
               tag += "<span class='form-error'>Inserisci una data valida.</span>".html_safe
 
             else
-              tag = '<b>Proprietà non valida!</b>'
+              tag = '&nbsp<b>ATTENZIONE: Proprietà non valida!</b>'.html_safe
           end
 
           tag

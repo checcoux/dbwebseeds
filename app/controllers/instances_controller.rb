@@ -8,9 +8,10 @@ class InstancesController < ApplicationController
       @entity = Entity.find_by slug: params[:type]
       entity_id = @entity ? @entity.id : 0
 
-      @instances = Instance.where("entity_id = ?", entity_id)
+      # @instances = Instance.where("entity_id = ?", entity_id)
+      @instances = @entity.elenco
     else
-      @instances = Instance.all
+      redirect_to '/'
     end
   end
 
@@ -54,7 +55,12 @@ class InstancesController < ApplicationController
 
           # scrittura dei valori delle singole proprietà
           @entity.properties.each do |property|
-            Datum.create(instance_id: @instance.id, property_id: property.id, valore: params[:dato][property.id.to_s])
+            datum = Datum.new
+            datum.instance = @instance
+            datum.property = property
+            datum.valore = params[:dato][property.id.to_s]
+            datum.valore = datum.valore.mb_chars.upcase.to_s if property.maiuscolo
+            datum.save
           end
 
           landing_page = !@entity.landing_page.empty? ? @entity.landing_page : instances_url(type: @entity.slug)
@@ -89,7 +95,7 @@ class InstancesController < ApplicationController
               datum.property = property
             end
             datum.valore = params[:dato][property.id.to_s]
-            datum.valore = datum.valore.upcase if property.maiuscolo
+            datum.valore = datum.valore.mb_chars.upcase.to_s if property.maiuscolo
             datum.save
           end
 

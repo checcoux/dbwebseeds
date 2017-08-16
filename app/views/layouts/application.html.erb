@@ -49,7 +49,7 @@
 
 <body class='<%= controller.controller_name %>'>
 
-  <% if current_user && (current_user.admin || current_user.section_id) %>
+  <% if current_user # && (current_user.admin || current_user.section_id) %>
     <%= render partial: "pages/menu" %>
   <% end %>
 

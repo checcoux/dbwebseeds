@@ -29,7 +29,6 @@ class HomeTest < Capybara::Rails::TestCase
       assert page.has_link?("Nuovo articolo")
       assert page.has_link?("Nuovo album")
       assert page.has_link?("Nuovo allegato")
-      assert page.has_link?("Nuovo utente")
       assert page.has_link?("Logout")
     end
   end

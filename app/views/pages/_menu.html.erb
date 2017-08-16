@@ -31,7 +31,11 @@
 
       %>
 
-      <%= @menu_aggiuntivi || menu_disattivati %>
+      <%=
+        if current_user.admin || current_user.section_id
+          @menu_aggiuntivi || menu_disattivati
+        end
+      %>
 
       <% if policy(Section).index? %>
           <li class="has-submenu">
@@ -103,12 +107,36 @@
             </ul>
           </li>
       <% end %>
+      <%
+        if current_user.admin?
+          iscrizioni = Entity.where("slug LIKE ?", "iscrizione%").order(:updated_at => 'DESC')
+        else
+          iscrizioni = Entity.where("riservata = ? AND slug LIKE ?", false, "iscrizione%").order(:updated_at => 'DESC')
+        end
+
+        if iscrizioni.count >= 1 %>
+          <li class="has-submenu">
+            <a>Iscrizioni</a>
+            <ul class="submenu menu vertical" data-submenu>
+      <%
+          iscrizioni.each do |entity|
+      %>
+            <li><a href="/instances?type=<%= entity.slug %>"><%= entity.titolo %></a></li>
+      <%
+          end
+      %>
+            </ul>
+          </li>
+      <%
+        end
+
+      %>
       <% if current_user.admin? %>
           <li class="has-submenu">
             <a>Admin</a>
             <ul class="submenu menu vertical" data-submenu>
               <li><a href="/admin/users">Utenti</a></li>
-              <% Entity.all.order(:titolo).each do |entity| %>
+              <% Entity.where("slug NOT LIKE ?", "iscrizione%").order(:titolo).each do |entity| %>
                   <li><a href="/instances?type=<%= entity.slug %>"><%= entity.titolo %></a></li>
               <% end %>
             </ul>

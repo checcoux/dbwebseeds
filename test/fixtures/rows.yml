@@ -3,7 +3,7 @@ row_352:
   id: 352
   ordine: 1
   created_at: 2016-12-07 17:46:32.512487000 Z
-  updated_at: 2016-12-07 17:46:52.697438000 Z
+  updated_at: 2017-08-14 14:28:25.968092000 Z
   page_id: 90
   estesa: false
   colore_sfondo: "#3d3d3d"
@@ -11,7 +11,7 @@ row_352:
   immagine_sfondo_content_type: 
   immagine_sfondo_file_size: 
   immagine_sfondo_updated_at: 
-  visibilita: ''
+  visibilita: show-for-medium
 row_359:
   id: 359
   ordine: 1
@@ -68,7 +68,7 @@ row_383:
   id: 383
   ordine: 1
   created_at: 2017-06-25 14:29:01.888730000 Z
-  updated_at: 2017-06-25 14:43:28.401871000 Z
+  updated_at: 2017-08-14 14:24:18.899361000 Z
   page_id: 102
   estesa: false
   colore_sfondo: "#333333"
@@ -76,7 +76,7 @@ row_383:
   immagine_sfondo_content_type: 
   immagine_sfondo_file_size: 
   immagine_sfondo_updated_at: 
-  visibilita: ''
+  visibilita: show-for-medium
 row_384:
   id: 384
   ordine: 1

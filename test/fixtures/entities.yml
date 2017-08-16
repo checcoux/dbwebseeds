@@ -4,16 +4,42 @@ entity_1:
   titolo: Profilo utente
   nativo: true
   created_at: 2017-07-28 09:49:31.117123000 Z
-  updated_at: 2017-08-13 08:11:47.865306000 Z
+  updated_at: 2017-08-16 15:07:31.501028000 Z
   slug: profilo
   user_id: 8
   landing_page: "/profile-updated"
-entity_4:
-  id: 4
-  titolo: Prova
-  nativo: false
-  created_at: 2017-08-07 16:27:44.797013000 Z
-  updated_at: 2017-08-09 14:47:07.728477000 Z
-  slug: prova
+  riservata: false
+  plurale: Profili utente
+entity_6:
+  id: 6
+  titolo: Appartenenza
+  nativo: true
+  created_at: 2017-08-14 15:23:22.012960000 Z
+  updated_at: 2017-08-16 15:07:53.167759000 Z
+  slug: appartenenza
   user_id: 8
-  landing_page: "/instances?type=prova"
+  landing_page: "/instances?type=appartenenza"
+  riservata: true
+  plurale: Appartenenze
+entity_7:
+  id: 7
+  titolo: Iscrizione Meeting 2017
+  nativo: false
+  created_at: 2017-08-16 09:23:10.636116000 Z
+  updated_at: 2017-08-16 15:08:18.259842000 Z
+  slug: iscrizione-meeting-2017
+  user_id: 8
+  landing_page: "/"
+  riservata: false
+  plurale: Iscrizioni Meeting 2017
+entity_9:
+  id: 9
+  titolo: Persona
+  nativo: false
+  created_at: 2017-08-16 14:57:58.061661000 Z
+  updated_at: 2017-08-16 15:08:37.814876000 Z
+  slug: persona
+  user_id: 8
+  landing_page: "/instances?type=persona"
+  riservata: false
+  plurale: Persone

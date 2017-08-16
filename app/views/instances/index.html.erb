@@ -4,7 +4,7 @@
 <div class="row">
   <p>&nbsp;</p>
 
-<h2>Tabella <%= @entity.titolo %>
+<h2><%= @entity.plurale %>
 <%= link_to "Nuovo", new_instance_path + "?type=#{ @entity.slug }", class: 'large warning button float-right' if @entity %>
 </h2>
 

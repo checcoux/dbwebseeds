@@ -5,222 +5,197 @@ property_1:
   tipo: stringa
   nativo: true
   entity_id: 1
-  created_at: 2017-07-28 15:44:11.847807000 Z
-  updated_at: 2017-08-02 15:05:28.327515000 Z
-  maiuscolo: false
+  maiuscolo: true
   obbligatorio: true
-  riservato: 
-  condizioni: 
-  ordine: 
+  riservato: false
+  condizioni: ''
+  ordine: 1
   descrizione: ''
   placeholder: es. Rossi
+  indice: true
 property_2:
   id: 2
   nome: Nome
   tipo: stringa
   nativo: true
   entity_id: 1
-  created_at: 2017-07-28 15:44:37.947706000 Z
-  updated_at: 2017-08-02 15:05:44.708296000 Z
-  maiuscolo: false
+  maiuscolo: true
   obbligatorio: true
   riservato: 
   condizioni: 
-  ordine: 
+  ordine: 2
   descrizione: ''
   placeholder: es. Claudio
-property_3:
-  id: 3
-  nome: Lista
-  tipo: lista
-  nativo: false
-  entity_id: 4
-  created_at: 2017-08-07 16:29:05.701348000 Z
-  updated_at: 2017-08-11 08:48:15.914644000 Z
-  maiuscolo: false
-  obbligatorio: false
-  riservato: false
-  condizioni: rosso,verde,giallo
-  ordine: 
-  descrizione: ''
-  placeholder: ''
-property_4:
-  id: 4
-  nome: Intero
-  tipo: intero
-  nativo: false
-  entity_id: 4
-  created_at: 2017-08-07 16:29:05.701348000 Z
-  updated_at: 2017-08-11 08:48:15.914644000 Z
-  maiuscolo: false
-  obbligatorio: true
-  riservato: true
-  condizioni: 
-  ordine: 
-  descrizione: Questo è un breve testo di aiuto, scrivi così e così.
-  placeholder: 
-property_5:
-  id: 5
-  nome: Sesso
-  tipo: sesso
-  nativo: false
-  entity_id: 4
-  created_at: 2017-08-07 16:29:05.701348000 Z
-  updated_at: 2017-08-11 08:48:15.914644000 Z
-  maiuscolo: false
-  obbligatorio: true
-  riservato: 
-  condizioni: 
-  ordine: 
-  descrizione: Questo è un breve testo di aiuto, scrivi così e così.
-  placeholder: 
-property_6:
-  id: 6
-  nome: Data
-  tipo: data
-  nativo: false
-  entity_id: 4
-  created_at: 2017-08-07 16:29:05.701348000 Z
-  updated_at: 2017-08-11 08:48:15.914644000 Z
-  maiuscolo: true
-  obbligatorio: true
-  riservato: 
-  condizioni: 
-  ordine: 
-  descrizione: Questo è un breve testo di aiuto, scrivi così e così.
-  placeholder: 
-property_7:
-  id: 7
-  nome: Stringa
-  tipo: stringa
-  nativo: false
-  entity_id: 4
-  created_at: 2017-08-07 16:29:05.701348000 Z
-  updated_at: 2017-08-11 08:48:15.914644000 Z
-  maiuscolo: true
-  obbligatorio: true
-  riservato: 
-  condizioni: 
-  ordine: 
-  descrizione: Questo è un breve testo di aiuto, scrivi così e così.
-  placeholder: 
-property_8:
-  id: 8
-  nome: Testo
-  tipo: testo
-  nativo: false
-  entity_id: 4
-  created_at: 2017-08-07 16:29:05.701348000 Z
-  updated_at: 2017-08-11 08:48:15.914644000 Z
-  maiuscolo: true
-  obbligatorio: true
-  riservato: 
-  condizioni: 
-  ordine: 
-  descrizione: Questo è un breve testo di aiuto, scrivi così e così.
-  placeholder: 
-property_9:
-  id: 9
-  nome: Email
-  tipo: email
-  nativo: false
-  entity_id: 4
-  created_at: 2017-08-07 16:29:05.701348000 Z
-  updated_at: 2017-08-11 08:48:15.914644000 Z
-  maiuscolo: false
-  obbligatorio: true
-  riservato: 
-  condizioni: 
-  ordine: 
-  descrizione: Questo è un breve testo di aiuto, scrivi così e così.
-  placeholder: 
-property_10:
-  id: 10
-  nome: Url
-  tipo: url
-  nativo: false
-  entity_id: 4
-  created_at: 2017-08-07 16:29:05.701348000 Z
-  updated_at: 2017-08-11 08:48:15.914644000 Z
-  maiuscolo: false
-  obbligatorio: true
-  riservato: 
-  condizioni: 
-  ordine: 
-  descrizione: Questo è un breve testo di aiuto, scrivi così e così.
-  placeholder: 
-property_11:
-  id: 11
-  nome: Check
-  tipo: check
-  nativo: false
-  entity_id: 4
-  created_at: 2017-08-07 16:29:05.701348000 Z
-  updated_at: 2017-08-11 08:48:15.914644000 Z
-  maiuscolo: false
-  obbligatorio: true
-  riservato: 
-  condizioni: 
-  ordine: 
-  descrizione: Questo è un breve testo di aiuto, scrivi così e così.
-  placeholder: 
-property_12:
-  id: 12
-  nome: Telefono
-  tipo: telefono
-  nativo: false
-  entity_id: 4
-  created_at: 2017-08-07 16:29:05.701348000 Z
-  updated_at: 2017-08-11 08:48:15.914644000 Z
-  maiuscolo: false
-  obbligatorio: true
-  riservato: 
-  condizioni: 
-  ordine: 
-  descrizione: Questo è un breve testo di aiuto, scrivi così e così.
-  placeholder: 
+  indice: true
 property_13:
   id: 13
   nome: Data di nascita
   tipo: data
   nativo: true
   entity_id: 1
-  created_at: 2017-08-07 16:29:05.701348000 Z
-  updated_at: 2017-08-11 08:48:15.914644000 Z
   maiuscolo: false
   obbligatorio: true
   riservato: false
   condizioni: " "
-  ordine: 
+  ordine: 4
   descrizione: ''
   placeholder: ''
+  indice: false
 property_14:
   id: 14
   nome: Sesso
   tipo: sesso
   nativo: true
   entity_id: 1
-  created_at: 2017-08-07 16:29:05.701348000 Z
-  updated_at: 2017-08-11 08:48:15.914644000 Z
   maiuscolo: false
   obbligatorio: true
   riservato: 
   condizioni: 
-  ordine: 
+  ordine: 3
   descrizione: ''
   placeholder: 
+  indice: false
 property_15:
   id: 15
   nome: Telefono
   tipo: telefono
-  nativo: true
+  nativo: false
   entity_id: 1
-  created_at: 2017-08-07 16:29:05.701348000 Z
-  updated_at: 2017-08-11 08:48:15.914644000 Z
   maiuscolo: false
   obbligatorio: true
   riservato: 
   condizioni: 
-  ordine: 
+  ordine: 7
   descrizione: ''
   placeholder: es. 0421 338980
+  indice: false
+property_16:
+  id: 16
+  nome: Luogo di nascita
+  tipo: stringa
+  nativo: false
+  entity_id: 1
+  maiuscolo: true
+  obbligatorio: true
+  riservato: 
+  condizioni: 
+  ordine: 5
+  descrizione: 
+  placeholder: es. Oderzo (TV)
+  indice: false
+property_17:
+  id: 17
+  nome: Tipologia
+  tipo: lista
+  nativo: false
+  entity_id: 1
+  maiuscolo: false
+  obbligatorio: true
+  riservato: 
+  condizioni: sdb,fma,religioso,sacerdote,laico
+  ordine: 6
+  descrizione: Indica se sei un salesiano/a, un religioso/a o un sacerdote. In caso
+    contrario scegli "laico".
+  placeholder: 
+  indice: false
+property_18:
+  id: 18
+  nome: Privacy
+  tipo: check
+  nativo: false
+  entity_id: 1
+  maiuscolo: false
+  obbligatorio: true
+  riservato: 
+  condizioni: 
+  ordine: 10
+  descrizione: Acconsento al trattamento dei miei dati personali secondo quanto previsto
+    dalla privacy policy.
+  placeholder: 
+  indice: false
+property_19:
+  id: 19
+  nome: Realtà di appartenenza
+  tipo: select
+  nativo: false
+  entity_id: 1
+  maiuscolo: false
+  obbligatorio: true
+  riservato: 
+  condizioni: appartenenza,nome,all
+  ordine: 8
+  descrizione: Seleziona la tua realtà di provenienza... se non è in elenco scegli
+    "nuova realtà" e scrivila nel campo qui sotto.
+  placeholder: 
+  indice: false
+property_20:
+  id: 20
+  nome: Nuova realtà
+  tipo: stringa
+  nativo: false
+  entity_id: 1
+  maiuscolo: true
+  obbligatorio: false
+  riservato: 
+  condizioni: 
+  ordine: 9
+  descrizione: Se la tua provenienza non è in elenco seleziona "nuova realtà" nel
+    campo precedente e scrivila qui.
+  placeholder: es. Parrocchia di Roncadelle (TV)
+  indice: false
+property_21:
+  id: 21
+  nome: nome
+  tipo: stringa
+  nativo: true
+  entity_id: 6
+  maiuscolo: true
+  obbligatorio: true
+  riservato: false
+  condizioni: ''
+  ordine: 1
+  descrizione: ''
+  placeholder: es. Mogliano (VE) - Oratorio
+  indice: true
+property_22:
+  id: 22
+  nome: Cognome
+  tipo: stringa
+  nativo: false
+  entity_id: 9
+  maiuscolo: true
+  obbligatorio: true
+  riservato: false
+  condizioni: 
+  ordine: 1
+  descrizione: 
+  placeholder: es. Rossi
+  indice: true
+property_23:
+  id: 23
+  nome: Nome
+  tipo: stringa
+  nativo: false
+  entity_id: 9
+  maiuscolo: true
+  obbligatorio: true
+  riservato: false
+  condizioni: 
+  ordine: 2
+  descrizione: 
+  placeholder: es. Claudio
+  indice: true
+property_24:
+  id: 24
+  nome: Sesso
+  tipo: sesso
+  nativo: false
+  entity_id: 9
+  maiuscolo: false
+  obbligatorio: true
+  riservato: false
+  condizioni: 
+  ordine: 3
+  descrizione: 
+  placeholder: 
+  indice: false

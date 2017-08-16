@@ -19,7 +19,7 @@ class Entity < ActiveRecord::Base
   end
 
   def label
-    name_properties = Property.where("entity_id = ? AND indice = ?", self.id, true)
+    name_properties = Property.where("entity_id = ? AND indice = ?", self.id, true).order(:ordine)
 
     if name_properties.count >= 1
       label = ''

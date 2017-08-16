@@ -82,6 +82,6 @@ class EntitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def entity_params
-      params.require(:entity).permit(:titolo, :nativo, :rigenera_slug, :landing_page, :riservata)
+      params.require(:entity).permit(:titolo, :nativo, :rigenera_slug, :landing_page, :riservata, :plurale)
     end
 end

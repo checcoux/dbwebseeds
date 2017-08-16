@@ -121,7 +121,7 @@
       <%
           iscrizioni.each do |entity|
       %>
-            <li><a href="/instances?type=<%= entity.slug %>"><%= entity.titolo %></a></li>
+            <li><a href="/instances?type=<%= entity.slug %>"><%= entity.plurale %></a></li>
       <%
           end
       %>
@@ -131,13 +131,20 @@
         end
 
       %>
-      <% if current_user.admin? %>
+      <%
+        if current_user.admin?
+          entities = Entity.where("slug NOT LIKE ? AND SLUG != 'persona'", "iscrizione%").order(:titolo => 'ASC')
+        else
+          entities = Entity.where("riservata = ? AND slug NOT LIKE ? AND SLUG != 'profilo'", false, "iscrizione%").order(:titolo => 'ASC')
+        end
+
+        if current_user.admin? || entities.count >= 1 %>
           <li class="has-submenu">
-            <a>Admin</a>
+            <a>Gestione</a>
             <ul class="submenu menu vertical" data-submenu>
-              <li><a href="/admin/users">Utenti</a></li>
-              <% Entity.where("slug NOT LIKE ?", "iscrizione%").order(:titolo).each do |entity| %>
-                  <li><a href="/instances?type=<%= entity.slug %>"><%= entity.titolo %></a></li>
+              <% if current_user.admin? %><li><a href="/admin/users">Dati di accesso</a></li><% end %>
+              <% entities.each do |entity| %>
+                  <li><a href="/instances?type=<%= entity.slug %>"><%= entity.plurale %></a></li>
               <% end %>
             </ul>
           </li>

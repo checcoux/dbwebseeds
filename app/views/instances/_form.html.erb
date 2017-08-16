@@ -130,7 +130,7 @@
 
               # instces = Instance.where("entity_id = ?", ent.id)
               # instces = Instance.joins(:data).where("instances.entity_id = ? AND data.property_id = ?", ent.id, prop.id).order('data.valore ASC')
-              if filtro == 'all'
+              if filtro == 'all' or current_user.admin?
                 instces = ent.elenco
               elsif filtro == 'user'
                 instces = ent.elenco.where("user_id = ?", current_user.id)

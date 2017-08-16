@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170815182212) do
+ActiveRecord::Schema.define(version: 20170816093709) do
 
   create_table "assignments", force: :cascade do |t|
     t.string   "titolo"
@@ -220,20 +220,18 @@ ActiveRecord::Schema.define(version: 20170815182212) do
   end
 
   create_table "properties", force: :cascade do |t|
-    t.string   "nome"
-    t.string   "tipo"
-    t.boolean  "nativo",       default: false
-    t.integer  "entity_id"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
-    t.boolean  "maiuscolo",    default: false
-    t.boolean  "obbligatorio", default: false
-    t.boolean  "riservato",    default: false
-    t.text     "condizioni"
-    t.integer  "ordine"
-    t.text     "descrizione"
-    t.string   "placeholder"
-    t.boolean  "indice",       default: false
+    t.string  "nome"
+    t.string  "tipo"
+    t.boolean "nativo",       default: false
+    t.integer "entity_id"
+    t.boolean "maiuscolo",    default: false
+    t.boolean "obbligatorio", default: false
+    t.boolean "riservato",    default: false
+    t.text    "condizioni"
+    t.integer "ordine"
+    t.text    "descrizione"
+    t.string  "placeholder"
+    t.boolean "indice",       default: false
   end
 
   add_index "properties", ["entity_id"], name: "index_properties_on_entity_id"

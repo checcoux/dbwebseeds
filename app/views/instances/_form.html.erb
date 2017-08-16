@@ -123,14 +123,18 @@
             when 'select'
               parametri = property.condizioni.split(',')
               tabella = parametri[0]
-              nome = parametri[1]
-              filtro = parametri[2]
+              filtro = parametri[1] # all = tutti / # user = solo quelli inseriti dall'utente corrente
 
               ent = Entity.find_by! slug: tabella
-              prop = Property.find_by! entity_id: ent.id, nome: nome
+              # prop = Property.find_by! entity_id: ent.id, nome: nome
 
               # instces = Instance.where("entity_id = ?", ent.id)
-              instces = Instance.joins(:data).where("instances.entity_id = ? AND data.property_id = ?", ent.id, prop.id).order('data.valore ASC')
+              # instces = Instance.joins(:data).where("instances.entity_id = ? AND data.property_id = ?", ent.id, prop.id).order('data.valore ASC')
+              if filtro == 'all'
+                instces = ent.elenco
+              elsif filtro == 'user'
+                instces = ent.elenco.where("user_id = ?", current_user.id)
+              end
 
               #Project.joins(:client)
               #    .select('projects.id,projects.name,clients.name as client_name')
@@ -139,7 +143,8 @@
               if instces.count > 5
                 valori = []
                 instces.each do |instce|
-                  valori.push [ instce.data.first.valore, instce.id ]
+                  # valori.push [ instce.data.first.valore, instce.id ]
+                  valori.push [ instce.label, instce.id ]
                 end
 
                 if property.obbligatorio?
@@ -152,7 +157,8 @@
                 valori = {}
 
                 instces.each do |instce|
-                  valori[instce.id] = instce.data.first.valore
+                  # valori[instce.id] = instce.data.first.valore
+                  valori[instce.id] = instce.label
                 end
 
                 if property.obbligatorio?

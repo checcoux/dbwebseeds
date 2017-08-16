@@ -37,7 +37,7 @@ class Entity < ActiveRecord::Base
 
   def elenco
     # al momento ordiniamo unicamente in base alla prima index property
-    index_property = Property.where("entity_id = ? AND indice = ?", self.id, true).first
+    index_property = Property.where("entity_id = ? AND indice = ?", self.id, true).order(:ordine).first
 
     if index_property
       # restituisce una collezione di istanze già collegate alla index property

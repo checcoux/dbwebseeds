@@ -12,11 +12,11 @@
   <thead>
     <tr>
       <th><%= @entity.label %></th>
-      <th></th>
       <% if current_user.admin? %>
           <th>Utente</th>
           <th>Ultima modifica</th>
       <% end %>
+      <th></th>
     </tr>
   </thead>
 
@@ -24,11 +24,11 @@
     <% @instances.each do |instance| %>
       <tr>
         <td><%= link_to instance.label, edit_instance_path(instance) %></td>
-        <td><%= link_to 'Elimina', instance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% if current_user.admin? %>
             <td class="testo_piccolo"><%= instance.user.email %></td>
             <td class="testo_piccolo"><%= instance.updated_at %></td>
         <% end %>
+        <td><%= link_to 'Elimina', instance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

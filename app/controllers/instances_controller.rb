@@ -11,7 +11,7 @@ class InstancesController < ApplicationController
 
       @instances = @entity.elenco
 
-      if !current_user.admin?
+      if !current_user.admin? || @entity.slug == 'persona'
         @instances = @instances.where user_id: current_user.id
       end
 

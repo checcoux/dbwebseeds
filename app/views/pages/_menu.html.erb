@@ -133,7 +133,7 @@
       %>
       <%
         if current_user.admin?
-          entities = Entity.where("slug NOT LIKE ? AND SLUG != 'persona'", "iscrizione%").order(:titolo => 'ASC')
+          entities = Entity.where("slug NOT LIKE ?", "iscrizione%").order(:titolo => 'ASC')
         else
           entities = Entity.where("riservata = ? AND slug NOT LIKE ? AND SLUG != 'profilo'", false, "iscrizione%").order(:titolo => 'ASC')
         end

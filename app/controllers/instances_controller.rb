@@ -64,7 +64,9 @@ class InstancesController < ApplicationController
         if @instance.save
 
           # scrittura dei valori delle singole proprietà
-          @entity.properties.each do |property|
+          properties = @entity.properties
+          properties = properties.where(riservata: false) if !current_user.admin?
+          properties.each do |property|
             datum = Datum.new
             datum.instance = @instance
             datum.property = property
@@ -97,7 +99,9 @@ class InstancesController < ApplicationController
         if @instance.update(instance_params)
 
           # scrittura dei valori delle singole proprietà
-          @entity.properties.each do |property|
+          properties = @entity.properties
+          properties = properties.where(riservata: false) if !current_user.admin?
+          properties.each do |property|
             datum = Datum.find_by instance_id: @instance.id, property_id: property.id
             if !datum
               datum = Datum.new
@@ -152,7 +156,9 @@ class InstancesController < ApplicationController
       parametri = {}
       validatori = {}
 
-      entity.properties.each do |property|
+      properties = entity.properties
+      properties = properties.where(riservata: false) if !current_user.admin?
+      properties.each do |property|
         # da rimuovere: 'p' + property.id.to_s
         parametri['p' + property.id.to_s] = params[:dato][property.id.to_s]
 

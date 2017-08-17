@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170816150518) do
+ActiveRecord::Schema.define(version: 20170817145330) do
 
   create_table "assignments", force: :cascade do |t|
     t.string   "titolo"
@@ -227,7 +227,7 @@ ActiveRecord::Schema.define(version: 20170816150518) do
     t.integer "entity_id"
     t.boolean "maiuscolo",    default: false
     t.boolean "obbligatorio", default: false
-    t.boolean "riservato",    default: false
+    t.boolean "riservata",    default: false
     t.text    "condizioni"
     t.integer "ordine"
     t.text    "descrizione"

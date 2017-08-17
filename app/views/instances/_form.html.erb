@@ -3,8 +3,11 @@
 
   <%= f.hidden_field(:entity_id) %>
 
-  <% @entity.properties.order('ordine ASC').each do |property| %>
-        <%
+  <%
+    properties = @entity.properties.order('ordine ASC')
+    properties = properties.where(riservata: false) if !current_user.admin?
+    properties.each do |property|
+
           field_id = "dato[#{ property.id }]"
           tipo = property.tipo
 

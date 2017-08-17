@@ -15,5 +15,5 @@ class User < ActiveRecord::Base
   has_many :entities, dependent: :nullify
   has_many :instances, dependent: :nullify
 
-  self.per_page = 20
+  self.per_page = 15
 end

@@ -4,7 +4,7 @@ class InstancePolicy < ApplicationPolicy
   end
 
   def show?
-    user.admin? or (record.user_id == user.id)
+    user.admin? or (record.user_id == user.id  && !record.entity.riservata)
   end
 
   def create?

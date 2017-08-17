@@ -39,12 +39,10 @@ class Entity < ActiveRecord::Base
     # al momento ordiniamo unicamente in base alla prima index property
     index_property = Property.where("entity_id = ? AND indice = ?", self.id, true).order(:ordine).first
 
-    if index_property
+    if index_property && self.slug !~ /^[Ii]scrizione/
       # restituisce una collezione di istanze già collegate alla index property
       Instance.joins(:data).where("instances.entity_id = ? AND data.property_id = ?", self.id, index_property.id).order('data.valore ASC')
     else
-      # se non è definita una index property ordiniamo in base alla prima property disponibile, se non ne esiste una solleviamo un'eccezione
-      # index_property = Property.find_by! entity_id: self.id if !index_property
       Instance.where("instances.entity_id = ?", self.id)
     end
   end

@@ -16,6 +16,12 @@ class InstancesController < ApplicationController
       end
 
       @instances = @instances.page(params[:page])
+
+      respond_to do |format|
+        format.html
+        format.xlsx { response.headers['Content-Disposition'] = 'attachment; filename="' + @entity.plurale + '.xlsx"' }
+      end
+
     else
       redirect_to '/'
     end

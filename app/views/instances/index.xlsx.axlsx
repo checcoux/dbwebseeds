@@ -1,0 +1,64 @@
+wb = xlsx_package.workbook
+
+wb.styles do |style|
+
+  date_cell = style.add_style(format_code: "dd/mm/yyy")
+  date_time_cell = style.add_style(format_code: "dd/mm/yyy hh:mm:ss")
+
+  integer_cell = style.add_style(format_code: "#0")
+  text_cell = style.add_style(format_code: "@")
+
+  wb.add_worksheet(name: @entity.plurale) do |sheet|
+
+    intestazioni = []
+    @entity.properties.order(:ordine).each do |property|
+      intestazioni.push property.nome
+    end
+
+    intestazioni.push "Creato da"
+    intestazioni.push "Ultima modifica"
+
+    sheet.add_row intestazioni
+
+    @instances.each do |instance|
+      dati = []
+      stili = []
+      @entity.properties.order(:ordine).each do |property|
+        dato = Datum.find_by instance_id: instance.id, property_id: property.id
+        valore = dato ? dato.valore : ''
+
+        case property.tipo
+          when 'intero'
+            dati.push valore
+            stili.push integer_cell
+          when 'telefono'
+            dati.push valore
+            stili.push text_cell
+          when 'select'
+            instce = Instance.where("id = ?", valore).first
+            if instce
+              dati.push instce.label
+            else
+              dati.push ''
+            end
+            stili.push nil
+          when 'data'
+            dati.push Date::strptime(valore, "%Y-%m-%d")
+            stili.push date_cell
+          else
+            dati.push valore
+            stili.push nil
+        end
+      end
+
+      dati.push User.find(instance.user_id).email
+      stili.push nil
+
+      dati.push instance.updated_at
+      stili.push date_time_cell
+
+      sheet.add_row dati, style: stili
+    end
+  end
+
+end

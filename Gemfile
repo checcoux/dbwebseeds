@@ -69,6 +69,9 @@ gem 'dropzonejs-rails'
 
 gem 'jquery-slick-rails'
 
+# generazione di fogli Excel
+gem 'axlsx_rails'
+
 group :development do
   # per utilizzare l'estensione di Chrome RailsPanel
   gem 'meta_request'

@@ -8,7 +8,7 @@ wb.styles do |style|
   integer_cell = style.add_style(format_code: "#0")
   text_cell = style.add_style(format_code: "@")
 
-  wb.add_worksheet(name: @entity.plurale) do |sheet|
+  wb.add_worksheet(name: @entity.plurale.truncate(30)) do |sheet|
 
     intestazioni = []
     @entity.properties.order(:ordine).each do |property|

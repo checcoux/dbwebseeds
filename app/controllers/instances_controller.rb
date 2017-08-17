@@ -19,7 +19,7 @@ class InstancesController < ApplicationController
 
       respond_to do |format|
         format.html
-        format.xlsx { response.headers['Content-Disposition'] = 'attachment; filename="' + @entity.plurale + '.xlsx"' }
+        format.xlsx { response.headers['Content-Disposition'] = 'attachment; filename="' + @entity.plurale.truncate(27) + '.xlsx"' }
       end
 
     else

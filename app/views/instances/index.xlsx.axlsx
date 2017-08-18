@@ -86,7 +86,7 @@ wb.styles do |style|
                   if prop.tipo != 'data'
                     dati.push val.valore
                   else
-                    push Date::strptime(val.valore, "%Y-%m-%d")
+                    dati.push Date::strptime(val.valore, "%Y-%m-%d")
                   end
                 else
                   dati.push ''

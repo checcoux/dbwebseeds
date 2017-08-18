@@ -59,7 +59,7 @@ wb.styles do |style|
       # uno per i dati, uno per la formattazione
       dati = []
       stili = []
-            
+
       @entity.properties.order(:ordine).each do |property|
         dato = Datum.find_by instance_id: instance.id, property_id: property.id
         valore = dato ? dato.valore : ''
@@ -86,7 +86,7 @@ wb.styles do |style|
                   if prop.tipo != 'data'
                     dati.push val.valore
                   else
-                    push Date::strptime(valore, "%Y-%m-%d")
+                    push Date::strptime(val.valore, "%Y-%m-%d")
                   end
                 else
                   dati.push ''

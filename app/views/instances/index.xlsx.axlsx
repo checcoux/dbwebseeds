@@ -87,7 +87,7 @@ wb.styles do |style|
               else
                 dati.push ''
               end
-              stili.push stile property.tipo
+              stili.push stile prop.tipo
             end
 
           when 'data'

@@ -2,17 +2,50 @@ wb = xlsx_package.workbook
 
 wb.styles do |style|
 
-  date_cell = style.add_style(format_code: "dd/mm/yyy")
-  date_time_cell = style.add_style(format_code: "dd/mm/yyy hh:mm:ss")
+  # definizione della formattazione per tipi di dati particolari
+  @date_cell = style.add_style(format_code: "dd/mm/yyy")
+  @date_time_cell = style.add_style(format_code: "dd/mm/yyy hh:mm:ss")
+  @integer_cell = style.add_style(format_code: "#0")
+  @text_cell = style.add_style(format_code: "@")
 
-  integer_cell = style.add_style(format_code: "#0")
-  text_cell = style.add_style(format_code: "@")
+  def stile(tipo)
+    case tipo
+      when 'intero'
+        @integer_cell
+      when 'telefono'
+        @text_cell
+      when 'data'
+        @date_cell
+      else
+        nil
+    end
+  end
 
+  # aggiunta di un nuovo foglio di lavoro
   wb.add_worksheet(name: @entity.plurale.truncate(30)) do |sheet|
 
+    # creazione della riga di intestazione
     intestazioni = []
+    collegata = {} # hash per le entity collegate
     @entity.properties.order(:ordine).each do |property|
-      intestazioni.push property.nome
+      if property.tipo != 'select'
+        intestazioni.push property.nome
+      else
+        # esplodiamo la tabella collegata
+        parametri = property.condizioni.split(',')
+        tabella = parametri[0]
+
+        ent = Entity.find_by! slug: tabella
+        collegata[property.id] = ent # salviamo l'entity per non doverla ricaricare a ogni riga
+
+        if ent.properties.count > 1
+          ent.properties.order(:ordine).each do |prop|
+            intestazioni.push property.nome + ': ' + prop.nome
+          end
+        else
+          intestazioni.push property.nome
+        end
+      end
     end
 
     intestazioni.push "Creato da"
@@ -20,6 +53,7 @@ wb.styles do |style|
 
     sheet.add_row intestazioni
 
+    # creazione delle righe di dati
     @instances.each do |instance|
       dati = []
       stili = []
@@ -30,24 +64,38 @@ wb.styles do |style|
         case property.tipo
           when 'intero'
             dati.push valore
-            stili.push integer_cell
+            stili.push stile property.tipo
           when 'telefono'
             dati.push valore
-            stili.push text_cell
+            stili.push stile property.tipo
           when 'select'
             instce = Instance.where("id = ?", valore).first
-            if instce
-              dati.push instce.label
-            else
-              dati.push ''
+
+            # esplodiamo i dati della tabella collegata
+            ent = collegata[property.id]
+
+            ent.properties.order(:ordine).each do |prop|
+              intestazioni.push property.nome + ': ' + prop.nome
+
+              if instce
+                val = Datum.find_by instance_id: instce.id, property_id: prop.id
+                if val
+                  dati.push val.valore
+                else
+                  dati.push ''
+                end
+              else
+                dati.push ''
+              end
+              stili.push stile property.tipo
             end
-            stili.push nil
+
           when 'data'
             dati.push Date::strptime(valore, "%Y-%m-%d")
-            stili.push date_cell
+            stili.push stile property.tipo
           else
             dati.push valore
-            stili.push nil
+            stili.push stile property.tipo
         end
       end
 
@@ -55,7 +103,7 @@ wb.styles do |style|
       stili.push nil
 
       dati.push instance.updated_at
-      stili.push date_time_cell
+      stili.push @date_time_cell
 
       sheet.add_row dati, style: stili
     end

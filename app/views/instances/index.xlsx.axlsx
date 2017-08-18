@@ -55,8 +55,11 @@ wb.styles do |style|
 
     # creazione delle righe di dati
     @instances.each do |instance|
+      # prepariamo due array che conterranno i dati da passare al momento della creazione della riga:
+      # uno per i dati, uno per la formattazione
       dati = []
       stili = []
+            
       @entity.properties.order(:ordine).each do |property|
         dato = Datum.find_by instance_id: instance.id, property_id: property.id
         valore = dato ? dato.valore : ''

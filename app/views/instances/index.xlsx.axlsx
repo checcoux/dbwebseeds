@@ -80,7 +80,11 @@ wb.styles do |style|
               if instce
                 val = Datum.find_by instance_id: instce.id, property_id: prop.id
                 if val
-                  dati.push val.valore
+                  if prop.tipo != 'data'
+                    dati.push val.valore
+                  else
+                    push Date::strptime(valore, "%Y-%m-%d")
+                  end
                 else
                   dati.push ''
                 end

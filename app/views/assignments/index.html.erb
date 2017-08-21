@@ -3,7 +3,9 @@
 
 <p id="notice"><%= notice %></p>
 
-<h1>Compiti assegnati</h1>
+<h1>Compiti assegnati
+<%= link_to 'Nuovo compito', new_assignment_path, class: 'warning button float-right' %>
+</h1>
 
 <table>
   <thead>
@@ -12,27 +14,24 @@
       <th>Key</th>
       <th>Descrizione</th>
       <th>Stato</th>
-      <th colspan="2"></th>
+      <th colspan="1"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @assignments.each do |assignment| %>
       <tr>
-        <td><%= assignment.titolo %></td>
-        <td><%= link_to assignment.key, "/assignments/#{ assignment.key }", class: 'primary button' %></td>
+        <td><%= link_to assignment.titolo, edit_assignment_path(assignment), class: 'primary button' %></td>
+        <td><%= link_to assignment.key, "/assignments/#{ assignment.key }", class: 'secondary button' %></td>
         <td><%= assignment.descrizione %></td>
         <td><%= assignment.stato %></td>
-        <td><%= link_to 'Edit', edit_assignment_path(assignment) %></td>
-        <td><%= link_to 'Destroy', assignment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Elimina', assignment, method: :delete, data: { confirm: 'Are you sure?' }, class: 'small alert button' %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'Nuovo compito', new_assignment_path, class: 'warning button' %>
 
 <p>&nbsp;</p>
 

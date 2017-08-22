@@ -75,7 +75,7 @@ class UsersController < ApplicationController
 
   # reindirizza all'instanza del profilo dell'utente corrente
   def edit_profile
-    profilo_id = trova_profilo.id
+    profilo_id = current_user.profilo(trova_sezione_principale.id).id
 
     redirect_to "/instances/#{profilo_id}/edit"
   end

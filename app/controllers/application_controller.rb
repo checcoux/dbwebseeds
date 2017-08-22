@@ -25,22 +25,6 @@ class ApplicationController < ActionController::Base
   end
   helper_method :trova_home
 
-  def trova_profilo
-    # attenzione: un'entity di tipo profilo deve essere definita
-
-    entity = Entity.find_by! slug: 'profilo'
-
-    profilo = Instance.find_by entity_id: entity.id, user_id: current_user.id
-
-    if profilo
-      # restituisce il profilo
-      profilo
-    else
-      # crea un nuovo profilo vuoto
-      profilo = Instance.create entity_id: entity.id, user_id: current_user.id, section_id: trova_sezione_principale.id
-    end
-  end
-
   private
 
   def user_not_authorized

@@ -15,6 +15,7 @@
       <th><%= @entity.label %></th>
       <% if current_user.admin? %>
           <th>Creato da</th>
+          <th>Appartenenza</th>
           <th>Ultima modifica</th>
       <% end %>
       <th></th>
@@ -27,9 +28,10 @@
         <td><%= link_to instance.label, edit_instance_path(instance) %></td>
         <% if current_user.admin? %>
             <td class="testo_piccolo"><%= instance.user.email if instance.user %></td>
+            <td class="testo_piccolo"><%= instance.user.appartenenza if instance.user %></td>
             <td class="testo_piccolo"><%= instance.updated_at.to_s(:data_ora) %></td>
         <% end %>
-        <td><%= link_to 'Elimina', instance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Elimina', instance, method: :delete, data: { confirm: 'Are you sure?' }, class: 'small alert button' %></td>
       </tr>
     <% end %>
   </tbody>

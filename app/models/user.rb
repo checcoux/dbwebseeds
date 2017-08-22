@@ -16,4 +16,45 @@ class User < ActiveRecord::Base
   has_many :instances, dependent: :nullify
 
   self.per_page = 15
+
+  def profilo(section_id)
+    # attenzione: un'entity di tipo profilo deve essere definita
+
+    entity_a = Entity.find_by! slug: 'profilo'
+
+    profilo = Instance.find_by entity_id: entity_a.id, user_id: self.id
+
+    if profilo
+      # restituisce il profilo
+      profilo
+    else
+      # crea un nuovo profilo vuoto
+      Instance.create entity_id: entity.id, user_id: self.id, section_id: section_id
+    end
+  end
+
+  # se è definita l'appartenenza nel profilo dell'utente, la restituisce
+  def appartenenza
+    entity_profilo = Entity.find_by! slug: 'profilo'
+    entity_appartenenza = Entity.find_by! slug: 'appartenenza'
+
+    return '' if !entity_profilo or !entity_appartenenza
+
+    property_appartenenza = entity_profilo.properties.find_by tipo: 'select', condizioni: 'appartenenza,all'
+
+    profilo = Instance.find_by entity_id: entity_profilo.id, user_id: self.id
+
+    return '' if !profilo or !property_appartenenza
+
+    datum_appartenenza = profilo.data.find_by property_id: property_appartenenza.id
+
+    return '' if !datum_appartenenza
+
+    appartenenza_id = datum_appartenenza.valore.to_i
+    appartenenza = entity_appartenenza.instances.find appartenenza_id
+
+    return '' if !appartenenza
+
+    appartenenza.label
+  end
 end

@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
       profilo
     else
       # crea un nuovo profilo vuoto
-      Instance.create entity_id: entity.id, user_id: self.id, section_id: section_id
+      Instance.create entity_id: entity_a.id, user_id: self.id, section_id: section_id
     end
   end
 

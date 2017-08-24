@@ -87,7 +87,7 @@ wb.styles do |style|
                   if prop.tipo != 'data'
                     dati.push val.valore
                   else
-                    dati.push Date::strptime(val.valore, "%Y-%m-%d")
+                    dati.push valore # Date::strptime(val.valore, "%Y-%m-%d")
                   end
                 else
                   dati.push ''
@@ -99,7 +99,7 @@ wb.styles do |style|
             end
 
           when 'data'
-            dati.push Date::strptime(valore, "%Y-%m-%d")
+            dati.push valore # Date::strptime(valore, "%Y-%m-%d")
             stili.push stile property.tipo
           else
             dati.push valore

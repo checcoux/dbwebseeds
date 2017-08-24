@@ -61,7 +61,20 @@
     //   $(document).foundation();
     //   // setTimeout(function() { $(document).foundation('topbar', 'init');}, 250);
     // });
-    $(document).foundation();
+
+    $(document).foundation(); // questa è ok!
+
+    /*
+    $(document).foundation({
+          abide: {
+            patterns: {
+              dashes_only: /^[0-9-]*$/,
+              ip_address: /^((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.){3}(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])$/,
+              month_day_year : /(0[1-9]|1[012])[- \/.](0[1-9]|[12][0-9]|3[01])[- \/.](19|20)\d\d/,
+              day_month_year : /(0[1-9]|[12][0-9]|3[01])[- \/.](0[1-9]|1[012])[- \/.](19|20)\d\d/
+            }
+          }
+        }); */
   </script>
 
   <%= Rails.configuration.codice_google_analytics.html_safe %>

@@ -180,9 +180,11 @@
 
             when 'data'
               if property.obbligatorio?
-                tag = date_field_tag field_id, valore, required: ''
+                # tag = date_field_tag field_id, valore, required: ''
+                tag = text_field_tag field_id, valore, pattern: "([1-9]|0[1-9]|[12][0-9]|3[01])[- \\/.]([1-9]|0[1-9]|1[012])[- \\/.](19|20)\\d\\d", placeholder: 'es. 12/05/1998', required: ''
               else
-                tag = date_field_tag field_id, valore
+                # tag = date_field_tag field_id, valore
+                tag = text_field_tag field_id, valore, pattern: "([1-9]|0[1-9]|[12][0-9]|3[01])[- \\/.]([1-9]|0[1-9]|1[012])[- \\/.](19|20)\\d\\d", placeholder: 'es. 12/05/1998'
               end
               tag += "<span class='form-error'>Inserisci una data valida.</span>".html_safe
 

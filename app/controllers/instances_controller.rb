@@ -76,7 +76,8 @@ class InstancesController < ApplicationController
             datum = Datum.new
             datum.instance = @instance
             datum.property = property
-            datum.valore = params[:dato][property.id.to_s].strip
+            datum.valore = params[:dato][property.id.to_s]
+            datum.valore = datum.valore.strip
             datum.valore = datum.valore.mb_chars.upcase.to_s if property.maiuscolo
             datum.save
           end
@@ -114,7 +115,8 @@ class InstancesController < ApplicationController
               datum.instance = @instance
               datum.property = property
             end
-            datum.valore = params[:dato][property.id.to_s].strip
+            datum.valore = params[:dato][property.id.to_s]
+            datum.valore = datum.valore.strip
             datum.valore = datum.valore.mb_chars.upcase.to_s if property.maiuscolo
             datum.save
           end

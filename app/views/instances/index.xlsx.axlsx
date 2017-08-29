@@ -28,9 +28,7 @@ wb.styles do |style|
     intestazioni = []
     collegata = {} # hash per le entity collegate
     @entity.properties.order(:ordine).each do |property|
-      if property.tipo != 'select'
-        intestazioni.push property.nome
-      else
+      if property.tipo == 'select'
         # esplodiamo la tabella collegata
         parametri = property.condizioni.split(',')
         tabella = parametri[0]
@@ -40,11 +38,24 @@ wb.styles do |style|
 
         if ent.properties.count > 1
           ent.properties.order(:ordine).each do |prop|
-            intestazioni.push property.nome + ': ' + prop.nome
+            intestazioni.push property.nome + ': ' + prop.nome if prop.tipo!='select' # per ora non esportiamo select nidificate
           end
         else
           intestazioni.push property.nome
         end
+      elsif property.tipo == 'utente'
+        ent = Entity.find_by! slug: 'profilo'
+        collegata[property.id] = ent
+
+        if ent.properties.count > 1
+          ent.properties.order(:ordine).each do |prop|
+            intestazioni.push property.nome + ': ' + prop.nome if prop.tipo!='select' # per ora non esportiamo select nidificate
+          end
+        else
+          intestazioni.push property.nome
+        end
+      else
+        intestazioni.push property.nome
       end
     end
 
@@ -72,6 +83,27 @@ wb.styles do |style|
           when 'telefono'
             dati.push valore
             stili.push stile property.tipo
+          when 'utente'
+            instce = instance.user.profilo
+
+            # esplodiamo i dati della tabella collegata
+            ent = collegata[property.id]
+
+            ent.properties.order(:ordine).each do |prop|
+              if prop.tipo!='select' # per ora non esportiamo select nidificate
+                if instce
+                  val = Datum.find_by instance_id: instce.id, property_id: prop.id
+                  if val
+                    dati.push val.valore
+                  else
+                    dati.push ''
+                  end
+                else
+                  dati.push ''
+                end
+                stili.push stile prop.tipo
+              end
+            end
           when 'select'
             instce = Instance.where("id = ?", valore).first
 
@@ -79,23 +111,20 @@ wb.styles do |style|
             ent = collegata[property.id]
 
             ent.properties.order(:ordine).each do |prop|
-              intestazioni.push property.nome + ': ' + prop.nome
 
-              if instce
-                val = Datum.find_by instance_id: instce.id, property_id: prop.id
-                if val
-                  if prop.tipo != 'data'
+              if prop.tipo!='select' # per ora non esportiamo select nidificate
+                if instce
+                  val = Datum.find_by instance_id: instce.id, property_id: prop.id
+                  if val
                     dati.push val.valore
                   else
-                    dati.push valore # Date::strptime(val.valore, "%Y-%m-%d")
+                    dati.push ''
                   end
                 else
                   dati.push ''
                 end
-              else
-                dati.push ''
+                stili.push stile prop.tipo
               end
-              stili.push stile prop.tipo
             end
 
           when 'data'

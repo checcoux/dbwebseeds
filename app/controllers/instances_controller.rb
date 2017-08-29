@@ -73,13 +73,15 @@ class InstancesController < ApplicationController
           properties = @entity.properties
           properties = properties.where(riservata: false) if !current_user.admin?
           properties.each do |property|
-            datum = Datum.new
-            datum.instance = @instance
-            datum.property = property
-            datum.valore = params[:dato][property.id.to_s]
-            datum.valore = datum.valore.strip if datum.valore
-            datum.valore = datum.valore.mb_chars.upcase.to_s if property.maiuscolo
-            datum.save
+            if property.tipo!='utente'
+              datum = Datum.new
+              datum.instance = @instance
+              datum.property = property
+              datum.valore = params[:dato][property.id.to_s]
+              datum.valore = datum.valore.strip if datum.valore
+              datum.valore = datum.valore.mb_chars.upcase.to_s if property.maiuscolo
+              datum.save
+            end
           end
 
           landing_page = !@entity.landing_page.empty? ? @entity.landing_page : instances_url(type: @entity.slug)
@@ -109,16 +111,18 @@ class InstancesController < ApplicationController
           properties = @entity.properties
           properties = properties.where(riservata: false) if !current_user.admin?
           properties.each do |property|
-            datum = Datum.find_by instance_id: @instance.id, property_id: property.id
-            if !datum
-              datum = Datum.new
-              datum.instance = @instance
-              datum.property = property
+            if property.tipo!='utente'
+              datum = Datum.find_by instance_id: @instance.id, property_id: property.id
+              if !datum
+                datum = Datum.new
+                datum.instance = @instance
+                datum.property = property
+              end
+              datum.valore = params[:dato][property.id.to_s]
+              datum.valore = datum.valore.strip if datum.valore
+              datum.valore = datum.valore.mb_chars.upcase.to_s if property.maiuscolo
+              datum.save
             end
-            datum.valore = params[:dato][property.id.to_s]
-            datum.valore = datum.valore.strip if datum.valore
-            datum.valore = datum.valore.mb_chars.upcase.to_s if property.maiuscolo
-            datum.save
           end
 
           landing_page = !@entity.landing_page.empty? ? @entity.landing_page : instances_url(type: @entity.slug)
@@ -167,10 +171,12 @@ class InstancesController < ApplicationController
       properties = entity.properties
       properties = properties.where(riservata: false) if !current_user.admin?
       properties.each do |property|
-        # da rimuovere: 'p' + property.id.to_s
-        parametri['p' + property.id.to_s] = params[:dato][property.id.to_s]
+        if property.tipo!='utente'
+          # da rimuovere: 'p' + property.id.to_s
+          parametri['p' + property.id.to_s] = params[:dato][property.id.to_s]
 
-        validatori['p' + property.id.to_s] = {:presence => true} if property.obbligatorio
+          validatori['p' + property.id.to_s] = {:presence => true} if property.obbligatorio
+        end
       end
 
       @validator = DataValidator.make(

@@ -17,8 +17,10 @@ class User < ActiveRecord::Base
 
   self.per_page = 15
 
-  def profilo(section_id)
+  def profilo
     # attenzione: un'entity di tipo profilo deve essere definita
+
+    section_id = Section.find_by(principale: true)
 
     entity_a = Entity.find_by! slug: 'profilo'
 

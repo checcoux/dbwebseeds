@@ -19,6 +19,7 @@ class ApplicationController < ActionController::Base
   def trova_sezione_principale
     Section.find_by(principale: true)
   end
+  helper_method :trova_sezione_principale
 
   def trova_home
     trova_sezione_principale.trova_home

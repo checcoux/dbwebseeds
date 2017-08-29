@@ -190,7 +190,7 @@
 
             when 'utente'
               # non è necessario compilare questi dati, che vengono presi dal profilo dell'utente
-              tag = "<br><b>#{ current_user.profilo.label } #{ (' - ' + current_user.appartenenza) if !current_user.appartenenza.empty?}</b>".html_safe
+              tag = "<br><b>#{ @instance.user.profilo.label } #{ (' - ' + @instance.user.appartenenza) if !@instance.user.appartenenza.empty?}</b>".html_safe
             else
               tag = '&nbsp<b>ATTENZIONE: Proprietà non valida!</b>'.html_safe
           end

@@ -36,6 +36,7 @@ class InstancesController < ApplicationController
   # GET /instances/new
   def new
     @instance = Instance.new
+    @instance.user = current_user
     @page = trova_home
 
     if !params[:type].nil?

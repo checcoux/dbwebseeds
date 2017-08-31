@@ -55,8 +55,10 @@ class User < ActiveRecord::Base
     appartenenza_id = datum_appartenenza.valore.to_i
     appartenenza = entity_appartenenza.instances.where id: appartenenza_id
 
-    return '' if !appartenenza
-
-    appartenenza.label
+    if appartenenza
+      appartenenza.label
+    else
+      ''
+    end
   end
 end

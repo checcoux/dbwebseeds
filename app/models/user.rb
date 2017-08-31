@@ -53,7 +53,7 @@ class User < ActiveRecord::Base
     return '' if !datum_appartenenza
 
     appartenenza_id = datum_appartenenza.valore.to_i
-    appartenenza = entity_appartenenza.instances.where id: appartenenza_id
+    appartenenza = entity_appartenenza.instances.where(id: appartenenza_id).first
 
     if appartenenza
       appartenenza.label

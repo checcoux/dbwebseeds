@@ -15,11 +15,13 @@ class InstancesController < ApplicationController
         @instances = @instances.where user_id: current_user.id
       end
 
-      @instances = @instances.page(params[:page])
-
       respond_to do |format|
-        format.html
-        format.xlsx { response.headers['Content-Disposition'] = 'attachment; filename="' + @entity.plurale + '.xlsx"' }
+        format.html {
+          @instances = @instances.page(params[:page])
+        }
+        format.xlsx { # niente paginazione
+          response.headers['Content-Disposition'] = 'attachment; filename="' + @entity.plurale + '.xlsx"'
+        }
       end
 
     else

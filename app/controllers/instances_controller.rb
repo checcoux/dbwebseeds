@@ -10,11 +10,12 @@ class InstancesController < ApplicationController
       authorize @entity, :show?
 
       @instances = @entity.elenco
-      @numero = @instances.count
 
       if !current_user.admin? || @entity.slug == 'persona'
         @instances = @instances.where user_id: current_user.id
       end
+
+      @numero = @instances.count
 
       respond_to do |format|
         format.html {

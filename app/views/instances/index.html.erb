@@ -8,6 +8,7 @@
 <%= link_to "Nuovo", new_instance_path + "?type=#{ @entity.slug }", class: 'large warning button float-right' if @entity %>
 <% if current_user.admin? && @entity %><%= link_to 'Xlsx', instances_path(format: :xlsx) + "?type=#{ @entity.slug }", class: 'large primary button float-right' %><% end %>
 </h2>
+<span class="secondary label"><%= @numero %> elementi</span>
 
 <table>
   <thead>

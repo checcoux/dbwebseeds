@@ -92,7 +92,7 @@ wb.styles do |style|
             ent.properties.order(:ordine).each do |prop|
               if prop.tipo!='select' # per ora non esportiamo select nidificate
                 if instce
-                  val = Datum.find_by instance_id: instce.id, property_id: prop.id
+                  val = Datum.where(instance_id: instce.id, property_id: prop.id).first
                   if val
                     dati.push val.valore
                   else
@@ -114,7 +114,7 @@ wb.styles do |style|
 
               if prop.tipo!='select' # per ora non esportiamo select nidificate
                 if instce
-                  val = Datum.find_by instance_id: instce.id, property_id: prop.id
+                  val = Datum.where( instance_id: instce.id, property_id: prop.id ).first
                   if val
                     dati.push val.valore
                   else

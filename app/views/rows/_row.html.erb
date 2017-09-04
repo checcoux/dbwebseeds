@@ -27,7 +27,7 @@
   classe_di_visibilita = row.visibilita
 %>
 
-<div<%= " style='background: #{style}'".html_safe if !style.blank? %>>
+<div<%= " style='background: #{style}'".html_safe if !style.blank? && params[:email].blank?  %>>
 <div id="row<%= row.id %>" class="<%= "expanded " if row.estesa %><%= "#{classe_di_visibilita} " if classe_di_visibilita %><%= "full-width " if row.page.footer %>collapse row"<%= " style='width: 500px;'".html_safe if params[:email] %>>
   <% row.columns.order('ordine ASC').each do |column|
       column_id = column.id

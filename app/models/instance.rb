@@ -15,7 +15,7 @@ class Instance < ActiveRecord::Base
           datum = Datum.find_by instance_id: self.id, property_id: name_property.id
           instance = Instance.where("id = ?", datum.valore).first
           label+= "#{instance.label} " if instance
-        elsif name_property.tipo == 'utente'
+        elsif name_property.tipo == 'utente' && self.user
           label+= self.user.profilo.label
           label+= ' - ' + self.user.appartenenza if !self.user.appartenenza.empty?
         else

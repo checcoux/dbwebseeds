@@ -323,9 +323,9 @@ class ColumnsController < ApplicationController
     if columns.sum("larghezza") > columns.count  then
       # aumento di uno l'ordine delle colonne con ordine > posizione
 
-      columns.each do |colonna|
-        logger.debug colonna.larghezza.to_s
-      end
+      #columns.each do |colonna|
+      #  logger.debug colonna.larghezza.to_s
+      #end
 
       resto = 0
       columns.each do |colonna|
@@ -578,6 +578,43 @@ class ColumnsController < ApplicationController
     @column_image = ColumnImage.new
     @column_image.column = @column
 
+
+    logger.debug "id della colonna immagine: #{ params[:column_image_id] }"
+
+    # nel caso sia specificata un'immagine, inserisco dopo di quella
+    if params[:column_image_id]
+      column_image_1 = ColumnImage.find(params[:column_image_id])
+
+      if column_image_1.ordine == 0
+        # è una colonna creata prima della decisione di dare un ordine alle immagini
+        contatore = 1
+        ColumnImage.where('column_id = ?', @column.id).order(created_at: :asc).each do |ci|
+          ci.ordine = contatore
+          ci.save
+
+          if ci.id == column_image_1.id
+            posizione = ci.ordine
+          end
+
+          contatore += 1
+        end
+      else
+        posizione = column_image_1.ordine
+      end
+
+      # spostiamo le altre immagini in avanti
+      ColumnImage.where('ordine > ? AND column_id = ?', posizione, @column.id).order(ordine: :asc).each do |ci|
+        ci.ordine = ci.ordine + 1
+        ci.save
+      end
+
+      @column_image.ordine = posizione + 1
+
+    else
+      # è la prima
+      @column_image.ordine = 1
+    end
+
     render layout: false
   end
 
@@ -698,6 +735,6 @@ class ColumnsController < ApplicationController
     end
 
     def column_params
-      params.require(:column).permit(:ordine, :contenuto, :larghezza, :row_id)
+      params.require(:column).permit(:ordine, :contenuto, :larghezza, :row_id, :column_image_id)
     end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170817145330) do
+ActiveRecord::Schema.define(version: 20171004143444) do
 
   create_table "assignments", force: :cascade do |t|
     t.string   "titolo"
@@ -69,14 +69,15 @@ ActiveRecord::Schema.define(version: 20170817145330) do
   create_table "column_images", force: :cascade do |t|
     t.text     "descrizione"
     t.integer  "column_id"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
     t.string   "immagine_file_name"
     t.string   "immagine_content_type"
     t.integer  "immagine_file_size"
     t.datetime "immagine_updated_at"
     t.text     "titolo"
     t.text     "collegamento"
+    t.integer  "ordine",                default: 0
   end
 
   add_index "column_images", ["column_id"], name: "index_column_images_on_column_id"
@@ -193,7 +194,7 @@ ActiveRecord::Schema.define(version: 20170817145330) do
     t.boolean  "modello",                  default: false
     t.boolean  "articolo",                 default: false
     t.boolean  "visibile",                 default: true
-    t.datetime "published_at",             default: '2017-06-08 16:07:22'
+    t.datetime "published_at",             default: '2016-08-17 08:12:10'
     t.text     "abstract"
   end
 

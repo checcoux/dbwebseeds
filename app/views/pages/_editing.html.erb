@@ -351,10 +351,12 @@
     $('#row0').hide();
   }
 
-  function aggiungiImmagine(id) {
+  function aggiungiImmagine(id, column_image_id) {
+    column_image_id = column_image_id || 0;
+
     pageSave();
 
-    $.ajax('/columns/' + id + '/dialog_immagine').done(function (data) {
+    $.ajax('/columns/' + id + '/dialog_immagine?column_image_id=' + column_image_id).done(function (data) {
       $("#finestra_modale").html(data).foundation("open");
     });
   }

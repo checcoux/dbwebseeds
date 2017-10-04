@@ -582,8 +582,8 @@ class ColumnsController < ApplicationController
     logger.debug "id della colonna immagine: #{ params[:column_image_id] }"
 
     # nel caso sia specificata un'immagine, inserisco dopo di quella
-    if params[:column_image_id]
-      column_image_1 = ColumnImage.find(params[:column_image_id])
+    if params[:column_image_id].to_i > 0
+      column_image_1 = ColumnImage.find(params[:column_image_id].to_i)
 
       if column_image_1.ordine == 0
         # è una colonna creata prima della decisione di dare un ordine alle immagini

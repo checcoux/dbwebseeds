@@ -99,6 +99,8 @@ Rails.application.routes.draw do
   resources :column_images do
     member do
       post 'elimina'
+      post 'sposta_sx'
+      post 'sposta_dx'
     end
   end
 

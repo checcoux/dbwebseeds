@@ -1,6 +1,6 @@
 <%
   # attenzione: una copia identica di questo file viene mantenuta in devise/rows per un problema coi partial
-  # ultimo aggiornamento: 04/10/2017
+  # ultimo aggiornamento: 06/10/2017
 
   fonte = ['statica', 'pagina', 'sezione', 'parent', 'sito', 'siti affini', 'cloud']
 
@@ -184,7 +184,13 @@
 
                         <% if user_can_edit %>
                           <% if editable %>
-                            <div class="gestione-immagini"><button onclick="aggiungiImmagine(<%= column_id %>,<%= immagine.id %>);"><i class="fi-plus"></i></button> <button onclick="modificaImmagine(<%= immagine.id %>);"><i class="fi-pencil"></i></button> <button onclick="eliminaImmagine(<%= immagine.id %>);"><i class="fi-x"></i></button></div>
+                            <div class="gestione-immagini">
+                              <button onclick="aggiungiImmagine(<%= column_id %>,<%= immagine.id %>);"><i class="fi-plus"></i></button>
+                              <button onclick="modificaImmagine(<%= immagine.id %>);"><i class="fi-pencil"></i></button>
+                              <button onclick="spostaImmagineSx(<%= immagine.id %>);"><i class="fi-arrow-left"></i></button>
+                              <button onclick="spostaImmagineDx(<%= immagine.id %>);"><i class="fi-arrow-right"></i></button>
+                              <button onclick="eliminaImmagine(<%= immagine.id %>);"><i class="fi-x"></i></button>
+                            </div>
                           <% elsif !parte_fissa %>
                               <div class="info-layout"><i class="fi-link"></i> <%= fonte[column.fonte] %></div>
                           <% end %>

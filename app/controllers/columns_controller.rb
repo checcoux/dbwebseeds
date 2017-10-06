@@ -578,8 +578,7 @@ class ColumnsController < ApplicationController
     @column_image = ColumnImage.new
     @column_image.column = @column
 
-
-    logger.debug "id della colonna immagine: #{ params[:column_image_id] }"
+    # logger.debug "id della colonna immagine: #{ params[:column_image_id] }"
 
     # nel caso sia specificata un'immagine, inserisco dopo di quella
     if params[:column_image_id].to_i > 0

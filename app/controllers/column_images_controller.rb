@@ -90,6 +90,86 @@ class ColumnImagesController < ApplicationController
     end
   end
 
+  def sposta_sx
+    column = @column_image.column
+    @row = column.row
+
+    if @row
+      @page = @row.page
+      @row_id = @row.id
+    else
+      @row_id = 0
+      @page = @column_image.column.page
+    end
+
+    if @column_image.ordine == 0
+      # è una colonna creata prima della decisione di dare un ordine alle immagini
+      contatore = 1
+      ColumnImage.where('column_id = ?', @column_image.column.id).order(created_at: :asc).each do |ci|
+        ci.ordine = contatore
+        ci.save
+
+        if ci.id == column_image.id
+          posizione = ci.ordine
+        end
+
+        contatore += 1
+      end
+    else
+      posizione = @column_image.ordine
+    end
+
+    # trovo la prima con un ordine minore
+    precedente = ColumnImage.where('ordine < ? AND column_id = ?', posizione, column.id).order(ordine: :desc).first
+    if precedente
+      @column_image.ordine = precedente.ordine
+      precedente.ordine = posizione
+
+      @column_image.save
+      precedente.save
+    end
+  end
+
+  def sposta_dx
+    column = @column_image.column
+    @row = column.row
+
+    if @row
+      @page = @row.page
+      @row_id = @row.id
+    else
+      @row_id = 0
+      @page = @column_image.column.page
+    end
+
+    if @column_image.ordine == 0
+      # è una colonna creata prima della decisione di dare un ordine alle immagini
+      contatore = 1
+      ColumnImage.where('column_id = ?', @column_image.column.id).order(created_at: :asc).each do |ci|
+        ci.ordine = contatore
+        ci.save
+
+        if ci.id == column_image.id
+          posizione = ci.ordine
+        end
+
+        contatore += 1
+      end
+    else
+      posizione = @column_image.ordine
+    end
+
+    # trovo la prima con un ordine maggiore
+    successiva = ColumnImage.where('ordine > ? AND column_id = ?', posizione, column.id).order(ordine: :desc).first
+    if successiva
+      @column_image.ordine = successiva.ordine
+      successiva.ordine = posizione
+
+      @column_image.save
+      successiva.save
+    end
+  end
+
   def elimina
     @row = @column_image.column.row
 

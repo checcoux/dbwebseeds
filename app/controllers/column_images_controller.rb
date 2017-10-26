@@ -127,6 +127,11 @@ class ColumnImagesController < ApplicationController
 
       @column_image.save
       precedente.save
+    else
+      # era già la prima, la sposto in fondo
+      ultima = ColumnImage.where('column_id = ?', column.id).order(ordine: :desc).first
+      @column_image.ordine = ultima.ordine + 1
+      @column_image.save
     end
   end
 
@@ -167,6 +172,15 @@ class ColumnImagesController < ApplicationController
 
       @column_image.save
       successiva.save
+    else
+      # era già l'ultima, la sposto all'inizio
+      da_spostare = ColumnImage.where('column_id = ? AND id != ?', column.id, @column_image.id).order(ordine: :asc)
+      da_spostare.each do |ds|
+        ds.ordine = ds.ordine + 1
+        ds.save
+      end
+      @column_image.ordine = 1
+      @column_image.save
     end
   end
 

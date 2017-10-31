@@ -6,9 +6,9 @@ user_8:
   reset_password_token: 
   reset_password_sent_at: 
   remember_created_at: 
-  sign_in_count: 38
-  current_sign_in_at: 2017-10-31 15:57:43.553132000 Z
-  last_sign_in_at: 2017-10-31 15:56:03.777766000 Z
+  sign_in_count: 39
+  current_sign_in_at: 2017-10-31 16:51:53.980206000 Z
+  last_sign_in_at: 2017-10-31 15:57:43.553132000 Z
   current_sign_in_ip: 127.0.0.1
   last_sign_in_ip: 127.0.0.1
   confirmation_token: wRtgCygEnxpZcoiYjF1x
@@ -16,7 +16,7 @@ user_8:
   confirmation_sent_at: 2017-06-25 13:25:48.070835000 Z
   unconfirmed_email: 
   created_at: 2017-06-25 13:25:48.070835000 Z
-  updated_at: 2017-10-31 15:57:43.554646000 Z
+  updated_at: 2017-10-31 16:51:53.982207000 Z
   admin: true
   section_id: 
   designer: false
@@ -34,7 +34,7 @@ user_9:
   current_sign_in_ip: 127.0.0.1
   last_sign_in_ip: 127.0.0.1
   confirmation_token: H9J-E3pGsb72wJZizxyi
-  confirmed_at: 1469311200000
+  confirmed_at: 2017-06-25 13:25:48.070835000 Z
   confirmation_sent_at: 2017-06-30 07:07:49.745638000 Z
   unconfirmed_email: 
   created_at: 2017-06-30 07:07:49.744638000 Z
@@ -56,7 +56,7 @@ user_10:
   current_sign_in_ip: 127.0.0.1
   last_sign_in_ip: 127.0.0.1
   confirmation_token: WeGBx-FAuCG4appzskRZ
-  confirmed_at: 1469311200000
+  confirmed_at: 2017-06-25 13:25:48.070835000 Z
   confirmation_sent_at: 2017-06-30 07:08:38.722598000 Z
   unconfirmed_email: 
   created_at: 2017-06-30 07:08:38.722598000 Z

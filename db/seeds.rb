@@ -2,6 +2,39 @@ admin = User.new(email: "test@donboscoland.it", password: 'testtest', password_c
 admin.skip_confirmation!
 admin.save!
 
+Ckeditor::Asset.create!([
+  {data_file_name: "american_pastoral.jpg", data_content_type: "image/jpeg", data_file_size: 1145779, assetable_id: 402, assetable_type: "Column", type: "Ckeditor::Picture", width: 1400, height: 2000},
+  {data_file_name: "i-magnifici-sette.jpg", data_content_type: "image/jpeg", data_file_size: 57432, assetable_id: 511, assetable_type: "Column", type: "Ckeditor::Picture", width: 634, height: 312},
+  {data_file_name: "articoli_2015.jpg", data_content_type: "image/jpeg", data_file_size: 71636, assetable_id: 566, assetable_type: "Column", type: "Ckeditor::Picture", width: 1500, height: 586},
+  {data_file_name: "lion.jpg", data_content_type: "image/jpeg", data_file_size: 466309, assetable_id: nil, assetable_type: nil, type: "Ckeditor::Picture", width: 1400, height: 2000},
+  {data_file_name: "sito_abbandonato.jpg", data_content_type: "image/jpeg", data_file_size: 260209, assetable_id: nil, assetable_type: nil, type: "Ckeditor::Picture", width: 900, height: 500},
+  {data_file_name: "apertura.jpg", data_content_type: "image/jpeg", data_file_size: 259824, assetable_id: nil, assetable_type: nil, type: "Ckeditor::Picture", width: 1280, height: 905},
+  {data_file_name: "apertura.jpg", data_content_type: "image/jpeg", data_file_size: 259824, assetable_id: nil, assetable_type: nil, type: "Ckeditor::Picture", width: 1280, height: 905},
+  {data_file_name: "apertura.jpg", data_content_type: "image/jpeg", data_file_size: 259824, assetable_id: nil, assetable_type: nil, type: "Ckeditor::Picture", width: 1280, height: 905},
+  {data_file_name: "apertura.jpg", data_content_type: "image/jpeg", data_file_size: 259824, assetable_id: nil, assetable_type: nil, type: "Ckeditor::Picture", width: 1280, height: 905},
+  {data_file_name: "apertura.jpg", data_content_type: "image/jpeg", data_file_size: 259824, assetable_id: nil, assetable_type: nil, type: "Ckeditor::Picture", width: 1280, height: 905},
+  {data_file_name: "apertura.jpg", data_content_type: "image/jpeg", data_file_size: 259824, assetable_id: nil, assetable_type: nil, type: "Ckeditor::Picture", width: 1280, height: 905},
+  {data_file_name: "apertura.jpg", data_content_type: "image/jpeg", data_file_size: 259824, assetable_id: nil, assetable_type: nil, type: "Ckeditor::Picture", width: 1280, height: 905},
+  {data_file_name: "fuga_da_reuma_park.jpg", data_content_type: "image/jpeg", data_file_size: 168100, assetable_id: nil, assetable_type: nil, type: "Ckeditor::Picture", width: 420, height: 600},
+  {data_file_name: "il_grande_gigante_gentile.jpg", data_content_type: "image/jpeg", data_file_size: 69747, assetable_id: 584, assetable_type: "Column", type: "Ckeditor::Picture", width: 420, height: 600},
+  {data_file_name: "bosch.jpg", data_content_type: "image/jpeg", data_file_size: 95069, assetable_id: nil, assetable_type: nil, type: "Ckeditor::Picture", width: 420, height: 600},
+  {data_file_name: "animali_fantastici.jpg", data_content_type: "image/jpeg", data_file_size: 421682, assetable_id: nil, assetable_type: nil, type: "Ckeditor::Picture", width: 1382, height: 2048},
+  {data_file_name: "animali_fantastici.jpg", data_content_type: "image/jpeg", data_file_size: 421682, assetable_id: nil, assetable_type: nil, type: "Ckeditor::Picture", width: 1382, height: 2048},
+  {data_file_name: "animali_fantastici.jpg", data_content_type: "image/jpeg", data_file_size: 421682, assetable_id: 584, assetable_type: "Column", type: "Ckeditor::Picture", width: 1382, height: 2048},
+  {data_file_name: "il_grande_gigante_gentile.jpg", data_content_type: "image/jpeg", data_file_size: 69747, assetable_id: 584, assetable_type: "Column", type: "Ckeditor::Picture", width: 420, height: 600},
+  {data_file_name: "image.png", data_content_type: "image/png", data_file_size: 65114, assetable_id: 584, assetable_type: "Column", type: "Ckeditor::Picture", width: 299, height: 312},
+  {data_file_name: "lion.jpg", data_content_type: "image/jpeg", data_file_size: 466309, assetable_id: 584, assetable_type: "Column", type: "Ckeditor::Picture", width: 1400, height: 2000},
+  {data_file_name: "il_grande_gigante_gentile.jpg", data_content_type: "image/jpeg", data_file_size: 69747, assetable_id: 576, assetable_type: "Column", type: "Ckeditor::Picture", width: 420, height: 600},
+  {data_file_name: "lion.jpg", data_content_type: "image/jpeg", data_file_size: 466309, assetable_id: 576, assetable_type: "Column", type: "Ckeditor::Picture", width: 1400, height: 2000},
+  {data_file_name: "image.png", data_content_type: "image/png", data_file_size: 4623, assetable_id: 576, assetable_type: "Column", type: "Ckeditor::Picture", width: 149, height: 194},
+  {data_file_name: "paw_patrol_2.jpg", data_content_type: "image/jpeg", data_file_size: 282610, assetable_id: 576, assetable_type: "Column", type: "Ckeditor::Picture", width: 1069, height: 1500},
+  {data_file_name: "whatsapp_2.jpg", data_content_type: "image/jpeg", data_file_size: 188726, assetable_id: 576, assetable_type: "Column", type: "Ckeditor::Picture", width: 1325, height: 750},
+  {data_file_name: "paw_patrol.jpg", data_content_type: "image/jpeg", data_file_size: 99050, assetable_id: 576, assetable_type: "Column", type: "Ckeditor::Picture", width: 420, height: 600},
+  {data_file_name: "image.png", data_content_type: "image/png", data_file_size: 73443, assetable_id: 576, assetable_type: "Column", type: "Ckeditor::Picture", width: 608, height: 347},
+  {data_file_name: "animali_fantastici.jpg", data_content_type: "image/jpeg", data_file_size: 421682, assetable_id: 585, assetable_type: "Column", type: "Ckeditor::Picture", width: 1382, height: 2048},
+  {data_file_name: "image.png", data_content_type: "image/png", data_file_size: 5796, assetable_id: 585, assetable_type: "Column", type: "Ckeditor::Picture", width: 252, height: 136},
+  {data_file_name: "bosh_1200x675.jpg", data_content_type: "image/jpeg", data_file_size: 340494, assetable_id: 585, assetable_type: "Column", type: "Ckeditor::Picture", width: 1200, height: 675}
+])
 Column.create!([
   {ordine: 1, contenuto: "<ul class=\"vertical medium-horizontal menu\">\n\t<li><a class=\"secondary button\" href=\"/\">Home</a></li>\n\t<li><a class=\"warning button\" href=\"/login\">Login</a></li>\n\t<li><a class=\"secondary button\" href=\"/sezione1\">sezione 1</a></li>\n\t<li><a class=\"secondary button\" href=\"/storia\">La nostra storia</a></li>\n\t<li><a class=\"secondary button\" href=\"/oratorio\">Oratorio</a></li>\n\t<li><a class=\"secondary button\" href=\"http://www.donboscosandona.it\">Scuola</a></li>\n\t<li><a class=\"secondary button\" href=\"/cinema\">Cinema</a></li>\n\t<li><a class=\"secondary button\" href=\"/contatti\">Contatti</a></li>\n\t<li><a class=\"warning button\" href=\"/logout\">Logout</a></li>\n</ul>\n", row_id: 352, larghezza: 12, fonte: 0, page_id: 0, autocrop: false, padding: "0em", condivisa: true},
   {ordine: 1, contenuto: "<h1>Titolo</h1>\n\n<p><span class=\"abstract\">Abstract</span></p>\n\n<p>Testo...</p>\n\n<p>&nbsp;</p>\n", row_id: 359, larghezza: 12, fonte: 0, page_id: 0, autocrop: true, padding: "", condivisa: true},
@@ -146,4 +179,37 @@ Section.create!([
 Tag.create!([
   {nome: "neve", taggable_id: 80, taggable_type: "Robamia"},
   {nome: "scuola", taggable_id: 80, taggable_type: "Robamia"}
+])
+Ckeditor::Picture.create!([
+  {data_file_name: "american_pastoral.jpg", data_content_type: "image/jpeg", data_file_size: 1145779, assetable_id: 402, assetable_type: "Column", type: "Ckeditor::Picture", width: 1400, height: 2000},
+  {data_file_name: "i-magnifici-sette.jpg", data_content_type: "image/jpeg", data_file_size: 57432, assetable_id: 511, assetable_type: "Column", type: "Ckeditor::Picture", width: 634, height: 312},
+  {data_file_name: "articoli_2015.jpg", data_content_type: "image/jpeg", data_file_size: 71636, assetable_id: 566, assetable_type: "Column", type: "Ckeditor::Picture", width: 1500, height: 586},
+  {data_file_name: "lion.jpg", data_content_type: "image/jpeg", data_file_size: 466309, assetable_id: nil, assetable_type: nil, type: "Ckeditor::Picture", width: 1400, height: 2000},
+  {data_file_name: "sito_abbandonato.jpg", data_content_type: "image/jpeg", data_file_size: 260209, assetable_id: nil, assetable_type: nil, type: "Ckeditor::Picture", width: 900, height: 500},
+  {data_file_name: "apertura.jpg", data_content_type: "image/jpeg", data_file_size: 259824, assetable_id: nil, assetable_type: nil, type: "Ckeditor::Picture", width: 1280, height: 905},
+  {data_file_name: "apertura.jpg", data_content_type: "image/jpeg", data_file_size: 259824, assetable_id: nil, assetable_type: nil, type: "Ckeditor::Picture", width: 1280, height: 905},
+  {data_file_name: "apertura.jpg", data_content_type: "image/jpeg", data_file_size: 259824, assetable_id: nil, assetable_type: nil, type: "Ckeditor::Picture", width: 1280, height: 905},
+  {data_file_name: "apertura.jpg", data_content_type: "image/jpeg", data_file_size: 259824, assetable_id: nil, assetable_type: nil, type: "Ckeditor::Picture", width: 1280, height: 905},
+  {data_file_name: "apertura.jpg", data_content_type: "image/jpeg", data_file_size: 259824, assetable_id: nil, assetable_type: nil, type: "Ckeditor::Picture", width: 1280, height: 905},
+  {data_file_name: "apertura.jpg", data_content_type: "image/jpeg", data_file_size: 259824, assetable_id: nil, assetable_type: nil, type: "Ckeditor::Picture", width: 1280, height: 905},
+  {data_file_name: "apertura.jpg", data_content_type: "image/jpeg", data_file_size: 259824, assetable_id: nil, assetable_type: nil, type: "Ckeditor::Picture", width: 1280, height: 905},
+  {data_file_name: "fuga_da_reuma_park.jpg", data_content_type: "image/jpeg", data_file_size: 168100, assetable_id: nil, assetable_type: nil, type: "Ckeditor::Picture", width: 420, height: 600},
+  {data_file_name: "il_grande_gigante_gentile.jpg", data_content_type: "image/jpeg", data_file_size: 69747, assetable_id: 584, assetable_type: "Column", type: "Ckeditor::Picture", width: 420, height: 600},
+  {data_file_name: "bosch.jpg", data_content_type: "image/jpeg", data_file_size: 95069, assetable_id: nil, assetable_type: nil, type: "Ckeditor::Picture", width: 420, height: 600},
+  {data_file_name: "animali_fantastici.jpg", data_content_type: "image/jpeg", data_file_size: 421682, assetable_id: nil, assetable_type: nil, type: "Ckeditor::Picture", width: 1382, height: 2048},
+  {data_file_name: "animali_fantastici.jpg", data_content_type: "image/jpeg", data_file_size: 421682, assetable_id: nil, assetable_type: nil, type: "Ckeditor::Picture", width: 1382, height: 2048},
+  {data_file_name: "animali_fantastici.jpg", data_content_type: "image/jpeg", data_file_size: 421682, assetable_id: 584, assetable_type: "Column", type: "Ckeditor::Picture", width: 1382, height: 2048},
+  {data_file_name: "il_grande_gigante_gentile.jpg", data_content_type: "image/jpeg", data_file_size: 69747, assetable_id: 584, assetable_type: "Column", type: "Ckeditor::Picture", width: 420, height: 600},
+  {data_file_name: "image.png", data_content_type: "image/png", data_file_size: 65114, assetable_id: 584, assetable_type: "Column", type: "Ckeditor::Picture", width: 299, height: 312},
+  {data_file_name: "lion.jpg", data_content_type: "image/jpeg", data_file_size: 466309, assetable_id: 584, assetable_type: "Column", type: "Ckeditor::Picture", width: 1400, height: 2000},
+  {data_file_name: "il_grande_gigante_gentile.jpg", data_content_type: "image/jpeg", data_file_size: 69747, assetable_id: 576, assetable_type: "Column", type: "Ckeditor::Picture", width: 420, height: 600},
+  {data_file_name: "lion.jpg", data_content_type: "image/jpeg", data_file_size: 466309, assetable_id: 576, assetable_type: "Column", type: "Ckeditor::Picture", width: 1400, height: 2000},
+  {data_file_name: "image.png", data_content_type: "image/png", data_file_size: 4623, assetable_id: 576, assetable_type: "Column", type: "Ckeditor::Picture", width: 149, height: 194},
+  {data_file_name: "paw_patrol_2.jpg", data_content_type: "image/jpeg", data_file_size: 282610, assetable_id: 576, assetable_type: "Column", type: "Ckeditor::Picture", width: 1069, height: 1500},
+  {data_file_name: "whatsapp_2.jpg", data_content_type: "image/jpeg", data_file_size: 188726, assetable_id: 576, assetable_type: "Column", type: "Ckeditor::Picture", width: 1325, height: 750},
+  {data_file_name: "paw_patrol.jpg", data_content_type: "image/jpeg", data_file_size: 99050, assetable_id: 576, assetable_type: "Column", type: "Ckeditor::Picture", width: 420, height: 600},
+  {data_file_name: "image.png", data_content_type: "image/png", data_file_size: 73443, assetable_id: 576, assetable_type: "Column", type: "Ckeditor::Picture", width: 608, height: 347},
+  {data_file_name: "animali_fantastici.jpg", data_content_type: "image/jpeg", data_file_size: 421682, assetable_id: 585, assetable_type: "Column", type: "Ckeditor::Picture", width: 1382, height: 2048},
+  {data_file_name: "image.png", data_content_type: "image/png", data_file_size: 5796, assetable_id: 585, assetable_type: "Column", type: "Ckeditor::Picture", width: 252, height: 136},
+  {data_file_name: "bosh_1200x675.jpg", data_content_type: "image/jpeg", data_file_size: 340494, assetable_id: 585, assetable_type: "Column", type: "Ckeditor::Picture", width: 1200, height: 675}
 ])

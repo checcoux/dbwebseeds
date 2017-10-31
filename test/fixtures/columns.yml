@@ -2,10 +2,16 @@
 column_580:
   id: 580
   ordine: 1
-  contenuto: |
-    <p><span style="color:#ffd700;"><strong>Sito di Test</strong></span><font color="#d3d3d3">&nbsp;header della pagina <a href="/">home </a><a href="/sezione1">sezione 1</a>&nbsp;<a href="/login">login</a> <a href="/logout">logout</a></font></p>
+  contenuto: "<ul class=\"vertical medium-horizontal menu\">\n\t<li><a class=\"secondary
+    button\" href=\"/\">Home</a></li>\n\t<li><a class=\"warning button\" href=\"/login\">Login</a></li>\n\t<li><a
+    class=\"secondary button\" href=\"/sezione1\">sezione 1</a></li>\n\t<li><a class=\"secondary
+    button\" href=\"/storia\">La nostra storia</a></li>\n\t<li><a class=\"secondary
+    button\" href=\"/oratorio\">Oratorio</a></li>\n\t<li><a class=\"secondary button\"
+    href=\"http://www.donboscosandona.it\">Scuola</a></li>\n\t<li><a class=\"secondary
+    button\" href=\"/cinema\">Cinema</a></li>\n\t<li><a class=\"secondary button\"
+    href=\"/contatti\">Contatti</a></li>\n\t<li><a class=\"warning button\" href=\"/logout\">Logout</a></li>\n</ul>\n"
   created_at: 2016-12-07 17:46:32.785606000 Z
-  updated_at: 2017-06-25 15:17:57.995767000 Z
+  updated_at: 2017-10-31 16:00:57.378309000 Z
   row_id: 352
   larghezza: 12
   fonte: 0
@@ -41,7 +47,7 @@ column_625:
 
     <p class="testo_piccolo">&nbsp;</p>
   created_at: 2017-04-14 16:07:03.961514000 Z
-  updated_at: 2017-06-25 14:38:46.893327000 Z
+  updated_at: 2017-10-06 14:44:22.424607000 Z
   row_id: 372
   larghezza: 8
   fonte: 0
@@ -57,7 +63,7 @@ column_626:
 
     <p class="testo_piccolo">Testo piccolo.</p>
   created_at: 2017-04-14 16:17:37.662190000 Z
-  updated_at: 2017-06-25 14:44:28.444650000 Z
+  updated_at: 2017-10-06 14:44:22.179810000 Z
   row_id: 373
   larghezza: 3
   fonte: 0
@@ -71,7 +77,7 @@ column_640:
   contenuto: |
     <p>Contenuto della colonna 3b.</p>
   created_at: 2017-04-14 16:47:51.180122000 Z
-  updated_at: 2017-06-25 14:38:47.176665000 Z
+  updated_at: 2017-10-06 14:44:22.688815000 Z
   row_id: 372
   larghezza: 4
   fonte: 4
@@ -83,9 +89,9 @@ column_648:
   id: 648
   ordine: 1
   contenuto: |
-    <p>Cantami o Diva del pelide Achille l&#39;ira funesta...</p>
+    <p>Contenuto della colonna 2a.</p>
   created_at: 2017-04-15 08:58:17.332106000 Z
-  updated_at: 2017-05-13 09:45:47.439374000 Z
+  updated_at: 2017-10-31 15:58:05.810098000 Z
   row_id: 373
   larghezza: 3
   fonte: 0
@@ -99,7 +105,7 @@ column_649:
   contenuto: |
     <p>Contenuto della colonna 2c.</p>
   created_at: 2017-04-15 08:59:50.187863000 Z
-  updated_at: 2017-06-25 14:44:28.178743000 Z
+  updated_at: 2017-10-06 14:44:21.916405000 Z
   row_id: 373
   larghezza: 3
   fonte: 0
@@ -111,9 +117,13 @@ column_651:
   id: 651
   ordine: 1
   contenuto: |
-    <p>Cantami o Diva del pelide Achille l&#39;ira funesta...</p>
+    <p>&laquo;&nbsp;A nove anni ho fatto un sogno. Mi pareva di essere vicino a casa, in un cortile molto vasto, dove si divertiva una gran quantit&agrave; di ragazzi. Alcuni ridevano, altri giocavano, non pochi bestemmiavano. Al sentire le bestemmie mi slanciai in mezzo a loro. Cercai di farli tacere usando pugni e parole.</p>
+
+    <p>In quel momento apparve un uomo maestoso, vestito nobilmente. Un manto bianco gli copriva tutta la persona. La sua faccia era cos&igrave; luminosa che non riuscivo a fissarla. Egli mi chiam&ograve; per nome e mi ordin&ograve; di mettermi a capo di quei ragazzi. Aggiunse: &laquo;Dovrai farteli amici non con le percosse, ma con la mansuetudine e la carit&agrave;. Su, parla, spiegagli che il peccato &egrave; una cosa cattiva e che l&#39;amicizia con il Signore &egrave; un bene prezioso&raquo;. Confuso e spaventato risposi che io ero un ragazzo povero e ignorante, che non ero capace di parlare di religione a quei monelli.</p>
+
+    <p>In quel momento i ragazzi cessarono le risse, gli schiamazzi e le bestemmie e si raccolsero tutti intorno a colui che parlava. Quasi senza sapere cosa facessi gli domandai: &laquo;Chi siete voi, che mi comandate cose impossibili?&raquo; &laquo;Proprio perch&eacute; queste cose ti sembrano impossibili &ndash; rispose &ndash; dovrai renderle possibili con l&#39;obbedienza e acquistando la scienza&raquo;. &laquo;Come potr&ograve; acquistare la scienza?&raquo;. &laquo;Io ti dar&ograve; la maestra. Sotto la sua guida si diventa sapienti, ma senza di lei anche chi &egrave; sapiente diventa un povero ignorante&raquo;. &laquo;Ma chi siete voi?&raquo;. &laquo;Io sono il figlio di colei che tua madre ti insegn&ograve; a salutare tre volte al giorno&raquo;. &laquo;La mamma mi dice sempre di non stare con quelli che non conosco, senza il suo permesso. Perci&ograve; ditemi il vostro nome&raquo;. &laquo;Il mio nome domandalo a mia madre&raquo;.</p>
   created_at: 2017-04-15 10:15:56.730687000 Z
-  updated_at: 2017-04-29 16:56:48.811756000 Z
+  updated_at: 2017-10-31 15:52:32.449631000 Z
   row_id: 378
   larghezza: 12
   fonte: 0
@@ -170,20 +180,21 @@ column_675:
   id: 675
   ordine: 1
   contenuto: "<ul class=\"vertical medium-horizontal dropdown menu\" data-dropdown-menu=\"jnk7lb-dropdown-menu\"
-    role=\"menubar\">\n\t<li role=\"menuitem\"><a href=\"http://fff\">AEDS</a></li>\n\t<li
-    aria-haspopup=\"true\" aria-label=\"SCEOUT\" class=\"is-dropdown-submenu-parent
-    opens-inner opens-right\" data-is-click=\"false\" role=\"menuitem\"><a href=\"#\">SCEOUT</a>\n\t<ul
+    data-is-click=\"false\" role=\"menubar\">\n\t<li role=\"menuitem\"><a href=\"http://fff\">ADS</a></li>\n\t<li
+    aria-haspopup=\"true\" aria-label=\"SCOUT\" class=\"is-dropdown-submenu-parent
+    opens-inner opens-right\" data-is-click=\"false\" role=\"menuitem\"><a href=\"#\">SCOUT</a>\n\t<ul
     class=\"menu submenu is-dropdown-submenu first-sub vertical\" data-submenu=\"\"
-    role=\"menu\">\n\t\t<li class=\"is-submenu-item is-dropdown-submenu-item\" role=\"menuitem\"><a
-    href=\"http://ffff\">Lupetti</a></li>\n\t\t<li aria-haspopup=\"true\" aria-label=\"Coccinelle\"
-    class=\"is-dropdown-submenu-parent is-submenu-item is-dropdown-submenu-item opens-right\"
-    data-is-click=\"false\" role=\"menuitem\"><a href=\"http://ffff\">Coccinelle</a>\n\t\t<ul
-    class=\"menu submenu is-dropdown-submenu vertical\" data-submenu=\"\" role=\"menu\">\n\t\t\t<li
-    class=\"is-submenu-item is-dropdown-submenu-item\" role=\"menuitem\"><a href=\"http://ffff\">Amichette</a></li>\n\t\t\t<li
-    class=\"is-submenu-item is-dropdown-submenu-item\" role=\"menuitem\"><a href=\"http://fffff\">Amicone</a></li>\n\t\t</ul>\n\t\t</li>\n\t</ul>\n\t</li>\n\t<li
+    role=\"menu\" style=\"\">\n\t\t<li class=\"is-submenu-item is-dropdown-submenu-item\"
+    role=\"menuitem\"><a href=\"http://ffff\">Lupetti</a></li>\n\t\t<li aria-haspopup=\"true\"
+    aria-label=\"Coccinelle\" class=\"is-dropdown-submenu-parent is-submenu-item is-dropdown-submenu-item
+    opens-right\" data-is-click=\"false\" role=\"menuitem\"><a href=\"http://ffff\">Coccinelle</a>\n\t\t<ul
+    class=\"menu submenu is-dropdown-submenu vertical\" data-submenu=\"\" role=\"menu\"
+    style=\"\">\n\t\t\t<li class=\"is-submenu-item is-dropdown-submenu-item\" role=\"menuitem\"><a
+    href=\"http://ffff\">Amichette</a></li>\n\t\t\t<li class=\"is-submenu-item is-dropdown-submenu-item\"
+    role=\"menuitem\"><a href=\"http://fffff\">Amicone</a></li>\n\t\t</ul>\n\t\t</li>\n\t</ul>\n\t</li>\n\t<li
     role=\"menuitem\"><a href=\"http://ffedsad\">CFP</a></li>\n</ul>\n"
   created_at: 2017-07-20 14:31:05.707976000 Z
-  updated_at: 2017-08-14 10:13:46.508499000 Z
+  updated_at: 2017-10-31 15:58:05.361919000 Z
   row_id: 395
   larghezza: 12
   fonte: 0
@@ -203,6 +214,22 @@ column_676:
   created_at: 2017-08-13 08:57:02.950602000 Z
   updated_at: 2017-08-13 08:57:59.748091000 Z
   row_id: 396
+  larghezza: 12
+  fonte: 0
+  page_id: 0
+  autocrop: true
+  padding: ''
+  condivisa: true
+column_677:
+  id: 677
+  ordine: 1
+  contenuto: |
+    <p><span style="color:#ffffff;">dati per il primo accesso:<br />
+    user: <strong>test@donboscoland.it</strong><br />
+    password: <strong>testtest</strong></span></p>
+  created_at: 2017-10-31 15:56:18.423922000 Z
+  updated_at: 2017-10-31 15:57:19.732326000 Z
+  row_id: 397
   larghezza: 12
   fonte: 0
   page_id: 0

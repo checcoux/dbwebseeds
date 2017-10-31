@@ -27,9 +27,9 @@ row_359:
   visibilita: ''
 row_372:
   id: 372
-  ordine: 4
+  ordine: 5
   created_at: 2017-04-14 16:07:03.675400000 Z
-  updated_at: 2017-07-20 14:31:05.272819000 Z
+  updated_at: 2017-10-31 15:56:17.897682000 Z
   page_id: 98
   estesa: false
   colore_sfondo: "#ffffff"
@@ -40,9 +40,9 @@ row_372:
   visibilita: ''
 row_373:
   id: 373
-  ordine: 3
+  ordine: 4
   created_at: 2017-04-14 16:17:37.362159000 Z
-  updated_at: 2017-07-20 14:31:05.047714000 Z
+  updated_at: 2017-10-31 15:56:17.627142000 Z
   page_id: 98
   estesa: false
   colore_sfondo: "#CCCCCC"
@@ -111,6 +111,19 @@ row_396:
   page_id: 114
   estesa: false
   colore_sfondo: "#ffffff"
+  immagine_sfondo_file_name: 
+  immagine_sfondo_content_type: 
+  immagine_sfondo_file_size: 
+  immagine_sfondo_updated_at: 
+  visibilita: ''
+row_397:
+  id: 397
+  ordine: 3
+  created_at: 2017-10-31 15:56:18.126847000 Z
+  updated_at: 2017-10-31 15:56:33.897594000 Z
+  page_id: 98
+  estesa: false
+  colore_sfondo: "#216E75"
   immagine_sfondo_file_name: 
   immagine_sfondo_content_type: 
   immagine_sfondo_file_size: 

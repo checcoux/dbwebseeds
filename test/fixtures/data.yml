@@ -1,39 +1,4 @@
 ---
-datum_58:
-  id: 58
-  instance_id: 22
-  property_id: 1
-  valore: ROSSI
-  created_at: 2017-08-13 19:35:42.104890000 Z
-  updated_at: 2017-08-15 08:25:44.445386000 Z
-datum_59:
-  id: 59
-  instance_id: 22
-  property_id: 2
-  valore: CLAUDIO
-  created_at: 2017-08-13 19:35:42.576612000 Z
-  updated_at: 2017-08-15 08:25:44.684558000 Z
-datum_60:
-  id: 60
-  instance_id: 22
-  property_id: 13
-  valore: '1973-08-08'
-  created_at: 2017-08-13 19:35:43.072091000 Z
-  updated_at: 2017-08-13 19:35:43.072091000 Z
-datum_61:
-  id: 61
-  instance_id: 22
-  property_id: 14
-  valore: m
-  created_at: 2017-08-13 19:35:43.339570000 Z
-  updated_at: 2017-08-13 19:35:43.339570000 Z
-datum_62:
-  id: 62
-  instance_id: 22
-  property_id: 15
-  valore: 32443 23
-  created_at: 2017-08-13 19:35:43.579406000 Z
-  updated_at: 2017-08-13 19:35:43.579406000 Z
 datum_68:
   id: 68
   instance_id: 24
@@ -76,181 +41,6 @@ datum_84:
   valore: CEGGIA (VE)
   created_at: 2017-08-14 19:53:23.831800000 Z
   updated_at: 2017-08-14 19:53:23.831800000 Z
-datum_85:
-  id: 85
-  instance_id: 22
-  property_id: 16
-  valore: CEGGIA (TV)
-  created_at: 2017-08-15 08:25:44.933534000 Z
-  updated_at: 2017-08-15 08:25:44.933534000 Z
-datum_86:
-  id: 86
-  instance_id: 22
-  property_id: 17
-  valore: religioso
-  created_at: 2017-08-15 08:25:45.236855000 Z
-  updated_at: 2017-08-15 08:25:45.236855000 Z
-datum_87:
-  id: 87
-  instance_id: 22
-  property_id: 18
-  valore: '1'
-  created_at: 2017-08-15 08:25:45.522136000 Z
-  updated_at: 2017-08-15 08:25:45.522136000 Z
-datum_88:
-  id: 88
-  instance_id: 22
-  property_id: 19
-  valore: '30'
-  created_at: 2017-08-15 08:25:45.818406000 Z
-  updated_at: 2017-08-15 08:25:45.818406000 Z
-datum_89:
-  id: 89
-  instance_id: 22
-  property_id: 20
-  valore: ''
-  created_at: 2017-08-15 08:25:46.102326000 Z
-  updated_at: 2017-08-15 08:25:46.102326000 Z
-datum_90:
-  id: 90
-  instance_id: 31
-  property_id: 1
-  valore: ROS
-  created_at: 2017-08-15 09:02:31.683145000 Z
-  updated_at: 2017-08-15 09:02:31.683145000 Z
-datum_91:
-  id: 91
-  instance_id: 31
-  property_id: 2
-  valore: ANDREA
-  created_at: 2017-08-15 09:02:31.996706000 Z
-  updated_at: 2017-08-15 09:02:31.996706000 Z
-datum_92:
-  id: 92
-  instance_id: 31
-  property_id: 13
-  valore: '1973-08-08'
-  created_at: 2017-08-15 09:02:32.327349000 Z
-  updated_at: 2017-08-15 09:02:32.327349000 Z
-datum_93:
-  id: 93
-  instance_id: 31
-  property_id: 14
-  valore: m
-  created_at: 2017-08-15 09:02:32.589594000 Z
-  updated_at: 2017-08-15 09:02:32.589594000 Z
-datum_94:
-  id: 94
-  instance_id: 31
-  property_id: 15
-  valore: 346 9605687
-  created_at: 2017-08-15 09:02:32.855498000 Z
-  updated_at: 2017-08-15 09:02:32.855498000 Z
-datum_95:
-  id: 95
-  instance_id: 31
-  property_id: 16
-  valore: ODERZO (TV)
-  created_at: 2017-08-15 09:02:33.162758000 Z
-  updated_at: 2017-08-15 09:02:33.162758000 Z
-datum_96:
-  id: 96
-  instance_id: 31
-  property_id: 17
-  valore: sdb
-  created_at: 2017-08-15 09:02:33.455928000 Z
-  updated_at: 2017-08-15 09:02:33.455928000 Z
-datum_97:
-  id: 97
-  instance_id: 31
-  property_id: 18
-  valore: '1'
-  created_at: 2017-08-15 09:02:33.748211000 Z
-  updated_at: 2017-08-15 09:02:33.748211000 Z
-datum_98:
-  id: 98
-  instance_id: 31
-  property_id: 19
-  valore: '25'
-  created_at: 2017-08-15 09:02:34.015045000 Z
-  updated_at: 2017-08-15 09:02:34.015045000 Z
-datum_99:
-  id: 99
-  instance_id: 31
-  property_id: 20
-  valore: ''
-  created_at: 2017-08-15 09:02:34.330029000 Z
-  updated_at: 2017-08-15 09:02:34.330029000 Z
-datum_100:
-  id: 100
-  instance_id: 32
-  property_id: 1
-  valore: SENZA PRIVILEGI
-  created_at: 2017-08-15 09:28:57.616911000 Z
-  updated_at: 2017-08-15 09:28:57.616911000 Z
-datum_101:
-  id: 101
-  instance_id: 32
-  property_id: 2
-  valore: ANDREA
-  created_at: 2017-08-15 09:28:57.938106000 Z
-  updated_at: 2017-08-15 09:28:57.938106000 Z
-datum_102:
-  id: 102
-  instance_id: 32
-  property_id: 13
-  valore: '1973-08-08'
-  created_at: 2017-08-15 09:28:58.261187000 Z
-  updated_at: 2017-08-15 09:28:58.261187000 Z
-datum_103:
-  id: 103
-  instance_id: 32
-  property_id: 14
-  valore: m
-  created_at: 2017-08-15 09:28:58.518882000 Z
-  updated_at: 2017-08-15 09:28:58.518882000 Z
-datum_104:
-  id: 104
-  instance_id: 32
-  property_id: 15
-  valore: '4324423'
-  created_at: 2017-08-15 09:28:58.873049000 Z
-  updated_at: 2017-08-15 09:28:58.873049000 Z
-datum_105:
-  id: 105
-  instance_id: 32
-  property_id: 16
-  valore: ODERZO (TV)
-  created_at: 2017-08-15 09:28:59.235033000 Z
-  updated_at: 2017-08-15 09:28:59.235033000 Z
-datum_106:
-  id: 106
-  instance_id: 32
-  property_id: 17
-  valore: sdb
-  created_at: 2017-08-15 09:28:59.502336000 Z
-  updated_at: 2017-08-15 09:28:59.502336000 Z
-datum_107:
-  id: 107
-  instance_id: 32
-  property_id: 18
-  valore: '1'
-  created_at: 2017-08-15 09:28:59.793616000 Z
-  updated_at: 2017-08-15 09:28:59.793616000 Z
-datum_108:
-  id: 108
-  instance_id: 32
-  property_id: 19
-  valore: '24'
-  created_at: 2017-08-15 09:29:00.089835000 Z
-  updated_at: 2017-08-15 09:29:00.089835000 Z
-datum_109:
-  id: 109
-  instance_id: 32
-  property_id: 20
-  valore: RONCADELLE (TV)
-  created_at: 2017-08-15 09:29:00.305082000 Z
-  updated_at: 2017-08-15 09:29:00.305082000 Z
 datum_110:
   id: 110
   instance_id: 33
@@ -390,7 +180,7 @@ datum_130:
   property_id: 22
   valore: MONTAGNER
   created_at: 2017-08-16 15:24:58.454796000 Z
-  updated_at: 2017-08-16 15:24:58.454796000 Z
+  updated_at: 2017-08-17 15:14:55.918907000 Z
 datum_131:
   id: 131
   instance_id: 51
@@ -426,3 +216,94 @@ datum_135:
   valore: m
   created_at: 2017-08-16 15:25:16.512828000 Z
   updated_at: 2017-08-16 15:25:16.512828000 Z
+datum_136:
+  id: 136
+  instance_id: 53
+  property_id: 22
+  valore: ALIPRANDI
+  created_at: 2017-08-17 15:15:16.871418000 Z
+  updated_at: 2017-08-17 15:15:16.871418000 Z
+datum_137:
+  id: 137
+  instance_id: 53
+  property_id: 23
+  valore: CESCA
+  created_at: 2017-08-17 15:15:17.157667000 Z
+  updated_at: 2017-08-17 15:15:17.157667000 Z
+datum_138:
+  id: 138
+  instance_id: 53
+  property_id: 24
+  valore: m
+  created_at: 2017-08-17 15:17:09.155925000 Z
+  updated_at: 2017-08-17 15:17:09.155925000 Z
+datum_139:
+  id: 139
+  instance_id: 54
+  property_id: 1
+  valore: ROS
+  created_at: 2017-08-22 08:37:32.330418000 Z
+  updated_at: 2017-08-22 08:37:32.330418000 Z
+datum_140:
+  id: 140
+  instance_id: 54
+  property_id: 2
+  valore: ANDREA
+  created_at: 2017-08-22 08:37:32.595994000 Z
+  updated_at: 2017-08-22 08:37:32.595994000 Z
+datum_141:
+  id: 141
+  instance_id: 54
+  property_id: 13
+  valore: 31/08/1975
+  created_at: 2017-08-22 08:37:32.913064000 Z
+  updated_at: 2017-09-01 15:35:57.094806000 Z
+datum_142:
+  id: 142
+  instance_id: 54
+  property_id: 14
+  valore: m
+  created_at: 2017-08-22 08:37:33.179715000 Z
+  updated_at: 2017-08-22 08:37:33.179715000 Z
+datum_143:
+  id: 143
+  instance_id: 54
+  property_id: 15
+  valore: 0421 338911
+  created_at: 2017-08-22 08:37:33.629835000 Z
+  updated_at: 2017-08-22 08:37:33.629835000 Z
+datum_144:
+  id: 144
+  instance_id: 54
+  property_id: 16
+  valore: ODERZO (TV)
+  created_at: 2017-08-22 08:37:33.929836000 Z
+  updated_at: 2017-08-22 08:37:33.929836000 Z
+datum_145:
+  id: 145
+  instance_id: 54
+  property_id: 17
+  valore: sdb
+  created_at: 2017-08-22 08:37:34.198544000 Z
+  updated_at: 2017-08-22 08:37:34.198544000 Z
+datum_146:
+  id: 146
+  instance_id: 54
+  property_id: 18
+  valore: '1'
+  created_at: 2017-08-22 08:37:34.480009000 Z
+  updated_at: 2017-08-22 08:37:34.480009000 Z
+datum_147:
+  id: 147
+  instance_id: 54
+  property_id: 19
+  valore: '25'
+  created_at: 2017-08-22 08:37:34.813819000 Z
+  updated_at: 2017-08-22 08:37:34.813819000 Z
+datum_148:
+  id: 148
+  instance_id: 54
+  property_id: 20
+  valore: ''
+  created_at: 2017-08-22 08:37:35.121616000 Z
+  updated_at: 2017-08-22 08:37:35.121616000 Z

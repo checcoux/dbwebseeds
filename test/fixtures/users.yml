@@ -6,9 +6,9 @@ user_8:
   reset_password_token: 
   reset_password_sent_at: 
   remember_created_at: 
-  sign_in_count: 32
-  current_sign_in_at: 2017-08-16 09:22:10.265982000 Z
-  last_sign_in_at: 2017-08-14 14:27:34.198764000 Z
+  sign_in_count: 38
+  current_sign_in_at: 2017-10-31 15:57:43.553132000 Z
+  last_sign_in_at: 2017-10-31 15:56:03.777766000 Z
   current_sign_in_ip: 127.0.0.1
   last_sign_in_ip: 127.0.0.1
   confirmation_token: wRtgCygEnxpZcoiYjF1x
@@ -16,7 +16,7 @@ user_8:
   confirmation_sent_at: 2017-06-25 13:25:48.070835000 Z
   unconfirmed_email: 
   created_at: 2017-06-25 13:25:48.070835000 Z
-  updated_at: 2017-08-16 09:22:10.266981000 Z
+  updated_at: 2017-10-31 15:57:43.554646000 Z
   admin: true
   section_id: 
   designer: false
@@ -63,27 +63,5 @@ user_10:
   updated_at: 2017-07-08 15:23:06.750790000 Z
   admin: false
   section_id: 6
-  designer: false
-  aggiornato: true
-user_12:
-  id: 12
-  email: andrea@donboscoland.it
-  encrypted_password: "$2a$11$KL48joLsvH3seEg.M1x8V.CzrkVqjV84vMa4wCnMw.d22QwztOwem"
-  reset_password_token: 7094919316ae937f2f852a9b45b45b07420d6f8fb5be1330b7b709d62bc719b9
-  reset_password_sent_at: 2017-08-14 09:45:50.877042000 Z
-  remember_created_at: 
-  sign_in_count: 14
-  current_sign_in_at: 2017-08-16 15:12:02.905270000 Z
-  last_sign_in_at: 2017-08-16 09:25:15.445588000 Z
-  current_sign_in_ip: 127.0.0.1
-  last_sign_in_ip: 127.0.0.1
-  confirmation_token: _jCGuy_mk5vPuPHmnprs
-  confirmed_at: 1502575200000
-  confirmation_sent_at: 2017-08-13 19:41:03.569946000 Z
-  unconfirmed_email: 
-  created_at: 2017-08-13 19:41:03.569946000 Z
-  updated_at: 2017-08-16 15:12:02.907270000 Z
-  admin: false
-  section_id: 
   designer: false
   aggiornato: true

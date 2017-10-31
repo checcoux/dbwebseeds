@@ -75,6 +75,10 @@ gem 'axlsx_rails'
 group :development do
   # per utilizzare l'estensione di Chrome RailsPanel
   gem 'meta_request'
+
+  # per eseguire il dump del database nel file seeds.rb
+  # rake db:seed:dump
+  gem 'seed_dump'
 end
 
 group :test do
@@ -86,7 +90,6 @@ group :test do
 
   # per eseguire il dump del database nel file seeds.rb
   # rake db:seed:dump
-  gem 'seed_dump'
 
   # per eseguire il dump del database nelle fixtures:
   # rake db:fixtures:dump

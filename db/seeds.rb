@@ -1,6 +1,4 @@
-admin = User.new([
-  {email: "test@donboscoland.it", password: 'testtest', password_confirmation: 'testtest', reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 38, current_sign_in_at: "2017-10-31 15:57:43", last_sign_in_at: "2017-10-31 15:56:03", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", confirmation_token: "wRtgCygEnxpZcoiYjF1x", confirmed_at: "2016-07-24 13:41:08", confirmation_sent_at: "2017-06-25 13:25:48", unconfirmed_email: nil, admin: true, section_id: nil, designer: false, aggiornato: true},
-])
+admin = User.new(email: "test@donboscoland.it", password: 'testtest', password_confirmation: 'testtest', reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 38, current_sign_in_at: "2017-10-31 15:57:43", last_sign_in_at: "2017-10-31 15:56:03", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", confirmation_token: "wRtgCygEnxpZcoiYjF1x", confirmed_at: "2016-07-24 13:41:08", confirmation_sent_at: "2017-06-25 13:25:48", unconfirmed_email: nil, admin: true, section_id: nil, designer: false, aggiornato: true )
 admin.skip_confirmation!
 admin.save!
 

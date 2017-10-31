@@ -148,3 +148,4 @@ Tag.create!([
   {nome: "neve", taggable_id: 80, taggable_type: "Robamia"},
   {nome: "scuola", taggable_id: 80, taggable_type: "Robamia"}
 ])
+ee

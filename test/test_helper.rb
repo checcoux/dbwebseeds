@@ -30,4 +30,12 @@ class ActiveSupport::TestCase
     fill_in 'user_password', :with => "test3test"
     click_on 'Accedi'
   end
+
+  def logon_as_user
+    visit '/'
+    click_on 'login'
+    fill_in 'user_email', :with => "test4@donboscoland.it"
+    fill_in 'user_password', :with => "test4test"
+    click_on 'Accedi'
+  end
 end

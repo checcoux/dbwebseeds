@@ -108,34 +108,35 @@
           </li>
       <% end %>
       <%
-        if current_user.admin?
-          iscrizioni = Entity.where("slug LIKE ?", "iscrizione%").order(:updated_at => 'DESC')
-        else
-          iscrizioni = Entity.where("riservata = ? AND slug LIKE ?", false, "iscrizione%").order(:updated_at => 'DESC')
-        end
+      #
+      #  if current_user.admin?
+      #    iscrizioni = Entity.where("slug LIKE ?", "iscrizione%").order(:updated_at => 'DESC')
+      #  else
+      #    iscrizioni = Entity.where("riservata = ? AND slug LIKE ?", false, "iscrizione%").order(:updated_at => 'DESC')
+      #  end
+      #
+      #  if iscrizioni.count >= 1
+      #    <li class="has-submenu">
+      #      <a>Iscrizioni</a>
+      #      <ul class="submenu menu vertical" data-submenu>
+      #<%
+      #    iscrizioni.each do |entity|
+      #
+      #      <li><a href="/instances?type=<%= entity.slug "><%= entity.plurale </a></li>
+      #<%
+      #    end
+      #
+      #      </ul>
+      #    </li>
+      #<%
+      #  end
+      #
+      #
 
-        if iscrizioni.count >= 1 %>
-          <li class="has-submenu">
-            <a>Iscrizioni</a>
-            <ul class="submenu menu vertical" data-submenu>
-      <%
-          iscrizioni.each do |entity|
-      %>
-            <li><a href="/instances?type=<%= entity.slug %>"><%= entity.plurale %></a></li>
-      <%
-          end
-      %>
-            </ul>
-          </li>
-      <%
-        end
-
-      %>
-      <%
         if current_user.admin?
-          entities = Entity.where("slug NOT LIKE ?", "iscrizione%").order(:titolo => 'ASC')
+          entities = Entity.where("vetrina = ?", false).order(:titolo => 'ASC')
         else
-          entities = Entity.where("riservata = ? AND slug NOT LIKE ? AND SLUG != 'profilo'", false, "iscrizione%").order(:titolo => 'ASC')
+          entities = Entity.where("vetrina = ? AND stato > 0 AND SLUG != 'profilo'", false).order(:titolo => 'ASC')
         end
 
         if current_user.admin? || entities.count >= 1 %>

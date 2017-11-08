@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'iscrizioni/index'
+
   resources :grades
   resources :homeworks
   resources :assignments

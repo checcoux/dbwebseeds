@@ -4,11 +4,11 @@ class InstancePolicy < ApplicationPolicy
   end
 
   def show?
-    user.admin? or (record.user_id == user.id  && !record.entity.riservata)
+    user.admin? or (record.user_id == user.id  && record.entity.stato > 0)
   end
 
   def create?
-    user.admin? or (user.id && !record.entity.riservata)
+    user.admin? or (user.id && record.entity.stato == 1)
   end
 
   def new?
@@ -16,34 +16,14 @@ class InstancePolicy < ApplicationPolicy
   end
 
   def edit?
-    show?
+    create?
   end
 
   def update?
-    show?
+    edit?
   end
 
   def destroy?
-    show?
-  end
-
-  def pubblica?
-    edit?
-  end
-
-  def nascondi?
-    edit?
-  end
-
-  def duplica?
-    edit?
-  end
-
-  def row0
-    edit?
-  end
-
-  def nuovo_contenuto_dinamico?
     edit?
   end
 

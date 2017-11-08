@@ -4,7 +4,7 @@ class EntityPolicy < ApplicationPolicy
   end
 
   def show?
-    user.admin? or (user.id && !record.riservata)
+    user.admin? or (user.id && record.stato > 0)
   end
 
   def create?
@@ -19,32 +19,16 @@ class EntityPolicy < ApplicationPolicy
     create?
   end
 
+  def edit_instances?
+    user.admin? or (user.id && record.stato == 1)
+  end
+
   def update?
     create?
   end
 
   def destroy?
     create?
-  end
-
-  def pubblica?
-    edit?
-  end
-
-  def nascondi?
-    edit?
-  end
-
-  def duplica?
-    edit?
-  end
-
-  def row0
-    edit?
-  end
-
-  def nuovo_contenuto_dinamico?
-    edit?
   end
 
   class Scope < Scope

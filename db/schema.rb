@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171031161143) do
+ActiveRecord::Schema.define(version: 20171108151123) do
 
   create_table "attachments", force: :cascade do |t|
     t.string   "titolo"
@@ -96,8 +96,11 @@ ActiveRecord::Schema.define(version: 20171031161143) do
     t.string   "slug"
     t.integer  "user_id"
     t.string   "landing_page"
-    t.boolean  "riservata",    default: true
     t.string   "plurale"
+    t.boolean  "vetrina",      default: false
+    t.integer  "stato",        default: 0
+    t.text     "descrizione",  default: ""
+    t.string   "date",         default: ""
   end
 
   add_index "entities", ["slug"], name: "index_entities_on_slug", unique: true

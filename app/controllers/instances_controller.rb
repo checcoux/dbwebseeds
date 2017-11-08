@@ -47,7 +47,7 @@ class InstancesController < ApplicationController
       @entity = Entity.find_by! slug: params[:type]
       @instance.entity_id = @entity ? @entity.id : 0
 
-      authorize @entity, :show?
+      authorize @entity, :edit_instances?
     else
       # todo: errore, tipo di oggetto non specificato
       @instance.entity_id = 0

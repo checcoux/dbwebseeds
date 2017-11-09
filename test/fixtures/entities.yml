@@ -8,7 +8,6 @@ entity_1:
   slug: profilo
   user_id: 8
   landing_page: "/profile-updated"
-  riservata: false
   plurale: Profili utente
 entity_6:
   id: 6
@@ -19,7 +18,6 @@ entity_6:
   slug: appartenenza
   user_id: 8
   landing_page: "/instances?type=appartenenza"
-  riservata: true
   plurale: Appartenenze
 entity_7:
   id: 7
@@ -30,7 +28,6 @@ entity_7:
   slug: iscrizione-meeting-2017
   user_id: 8
   landing_page: "/"
-  riservata: false
   plurale: Iscrizioni Meeting 2017
 entity_9:
   id: 9
@@ -41,5 +38,4 @@ entity_9:
   slug: persona
   user_id: 8
   landing_page: "/instances?type=persona"
-  riservata: false
   plurale: Persone

@@ -1,22 +1,29 @@
+<%= render partial: "pages/cookielaw" %>
+<%= render partial: "pages/header" %>
+
 <div class="row">
 
 <h1><%= @entity.titolo %></h1>
 
-<p>
-  <strong>Sezione:</strong>
-  <%= @instance.section.titolo %>
-</p>
-
-<p>
-  <strong>Tags:</strong>
-  <%= @instance.tags %>
-</p>
-
-<p>Proprietà:</p>
-<% @entity.properties.each do |property| %>
+<% @entity.properties.where("riservata = ?", false).each do |property| %>
   <br><% dato = Datum.find_by instance_id: @instance.id, property_id: property.id %>
-      <%= property.nome %>: <b><%= dato.valore if dato %></b>
+      <%= property.nome %>:
+
+      <b>
+      <%=
+      if property.tipo == 'select' && dato
+        instance = Instance.where("id = ?", dato.valore).first
+        instance.label if instance
+      elsif property.tipo == 'utente' && @instance.user
+        @instance.user.profilo.label
+      else
+        dato.valore if dato
+      end
+      %>
+      </b>
 <% end %>
 
 <p>&nbsp;</p>
 </div>
+
+<%= render partial: "pages/footer" %>

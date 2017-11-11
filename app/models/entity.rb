@@ -8,6 +8,23 @@ class Entity < ActiveRecord::Base
 
   friendly_id :slug_candidates, :use => :slugged
 
+  has_attached_file :immagine,
+                    :hash_secret => "hj42ZZ5!76",
+                    :url  => "/img/entity/:hash.:extension",
+                    :path => ":rails_root/public/img/entity/:hash.:extension",
+                    :styles => {
+                        :thumb => '400x250#',
+                        :medium => '1024>'
+                    },
+                    :convert_options => {
+                        :thumb => "-quality 75 -strip",
+                        :medium => "-quality 75 -strip"
+                    },
+                    :default_url => "img/missing.png"
+
+  validates_attachment_size :immagine, :less_than => 3.megabytes
+  validates_attachment_content_type :immagine, :content_type => /\Aimage/
+
   def slug_candidates
     [ :titolo, :titolo_e_sequenza ]
   end

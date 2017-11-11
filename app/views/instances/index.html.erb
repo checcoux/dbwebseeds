@@ -26,13 +26,21 @@
   <tbody>
     <% @instances.each do |instance| %>
       <tr>
-        <td><%= link_to instance.label, edit_instance_path(instance) %></td>
+        <% if current_user.admin? || instance.entity.stato == 1 %>
+          <td><%= link_to instance.label, edit_instance_path(instance) %></td>
+        <% else %>
+          <td><%= link_to instance.label, instance_path(instance) %></td>
+        <% end %>
         <% if current_user.admin? %>
             <td class="testo_piccolo"><%= instance.user.email if instance.user %></td>
             <td class="testo_piccolo"><%= instance.user.appartenenza if instance.user %></td>
             <td class="testo_piccolo"><%= instance.updated_at.to_s(:data_ora) %></td>
         <% end %>
-        <td><%= link_to 'Elimina', instance, method: :delete, data: { confirm: 'Are you sure?' }, class: 'small alert button' %></td>
+        <% if current_user.admin? || instance.entity.stato == 1 %>
+          <td><%= link_to 'Elimina', instance, method: :delete, data: { confirm: 'Are you sure?' }, class: 'small alert button' %></td>
+        <% else %>
+          <td>&nbsp;</td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

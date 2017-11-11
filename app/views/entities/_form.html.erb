@@ -20,7 +20,12 @@
     <%= f.text_field :plurale %>
   </div>
   <div class="field">
-    <%= f.label :date %><br>
+    <%= image_tag @entity.immagine.url(:thumb) if @entity.immagine.exists? %><br>
+    <%= f.label :immagine %><br>
+    <%= f.file_field :immagine %>
+  </div>
+  <div class="field">
+    <%= f.label "Date apertura iscrizioni" %><br>
     <%= f.text_field :date %>
   </div>
   <div class="field">

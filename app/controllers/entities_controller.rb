@@ -9,6 +9,14 @@ class EntitiesController < ApplicationController
     @entities = Entity.all
   end
 
+  def vetrina
+    if current_user && current_user.admin?
+      @entities = Entity.where("vetrina = ? AND stato < 3", true)
+    else
+      @entities = Entity.where("vetrina = ? AND stato IN (1,2)", true)
+    end
+  end
+
   # GET /entities/1
   # GET /entities/1.json
   def show
@@ -82,6 +90,6 @@ class EntitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def entity_params
-      params.require(:entity).permit(:titolo, :nativo, :rigenera_slug, :landing_page, :vetrina, :stato, :descrizione, :date, :plurale)
+      params.require(:entity).permit(:titolo, :nativo, :rigenera_slug, :landing_page, :vetrina, :stato, :descrizione, :date, :plurale, :immagine)
     end
 end

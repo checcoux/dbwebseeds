@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'iscrizioni/index'
+  get 'entities/vetrina'
 
   resources :grades
   resources :homeworks

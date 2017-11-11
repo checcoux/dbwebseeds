@@ -1,0 +1,39 @@
+<%= render partial: "pages/cookielaw" %>
+<%= render partial: "pages/header" %>
+
+<div class="row small-up-2 medium-up-3">
+
+  <% @entities.each do |entity| %>
+      <div class="column column-block">
+        <div class="card-user-profile">
+        <% if entity.immagine.exists? %>
+            <img class="card-user-profile-img" src="<%= entity.immagine.url(:medium) %>" />
+        <% end %>
+            <div class="card-user-profile-content card-section">
+            <div class="card-user-profile-avatar">
+              <img src="https://pbs.twimg.com/profile_images/422887689612820482/sZtHMJu5.png" />
+            </div>
+            <p class="card-user-profile-name"><%= entity.titolo %></p>
+            <p class="card-user-profile-date"><%= entity.date %></p>
+            <p class="card-user-profile-info"><%= entity.descrizione %></p>
+          </div>
+
+          <div class="card-user-profile-actions">
+            <% if !current_user %>
+              <a href="#" class="card-user-profile-button primary disabled button">Iscrivi</a>
+              <a href="#" class="card-user-profile-button disabled secondary button">Elenco</a>
+            <% elsif entity.stato == 1 %>
+              <a href="/instances/new?type=<%= entity.slug %>" class="card-user-profile-button primary button">Iscrivi</a>
+              <a href="/instances?type=<%= entity.slug %>" class="card-user-profile-button secondary button">Elenco</a>
+            <% else %>
+              <a href="#" class="card-user-profile-button primary disabled button">Iscrivi</a>
+              <a href="/instances?type=<%= entity.slug %>" class="card-user-profile-button secondary button">Elenco</a>
+            <% end %>
+          </div>
+        </div>
+      </div>
+  <% end %>
+
+  </div>
+
+<%= render partial: "pages/footer" %>

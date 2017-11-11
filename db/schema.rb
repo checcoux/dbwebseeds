@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171108151123) do
+ActiveRecord::Schema.define(version: 20171111093918) do
 
   create_table "attachments", force: :cascade do |t|
     t.string   "titolo"
@@ -29,16 +29,16 @@ ActiveRecord::Schema.define(version: 20171108151123) do
   add_index "attachments", ["section_id"], name: "index_attachments_on_section_id"
 
   create_table "ckeditor_assets", force: :cascade do |t|
-    t.string   "data_file_name",               null: false
-    t.string   "data_content_type"
+    t.string   "data_file_name",    limit: 255, null: false
+    t.string   "data_content_type", limit: 255
     t.integer  "data_file_size"
     t.integer  "assetable_id"
     t.string   "assetable_type",    limit: 30
     t.string   "type",              limit: 30
     t.integer  "width"
     t.integer  "height"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable"
@@ -90,17 +90,21 @@ ActiveRecord::Schema.define(version: 20171108151123) do
 
   create_table "entities", force: :cascade do |t|
     t.string   "titolo"
-    t.boolean  "nativo",       default: false
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.boolean  "nativo",                default: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
     t.string   "slug"
     t.integer  "user_id"
     t.string   "landing_page"
     t.string   "plurale"
-    t.boolean  "vetrina",      default: false
-    t.integer  "stato",        default: 0
-    t.text     "descrizione",  default: ""
-    t.string   "date",         default: ""
+    t.boolean  "vetrina",               default: false
+    t.integer  "stato",                 default: 0
+    t.text     "descrizione",           default: ""
+    t.string   "date",                  default: ""
+    t.string   "immagine_file_name"
+    t.string   "immagine_content_type"
+    t.integer  "immagine_file_size"
+    t.datetime "immagine_updated_at"
   end
 
   add_index "entities", ["slug"], name: "index_entities_on_slug", unique: true
@@ -129,18 +133,18 @@ ActiveRecord::Schema.define(version: 20171108151123) do
   end
 
   create_table "pages", force: :cascade do |t|
-    t.string   "titolo"
+    t.string   "titolo",       limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "section_id"
-    t.boolean  "home",         default: false
-    t.boolean  "header",       default: false
-    t.boolean  "footer",       default: false
+    t.boolean  "home",                     default: false
+    t.boolean  "header",                   default: false
+    t.boolean  "footer",                   default: false
     t.string   "slug"
-    t.boolean  "modello",      default: false
-    t.boolean  "articolo",     default: false
-    t.boolean  "visibile",     default: true
-    t.datetime "published_at", default: '2016-08-20 18:11:35'
+    t.boolean  "modello",                  default: false
+    t.boolean  "articolo",                 default: false
+    t.boolean  "visibile",                 default: true
+    t.datetime "published_at",             default: '2016-08-17 08:12:10'
     t.text     "abstract"
   end
 
@@ -202,11 +206,11 @@ ActiveRecord::Schema.define(version: 20171108151123) do
   add_index "rows", ["page_id"], name: "index_rows_on_page_id"
 
   create_table "sections", force: :cascade do |t|
-    t.string   "titolo"
+    t.string   "titolo",      limit: 255
     t.text     "descrizione"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "principale",  default: false
+    t.boolean  "principale",              default: false
     t.string   "percorso"
   end
 

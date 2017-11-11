@@ -3,6 +3,10 @@ class EntityPolicy < ApplicationPolicy
     user.admin?
   end
 
+  def vetrina?
+    true
+  end
+
   def show?
     user.admin? or (user.id && record.stato > 0)
   end

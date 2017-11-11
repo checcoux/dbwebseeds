@@ -1,6 +1,8 @@
 <%= render partial: "pages/cookielaw" %>
 <%= render partial: "pages/header" %>
 
+<p>&nbsp;</p>
+
 <div class="row small-up-2 medium-up-3">
 
   <% @entities.each do |entity| %>
@@ -22,12 +24,15 @@
             <% if !current_user %>
               <a href="#" class="card-user-profile-button primary disabled button">Iscrivi</a>
               <a href="#" class="card-user-profile-button disabled secondary button">Elenco</a>
-            <% elsif entity.stato == 1 %>
+            <% elsif entity.stato == 1 || current_user.admin? %>
               <a href="/instances/new?type=<%= entity.slug %>" class="card-user-profile-button primary button">Iscrivi</a>
               <a href="/instances?type=<%= entity.slug %>" class="card-user-profile-button secondary button">Elenco</a>
             <% else %>
               <a href="#" class="card-user-profile-button primary disabled button">Iscrivi</a>
               <a href="/instances?type=<%= entity.slug %>" class="card-user-profile-button secondary button">Elenco</a>
+            <% end %>
+            <% if current_user && current_user.admin? %>
+              <a href="<%= edit_entity_url(entity) %>" class="card-user-profile-button warning button">Modifica</a>
             <% end %>
           </div>
         </div>

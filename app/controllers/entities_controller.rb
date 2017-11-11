@@ -61,7 +61,7 @@ class EntitiesController < ApplicationController
 
     respond_to do |format|
       if @entity.update(entity_params)
-        format.html { redirect_to @entity, notice: 'Entity was successfully updated.' }
+        format.html { redirect_to vetrina_path, notice: 'Entity was successfully updated.' }
         format.json { render :show, status: :ok, location: @entity }
       else
         format.html { render :edit }
@@ -75,7 +75,7 @@ class EntitiesController < ApplicationController
   def destroy
     @entity.destroy
     respond_to do |format|
-      format.html { redirect_to entities_url, notice: 'Entity was successfully destroyed.' }
+      format.html { redirect_to entities_url }
       format.json { head :no_content }
     end
   end

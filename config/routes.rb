@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'entities/vetrina'
+  get 'vetrina' => 'entities#vetrina'
 
   resources :grades
   resources :homeworks

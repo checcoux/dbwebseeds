@@ -20,6 +20,10 @@
     <%= f.text_field :plurale %>
   </div>
   <div class="field">
+    <%= f.label :tipo %><br>
+    <%= f.select(:tipo, options_for_select([['iscrizione','iscrizione'],['ordine','ordine'],['oggetto','oggetto']],@entity.tipo)) %>
+  </div>
+  <div class="field">
     <%= image_tag @entity.immagine.url(:thumb) if @entity.immagine.exists? %><br>
     <%= f.label :immagine %><br>
     <%= f.file_field :immagine %>

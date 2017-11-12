@@ -14,11 +14,13 @@ class Entity < ActiveRecord::Base
                     :path => ":rails_root/public/img/entity/:hash.:extension",
                     :styles => {
                         :thumb => '400x250#',
-                        :medium => '1024>'
+                        :medium => '1024>',
+                        :large => '1200>'
                     },
                     :convert_options => {
                         :thumb => "-quality 75 -strip",
-                        :medium => "-quality 75 -strip"
+                        :medium => "-quality 75 -strip",
+                        :large => "-quality 75 -strip"
                     },
                     :default_url => "img/missing.png"
 

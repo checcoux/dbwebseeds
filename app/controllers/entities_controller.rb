@@ -11,9 +11,9 @@ class EntitiesController < ApplicationController
 
   def vetrina
     if current_user && current_user.admin?
-      @entities = Entity.where("vetrina = ? AND stato < 3", true)
+      @entities = Entity.where("vetrina = ? AND stato < 3", true).order(id: :desc)
     else
-      @entities = Entity.where("vetrina = ? AND stato IN (1,2)", true)
+      @entities = Entity.where("vetrina = ? AND stato IN (1,2)", true).order(id: :desc)
     end
   end
 

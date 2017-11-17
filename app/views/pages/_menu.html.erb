@@ -134,7 +134,7 @@
       #
 
         if current_user.admin?
-          entities = Entity.where("vetrina = ?", false).order(:titolo => 'ASC')
+          entities = Entity.where("vetrina = ? OR tipo='oggetto'", false).order(:titolo => 'ASC')
         else
           entities = Entity.where("vetrina = ? AND stato > 0 AND SLUG != 'profilo'", false).order(:titolo => 'ASC')
         end
@@ -143,6 +143,7 @@
           <li class="has-submenu">
             <a>Gestione</a>
             <ul class="submenu menu vertical" data-submenu>
+              <% if current_user.admin? %><li><a href="/vetrina">Vetrina</a></li><% end %>
               <% if current_user.admin? %><li><a href="/admin/users">Dati di accesso</a></li><% end %>
               <% entities.each do |entity| %>
                   <li><a href="/instances?type=<%= entity.slug %>"><%= entity.plurale %></a></li>

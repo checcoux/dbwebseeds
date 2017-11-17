@@ -34,8 +34,8 @@
               end
 
               if !current_user %>
-              <a href="#" class="card-user-profile-button primary disabled button"><%= bottone_new %></a>
-              <a href="#" class="card-user-profile-button disabled secondary button">Elenco</a>
+              <a href="#" class="card-user-profile-button primary disabled button" title="Accedi per iscriverti."><%= bottone_new %></a>
+              <a href="#" class="card-user-profile-button disabled secondary button" title="Accedi per iscriverti.">Elenco</a>
             <% elsif entity.stato == 1 || current_user.admin? %>
               <a href="/instances/new?type=<%= entity.slug %>" class="card-user-profile-button primary button"><%= bottone_new %></a>
               <a href="/instances?type=<%= entity.slug %>" class="card-user-profile-button secondary button">Elenco</a>

@@ -1,6 +1,16 @@
 <%= render partial: "pages/cookielaw" %>
 <%= render partial: "pages/header" %>
 
+<% if @entity.immagine.exists? %>
+    <div style='background: #ffffff;'>
+      <div class="collapse row">
+        <div class="large-12 columns" style="position: relative; padding: 0em;">
+          <div class='cropped-30'><img src='<%= @entity.immagine.url(:large) %>' class='cropped-image'></div>
+        </div>
+      </div>
+    </div>
+<% end %>
+
 <div class="row">
   <p>&nbsp;</p>
 

@@ -21,14 +21,26 @@
           </div>
 
           <div class="card-user-profile-actions">
-            <% if !current_user %>
-              <a href="#" class="card-user-profile-button primary disabled button">Iscrivi</a>
+            <%
+              case entity.tipo
+                when 'iscrizione'
+                  bottone_new = 'Iscrivi'
+                when 'ordine'
+                  bottone_new = 'Ordina'
+                when 'oggetto'
+                  bottone_new = 'Aggiungi'
+                else
+                  bottone_new = 'Aggiungi'
+              end
+
+              if !current_user %>
+              <a href="#" class="card-user-profile-button primary disabled button"><%= bottone_new %></a>
               <a href="#" class="card-user-profile-button disabled secondary button">Elenco</a>
             <% elsif entity.stato == 1 || current_user.admin? %>
-              <a href="/instances/new?type=<%= entity.slug %>" class="card-user-profile-button primary button">Iscrivi</a>
+              <a href="/instances/new?type=<%= entity.slug %>" class="card-user-profile-button primary button"><%= bottone_new %></a>
               <a href="/instances?type=<%= entity.slug %>" class="card-user-profile-button secondary button">Elenco</a>
             <% else %>
-              <a href="#" class="card-user-profile-button primary disabled button">Iscrivi</a>
+              <a href="#" class="card-user-profile-button primary disabled button"><%= bottone_new %></a>
               <a href="/instances?type=<%= entity.slug %>" class="card-user-profile-button secondary button">Elenco</a>
             <% end %>
             <% if current_user && current_user.admin? %>

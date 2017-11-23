@@ -8,10 +8,6 @@ class User < ActiveRecord::Base
 
   belongs_to :section
 
-  has_many :assignments, dependent: :destroy
-  has_many :homeworks, dependent: :destroy
-  has_many :grades, dependent: :destroy
-
   has_many :entities, dependent: :nullify
   has_many :instances, dependent: :nullify
 

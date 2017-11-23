@@ -59,7 +59,7 @@ class Entity < ActiveRecord::Base
     index_property = Property.where("entity_id = ? AND indice = ?", self.id, true).order(:ordine).first
 
     # if index_property && self.slug !~ /^[Ii]scrizione/
-    if false
+    if false # ATTENZIONE: a cosa serviva? disabilitato perché creava un problema se la index_property era di tipo utente
       # restituisce una collezione di istanze già collegate alla index property
       Instance.joins(:data).where("instances.entity_id = ? AND data.property_id = ?", self.id, index_property.id).order('data.valore ASC')
     else

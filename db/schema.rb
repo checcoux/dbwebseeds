@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171111195305) do
+ActiveRecord::Schema.define(version: 20171201205517) do
 
   create_table "attachments", force: :cascade do |t|
     t.string   "titolo"
@@ -67,13 +67,16 @@ ActiveRecord::Schema.define(version: 20171111195305) do
     t.datetime "updated_at"
     t.integer  "row_id"
     t.integer  "larghezza"
-    t.integer  "fonte",      default: 0
-    t.integer  "page_id",    default: 0
-    t.boolean  "autocrop",   default: false
-    t.string   "padding",    default: ""
-    t.boolean  "condivisa",  default: true
+    t.integer  "fonte",           default: 0
+    t.integer  "page_id",         default: 0
+    t.boolean  "autocrop",        default: false
+    t.string   "padding",         default: ""
+    t.boolean  "condivisa",       default: true
+    t.integer  "columnable_id"
+    t.string   "columnable_type"
   end
 
+  add_index "columns", ["columnable_type", "columnable_id"], name: "index_columns_on_columnable_type_and_columnable_id"
   add_index "columns", ["page_id"], name: "index_columns_on_page_id"
   add_index "columns", ["row_id"], name: "index_columns_on_row_id"
 

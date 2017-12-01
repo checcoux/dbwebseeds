@@ -10,6 +10,7 @@ class Page < ActiveRecord::Base
   has_many :rows, dependent: :destroy
   has_many :columns, dependent: :destroy
   has_many :tags, as: :taggable, dependent: :destroy
+  has_many :columns, as: :columnable, dependent: :destroy
 
   friendly_id :slug_candidates, :use => :slugged
   validates_presence_of :titolo, :slug

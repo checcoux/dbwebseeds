@@ -310,6 +310,10 @@ class PagesController < ApplicationController
       column.contenuto = "<h2><a href='#{@page.slug}'>#{@page.titolo}</a></h2><p>#{abstract}</p>"
       column.save
 
+      # distruggiamo le news associate e inseriamo la nuova
+      @page.news.destroy_all
+      @page.news << column
+
       # se esiste copia anche l'immagine
       column_image = ColumnImage.joins(:column => :row).where(:rows => {:page_id => @page}).first
 
@@ -330,6 +334,9 @@ class PagesController < ApplicationController
   def nascondi
     @page.visibile = false
     @page.save
+
+    # eliminiamo le news associate
+    @page.news.destroy_all
 
     redirect_to @page
   end

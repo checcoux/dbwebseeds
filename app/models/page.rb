@@ -10,7 +10,7 @@ class Page < ActiveRecord::Base
   has_many :rows, dependent: :destroy
   has_many :columns, dependent: :destroy
   has_many :tags, as: :taggable, dependent: :destroy
-  has_many :columns, as: :columnable, dependent: :destroy
+  has_many :news, :class_name => 'Column', as: :columnable, dependent: :destroy
 
   friendly_id :slug_candidates, :use => :slugged
   validates_presence_of :titolo, :slug
@@ -66,12 +66,14 @@ class Page < ActiveRecord::Base
   def dinamiche(fonte = 1)
     case fonte
       when 1 # colonne della stessa pagina
-        Column.where("page_id = ? AND row_id = 0", id)
+        dinamiche = Column.where("page_id = ? AND row_id = 0", id)
       when 2..3 # colonne della stessa sezione (todo: stesso parent)
-        Column.joins(:page).where(:row_id => 0, :pages => {:section_id => section})
+        dinamiche = Column.joins(:page).where(:row_id => 0, :pages => {:section_id => section})
       when 4..6 # tutto il sito (todo: siti affini e intero cloud)
-        Column.where("row_id = 0")
+        dinamiche = Column.where("row_id = 0")
     end
+
+    dinamiche.where("columnable_type != 'Page' OR columnable_type IS NULL OR columnable_id != ?", id)
   end
 
   # selezione di una colonna tra quelle disponibili

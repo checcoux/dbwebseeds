@@ -5,11 +5,24 @@
 <% policy_scope(@attachments).each do |attachment| %>
   <% if attachment.allegato %>
     <div class="expanded row">
+      <div class="large-1 columns"><%=  if attachment.immagine.exists?
+                                          image_tag attachment.immagine.url(:thumb), style: 'width: 100%;'
+                                        else
+                                          '&nbsp;'.html_safe
+                                        end
+      %></div>
       <div class="large-3 columns"><%= link_to '<i class="fi-paperclip"></i> '.html_safe + attachment.allegato_file_name, "/attachments/#{ attachment.id }/download/#{attachment.allegato_file_name}", class: "secondary medium button bottone-largo" %></div>
-      <div class="large-5 columns"><b><%= attachment.titolo %></b>
+      <div class="large-4 columns"><b><%= attachment.titolo %></b>
       <br><%= attachment.descrizione %></div>
       <div class="large-2 columns"><small><%= attachment.updated_at.to_s(:data_ora) %> - <%= attachment.allegato_file_size / 1024 %> KB - Sezione <%= attachment.section.titolo %></small></div>
-      <div class="large-2 columns"><%= link_to "Modifica", edit_attachment_path(attachment), class: "tiny primary button" %> <%= link_to 'Elimina', attachment, method: :delete, data: { confirm: 'Desideri cancellare il file?' }, class: "tiny alert button" %></div>
+      <div class="large-2 columns">
+        <%= link_to "Modifica", edit_attachment_path(attachment), class: "tiny primary button" %>
+        <% if attachment.immagine.exists? %>
+            <%= link_to 'Pubblica', pubblica_attachment_path(attachment), class: "tiny warning button" %>
+        <% else %>
+            <span class="tiny disabled warning button">Pubblica</span>
+        <% end %>
+        <%= link_to 'Elimina', attachment, method: :delete, data: { confirm: 'Desideri cancellare il file?' }, class: "tiny alert button" %></div>
     </div>
   <% end %>
 <% end %>

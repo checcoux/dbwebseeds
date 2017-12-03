@@ -27,6 +27,10 @@ class AttachmentPolicy < ApplicationPolicy
     edit?
   end
 
+  def pubblica?
+    edit?
+  end
+
   def destroy?
     edit?
   end

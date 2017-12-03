@@ -105,6 +105,10 @@ class PhotoalbumsController < ApplicationController
       column.contenuto = "<h2><a href='/photoalbums/#{@photoalbum.slug}'>#{@photoalbum.titolo}</a></h2><p>Pubblicate le foto!</p>"
       column.save
 
+      # distruggiamo le news associate e inseriamo la nuova
+      @photoalbum.news.destroy_all
+      @photoalbum.news << column
+
       column_image = ColumnImage.new
       column_image.column = column
       column_image.titolo = @photoalbum.titolo

@@ -1,7 +1,7 @@
 # Attachments: lista degli allegati
 
 class AttachmentsController < ApplicationController
-  before_action :set_attachment, only: [:show, :edit, :update, :destroy, :download]
+  before_action :set_attachment, only: [:show, :edit, :update, :destroy, :download, :pubblica]
 
   # GET /attachments
   # GET /attachments.json
@@ -90,6 +90,38 @@ class AttachmentsController < ApplicationController
     end
   end
 
+  def pubblica
+    # creiamo una colonna dinamica nella home della sezione
+    home = @attachment.section.trova_home
+    if home
+      column = Column.new
+      column.ordine = 1
+      column.larghezza = 4
+      column.row_id = 0
+      column.page = home
+      column.contenuto = "<h2><a href='/attachments/#{ @attachment.id }/download/#{@attachment.allegato_file_name}'>#{@attachment.titolo}</a></h2><p>#{@attachment.descrizione}</p>"
+      column.save
+
+      # distruggiamo le news associate e inseriamo la nuova
+      @attachment.news.destroy_all
+      @attachment.news << column
+
+      if @attachment.immagine.exists?
+        column_image = ColumnImage.new
+        column_image.column = column
+        column_image.titolo = @attachment.titolo
+        column_image.descrizione = @attachment.descrizione
+        column_image.collegamento = "/attachments/#{ @attachment.id }/download/#{@attachment.allegato_file_name}"
+        column_image.immagine = @attachment.immagine
+        column_image.save
+      end
+
+      redirect_to home
+    else
+      redirect_to photoalbums_path(section_id: @photoalbum.section_id)
+    end
+  end
+
   # DELETE /attachments/1
   # DELETE /attachments/1.json
   def destroy
@@ -112,6 +144,6 @@ class AttachmentsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def attachment_params
-    params.require(:attachment).permit(:titolo, :descrizione, :collegamento, :allegato, :section_id, :parole)
+    params.require(:attachment).permit(:titolo, :descrizione, :collegamento, :allegato, :section_id, :parole, :immagine)
   end
 end

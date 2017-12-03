@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   resources :attachments do
     member do
       get 'download/:filename' => 'attachments#download'
+      get 'pubblica'
     end
   end
 

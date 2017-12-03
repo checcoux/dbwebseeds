@@ -28,6 +28,7 @@ class Photoalbum < ActiveRecord::Base
 
   has_many :photos, dependent: :destroy
   has_many :tags, as: :taggable, dependent: :destroy
+  has_many :news, :class_name => 'Column', as: :columnable, dependent: :destroy
 
   accepts_nested_attributes_for :photos
 

@@ -21,7 +21,7 @@ property_2:
   entity_id: 1
   maiuscolo: true
   obbligatorio: true
-  riservata: 
+  riservata: false
   condizioni: 
   ordine: 2
   descrizione: ''
@@ -63,7 +63,7 @@ property_15:
   entity_id: 1
   maiuscolo: false
   obbligatorio: true
-  riservata: 
+  riservata: false
   condizioni: 
   ordine: 7
   descrizione: ''
@@ -77,7 +77,7 @@ property_16:
   entity_id: 1
   maiuscolo: true
   obbligatorio: true
-  riservata: 
+  riservata: false
   condizioni: 
   ordine: 5
   descrizione: 
@@ -91,7 +91,7 @@ property_17:
   entity_id: 1
   maiuscolo: false
   obbligatorio: true
-  riservata: 
+  riservata: false
   condizioni: sdb,fma,religioso,sacerdote,laico
   ordine: 6
   descrizione: Indica se sei un salesiano/a, un religioso/a o un sacerdote. In caso
@@ -106,7 +106,7 @@ property_18:
   entity_id: 1
   maiuscolo: false
   obbligatorio: true
-  riservata: 
+  riservata: false
   condizioni: 
   ordine: 10
   descrizione: Acconsento al trattamento dei miei dati personali secondo quanto previsto
@@ -121,7 +121,7 @@ property_19:
   entity_id: 1
   maiuscolo: false
   obbligatorio: true
-  riservata: 
+  riservata: false
   condizioni: appartenenza,all
   ordine: 8
   descrizione: Seleziona la tua realtà di provenienza... se non è in elenco scegli
@@ -136,7 +136,7 @@ property_20:
   entity_id: 1
   maiuscolo: true
   obbligatorio: false
-  riservata: 
+  riservata: false
   condizioni: 
   ordine: 9
   descrizione: Se la tua provenienza non è in elenco seleziona "nuova realtà" nel
@@ -213,3 +213,17 @@ property_25:
   descrizione: 
   placeholder: 
   indice: true
+property_26:
+  id: 26
+  nome: Quanti
+  tipo: intero
+  nativo: false
+  entity_id: 7
+  maiuscolo: false
+  obbligatorio: false
+  riservata: false
+  condizioni: 
+  ordine: 2
+  descrizione: 
+  placeholder: 
+  indice: false

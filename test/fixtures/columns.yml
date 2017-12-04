@@ -19,6 +19,8 @@ column_580:
   autocrop: false
   padding: 0em
   condivisa: true
+  columnable_id: 
+  columnable_type: 
 column_596:
   id: 596
   ordine: 1
@@ -39,22 +41,8 @@ column_596:
   autocrop: true
   padding: ''
   condivisa: true
-column_625:
-  id: 625
-  ordine: 1
-  contenuto: |
-    <p>Contenuto della colonna 3a.</p>
-
-    <p class="testo_piccolo">&nbsp;</p>
-  created_at: 2017-04-14 16:07:03.961514000 Z
-  updated_at: 2017-10-06 14:44:22.424607000 Z
-  row_id: 372
-  larghezza: 8
-  fonte: 0
-  page_id: 0
-  autocrop: true
-  padding: ''
-  condivisa: true
+  columnable_id: 
+  columnable_type: 
 column_626:
   id: 626
   ordine: 4
@@ -71,6 +59,8 @@ column_626:
   autocrop: true
   padding: ''
   condivisa: true
+  columnable_id: 
+  columnable_type: 
 column_640:
   id: 640
   ordine: 2
@@ -85,6 +75,8 @@ column_640:
   autocrop: true
   padding: ''
   condivisa: true
+  columnable_id: 
+  columnable_type: 
 column_648:
   id: 648
   ordine: 1
@@ -99,6 +91,8 @@ column_648:
   autocrop: true
   padding: ''
   condivisa: true
+  columnable_id: 
+  columnable_type: 
 column_649:
   id: 649
   ordine: 3
@@ -113,6 +107,8 @@ column_649:
   autocrop: true
   padding: ''
   condivisa: true
+  columnable_id: 
+  columnable_type: 
 column_651:
   id: 651
   ordine: 1
@@ -131,6 +127,8 @@ column_651:
   autocrop: true
   padding: 0em
   condivisa: true
+  columnable_id: 
+  columnable_type: 
 column_658:
   id: 658
   ordine: 2
@@ -145,6 +143,8 @@ column_658:
   autocrop: true
   padding: ''
   condivisa: true
+  columnable_id: 
+  columnable_type: 
 column_662:
   id: 662
   ordine: 1
@@ -162,6 +162,8 @@ column_662:
   autocrop: true
   padding: ''
   condivisa: true
+  columnable_id: 
+  columnable_type: 
 column_663:
   id: 663
   ordine: 1
@@ -176,6 +178,8 @@ column_663:
   autocrop: true
   padding: ''
   condivisa: true
+  columnable_id: 
+  columnable_type: 
 column_675:
   id: 675
   ordine: 1
@@ -202,6 +206,8 @@ column_675:
   autocrop: true
   padding: 0em
   condivisa: true
+  columnable_id: 
+  columnable_type: 
 column_676:
   id: 676
   ordine: 1
@@ -220,6 +226,8 @@ column_676:
   autocrop: true
   padding: ''
   condivisa: true
+  columnable_id: 
+  columnable_type: 
 column_677:
   id: 677
   ordine: 1
@@ -236,3 +244,20 @@ column_677:
   autocrop: true
   padding: ''
   condivisa: true
+  columnable_id: 
+  columnable_type: 
+column_685:
+  id: 685
+  ordine: 1
+  contenuto: " "
+  created_at: 2017-12-02 15:44:25.320074000 Z
+  updated_at: 2017-12-02 15:44:26.006059000 Z
+  row_id: 372
+  larghezza: 8
+  fonte: 4
+  page_id: 0
+  autocrop: true
+  padding: ''
+  condivisa: true
+  columnable_id: 
+  columnable_type: 

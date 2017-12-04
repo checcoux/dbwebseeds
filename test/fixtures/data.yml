@@ -307,3 +307,157 @@ datum_148:
   valore: ''
   created_at: 2017-08-22 08:37:35.121616000 Z
   updated_at: 2017-08-22 08:37:35.121616000 Z
+datum_149:
+  id: 149
+  instance_id: 58
+  property_id: 1
+  valore: ROS
+  created_at: 2017-11-08 16:14:57.448975000 Z
+  updated_at: 2017-11-08 16:14:57.448975000 Z
+datum_150:
+  id: 150
+  instance_id: 58
+  property_id: 14
+  valore: m
+  created_at: 2017-11-08 16:14:57.687694000 Z
+  updated_at: 2017-11-08 16:14:57.687694000 Z
+datum_154:
+  id: 154
+  instance_id: 60
+  property_id: 22
+  valore: PEREZ
+  created_at: 2017-11-08 16:35:21.475280000 Z
+  updated_at: 2017-11-08 16:35:21.475280000 Z
+datum_155:
+  id: 155
+  instance_id: 60
+  property_id: 23
+  valore: LIVIO
+  created_at: 2017-11-08 16:35:21.666277000 Z
+  updated_at: 2017-11-08 16:35:21.666277000 Z
+datum_156:
+  id: 156
+  instance_id: 60
+  property_id: 24
+  valore: m
+  created_at: 2017-11-08 16:35:21.946947000 Z
+  updated_at: 2017-11-08 16:35:21.946947000 Z
+datum_157:
+  id: 157
+  instance_id: 61
+  property_id: 22
+  valore: BAROZZO
+  created_at: 2017-11-08 16:54:26.729024000 Z
+  updated_at: 2017-11-08 16:54:26.729024000 Z
+datum_158:
+  id: 158
+  instance_id: 61
+  property_id: 23
+  valore: BADIA
+  created_at: 2017-11-08 16:54:27.103023000 Z
+  updated_at: 2017-11-08 16:54:27.103023000 Z
+datum_159:
+  id: 159
+  instance_id: 61
+  property_id: 24
+  valore: f
+  created_at: 2017-11-08 16:54:27.367216000 Z
+  updated_at: 2017-11-08 16:54:27.367216000 Z
+datum_160:
+  id: 160
+  instance_id: 62
+  property_id: 22
+  valore: MERENGO
+  created_at: 2017-11-08 16:54:43.440780000 Z
+  updated_at: 2017-11-08 16:54:43.440780000 Z
+datum_161:
+  id: 161
+  instance_id: 62
+  property_id: 23
+  valore: VALDA
+  created_at: 2017-11-08 16:54:43.728920000 Z
+  updated_at: 2017-11-08 16:54:43.728920000 Z
+datum_162:
+  id: 162
+  instance_id: 62
+  property_id: 24
+  valore: f
+  created_at: 2017-11-08 16:54:44.065697000 Z
+  updated_at: 2017-11-08 16:54:44.065697000 Z
+datum_163:
+  id: 163
+  instance_id: 63
+  property_id: 26
+  valore: '3'
+  created_at: 2017-11-08 16:58:32.335952000 Z
+  updated_at: 2017-11-08 16:58:32.335952000 Z
+datum_164:
+  id: 164
+  instance_id: 64
+  property_id: 26
+  valore: '2'
+  created_at: 2017-11-08 16:59:15.168160000 Z
+  updated_at: 2017-11-08 16:59:15.168160000 Z
+datum_166:
+  id: 166
+  instance_id: 66
+  property_id: 26
+  valore: '12'
+  created_at: 2017-11-08 17:01:18.587822000 Z
+  updated_at: 2017-11-08 17:01:18.587822000 Z
+datum_167:
+  id: 167
+  instance_id: 67
+  property_id: 26
+  valore: '114'
+  created_at: 2017-11-08 17:01:47.233244000 Z
+  updated_at: 2017-11-08 17:01:47.233244000 Z
+datum_169:
+  id: 169
+  instance_id: 58
+  property_id: 2
+  valore: ANDREA
+  created_at: 2017-11-09 20:45:23.941003000 Z
+  updated_at: 2017-11-09 20:45:23.941003000 Z
+datum_170:
+  id: 170
+  instance_id: 58
+  property_id: 15
+  valore: 0421 338911
+  created_at: 2017-11-09 20:45:24.245632000 Z
+  updated_at: 2017-11-09 20:45:24.245632000 Z
+datum_171:
+  id: 171
+  instance_id: 58
+  property_id: 16
+  valore: ODERZO
+  created_at: 2017-11-09 20:45:24.550798000 Z
+  updated_at: 2017-11-09 20:45:24.550798000 Z
+datum_172:
+  id: 172
+  instance_id: 58
+  property_id: 17
+  valore: sdb
+  created_at: 2017-11-09 20:45:24.818631000 Z
+  updated_at: 2017-11-09 20:45:24.818631000 Z
+datum_173:
+  id: 173
+  instance_id: 58
+  property_id: 18
+  valore: '1'
+  created_at: 2017-11-09 20:45:25.326296000 Z
+  updated_at: 2017-11-09 20:45:25.326296000 Z
+datum_174:
+  id: 174
+  instance_id: 58
+  property_id: 19
+  valore: '25'
+  created_at: 2017-11-09 20:45:25.659648000 Z
+  updated_at: 2017-11-09 20:45:25.659648000 Z
+datum_175:
+  id: 175
+  instance_id: 58
+  property_id: 20
+  valore: ''
+  created_at: 2017-11-09 20:45:25.909620000 Z
+  updated_at: 2017-11-09 20:45:25.909620000 Z

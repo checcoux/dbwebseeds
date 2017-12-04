@@ -106,7 +106,7 @@ ActiveRecord::Schema.define(version: 20171203153401) do
     t.string   "plurale"
     t.boolean  "vetrina",               default: false
     t.integer  "stato",                 default: 0
-    t.text     "descrizione",           default: ""
+    t.text     "descrizione"
     t.string   "date",                  default: ""
     t.string   "immagine_file_name"
     t.string   "immagine_content_type"
@@ -152,7 +152,7 @@ ActiveRecord::Schema.define(version: 20171203153401) do
     t.boolean  "modello",                  default: false
     t.boolean  "articolo",                 default: false
     t.boolean  "visibile",                 default: true
-    t.datetime "published_at",             default: '2016-08-17 08:12:10'
+    t.datetime "published_at",             default: '2017-06-08 16:07:22'
     t.text     "abstract"
   end
 

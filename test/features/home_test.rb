@@ -6,9 +6,9 @@ class HomeTest < Capybara::Rails::TestCase
 
     assert_includes 200...300, page.status_code
 
-    assert page.has_link?('login')
+    assert page.has_link?('Login')
     assert page.has_link?('sezione 1')
-    assert page.has_text?("Sito di Test")
+    assert page.has_text?("A nove anni ho fatto un sogno")
     assert page.has_text?("Contenuto della colonna 2c.")
     assert page.has_text?("Footer della pagina")
 

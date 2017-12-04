@@ -6,9 +6,9 @@ user_8:
   reset_password_token: 
   reset_password_sent_at: 
   remember_created_at: 
-  sign_in_count: 39
-  current_sign_in_at: 2017-10-31 16:51:53.980206000 Z
-  last_sign_in_at: 2017-10-31 15:57:43.553132000 Z
+  sign_in_count: 45
+  current_sign_in_at: 2017-11-18 19:16:35.271506000 Z
+  last_sign_in_at: 2017-11-17 17:28:19.049745000 Z
   current_sign_in_ip: 127.0.0.1
   last_sign_in_ip: 127.0.0.1
   confirmation_token: wRtgCygEnxpZcoiYjF1x
@@ -16,7 +16,7 @@ user_8:
   confirmation_sent_at: 2017-06-25 13:25:48.070835000 Z
   unconfirmed_email: 
   created_at: 2017-06-25 13:25:48.070835000 Z
-  updated_at: 2017-10-31 16:51:53.982207000 Z
+  updated_at: 2017-11-18 19:16:35.273504000 Z
   admin: true
   section_id: 
   designer: false
@@ -34,7 +34,7 @@ user_9:
   current_sign_in_ip: 127.0.0.1
   last_sign_in_ip: 127.0.0.1
   confirmation_token: H9J-E3pGsb72wJZizxyi
-  confirmed_at: 2017-06-25 13:25:48.070835000 Z
+  confirmed_at: 1469311200000
   confirmation_sent_at: 2017-06-30 07:07:49.745638000 Z
   unconfirmed_email: 
   created_at: 2017-06-30 07:07:49.744638000 Z
@@ -51,17 +51,39 @@ user_10:
   reset_password_sent_at: 
   remember_created_at: 
   sign_in_count: 3
-  current_sign_in_at: 2017-07-08 15:23:06.749790000 Z
+  current_sign_in_at: 1510095600000
   last_sign_in_at: 2017-06-30 07:28:50.109227000 Z
   current_sign_in_ip: 127.0.0.1
   last_sign_in_ip: 127.0.0.1
   confirmation_token: WeGBx-FAuCG4appzskRZ
-  confirmed_at: 2017-06-25 13:25:48.070835000 Z
+  confirmed_at: 1469311200000
   confirmation_sent_at: 2017-06-30 07:08:38.722598000 Z
   unconfirmed_email: 
   created_at: 2017-06-30 07:08:38.722598000 Z
   updated_at: 2017-07-08 15:23:06.750790000 Z
   admin: false
   section_id: 6
+  designer: false
+  aggiornato: true
+user_13:
+  id: 13
+  email: test4@donboscoland.it
+  encrypted_password: "$2a$11$0nZTdA8V94ugay62Mi8VyOykfl4yeRgd2Ec4KapBMNXy.G40qC4fW"
+  reset_password_token: 
+  reset_password_sent_at: 
+  remember_created_at: 
+  sign_in_count: 3
+  current_sign_in_at: 2017-11-11 09:26:39.470560000 Z
+  last_sign_in_at: 2017-11-08 17:00:03.748949000 Z
+  current_sign_in_ip: 127.0.0.1
+  last_sign_in_ip: 127.0.0.1
+  confirmation_token: j4Xds4CvUm1c-t1Ab3GZ
+  confirmed_at: 1510095600000
+  confirmation_sent_at: 2017-11-08 16:12:24.465570000 Z
+  unconfirmed_email: 
+  created_at: 2017-11-08 16:12:24.465570000 Z
+  updated_at: 2017-11-11 09:26:39.472564000 Z
+  admin: false
+  section_id: 
   designer: false
   aggiornato: true

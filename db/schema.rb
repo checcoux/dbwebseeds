@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171203153401) do
+ActiveRecord::Schema.define(version: 20171228111531) do
 
   create_table "attachments", force: :cascade do |t|
     t.string   "titolo"
@@ -97,22 +97,25 @@ ActiveRecord::Schema.define(version: 20171203153401) do
 
   create_table "entities", force: :cascade do |t|
     t.string   "titolo"
-    t.boolean  "nativo",                default: false
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
+    t.boolean  "nativo",                                        default: false
+    t.datetime "created_at",                                                    null: false
+    t.datetime "updated_at",                                                    null: false
     t.string   "slug"
     t.integer  "user_id"
     t.string   "landing_page"
     t.string   "plurale"
-    t.boolean  "vetrina",               default: false
-    t.integer  "stato",                 default: 0
-    t.text     "descrizione"
-    t.string   "date",                  default: ""
+    t.boolean  "vetrina",                                       default: false
+    t.integer  "stato",                                         default: 0
+    t.text     "descrizione",                                   default: ""
+    t.string   "date",                                          default: ""
     t.string   "immagine_file_name"
     t.string   "immagine_content_type"
     t.integer  "immagine_file_size"
     t.datetime "immagine_updated_at"
     t.string   "tipo"
+    t.integer  "limite",                                        default: 0
+    t.decimal  "caparra",               precision: 6, scale: 2, default: 0.0
+    t.decimal  "prezzo",                precision: 6, scale: 2, default: 0.0
   end
 
   add_index "entities", ["slug"], name: "index_entities_on_slug", unique: true
@@ -152,7 +155,7 @@ ActiveRecord::Schema.define(version: 20171203153401) do
     t.boolean  "modello",                  default: false
     t.boolean  "articolo",                 default: false
     t.boolean  "visibile",                 default: true
-    t.datetime "published_at",             default: '2017-06-08 16:07:22'
+    t.datetime "published_at",             default: '2016-08-17 08:12:10'
     t.text     "abstract"
   end
 

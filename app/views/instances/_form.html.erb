@@ -1,6 +1,16 @@
 <%= form_for @instance, html: { 'data-abide' => true, 'novalidate' => true } do |f| %>
     <%= render 'layouts/errori', object: @instance %>
 
+  <% if @limiti_superati %>
+    <div data-abide-error class="alert callout">
+      <ul>
+        <% @errori_limiti.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <%= f.hidden_field(:entity_id) %>
 
   <%

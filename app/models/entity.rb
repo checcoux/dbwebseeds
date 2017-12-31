@@ -66,4 +66,10 @@ class Entity < ActiveRecord::Base
       Instance.where("instances.entity_id = ?", self.id)
     end
   end
+
+  #def cerca_per_appartenenza
+    # Instance.joins(:data).where("instances.entity_id = ? AND data.property_id = ?", self.id, index_property.id).order('data.valore ASC')
+    # Instance.joins(:user).joins().where("instances.entity_id = ? AND data.property_id = ?", self.id, index_property.id).order('data.valore ASC')
+    # nota: non potrebbe funzionare
+  #end
 end

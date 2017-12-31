@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171228111531) do
+ActiveRecord::Schema.define(version: 20171231074425) do
 
   create_table "attachments", force: :cascade do |t|
     t.string   "titolo"
@@ -116,6 +116,7 @@ ActiveRecord::Schema.define(version: 20171228111531) do
     t.integer  "limite",                                        default: 0
     t.decimal  "caparra",               precision: 6, scale: 2, default: 0.0
     t.decimal  "prezzo",                precision: 6, scale: 2, default: 0.0
+    t.boolean  "applica_limiti",                                default: false
   end
 
   add_index "entities", ["slug"], name: "index_entities_on_slug", unique: true
@@ -138,9 +139,10 @@ ActiveRecord::Schema.define(version: 20171228111531) do
     t.integer  "entity_id"
     t.integer  "section_id"
     t.string   "tags"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.integer  "user_id"
+    t.integer  "appartenenza_id", default: 0
   end
 
   create_table "pages", force: :cascade do |t|

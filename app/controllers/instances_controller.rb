@@ -66,11 +66,16 @@ class InstancesController < ApplicationController
     @instance = Instance.new(instance_params)
     @instance.section||= trova_sezione_principale
     @instance.user = current_user
+    @instance.appartenenza_id = current_user.appartenenza_id
 
     authorize @instance
 
     @entity = @instance.entity
-    if valid_properties? @entity
+
+    @errori_limiti = []
+    @limiti_superati = !(nei_limiti? @instance)
+
+    if !@limiti_superati && (valid_properties? @entity)
       respond_to do |format|
         if @instance.save
 
@@ -108,7 +113,10 @@ class InstancesController < ApplicationController
   def update
     @entity = @instance.entity
 
-    if valid_properties? @entity
+    @errori_limiti = []
+    @limiti_superati = !(nei_limiti? @instance, true)
+
+    if !@limiti_superati && (valid_properties? @entity)
       respond_to do |format|
         if @instance.update(instance_params)
 
@@ -191,4 +199,69 @@ class InstancesController < ApplicationController
 
       @validator.valid?
     end
+
+  def nei_limiti?(instance, is_update = false)
+    nei_limiti = true
+
+    if instance.entity.applica_limiti
+      # verifica che non sia superato il limite per questa appartenenza (bypassata nel caso dell'update)
+      if !is_update
+
+        entity_appartenenza = Entity.find_by! slug: 'appartenenza'
+        appartenenza = entity_appartenenza.instances.where(id: instance.user.appartenenza_id).first
+        # nota: non si può semplificare in Instance.find(instance.user.appartenenza_id) perché nel caso non esistesse solleverebbe un'eccezione
+
+        if appartenenza
+          limit_property = Property.where("entity_id = ? AND nome like 'limite'", entity_appartenenza.id).first
+
+          if limit_property
+            datum = Datum.find_by instance_id: instance.user.appartenenza_id, property_id: limit_property.id
+
+            max = datum ? datum.valore.to_i : 0
+
+            conteggio = Instance.where(entity_id: instance.entity.id, appartenenza_id: instance.user.appartenenza_id).count
+
+            if conteggio >= max
+              nei_limiti = false
+              @errori_limiti << "Siamo spiacenti, non ci sono più posti disponibili per #{ appartenenza.label }"
+            end
+          end
+        end
+      end
+
+      # per ogni property di tipo select
+      select_properties = instance.entity.properties.where(tipo: 'select')
+      select_properties.each do |property|
+        # trovo l'entity collegata
+        parametri = property.condizioni.split(',')
+        tabella = parametri[0]
+        ent = Entity.find_by! slug: tabella
+
+        # se ha una property limite
+        limit_property = ent.properties.where("nome like 'limite'").first
+        if limit_property
+          # individua l'id dell'istanza scelta
+          ist_id = params[:dato][property.id.to_s].to_i
+
+          # legge il valore del limite per l'istanza scelta
+          datum = Datum.find_by instance_id: ist_id, property_id: limit_property.id
+          max = datum ? datum.valore.to_i : 0
+
+          # conta quante volte quell'istanza è stata già scelta
+          conteggio = Instance.joins(:data).where("instances.entity_id = ? AND data.property_id = ? AND data.valore = ?", instance.entity.id, property.id, ist_id.to_s).count
+
+          if conteggio >= max
+            nei_limiti = false
+
+            # legge il nome dell'istanza scelta
+            ist = Instance.find(ist_id)
+
+            @errori_limiti << "Raggiunto il limite per #{ property.nome }: #{ ist.label }"
+          end
+        end
+      end
+    end
+
+    return nei_limiti
+  end
 end

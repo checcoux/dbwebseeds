@@ -247,6 +247,15 @@ class InstancesController < ApplicationController
           datum = Datum.find_by instance_id: ist_id, property_id: limit_property.id
           max = datum ? datum.valore.to_i : 0
 
+          # se è un update e il valore non è cambiato aumento il limite di uno
+          if is_update
+            datum = Datum.find_by instance_id: instance.id, property_id: property.id
+
+            if datum
+              max+=1 if datum.valore.to_i == ist_id
+            end
+          end
+
           # conta quante volte quell'istanza è stata già scelta
           conteggio = Instance.joins(:data).where("instances.entity_id = ? AND data.property_id = ? AND data.valore = ?", instance.entity.id, property.id, ist_id.to_s).count
 

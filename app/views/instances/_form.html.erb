@@ -152,15 +152,30 @@
                 instces = ent.elenco.where("user_id = ?", current_user.id)
               end
 
-              #Project.joins(:client)
-              #    .select('projects.id,projects.name,clients.name as client_name')
-              #    .first.client_name
+              # verifico se la tabella collegata ha una proprietà limite
+              limit_property = ent.properties.where("nome like 'limite'").first
 
               if instces.count > 5
                 valori = []
                 instces.each do |instce|
                   # valori.push [ instce.data.first.valore, instce.id ]
-                  valori.push [ instce.label, instce.id ]
+
+                  if @entity.applica_limiti && limit_property
+                    # legge il valore del limite per l'istanza
+                    datum = Datum.find_by instance_id: instce.id, property_id: limit_property.id
+                    max = datum ? datum.valore.to_i : 0
+
+                    # conta quante volte quell'istanza è stata già scelta
+                    conteggio = Instance.joins(:data).where("instances.entity_id = ? AND data.property_id = ? AND data.valore = ?", @entity.id, property.id, instce.id.to_s).count
+
+                    rimanenti = max - conteggio
+
+                    valori.push ["#{ instce.label } (#{ rimanenti } disponibili)", instce.id ] if rimanenti > 0 || valore.to_i == instce.id || current_user.admin?
+
+                  else
+                    # valori[instce.id] = instce.data.first.valore
+                    valori.push [ instce.label, instce.id ]
+                  end
                 end
 
                 if property.obbligatorio?
@@ -173,8 +188,22 @@
                 valori = {}
 
                 instces.each do |instce|
-                  # valori[instce.id] = instce.data.first.valore
-                  valori[instce.id] = instce.label
+                  if @entity.applica_limiti && limit_property
+                    # legge il valore del limite per l'istanza
+                    datum = Datum.find_by instance_id: instce.id, property_id: limit_property.id
+                    max = datum ? datum.valore.to_i : 0
+
+                    # conta quante volte quell'istanza è stata già scelta
+                    conteggio = Instance.joins(:data).where("instances.entity_id = ? AND data.property_id = ? AND data.valore = ?", @entity.id, property.id, instce.id.to_s).count
+
+                    rimanenti = max - conteggio
+
+                    valori[instce.id] = "#{ instce.label } (#{ rimanenti } disponibili)" if rimanenti > 0 || valore.to_i == instce.id || current_user.admin?
+
+                  else
+                    # valori[instce.id] = instce.data.first.valore
+                    valori[instce.id] = instce.label
+                  end
                 end
 
                 if property.obbligatorio?

@@ -1,5 +1,6 @@
 <%= form_for @instance, html: { 'data-abide' => true, 'novalidate' => true } do |f| %>
-    <%= render 'layouts/errori', object: @instance %>
+
+  <%= render 'layouts/errori', object: @instance %>
 
   <% if @limiti_superati %>
     <div data-abide-error class="alert callout">
@@ -21,9 +22,11 @@
           field_id = "dato[#{ property.id }]"
           tipo = property.tipo
 
-          if @instance
+          if @instance.id
             dato = Datum.find_by instance_id: @instance.id, property_id: property.id
             valore = dato ? dato.valore : ''
+          elsif params[:dato]
+            valore = params[:dato][property.id.to_s]
           else
             valore = ''
           end

@@ -23,7 +23,9 @@
 <table>
   <thead>
     <tr>
-      <th><%= @entity.label %></th>
+      <% @entity.alabel.each do |label| %>
+      <th><%= label %></th>
+      <% end %>
       <% if current_user.admin? %>
           <th>Creato da</th>
           <th>Appartenenza</th>
@@ -36,10 +38,12 @@
   <tbody>
     <% @instances.each do |instance| %>
       <tr>
-        <% if current_user.admin? || instance.entity.stato == 1 %>
-          <td><%= link_to instance.label, edit_instance_path(instance) %></td>
-        <% else %>
-          <td><%= link_to instance.label, instance_path(instance) %></td>
+        <% instance.alabel.each do |label| %>
+          <% if current_user.admin? || instance.entity.stato == 1 %>
+            <td><%= link_to label, edit_instance_path(instance) %></td>
+          <% else %>
+            <td><%= link_to label, instance_path(instance) %></td>
+          <% end %>
         <% end %>
         <% if current_user.admin? %>
             <td class="testo_piccolo"><%= instance.user.email if instance.user %></td>

@@ -54,13 +54,31 @@ class Entity < ActiveRecord::Base
     end
   end
 
+  # label in formato array
+  def alabel
+    label = []
+
+    name_properties = Property.where("entity_id = ? AND indice = ?", self.id, true).order(:ordine)
+
+    if name_properties.count >= 1
+      name_properties.each do |name_property|
+        label << "#{name_property.nome} "
+      end
+    else
+      label << "#{self.titolo} n."
+    end
+
+    label
+  end
+
   def elenco
     # al momento ordiniamo unicamente in base alla prima index property
-    index_property = Property.where("entity_id = ? AND indice = ?", self.id, true).order(:ordine).first
+    index_property = Property.where("entity_id = ? AND indice = ? AND tipo NOT IN ('select','utente')", self.id, true).order(:ordine).first
 
     # if index_property && self.slug !~ /^[Ii]scrizione/
-    if false # ATTENZIONE: a cosa serviva? disabilitato perché creava un problema se la index_property era di tipo utente
-      # restituisce una collezione di istanze già collegate alla index property
+    # if false # ATTENZIONE: crea un problema se la index_property è di tipo utente
+    if index_property
+      # restituisce una collezione di istanze già collegate alla index property, e ordinate in base a questa
       Instance.joins(:data).where("instances.entity_id = ? AND data.property_id = ?", self.id, index_property.id).order('data.valore ASC')
     else
       Instance.where("instances.entity_id = ?", self.id)

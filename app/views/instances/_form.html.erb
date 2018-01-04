@@ -260,6 +260,18 @@
   <% end %>
 
   <div class="small-12 columns actions">
-  <%= f.submit 'SALVA', class: 'button' %>
+
+  <% if @entity.creazione_multipla? && !@instance.id %>
+      <div class="input-group">
+        <span class="input-group-label">numero di copie:</span>
+        <input class="input-group-field" type="number" name="numcopie" min="1" max="200" value="1">
+        <div class="input-group-button">
+          <input type="submit" class="button" value="SALVA">
+        </div>
+      </div>
+      <p class="help-text">Se desideri fare una prenotazione multipla indica il numero di copie da creare: potrai modificarle o eliminarle singolarmente in seguito.<br><b>Attenzione</b>: nel caso venga superato qualche limite, verrà creato solo il numero di copie massimo consentito.</p>
+  <% else %>
+    <%= f.submit 'SALVA', class: 'button' %>
+  <% end %>
   </div>
 <% end %>

@@ -63,22 +63,26 @@ class InstancesController < ApplicationController
   # POST /instances
   # POST /instances.json
   def create
-    @instance = Instance.new(instance_params)
-    @instance.section||= trova_sezione_principale
-    @instance.user = current_user
-    @instance.appartenenza_id = current_user.appartenenza_id
+    # è possibile creare diverse copie dell'istanza
+    numcopie = params[:numcopie].to_i
+    numcopie = 1 if !numcopie.between?(1,200)
 
-    authorize @instance
+    for i in 1..numcopie
 
-    @entity = @instance.entity
+      @instance = Instance.new(instance_params)
+      @instance.section||= trova_sezione_principale
+      @instance.user = current_user
+      @instance.appartenenza_id = current_user.appartenenza_id
 
-    @errori_limiti = []
-    @limiti_superati = !(nei_limiti? @instance)
+      authorize @instance
 
-    if !@limiti_superati && (valid_properties? @entity)
-      respond_to do |format|
+      @entity = @instance.entity
+
+      @errori_limiti = []
+      @limiti_superati = !(nei_limiti? @instance)
+
+      if !@limiti_superati && (valid_properties? @entity)
         if @instance.save
-
           # scrittura dei valori delle singole proprietà
           properties = @entity.properties
           properties = properties.where(riservata: false) if !current_user.admin?
@@ -93,16 +97,17 @@ class InstancesController < ApplicationController
               datum.save
             end
           end
-
-          landing_page = !@entity.landing_page.empty? ? @entity.landing_page : instances_url(type: @entity.slug)
-
-          format.html { redirect_to landing_page }
-          format.json { render :show, status: :created, location: @instance }
         else
-          format.html { render :new }
-          format.json { render json: @instance.errors, status: :unprocessable_entity }
+          break
         end
+      else
+        break
       end
+    end
+
+    if i > numcopie # ha completato il ciclo
+      landing_page = !@entity.landing_page.empty? ? @entity.landing_page : instances_url(type: @entity.slug)
+      redirect_to landing_page
     else
       render :new
     end
@@ -174,7 +179,7 @@ class InstancesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def instance_params
-      params.require(:instance).permit(:entity_id, :section_id, :tags, :type, :dato )
+      params.require(:instance).permit(:entity_id, :section_id, :tags, :type, :dato, :numcopie )
     end
 
     def valid_properties?(entity)

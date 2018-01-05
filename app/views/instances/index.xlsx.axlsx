@@ -36,8 +36,11 @@ wb.styles do |style|
         ent = Entity.find_by! slug: tabella
         collegata[property.id] = ent # salviamo l'entity per non doverla ricaricare a ogni riga
 
-        if ent.properties.count > 1
-          ent.properties.order(:ordine).each do |prop|
+        visibili = ent.properties
+        visibili = visibili.where("riservata = ?", false) if !current_user.admin?
+
+        if visibili.count > 1
+          visibili.order(:ordine).each do |prop|
             intestazioni.push property.nome + ': ' + prop.nome if prop.tipo!='select' # per ora non esportiamo select nidificate
           end
         else
@@ -59,9 +62,11 @@ wb.styles do |style|
       end
     end
 
-    intestazioni.push "Creato da"
-    intestazioni.push "Appartenenza"
-    intestazioni.push "Ultima modifica"
+    if current_user.admin?
+      intestazioni.push "Creato da"
+      intestazioni.push "Appartenenza"
+      intestazioni.push "Ultima modifica"
+    end
 
     sheet.add_row intestazioni
 
@@ -110,7 +115,10 @@ wb.styles do |style|
             # esplodiamo i dati della tabella collegata
             ent = collegata[property.id]
 
-            ent.properties.order(:ordine).each do |prop|
+            visibili = ent.properties
+            visibili = visibili.where("riservata = ?", false) if !current_user.admin?
+
+            visibili.order(:ordine).each do |prop|
 
               if prop.tipo!='select' # per ora non esportiamo select nidificate
                 if instce
@@ -136,14 +144,16 @@ wb.styles do |style|
         end
       end
 
-      dati.push instance.user.email
-      stili.push nil
+      if current_user.admin?
+        dati.push instance.user.email
+        stili.push nil
 
-      dati.push instance.user.appartenenza
-      stili.push nil
+        dati.push instance.user.appartenenza
+        stili.push nil
 
-      dati.push instance.updated_at
-      stili.push @date_time_cell
+        dati.push instance.updated_at
+        stili.push @date_time_cell
+      end
 
       sheet.add_row dati, style: stili
     end

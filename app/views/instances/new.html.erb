@@ -14,7 +14,9 @@
 <div class="row">
   <p>&nbsp;</p>
 
-<h2><%= @entity.titolo %></h2>
+<h2><%= @entity.titolo %>
+  <%= link_to 'Elenco', "/instances?type=#{ @entity.slug }", class: 'secondary button float-right' %>
+</h2>
 
 <%= render 'form' %>
 

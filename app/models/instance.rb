@@ -6,7 +6,7 @@ class Instance < ActiveRecord::Base
   has_many :data, dependent: :destroy
 
   def label
-    name_properties = Property.where("entity_id = ? AND indice = ?", self.entity.id, true).order(:ordine)
+    name_properties = Property.where("entity_id = ? AND indice = ? AND nome NOT LIKE 'limite'", self.entity.id, true).order(:ordine)
 
     if name_properties.count >= 1
       label = ''

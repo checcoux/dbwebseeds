@@ -1,7 +1,22 @@
 <%= render partial: "pages/cookielaw" %>
 <%= render partial: "pages/header" %>
 
-<p>&nbsp;</p>
+
+
+<div class="row small-12 columns">
+  <p>&nbsp;</p>
+  <% if !current_user %>
+    <div class="primary callout" data-closable="scale-out-up">
+      <h2>Login necessario</h2>
+      <p>Per iscriverti devi prima effettuare l'accesso al sito:
+        <br>se hai già un account <a href="/users/sign_in">clicca qui per loggarti</a>,
+        altrimenti <a href="/users/sign_up">iscriviti qui</a>.</p>
+      <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  <% end %>
+</div>
 
 <div class="row small-up-1 medium-up-3">
 
@@ -13,7 +28,7 @@
         <% end %>
             <div class="card-user-profile-content card-section">
             <div class="card-user-profile-avatar">
-              <img src="/img/entity/<%= entity.tipo %>.png" />
+              <img src="/img/entity/<%= entity.tipo %><%= '_disabled' if entity.stato != 1 %>.png" />
             </div>
             <p class="card-user-profile-name"><%= entity.titolo %></p>
             <p class="card-user-profile-date"><%= entity.date %></p>

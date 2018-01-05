@@ -105,7 +105,7 @@ class InstancesController < ApplicationController
       end
     end
 
-    if i >= numcopie # ha completato il ciclo
+    if i >= numcopie && !@limiti_superati # ha completato il ciclo
       landing_page = !@entity.landing_page.empty? ? @entity.landing_page : instances_url(type: @entity.slug)
       redirect_to landing_page
     else

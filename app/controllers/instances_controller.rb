@@ -208,8 +208,8 @@ class InstancesController < ApplicationController
   def nei_limiti?(instance, is_update = false)
     nei_limiti = true
 
-    if instance.entity.applica_limiti
-      # verifica che non sia superato il limite per questa appartenenza (bypassata nel caso dell'update)
+    # verifica che non sia superato il limite per questa appartenenza (bypassata nel caso dell'update)
+    if instance.entity.applica_limiti_appartenenza
       if !is_update
 
         entity_appartenenza = Entity.find_by! slug: 'appartenenza'
@@ -237,7 +237,9 @@ class InstancesController < ApplicationController
           end
         end
       end
+    end
 
+    if instance.entity.applica_limiti
       # per ogni property di tipo select
       select_properties = instance.entity.properties.where(tipo: 'select')
       select_properties.each do |property|

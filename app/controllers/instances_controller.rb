@@ -95,6 +95,8 @@ class InstancesController < ApplicationController
     numcopie = params[:numcopie].to_i
     numcopie = 1 if !numcopie.between?(1,200)
 
+    copie_salvate = 0
+
     for i in 1..numcopie
 
       @instance = Instance.new(instance_params)
@@ -111,6 +113,8 @@ class InstancesController < ApplicationController
 
       if !@limiti_superati && (valid_properties? @entity)
         if @instance.save
+          copie_salvate+=1
+
           # scrittura dei valori delle singole proprietà
           properties = @entity.properties
           properties = properties.where(riservata: false) if !current_user.admin?
@@ -133,10 +137,11 @@ class InstancesController < ApplicationController
       end
     end
 
-    if i >= numcopie && !@limiti_superati # ha completato il ciclo
+    if copie_salvate == numcopie # ha completato il ciclo
       landing_page = !@entity.landing_page.empty? ? @entity.landing_page : instances_url(type: @entity.slug)
       redirect_to landing_page
     else
+      @errori_limiti << "Salvate #{ copie_salvate } copie su #{ numcopie }"
       render :new
     end
   end

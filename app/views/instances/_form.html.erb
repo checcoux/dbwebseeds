@@ -2,7 +2,7 @@
 
   <%= render 'layouts/errori', object: @instance %>
 
-  <% if @avvisi_limiti %>
+  <% if @avvisi_limiti && @avvisi_limiti.count > 0 %>
     <div data-abide-error class="warning callout">
       <ul>
         <% @avvisi_limiti.each do |message| %>

@@ -46,10 +46,14 @@
   </div>
   <div class="field">
     <%= f.check_box :vetrina %>
-    <%= f.label :vetrina %>
+    <%= f.label "Deve apparire in vetrina" %>
   </div>
   <div class="field">
-    <%= f.label :stato %><br>
+    <%= f.label "Ordine di apparizione in vetrina" %><br>
+    <%= f.number_field :ordine %>
+  </div>
+  <div class="field">
+    <%= f.label "Stato (0 = in costruzione / 1 = aperta / 2 = chiusa ma visibile)" %><br>
     <%= f.number_field :stato %>
   </div>
   <div class="field">
@@ -57,6 +61,6 @@
     <%= f.label 'rigenera slug' %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "SALVA", class: 'button' %>
   </div>
 <% end %>

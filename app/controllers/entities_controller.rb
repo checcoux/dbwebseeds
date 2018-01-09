@@ -11,9 +11,9 @@ class EntitiesController < ApplicationController
 
   def vetrina
     if current_user && current_user.admin?
-      @entities = Entity.where("vetrina = ? AND stato < 3", true).order(id: :desc)
+      @entities = Entity.where("vetrina = ? AND stato < 3", true).order(:ordine, id: :desc)
     else
-      @entities = Entity.where("vetrina = ? AND stato IN (1,2)", true).order(id: :desc)
+      @entities = Entity.where("vetrina = ? AND stato IN (1,2)", true).order(:ordine, id: :desc)
     end
   end
 
@@ -90,6 +90,6 @@ class EntitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def entity_params
-      params.require(:entity).permit(:titolo, :nativo, :rigenera_slug, :landing_page, :vetrina, :stato, :descrizione, :date, :plurale, :immagine, :tipo, :testo_pagamento)
+      params.require(:entity).permit(:titolo, :nativo, :rigenera_slug, :landing_page, :vetrina, :stato, :descrizione, :date, :plurale, :immagine, :tipo, :testo_pagamento, :ordine)
     end
 end

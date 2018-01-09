@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180106095706) do
+ActiveRecord::Schema.define(version: 20180109174348) do
 
   create_table "attachments", force: :cascade do |t|
     t.string   "titolo"
@@ -120,6 +120,7 @@ ActiveRecord::Schema.define(version: 20180106095706) do
     t.boolean  "creazione_multipla",                                  default: false
     t.text     "testo_pagamento"
     t.boolean  "applica_limiti_appartenenza",                         default: false
+    t.integer  "ordine",                                              default: 0
   end
 
   add_index "entities", ["slug"], name: "index_entities_on_slug", unique: true

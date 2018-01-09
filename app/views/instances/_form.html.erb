@@ -2,6 +2,16 @@
 
   <%= render 'layouts/errori', object: @instance %>
 
+  <% if @avvisi_limiti %>
+    <div data-abide-error class="warning callout">
+      <ul>
+        <% @avvisi_limiti.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <% if @limiti_superati %>
     <div data-abide-error class="alert callout">
       <ul>

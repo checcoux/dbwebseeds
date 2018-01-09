@@ -42,12 +42,40 @@ class InstancesController < ApplicationController
     @instance = Instance.new
     @instance.user = current_user
     @page = trova_home
+    @avvisi_limiti = []
 
     if !params[:type].nil?
       @entity = Entity.find_by! slug: params[:type]
       @instance.entity_id = @entity ? @entity.id : 0
 
       authorize @entity, :edit_instances?
+
+      # verifica se ci sono limiti per appartenenza
+      if @instance.entity.applica_limiti_appartenenza
+        entity_appartenenza = Entity.find_by! slug: 'appartenenza'
+        appartenenza = entity_appartenenza.instances.where(id: current_user.appartenenza_id).first
+        # nota: non si può semplificare in Instance.find(instance.user.appartenenza_id) perché nel caso non esistesse solleverebbe un'eccezione
+
+        if appartenenza
+          limit_property = Property.where("entity_id = ? AND nome like 'limite'", entity_appartenenza.id).first
+
+          if limit_property
+            datum = Datum.find_by instance_id: current_user.appartenenza_id, property_id: limit_property.id
+            max = datum ? datum.valore.to_i : 0
+            conteggio = Instance.where(entity_id: @instance.entity.id, appartenenza_id: current_user.appartenenza_id).count
+
+            if conteggio >= max
+              if max > 0
+                @avvisi_limiti << "Siamo spiacenti, non ci sono più posti disponibili per #{ appartenenza.label }: #{ conteggio } posti occupati."
+              else
+                @avvisi_limiti << "#{ appartenenza.label } partecipa per la prima volta. Contatta eventijesolo@donboscoland.it per abilitare l'iscrizione."
+              end
+            else
+              @avvisi_limiti << "Disponibili ancora #{ max - conteggio } su #{ max } posti per #{ appartenenza.label }"
+            end
+          end
+        end
+      end
     else
       # todo: errore, tipo di oggetto non specificato
       @instance.entity_id = 0

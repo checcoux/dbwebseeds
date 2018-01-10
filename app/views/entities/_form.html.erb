@@ -29,6 +29,16 @@
     <%= f.file_field :immagine %>
   </div>
   <div class="field">
+    <%= image_tag @entity.icona_on.url(:thumb) %><br>
+    <%= f.label "Icona per oggetti abilitati" %><br>
+    <%= f.file_field :icona_on %>
+  </div>
+  <div class="field">
+    <%= image_tag @entity.icona_off.url(:thumb) %><br>
+    <%= f.label "Icona per oggetti disabilitati" %><br>
+    <%= f.file_field :icona_off %>
+  </div>
+  <div class="field">
     <%= f.label "Date apertura iscrizioni" %><br>
     <%= f.text_field :date %>
   </div>

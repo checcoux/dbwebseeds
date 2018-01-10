@@ -28,8 +28,13 @@
         <% end %>
             <div class="card-user-profile-content card-section">
             <div class="card-user-profile-avatar">
-              <img src="/img/entity/<%= entity.tipo %><%= '_disabled' if entity.stato != 1 %>.png" />
-            </div>
+              <img src="<%=
+                if entity.stato != 1
+                  entity.icona_off.url(:thumb)
+                else
+                  entity.icona_on.url(:thumb)
+                end
+              %>"></div>
             <p class="card-user-profile-name"><%= entity.titolo %></p>
             <p class="card-user-profile-date"><%= entity.date %></p>
             <p class="card-user-profile-info"><%= entity.descrizione %></p>

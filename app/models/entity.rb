@@ -22,10 +22,40 @@ class Entity < ActiveRecord::Base
                         :medium => "-quality 75 -strip",
                         :large => "-quality 75 -strip"
                     },
-                    :default_url => "img/missing.png"
+                    :default_url => "/img/missing.png"
 
   validates_attachment_size :immagine, :less_than => 3.megabytes
   validates_attachment_content_type :immagine, :content_type => /\Aimage/
+
+  has_attached_file :icona_on,
+                    :hash_secret => "hj42ZZ5!76",
+                    :url  => "/img/entity/on/:hash.:extension",
+                    :path => ":rails_root/public/img/entity/on/:hash.:extension",
+                    :styles => {
+                        :thumb => '256x256#',
+                    },
+                    :convert_options => {
+                        :thumb => "-quality 75 -strip",
+                    },
+                    :default_url => "/img/entity/oggetto.png"
+
+  validates_attachment_size :icona_on, :less_than => 3.megabytes
+  validates_attachment_content_type :icona_on, :content_type => /\Aimage/
+
+  has_attached_file :icona_off,
+                    :hash_secret => "hj42ZZ5!76",
+                    :url  => "/img/entity/off/:hash.:extension",
+                    :path => ":rails_root/public/img/entity/off/:hash.:extension",
+                    :styles => {
+                        :thumb => '256x256#',
+                    },
+                    :convert_options => {
+                        :thumb => "-quality 75 -strip",
+                    },
+                    :default_url => "/img/entity/oggetto_disabled.png"
+
+  validates_attachment_size :icona_off, :less_than => 3.megabytes
+  validates_attachment_content_type :icona_off, :content_type => /\Aimage/
 
   def slug_candidates
     [ :titolo, :titolo_e_sequenza ]

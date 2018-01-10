@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180110155109) do
+ActiveRecord::Schema.define(version: 20180110165131) do
 
   create_table "attachments", force: :cascade do |t|
     t.string   "titolo"
@@ -122,6 +122,14 @@ ActiveRecord::Schema.define(version: 20180110155109) do
     t.boolean  "applica_limiti_appartenenza",                         default: false
     t.integer  "ordine",                                              default: 0
     t.text     "descrizione_lunga"
+    t.string   "icona_on_file_name"
+    t.string   "icona_on_content_type"
+    t.integer  "icona_on_file_size"
+    t.datetime "icona_on_updated_at"
+    t.string   "icona_off_file_name"
+    t.string   "icona_off_content_type"
+    t.integer  "icona_off_file_size"
+    t.datetime "icona_off_updated_at"
   end
 
   add_index "entities", ["slug"], name: "index_entities_on_slug", unique: true

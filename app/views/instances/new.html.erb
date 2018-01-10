@@ -18,6 +18,8 @@
   <%= link_to 'Elenco', "/instances?type=#{ @entity.slug }", class: 'secondary button float-right' %>
 </h2>
 
+<%= ("<div>" + simple_format("#{ @entity.descrizione_lunga}") + "</div>").html_safe if @entity.descrizione_lunga.length > 3 %>
+
 <%= render 'form' %>
 
 <p>&nbsp;</p>

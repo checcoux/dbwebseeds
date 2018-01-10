@@ -271,9 +271,17 @@
 
   <div class="small-12 columns actions">
 
+  <%
+    case @entity.tipo
+      when 'iscrizione'
+        testo_numero_copie = 'partecipanti'
+      else
+        testo_numero_copie = 'copie'
+    end
+  %>
   <% if @entity.creazione_multipla? && !@instance.id %>
       <div class="input-group">
-        <span class="input-group-label">numero di copie:</span>
+        <span class="input-group-label">Numero di <%= testo_numero_copie %>:</span>
         <input class="input-group-field" type="number" name="numcopie" min="1" max="200" value="1">
         <div class="input-group-button">
           <input type="submit" class="button" value="SALVA">

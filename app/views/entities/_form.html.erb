@@ -34,11 +34,15 @@
   </div>
   <div class="field">
     <%= f.label :descrizione %><br>
-    <%= f.text_area :descrizione %>
+    <%= f.text_area :descrizione, rows: 3 %>
+  </div>
+  <div class="field">
+    <%= f.label "Descrizione lunga" %><br>
+    <%= f.text_area :descrizione_lunga, rows: 20 %>
   </div>
   <div class="field">
     <%= f.label "Modalità di pagamento" %><br>
-    <%= f.text_area :testo_pagamento %>
+    <%= f.text_area :testo_pagamento, rows: 10 %>
   </div>
   <div class="field">
     <%= f.label :landing_page, "Landing page" %><br>
@@ -54,7 +58,7 @@
   </div>
   <div class="field">
     <%= f.label "Stato (0 = in costruzione / 1 = aperta / 2 = chiusa ma visibile)" %><br>
-    <%= f.number_field :stato %>
+    <%= f.select(:stato, options_for_select([['in costruzione','0'],['aperta','1'],['chiusa ma visibile','2']],@entity.stato)) %>
   </div>
   <div class="field">
     <%= check_box_tag 'rigenera_slug' %>

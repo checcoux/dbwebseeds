@@ -264,7 +264,7 @@ class InstancesController < ApplicationController
               if max > 0
                 @errori_limiti << "Siamo spiacenti, non ci sono più posti disponibili per #{ appartenenza.label }"
               else
-                @errori_limiti << "#{ appartenenza.label } partecipa per la prima volta. Contatta eventijesolo@donboscoland.it per abilitare l'iscrizione."
+                @errori_limiti << "#{ appartenenza.label } partecipa per la prima volta. Contatta iscrizioni@donboscoland.it per abilitare l'iscrizione."
               end
             end
           end

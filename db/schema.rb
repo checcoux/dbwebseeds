@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180110165131) do
+ActiveRecord::Schema.define(version: 20180119201507) do
 
   create_table "attachments", force: :cascade do |t|
     t.string   "titolo"
@@ -130,6 +130,7 @@ ActiveRecord::Schema.define(version: 20180110165131) do
     t.string   "icona_off_content_type"
     t.integer  "icona_off_file_size"
     t.datetime "icona_off_updated_at"
+    t.integer  "capogruppo_gratuito",                                 default: 0
   end
 
   add_index "entities", ["slug"], name: "index_entities_on_slug", unique: true

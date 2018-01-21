@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
+  # Prova da Cloud9
   protect_from_forgery with: :exception
 
   # Pundit cura l'autorizzazione degli utenti

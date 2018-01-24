@@ -250,7 +250,7 @@
           tag
         %>
         </label>
-        <% if property.descrizione %><p class="help-text"><%= property.descrizione %></p><% end %>
+        <% if property.descrizione %><p class="help-text"><%= property.descrizione.html_safe %></p><% end %>
         </div>
 
   <% end %>

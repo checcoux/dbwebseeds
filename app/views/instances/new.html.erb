@@ -18,7 +18,7 @@
   <%= link_to 'Elenco', "/instances?type=#{ @entity.slug }", class: 'secondary button float-right' %>
 </h2>
 
-<%= ("<div style='font-size: 0.7rem;'>" + simple_format("#{ @entity.descrizione_lunga}") + "</div>").html_safe if @entity.descrizione_lunga.length > 3 %>
+<%= ("<div style='font-size: 0.7rem;'>" + simple_format("#{ @entity.descrizione_lunga}") + "</div>").html_safe if @entity.descrizione_lunga %>
 
 <%= render 'form' %>
 

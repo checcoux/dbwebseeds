@@ -20,7 +20,10 @@ class InstancesController < ApplicationController
 
       respond_to do |format|
         format.html {
+          params[:page] = session[:pagina_corrente] if params[:pfs]
+          params.delete :pfs
           @instances = @instances.page(params[:page])
+          session[:pagina_corrente] = params[:page]
         }
         format.xlsx { # niente paginazione
           response.headers['Content-Disposition'] = 'attachment; filename="' + @entity.plurale + '.xlsx"'
@@ -139,7 +142,7 @@ class InstancesController < ApplicationController
     end
 
     if copie_salvate == numcopie # ha completato il ciclo
-      landing_page = !@entity.landing_page.empty? ? @entity.landing_page : instances_url(type: @entity.slug)
+      landing_page = !@entity.landing_page.empty? ? @entity.landing_page : instances_url(type: @entity.slug, pfs: 1)
       redirect_to landing_page
     else
       @errori_limiti << "Salvate #{ copie_salvate } copie su #{ numcopie }"
@@ -177,7 +180,7 @@ class InstancesController < ApplicationController
             end
           end
 
-          landing_page = !@entity.landing_page.empty? ? @entity.landing_page : instances_url(type: @entity.slug)
+          landing_page = !@entity.landing_page.empty? ? @entity.landing_page : instances_url(type: @entity.slug, pfs: 1)
 
           format.html { redirect_to landing_page }
           format.json { render :show, status: :ok, location: @instance }
@@ -198,7 +201,7 @@ class InstancesController < ApplicationController
 
     @instance.destroy
     respond_to do |format|
-      format.html { redirect_to instances_url(type: type), notice: 'Instance was successfully destroyed.' }
+      format.html { redirect_to instances_url(type: type, pfs: 1), notice: 'Instance was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

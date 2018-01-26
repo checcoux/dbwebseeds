@@ -9,7 +9,15 @@ class InstancesController < ApplicationController
 
       authorize @entity, :show?
 
-      @instances = @entity.elenco
+      # se richiesto prende pagina e ordinamento dalla sessione
+      if params[:pfs]
+        params[:page] = session[:pagina_corrente]
+        params[:sort_by] = session[:sort_by]
+        params[:sort_dir] = session[:sort_dir]
+      end
+      params.delete :pfs
+
+      @instances = @entity.elenco(params[:sort_by], params[:sort_dir])
 
       if !current_user.admin? || @entity.slug == 'persona'
         @instances = @instances.where user_id: current_user.id
@@ -20,10 +28,10 @@ class InstancesController < ApplicationController
 
       respond_to do |format|
         format.html {
-          params[:page] = session[:pagina_corrente] if params[:pfs]
-          params.delete :pfs
           @instances = @instances.page(params[:page])
           session[:pagina_corrente] = params[:page]
+          session[:sort_by] = params[:sort_by]
+          session[:sort_dir] = params[:sort_dir]
         }
         format.xlsx { # niente paginazione
           response.headers['Content-Disposition'] = 'attachment; filename="' + @entity.plurale + '.xlsx"'

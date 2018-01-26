@@ -101,17 +101,55 @@ class Entity < ActiveRecord::Base
     label
   end
 
-  def elenco
-    # al momento ordiniamo unicamente in base alla prima index property
-    index_property = Property.where("entity_id = ? AND indice = ? AND tipo NOT IN ('select','utente')", self.id, true).order(:ordine).first
+  # label in formato property
+  def plabel
+    Property.where("entity_id = ? AND indice = ?", self.id, true).order(:ordine)
+  end
+
+  def elenco(sort_by, sort_dir)
+
+
+    need_index_property = true
+    sort_dir = 'ASC' if !sort_dir.in?(['asc','desc'])
+
+    if sort_by
+      if sort_by=='id'
+        ordinamento = "id #{sort_dir}"
+        need_index_property = false
+      elsif sort_by=='modifica'
+        ordinamento = "updated_at #{sort_dir}"
+        need_index_property = false
+      elsif sort_by=='appartenenza'
+        ordinamento = "appartenenza_id #{sort_dir}"
+        need_index_property = false
+      else # abbiamo bisogno di una index property
+        index_property = Property.where("entity_id = ? AND id = ?", self.id, sort_by.to_i).first
+        if index_property
+          if index_property.tipo.in?(['select','utente','intero'])
+            ordinamento = "data.valore + 0 #{ sort_dir }"
+          end
+        end
+      end
+    end
+
+    if !index_property && need_index_property
+      index_property = Property.where("entity_id = ? AND indice = ? AND tipo NOT IN ('select','utente')", self.id, true).order(:ordine).first
+
+      if index_property && index_property.tipo.in?(['select','utente','intero'])
+        ordinamento = "data.valore + 0 #{ sort_dir }"
+      end
+    end
 
     # if index_property && self.slug !~ /^[Ii]scrizione/
     # if false # ATTENZIONE: crea un problema se la index_property è di tipo utente
     if index_property
       # restituisce una collezione di istanze già collegate alla index property, e ordinate in base a questa
-      Instance.joins(:data).where("instances.entity_id = ? AND data.property_id = ?", self.id, index_property.id).order('data.valore ASC')
+      # @todo: se il dato non esiste quelle righe spariscono
+      ordinamento = "data.valore #{ sort_dir }" if !ordinamento
+      Instance.joins(:data).where("instances.entity_id = ? AND data.property_id = ?", self.id, index_property.id).order(ordinamento)
     else
-      Instance.where("instances.entity_id = ?", self.id)
+      ordinamento = "id asc" if !ordinamento
+      Instance.where("instances.entity_id = ?", self.id).order(ordinamento)
     end
   end
 

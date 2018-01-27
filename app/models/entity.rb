@@ -106,9 +106,7 @@ class Entity < ActiveRecord::Base
     Property.where("entity_id = ? AND indice = ?", self.id, true).order(:ordine)
   end
 
-  def elenco(sort_by, sort_dir)
-
-
+  def elenco(sort_by = '', sort_dir = 'asc')
     need_index_property = true
     sort_dir = 'ASC' if !sort_dir.in?(['asc','desc'])
 

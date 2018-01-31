@@ -65,6 +65,9 @@
 
   <tbody>
     <% @instances.each do |instance| %>
+      <%
+        logger.debug instance.data.inspect
+      %>
       <tr>
         <% if current_user.admin? %>
           <td class="testo_piccolo text-center"><%= instance.id %></td>

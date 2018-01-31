@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180119201507) do
+ActiveRecord::Schema.define(version: 20180130160327) do
 
   create_table "attachments", force: :cascade do |t|
     t.string   "titolo"
@@ -153,10 +153,11 @@ ActiveRecord::Schema.define(version: 20180119201507) do
     t.integer  "entity_id"
     t.integer  "section_id"
     t.string   "tags"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.integer  "user_id"
     t.integer  "appartenenza_id", default: 0
+    t.string   "proxy",           default: ""
   end
 
   create_table "pages", force: :cascade do |t|

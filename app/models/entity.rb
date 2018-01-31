@@ -167,10 +167,11 @@ class Entity < ActiveRecord::Base
       end
     else
       if sort_by=='appartenenza'
-        entity_appartenenza = Entity.find_by! slug: 'appartenenza'
         ordinamento = "i2.proxy #{ sort_dir }"
         Instance.joins("left join instances as i2 on i2.id = instances.appartenenza_id").where("instances.entity_id = ?", self.id).order(ordinamento)
-        # elsif sort_by=='utente'
+      elsif sort_by=='utente'
+        ordinamento = "users.email #{ sort_dir }"
+        Instance.joins("left join users on users.id = instances.user_id").where("instances.entity_id = ?", self.id).order(ordinamento)
       else
         ordinamento = "id asc" if !ordinamento
         Instance.where("instances.entity_id = ?", self.id).order(ordinamento)

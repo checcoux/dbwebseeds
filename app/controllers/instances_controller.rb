@@ -141,6 +141,8 @@ class InstancesController < ApplicationController
               datum.save
             end
           end
+
+          @instance.update_attribute :proxy, @instance.label
         else
           break
         end
@@ -187,6 +189,8 @@ class InstancesController < ApplicationController
               datum.save
             end
           end
+
+          @instance.update_attribute :proxy, @instance.label
 
           landing_page = !@entity.landing_page.empty? ? @entity.landing_page : instances_url(type: @entity.slug, pfs: 1)
 

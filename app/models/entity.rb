@@ -153,7 +153,7 @@ class Entity < ActiveRecord::Base
     if index_property
       # restituisce una collezione di istanze ordinate in base alla index property
       # @todo: se il dato non esiste quelle righe spariscono... può capitare nel campo di property aggiunte dopo che delle instances sono già state create
-      # @todo: forse basta un left join?
+      # @todo: provato senza successo il left join
 
       # ordinamento di default:
       ordinamento = "data.valore #{ sort_dir }" if !ordinamento

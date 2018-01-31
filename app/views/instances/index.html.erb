@@ -49,7 +49,10 @@
         </th>
       <% end %>
       <% if current_user.admin? %>
-          <th>Creato da</th>
+          <th>Creato da
+            <a href="/instances?type=<%= @entity.slug %>&sort_by=utente&sort_dir=desc"><i class="fi-arrow-down float-right"></i></a>
+            <a href="/instances?type=<%= @entity.slug %>&sort_by=utente&sort_dir=asc"><i class="fi-arrow-up float-right"></i></a>
+          </th>
           <th>Appartenenza
             <a href="/instances?type=<%= @entity.slug %>&sort_by=appartenenza&sort_dir=desc"><i class="fi-arrow-down float-right"></i></a>
             <a href="/instances?type=<%= @entity.slug %>&sort_by=appartenenza&sort_dir=asc"><i class="fi-arrow-up float-right"></i></a>

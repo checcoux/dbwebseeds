@@ -8,11 +8,11 @@ class ColumnImage < ActiveRecord::Base
                     :url  => "/img/column/:hash.:extension",
                     :path => ":rails_root/public/img/column/:hash.:extension",
                     :styles => {
-                        :thumb => '400x250#',
-                        :small => '640>',
-                        :medium => '1024>',
-                        :large => '1200>',
-                        :xlarge => '1920>',
+                        :thumb => ['400x250#', :jpg],
+                        :small => ['640>', :jpg],
+                        :medium => ['1024>', :jpg],
+                        :large => ['1200>', :jpg],
+                        :xlarge => ['1920>', :jpg]
                     },
                     :convert_options => {
                         :thumb => "-quality 75 -strip",

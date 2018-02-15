@@ -111,9 +111,9 @@
   <% if @entity.prezzo > 0 %>
     <div class="warning callout" data-closable="scale-out-up">
       <h2>Informazioni per il pagamento</h2>
-      <p>Totale da versare: &euro; <%= number_to_currency @numero*@entity.prezzo, locale: :it, unit: '' %></p>
+      <p>Totale da versare: &euro; <%= number_to_currency @paganti*@entity.prezzo, locale: :it, unit: '' %></p>
       <p><%= simple_format @entity.testo_pagamento %></p>
-      <% if @entity.caparra > 0 %><p>Si ricorda che la caparra non rimborsabile ammonta a &euro; <%= number_to_currency @numero*@entity.caparra, locale: :it, unit: '' %> </p><% end %>
+      <% if @entity.caparra > 0 %><p>Si ricorda che la caparra non rimborsabile ammonta a &euro; <%= number_to_currency @paganti*@entity.caparra, locale: :it, unit: '' %> </p><% end %>
 
       <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
         <span aria-hidden="true">&times;</span>

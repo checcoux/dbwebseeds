@@ -24,7 +24,8 @@ class InstancesController < ApplicationController
       end
 
       @numero = @instances.count
-      @numero-=1 if @entity.capogruppo_gratuito > 0 && @numero>= @entity.capogruppo_gratuito
+      @paganti = @numero
+      @paganti-=1 if @entity.capogruppo_gratuito > 0 && @numero>= @entity.capogruppo_gratuito
 
       respond_to do |format|
         format.html {

@@ -145,11 +145,20 @@ wb.styles do |style|
       end
 
       if current_user.admin?
-        dati.push instance.user.email
-        stili.push nil
+        if instance.user
+          dati.push instance.user.email
+          stili.push nil
 
-        dati.push instance.user.appartenenza
-        stili.push nil
+          dati.push instance.user.appartenenza
+          stili.push nil
+        else
+          # l'utente che ha creato l'istanza potrebbe essere stato rimosso
+          dati.push ''
+          stili.push nil
+
+          dati.push ''
+          stili.push nil
+        end
 
         dati.push instance.updated_at
         stili.push @date_time_cell

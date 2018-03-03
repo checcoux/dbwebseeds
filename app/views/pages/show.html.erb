@@ -45,7 +45,7 @@
         </div>
       </div>
     <% end %>
-<% elsif user_signed_in? && !(@page.home || @page.header || @page.footer || @page.modello) %>
+<% elsif user_signed_in? && policy(@page).edit? && !(@page.home || @page.header || @page.footer || @page.modello) %>
   <div class="row">
     <div class="column large-8">
       <nav aria-label="Sei qui:" role="navigation">

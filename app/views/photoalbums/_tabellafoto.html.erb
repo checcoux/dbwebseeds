@@ -1,0 +1,32 @@
+<div class="large reveal" id="finestra_modale" data-reveal data-v-offset="10%">
+</div>
+
+<script>
+    function mostraFoto(id) {
+
+        // $.ajax( '/columns/611/dialog_immagine' ).done(function (data) {
+        $.ajax('/photos/' + id ).done(function (data) {
+            $("#finestra_modale").html(data).foundation("open");
+        });
+
+        // $('#finestra_modale').trigger('resizeme.zf.trigger');
+    }
+</script>
+
+<div class="row collapse small-up-1 medium-up-2 large-up-4">
+  <% @photos.each do |photo| %>
+    <div class="column" style="position: relative; padding: 3px;">
+      <a onclick="mostraFoto(<%= photo.id %>);">
+        <%= image_tag photo.immagine.thumb.url %>
+      </a>
+
+      <% if current_user && (current_user.admin || current_user.section_id) %>
+        <div class="gestione-immagini">
+          <%= link_to '<i class="fi-photo"></i>'.html_safe, { controller: 'photoalbums', action: 'copertina', id: photo.photoalbum.id, photo_id: photo.id } %>
+          <%= link_to '<i class="fi-x"></i>'.html_safe, photo, method: :delete, data: { confirm: 'Desideri cancellare la foto?' } %>
+
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

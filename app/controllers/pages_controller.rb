@@ -328,7 +328,7 @@ class PagesController < ApplicationController
       end
     end
 
-    redirect_to @page
+    redirect_to "/#{@page.slug}"
   end
 
   def nascondi

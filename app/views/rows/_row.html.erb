@@ -1,6 +1,6 @@
 <%
   # attenzione: una copia identica di questo file viene mantenuta in devise/rows per un problema coi partial
-  # ultimo aggiornamento: 06/10/2017
+  # ultimo aggiornamento: 24/03/2018
 
   fonte = ['statica', 'pagina', 'sezione', 'parent', 'sito', 'siti affini', 'cloud']
 
@@ -84,6 +84,9 @@
                 @photos = @photoalbum.photos.all
 
                 render partial: "photoalbums/tabellafoto"
+
+                # rimuoviamo il photoalbum, altrimenti il layout crede di essere in un photoalbum
+                @photoalbum = nil
               end
             %>
           <% else %>

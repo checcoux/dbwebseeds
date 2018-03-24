@@ -25,7 +25,7 @@
       end
     end
 
-    if @photoalbum
+    if @photoalbum && !@immagine_social # creava problemi con album incorporati nelle pagine
       titolo = @photoalbum.titolo
       immagine_social = @photoalbum.trova_immagine_social
       descrizione = 'Guarda tutte le foto!'

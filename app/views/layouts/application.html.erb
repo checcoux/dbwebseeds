@@ -18,10 +18,14 @@
       end
       immagine_social = @page.trova_immagine_social
 
-      if @page && @page.abstract
-        descrizione = @page.abstract
+      if @page
+        if @page.abstract
+          descrizione = @page.abstract
+        else
+          descrizione = ""
+        end
       else
-        descrizione = Rails.configuration.descrizione_sito
+        descrizione = "" # Rails.configuration.descrizione_sito
       end
     end
 

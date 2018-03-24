@@ -24,9 +24,9 @@
         elsif @page.home && @page.section.principale
           descrizione = Rails.configuration.descrizione_sito
         elsif @page.home
-          descrizione = "Home page della sezione #{ @page.section.descrizione } del sito #{ nome_sito }"
+          descrizione = "Home page della sezione #{ @page.section.descrizione } del sito \"#{ nome_sito }\""
         else
-          descrizione = "..."
+          descrizione = "Pagina \"#{ @page.titolo }\" del sito \"#{ nome_sito }\""
         end
       else
         descrizione = "..."

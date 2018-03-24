@@ -21,7 +21,7 @@ class Photoalbum < ActiveRecord::Base
     photo = Photo.find_by(id: copertina)
     if photo
       geometry = Paperclip::Geometry.from_file(photo.immagine.path(:xlarge))
-      {:url => photo.immagine.url(:xlarge), :width => geometry.width, :height => geometry.height }
+      {:url => photo.immagine.url(:xlarge), :width => geometry.width.to_i, :height => geometry.height.to_i }
     end
   end
 

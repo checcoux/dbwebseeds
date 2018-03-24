@@ -59,7 +59,7 @@ class Page < ActiveRecord::Base
 
     if column_image
       geometry = Paperclip::Geometry.from_file(column_image.immagine.path(:xlarge))
-      {:url => column_image.immagine.url(:xlarge), :width => geometry.width, :height => geometry.height }
+      {:url => column_image.immagine.url(:xlarge), :width => geometry.width.to_i, :height => geometry.height.to_i }
     end
   end
 

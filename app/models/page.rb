@@ -58,7 +58,8 @@ class Page < ActiveRecord::Base
     column_image = ColumnImage.joins(:column => :row).merge(Row.order(ordine: :asc)).where(:rows => {:page_id => id}).first
 
     if column_image
-      column_image.immagine.url(:xlarge)
+      geometry = Paperclip::Geometry.from_file(column_image.immagine.path(:xlarge))
+      {:url => column_image.immagine.url(:xlarge), :width => geometry.width, :height => geometry.height }
     end
   end
 

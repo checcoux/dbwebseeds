@@ -20,7 +20,8 @@ class Photoalbum < ActiveRecord::Base
     # se esiste seleziona un'immagine per i social
     photo = Photo.find_by(id: copertina)
     if photo
-      photo.immagine.url(:xlarge)
+      geometry = Paperclip::Geometry.from_file(photo.immagine.path(:xlarge))
+      {:url => photo.immagine.url(:xlarge), :width => geometry.width, :height => geometry.height }
     end
   end
 

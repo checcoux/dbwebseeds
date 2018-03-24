@@ -35,11 +35,15 @@
 
     %></title>
   <meta property="og:title" content="<%= titolo %>" />
+  <meta property="og:url" content="<%= request.original_url %>" />
   <meta property="og:type" content="website" />
   <meta name="description" content="<%= descrizione %>">
   <meta property="og:description" content="<%= descrizione %>">
   <% if immagine_social %>
   <meta property="og:image" content="<%= 'http://' + Rails.configuration.action_mailer.default_url_options[:host] + immagine_social %>" />
+  <% end %>
+  <% if Rails.configuration.facebook_app_id %>
+  <meta property="fb:app_id" content="<%= Rails.configuration.facebook_app_id %>" />
   <% end %>
 
   <%= stylesheet_link_tag    'application', media: 'all' %>

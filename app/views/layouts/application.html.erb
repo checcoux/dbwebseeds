@@ -26,10 +26,10 @@
         elsif @page.home
           descrizione = "Home page della sezione #{ @page.section.descrizione } del sito #{ nome_sito }"
         else
-          descrizione = ""
+          descrizione = "..."
         end
       else
-        descrizione = ""
+        descrizione = "..."
       end
     end
 
@@ -45,10 +45,8 @@
   <meta property="og:title" content="<%= titolo %>" />
   <meta property="og:url" content="<%= request.original_url %>" />
   <meta property="og:type" content="website" />
-  <% if !descrizione.blank? %>
   <meta name="description" content="<%= descrizione %>">
   <meta property="og:description" content="<%= descrizione %>">
-  <% end %>
   <% if immagine_social %>
   <meta property="og:image" content="<%= 'http://' + Rails.configuration.action_mailer.default_url_options[:host] + immagine_social[:url] %>" />
   <meta property="og:image:width" content="<%= immagine_social[:width] %>">

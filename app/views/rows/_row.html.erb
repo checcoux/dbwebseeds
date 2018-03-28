@@ -78,15 +78,12 @@
           <% if column.contenuto =~ /<p>\/photoalbums\/(.*)<\/p>/ and !user_can_edit %>
             <%=
               # incorporamento di un album fotografico
-              @photoalbum = Photoalbum.where("slug = ?", $1).first
+              @photoalbum2 = Photoalbum.where("slug = ?", $1).first
 
-              if @photoalbum
-                @photos = @photoalbum.photos.all
+              if @photoalbum2
+                @photos = @photoalbum2.photos.all
 
-                render partial: "photoalbums/tabellafoto"
-
-                # rimuoviamo il photoalbum, altrimenti il layout crede di essere in un photoalbum
-                @photoalbum = nil
+                render partial: "photoalbums/tabellafoto" #, locals: { photoalbum: @photoalbum2 }
               end
             %>
           <% else %>

@@ -45,6 +45,14 @@
           br = '<br>'.html_safe
         %>
           <div class="small-12 columns field">
+          <%= if tipo == 'check'
+                if property.obbligatorio?
+                  check_box_tag field_id, '1', valore=='1' ? true : false, required: ''
+                else
+                  check_box_tag field_id, '1', valore=='1' ? true : false
+                end
+              end
+          %>
           <label><%=
             if property.obbligatorio
               "<b>#{ property.nome }</b>".html_safe
@@ -104,10 +112,7 @@
             when 'check' # check_box_tag(name, value = "1", checked = false, options = {})
               tag = '&nbsp;&nbsp;'.html_safe
               if property.obbligatorio?
-                tag += check_box_tag field_id, '1', valore=='1' ? true : false, required: ''
                 tag += "<span class='form-error'>Questo campo dev'essere confermato.</span>".html_safe
-              else
-                tag = check_box_tag field_id, '1', valore=='1' ? true : false
               end
               #<fieldset class="large-6 columns">
               #<legend>Check these out</legend>

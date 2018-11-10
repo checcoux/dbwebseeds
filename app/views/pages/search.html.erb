@@ -41,14 +41,13 @@
                   <div class="card-user-profile">
 
                     <a href="<%= "/attachments/#{ attachment.id }/download/#{attachment.allegato_file_name}" %>">    
-                        <img class="card-user-profile-img" src="/img/formati/#{ File.extname(attachment.allegato_file_name).gsub('.','') }.png" />
+                        <img class="card-user-profile-img" src="/img/formati/<%= File.extname(attachment.allegato_file_name).gsub('.','') %>.png" />
                     </a>
 
                     <div class="card-user-profile-content card-section">
                         <p class="card-user-profile-name"><a href="<%= "/attachments/#{ attachment.id }/download/#{attachment.allegato_file_name}" %>"><%= attachment.titolo %></a></p>
-                        <p class="card-user-profile-date">data: <%= attachment.updated_at.to_s(:data) %>
-                            <br>file: <b><%= attachment.allegato_file_name %>
-                            <br>dimensione: <%= attachment.allegato_file_size / 1024 %> KB</b>
+                        <p class="card-user-profile-date">del <%= attachment.updated_at.to_s(:data) %>
+                            <br>dimensione: <%= attachment.allegato_file_size / 1024 %> KB
                            <% if !attachment.section.principale %><br>sezione: <%= attachment.section.titolo %><% end %>
                         </p>
                         <p class="card-user-profile-info"><%= attachment.descrizione %></p>

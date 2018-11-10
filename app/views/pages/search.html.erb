@@ -2,6 +2,8 @@
 
 <%= render partial: "header" %>
 
+<div class="row small-up-1 medium-up-3">
+    
     <% @tags.each do |tag| %>
 
       <% if tag.taggable_type == 'Page'
@@ -13,19 +15,23 @@
           # verifichiamo se esiste almeno una foto associata all'articolo
           foto = ColumnImage.joins(:column => :row).where(:rows => {:page_id => page}).first
       %>
-            <div class="expanded row">
-              <div class="large-2 columns">
-                <% if foto %>
-                    <a href="<%= "/#{page.slug}" %>"><%= image_tag foto.immagine.url(:thumb), style: 'width: 100%;' %></a>
-                <% else %>
-                    <a href="<%= "/#{page.slug}" %>"><%= image_tag "/img/copertine/articoli_#{anno}.jpg", class: 'show-for-medium', style: 'width: 100%;' %></a>
-                <% end %>
-              </div>
-              <div class="large-10 columns"><span class="titolo-ricerca"><%= link_to page.titolo.mb_chars.upcase, "/#{page.slug}" %></span>
-                <p><span class="info-ricerca">del <b><%= page.published_at.to_s(:data) %></b>, sezione <b><%= page.section.titolo %></b></span>
-                <br><span class="descrizione-ricerca"><%= abstract %></span></p>
-              </div>
+       <div class="column column-block">
+          <div class="card-user-profile">
+            <% if foto.immagine.exists? %>
+                <a href="<%= "/#{page.slug}" %>">    
+                    <img class="card-user-profile-img" src="<%= foto.immagine.url(:thumb) %>" />
+                </a>
+            <% end %>
+            <div class="card-user-profile-content card-section">
+                <p class="card-user-profile-name"><%= page.titolo.mb_chars.upcase %></p>
+                <p class="card-user-profile-date">del <b><%= page.published_at.to_s(:data) %></b>, sezione <b><%= page.section.titolo %></b></p>
+                <p class="card-user-profile-info"><%= abstract %></p>
             </div>
+            <div class="card-user-profile-actions">
+                <a href="<%= "/#{page.slug}" %>" class="card-user-profile-button primary button">Vai all'articolo...</a>
+            </div>
+         </div>
+      </div>
       <%
         end
         elsif tag.taggable_type == 'Attachment'
@@ -69,8 +75,10 @@
       end
       %>
 
+</div>    
+    
 <div class="text-center">
 <%= will_paginate @tags, renderer: FoundationPagination::Rails %>
 </div>
-
+     
 <%= render partial: "footer" %>

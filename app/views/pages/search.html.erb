@@ -39,17 +39,11 @@
       %>
             <div class="column column-block">
                   <div class="card-user-profile">
-                      <%
-                      if photoalbum.copertina
-                        photo = Photo.find_by(id: photoalbum.copertina)
-                      end
-                      %>
 
-                    <% if photo %>
-                        <a href="<%= "/attachments/#{ attachment.id }/download/#{attachment.allegato_file_name}" %>">    
-                            <img class="card-user-profile-img" src="/img/formati/#{ File.extname(attachment.allegato_file_name).gsub('.','') }.png" />
-                        </a>
-                    <% end %>
+                    <a href="<%= "/attachments/#{ attachment.id }/download/#{attachment.allegato_file_name}" %>">    
+                        <img class="card-user-profile-img" src="/img/formati/#{ File.extname(attachment.allegato_file_name).gsub('.','') }.png" />
+                    </a>
+
                     <div class="card-user-profile-content card-section">
                         <p class="card-user-profile-name"><a href="<%= "/attachments/#{ attachment.id }/download/#{attachment.allegato_file_name}" %>"><%= attachment.titolo %></a></p>
                         <p class="card-user-profile-date">data: <%= attachment.updated_at.to_s(:data) %>

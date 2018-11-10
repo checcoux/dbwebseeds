@@ -62,7 +62,7 @@
 
                         <% if photo %>
                             <a href="<%= "/photoalbums/#{ photoalbum.id }" %>">    
-                                <img class="card-user-profile-img" src="<%= photo.immagine.thumb.url(:thumb) %>" />
+                                <img class="card-user-profile-img" src="<%= photo.immagine.thumb.url %>" />
                             </a>
                         <% end %>
                         <div class="card-user-profile-content card-section">

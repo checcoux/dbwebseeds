@@ -23,8 +23,10 @@
                 </a>
             <% end %>
             <div class="card-user-profile-content card-section">
-                <p class="card-user-profile-name"><%= page.titolo.mb_chars.upcase %></p>
-                <p class="card-user-profile-date">del <b><%= page.published_at.to_s(:data) %></b>, sezione <b><%= page.section.titolo %></b></p>
+                <p class="card-user-profile-name"><%= page.titolo %></p>
+                <p class="card-user-profile-date">del <%= page.published_at.to_s(:data) %>
+                   <%= if(!page.section.principale) %><br>da sezione <%= page.section.titolo %><% end %>
+                </p>
                 <p class="card-user-profile-info"><%= abstract %></p>
             </div>
             <div class="card-user-profile-actions">

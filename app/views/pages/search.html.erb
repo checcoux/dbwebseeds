@@ -23,14 +23,11 @@
                 </a>
             <% end %>
             <div class="card-user-profile-content card-section">
-                <p class="card-user-profile-name"><%= page.titolo %></p>
+                <p class="card-user-profile-name"><a href="<%= "/#{page.slug}" %>"><%= page.titolo %></a></p>
                 <p class="card-user-profile-date">del <%= page.published_at.to_s(:data) %>
                    <% if !page.section.principale %><br>da sezione <%= page.section.titolo %><% end %>
                 </p>
                 <p class="card-user-profile-info"><%= abstract %></p>
-            </div>
-            <div class="card-user-profile-actions">
-                <a href="<%= "/#{page.slug}" %>" class="card-user-profile-button primary button">Vai all'articolo...</a>
             </div>
          </div>
       </div>

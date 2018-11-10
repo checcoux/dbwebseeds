@@ -52,22 +52,29 @@
           photoalbum = Photoalbum.find_by id: tag.taggable_id
           if photoalbum
       %>
-            <div class="expanded row">
-              <div class="large-2 columns">
-                <a href="<%= "/photoalbums/#{ photoalbum.id }" %>"><%=
-                  if photoalbum.copertina
-                    photo = Photo.find_by(id: photoalbum.copertina)
-                    if photo
-                      image_tag photo.immagine.thumb.url, class: 'show-for-medium', style: 'width: 100%;'
-                    end
-                  end
-                %></a>
-              </div>
-              <div class="large-10 columns"><span class="titolo-ricerca"><%= link_to photoalbum.titolo.mb_chars.upcase, "/photoalbums/#{ photoalbum.id }" %></span>
-                <p><span class="info-ricerca">data <b><%= photoalbum.updated_at.to_s(:data) %></b>, sezione <b><%= photoalbum.section.titolo %></b></span>
-                </p>
-              </div>
-            </div>
+                <div class="column column-block">
+                      <div class="card-user-profile">
+                          <%
+                          if photoalbum.copertina
+                            foto = Photo.find_by(id: photoalbum.copertina)
+                          end
+                          %>
+
+                        <% if foto.immagine.exists? %>
+                            <a href="<%= "/photoalbums/#{ photoalbum.id }" %>">    
+                                <img class="card-user-profile-img" src="<%= foto.immagine.url(:thumb) %>" />
+                            </a>
+                        <% end %>
+                        <div class="card-user-profile-content card-section">
+                            <p class="card-user-profile-name"><a href="<%= "/photoalbums/#{ photoalbum.id }" %>"><%= photoalbum.titolo %></a></p>
+                            <p class="card-user-profile-date">del <%= photoalbum.updated_at.to_s(:data) %>
+                               <% if !photoalbum.section.principale %><br>da sezione <%= photoalbum.section.titolo %><% end %>
+                            </p>
+                        </div>
+                     </div>
+                  </div>        
+    
+
         <%
           end
         end

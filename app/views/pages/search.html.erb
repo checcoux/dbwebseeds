@@ -56,13 +56,13 @@
                       <div class="card-user-profile">
                           <%
                           if photoalbum.copertina
-                            foto = Photo.find_by(id: photoalbum.copertina)
+                            photo = Photo.find_by(id: photoalbum.copertina)
                           end
                           %>
 
-                        <% if foto.immagine.exists? %>
+                        <% if photo %>
                             <a href="<%= "/photoalbums/#{ photoalbum.id }" %>">    
-                                <img class="card-user-profile-img" src="<%= foto.immagine.url(:thumb) %>" />
+                                <img class="card-user-profile-img" src="<%= photo.immagine.thumb.url(:thumb) %>" />
                             </a>
                         <% end %>
                         <div class="card-user-profile-content card-section">

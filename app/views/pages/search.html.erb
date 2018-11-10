@@ -17,7 +17,7 @@
       %>
        <div class="column column-block">
           <div class="card-user-profile">
-            <% if foto.immagine.exists? %>
+            <% if foto && foto.immagine.exists? %>
                 <a href="<%= "/#{page.slug}" %>">    
                     <img class="card-user-profile-img" src="<%= foto.immagine.url(:thumb) %>" />
                 </a>

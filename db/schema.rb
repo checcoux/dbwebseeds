@@ -106,7 +106,7 @@ ActiveRecord::Schema.define(version: 20180130160327) do
     t.string   "plurale"
     t.boolean  "vetrina",                                             default: false
     t.integer  "stato",                                               default: 0
-    t.text     "descrizione",                                         default: ""
+    t.text     "descrizione",                                         
     t.string   "date",                                                default: ""
     t.string   "immagine_file_name"
     t.string   "immagine_content_type"

@@ -54,7 +54,7 @@ gem 'jquery-ui-rails'
 
 gem 'mysql2', '~> 0.3.18'
 
-gem 'devise'
+gem 'devise', '~> 4.4.0'
 gem 'pundit'
 
 gem 'friendly_id', '~> 5.1.0'

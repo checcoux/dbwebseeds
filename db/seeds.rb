@@ -64,10 +64,10 @@ Datum.create!([
   {instance_id: 54, property_id: 20, valore: ""}
 ])
 Entity.create!([
-  {titolo: "Profilo utente", nativo: true, slug: "profilo", user_id: 8, landing_page: "/profile-updated", riservata: false, plurale: "Profili utente"},
-  {titolo: "Appartenenza", nativo: true, slug: "appartenenza", user_id: 8, landing_page: "/instances?type=appartenenza", riservata: true, plurale: "Appartenenze"},
-  {titolo: "Iscrizione Meeting 2017", nativo: false, slug: "iscrizione-meeting-2017", user_id: 8, landing_page: "/", riservata: false, plurale: "Iscrizioni Meeting 2017"},
-  {titolo: "Persona", nativo: false, slug: "persona", user_id: 8, landing_page: "/instances?type=persona", riservata: false, plurale: "Persone"}
+  {titolo: "Profilo utente", nativo: true, slug: "profilo", user_id: 8, landing_page: "/profile-updated", plurale: "Profili utente"},
+  {titolo: "Appartenenza", nativo: true, slug: "appartenenza", user_id: 8, landing_page: "/instances?type=appartenenza", plurale: "Appartenenze"},
+  {titolo: "Iscrizione Meeting 2017", nativo: false, slug: "iscrizione-meeting-2017", user_id: 8, landing_page: "/", plurale: "Iscrizioni Meeting 2017"},
+  {titolo: "Persona", nativo: false, slug: "persona", user_id: 8, landing_page: "/instances?type=persona", plurale: "Persone"}
 ])
 Instance.create!([
   {entity_id: 6, section_id: 1, tags: "", user_id: 8},
